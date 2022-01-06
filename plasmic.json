@@ -1,0 +1,381 @@
+{
+  "platform": "react",
+  "code": {
+    "lang": "js",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.module.css"
+  },
+  "images": {
+    "scheme": "files",
+    "publicDir": "../../public",
+    "publicUrlPrefix": "/static/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "src/components/plasmicComponents",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+      "projectApiToken": "5ynG0N5A4LQ3reOQeejC4IxkxyXBTf7LDn6osb0nS8CULk23YwSzAN3F1fg918cQTA664XIMor4Q5ICeThlw",
+      "projectName": "ezofis",
+      "version": "latest",
+      "cssFilePath": "plasmic/ezofis/plasmic_ezofis.module.css",
+      "components": [
+        {
+          "id": "-IFVXjvXAy",
+          "name": "NavBar",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicNavBar.jsx",
+          "importSpec": {
+            "modulePath": "NavBar.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicNavBar.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "6t7XsFT2Kl",
+          "name": "Form",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicForm.jsx",
+          "importSpec": {
+            "modulePath": "Form.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicForm.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "oO9WDKxuzZ",
+          "name": "ButtonA",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicButtonA.jsx",
+          "importSpec": {
+            "modulePath": "ButtonA.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicButtonA.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "3U0yQFHko6",
+          "name": "FormB",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicFormB.jsx",
+          "importSpec": {
+            "modulePath": "FormB.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicFormB.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "oSXCQ8ez26",
+          "name": "ButtonB",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicButtonB.jsx",
+          "importSpec": {
+            "modulePath": "ButtonB.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicButtonB.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "4t9Lx1xGXs",
+          "name": "TabA",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicTabA.jsx",
+          "importSpec": {
+            "modulePath": "TabA.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicTabA.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "Pzz-_WqNylx",
+          "name": "ParamDisplay",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicParamDisplay.jsx",
+          "importSpec": {
+            "modulePath": "ParamDisplay.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicParamDisplay.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "eZig3v-AJ7",
+          "name": "Consentandsubmit",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicConsentandsubmit.jsx",
+          "importSpec": {
+            "modulePath": "Consentandsubmit.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicConsentandsubmit.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "lzrj0EFvzjD",
+          "name": "FormBBackup",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicFormBBackup.jsx",
+          "importSpec": {
+            "modulePath": "FormBBackup.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicFormBBackup.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "hVy-CJexZCU",
+          "name": "Txndashboardcomponent",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicTxndashboardcomponent.jsx",
+          "importSpec": {
+            "modulePath": "Txndashboardcomponent.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicTxndashboardcomponent.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "yl_7FX-no3",
+          "name": "Walletstatus",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicWalletstatus.jsx",
+          "importSpec": {
+            "modulePath": "Walletstatus.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicWalletstatus.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "en6sGenXXJ",
+          "name": "Navbuttons",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicNavbuttons.jsx",
+          "importSpec": {
+            "modulePath": "Navbuttons.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicNavbuttons.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "9pj4k2Np_V6",
+          "name": "Walletstatusvtwo",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/ezofis/PlasmicWalletstatusvtwo.jsx",
+          "importSpec": {
+            "modulePath": "Walletstatusvtwo.jsx"
+          },
+          "cssFilePath": "plasmic/ezofis/PlasmicWalletstatusvtwo.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        }
+      ],
+      "icons": [
+        {
+          "id": "kyFiuHtN27",
+          "name": "Rectangle1Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle1.jsx"
+        },
+        {
+          "id": "Qs33FuEWF8",
+          "name": "Rectangle2Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle2.jsx"
+        },
+        {
+          "id": "t03HLUmzDo",
+          "name": "Rectangle3Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle3.jsx"
+        },
+        {
+          "id": "4UM19J96QF",
+          "name": "Rectangle4Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle4.jsx"
+        },
+        {
+          "id": "_GSl-n9Tlj",
+          "name": "Rectangle5Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle5.jsx"
+        },
+        {
+          "id": "f0NnJCigt0",
+          "name": "Rectangle6Icon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Rectangle6.jsx"
+        },
+        {
+          "id": "dIHEVH_AbO",
+          "name": "VectorIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Vector.jsx"
+        },
+        {
+          "id": "CkwfuA_xPd",
+          "name": "MenuIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Menu.jsx"
+        },
+        {
+          "id": "rNhz7G3CRWv",
+          "name": "UploadIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Upload.jsx"
+        },
+        {
+          "id": "gQuhtMPvvD_",
+          "name": "CheckIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Check.jsx"
+        },
+        {
+          "id": "CHBWc4ULB",
+          "name": "NotchIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Notch.jsx"
+        },
+        {
+          "id": "bKrlKePt1s",
+          "name": "BatteryIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Battery.jsx"
+        },
+        {
+          "id": "BFWMw0OAhM",
+          "name": "WifiIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Wifi.jsx"
+        },
+        {
+          "id": "XJof56yAyP",
+          "name": "MobileSignalIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__MobileSignal.jsx"
+        },
+        {
+          "id": "oUB_LRSSgs",
+          "name": "MetamasksvgIcon",
+          "moduleFilePath": "plasmic/ezofis/icons/PlasmicIcon__Metamasksvg.jsx"
+        }
+      ],
+      "images": [
+        {
+          "id": "CkfWY1O18",
+          "name": "ezofis_logo_bw.png",
+          "filePath": "plasmic/ezofis/images/ezofisLogoBwpng.png"
+        },
+        {
+          "id": "CCgMlOoKL",
+          "name": "id.png",
+          "filePath": "plasmic/ezofis/images/idpng.png"
+        },
+        {
+          "id": "DSMBtC8Eu",
+          "name": "graphite_logo 1",
+          "filePath": "plasmic/ezofis/images/graphiteLogo1.jpeg"
+        },
+        {
+          "id": "zCD9nxc0O",
+          "name": "graphite_logo 2",
+          "filePath": "plasmic/ezofis/images/graphiteLogo2.jpeg"
+        },
+        {
+          "id": "R5Kd9qWi24I",
+          "name": "Group",
+          "filePath": "plasmic/ezofis/images/group.svg"
+        },
+        {
+          "id": "JOiMvfCgs8W",
+          "name": "flag-us 1",
+          "filePath": "plasmic/ezofis/images/flagUs1.svg"
+        },
+        {
+          "id": "9HQSyxke-",
+          "name": "graphite_logo.png",
+          "filePath": "plasmic/ezofis/images/graphiteLogopng.png"
+        },
+        {
+          "id": "B3LtWjF49",
+          "name": "graphite_logo_inv.png",
+          "filePath": "plasmic/ezofis/images/graphiteLogoInvpng.png"
+        },
+        {
+          "id": "eSQzAuv1i",
+          "name": "loader.gif",
+          "filePath": "plasmic/ezofis/images/loadergif.gif"
+        },
+        {
+          "id": "sVLj9HPCG",
+          "name": "3137-check-animation.gif",
+          "filePath": "plasmic/ezofis/images/_3137CheckAnimationgif.gif"
+        },
+        {
+          "id": "aYs6enUuj",
+          "name": "success.gif",
+          "filePath": "plasmic/ezofis/images/successgif.gif"
+        },
+        {
+          "id": "uneR0OkrA",
+          "name": "success_crop.gif",
+          "filePath": "plasmic/ezofis/images/successCropgif.gif"
+        },
+        {
+          "id": "gV6-7uXTi",
+          "name": "fail.gif",
+          "filePath": "plasmic/ezofis/images/failgif.gif"
+        },
+        {
+          "id": "n5e9rn6nN",
+          "name": "copy.gif",
+          "filePath": "plasmic/ezofis/images/copygif.gif"
+        },
+        {
+          "id": "BtkiU9MPF1",
+          "name": "tick_box.svg",
+          "filePath": "plasmic/ezofis/images/tickBoxsvg.svg"
+        },
+        {
+          "id": "cm7bF_hgFe",
+          "name": "tick_box.svg 2",
+          "filePath": "plasmic/ezofis/images/tickBoxsvg2.svg"
+        },
+        {
+          "id": "gLc33SViJ",
+          "name": "graphite_logo 3",
+          "filePath": "plasmic/ezofis/images/graphiteLogo3.jpeg"
+        }
+      ],
+      "indirect": false,
+      "codeComponents": []
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "3dzorveOJuo",
+        "name": "Screen",
+        "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+        "contextFilePath": "plasmic/ezofis/PlasmicGlobalVariant__Screen.jsx"
+      }
+    ]
+  },
+  "cliVersion": "0.1.166",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.166/dist/plasmic.schema.json"
+}
