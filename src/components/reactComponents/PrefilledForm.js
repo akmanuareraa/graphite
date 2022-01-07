@@ -136,7 +136,7 @@ function PrefilledForm({updateMainState}) {
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
         let hash = '0x' + sha256(JSON.stringify(formParams))
 
-        let gpiAddress = '0x2f6D1b2e4C9D04CF6377252473F0499657Da715B'
+        let gpiAddress = '0x8Ee7484a06041288ab98A792C5cD1C3716951299'
         let gpiABI = JSON.parse(gpi)
         let gpiContract = new web3.eth.Contract(gpiABI, gpiAddress)
         let amountInGpi = "1415"
