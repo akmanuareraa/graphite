@@ -30,7 +30,7 @@ app.use(function (req, res, next) {
 
 var server = app.listen(process.env.PORT || 5000, function () {
     var port = server.address().port;
-    console.log("EZOFIS backend server is running @ PORT-", port);
+    console.log("Backend server is running @ PORT-", port);
 	
 });
 
@@ -113,6 +113,7 @@ async function getLastRecord() {
         const database = client.db("ezofis");
         const coll = database.collection("est");
         const Cursor = await coll.find({}).project({JSdoc: {refId: 1}}).sort({"JSdoc.refId": -1}).limit(1);
+        console.log("ahdgbvkjavh: ", Cursor)
         const allValues = await Cursor.toArray();
         return allValues;
     } catch(error)
