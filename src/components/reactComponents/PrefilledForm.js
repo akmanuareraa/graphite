@@ -472,7 +472,7 @@ function PrefilledForm({updateMainState}) {
                         ...prevState,
                         ...params,
                         refId: parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1,
-                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + appState.referenceId,
+                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + (parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1).toString(),
                         pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                     }
                 })
@@ -481,13 +481,8 @@ function PrefilledForm({updateMainState}) {
                 console.log(error)
             }
         })
-
-
-
     }
-
-   
-
+    
     // useEffect will only run once when the component is mounted for the first time
     // since we didn't pass any dependency. This function
     // will filter the url params and update the urlParams state
