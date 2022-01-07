@@ -13,13 +13,13 @@ contract graphite is Initializable, ERC20CappedUpgradeable, ERC20BurnableUpgrade
   
 
     
-    function initialize(address ezofis) initializer public {
+    function initialize(address graphiteOwner) initializer public {
         __ERC20_init("Graphite", "GPI");
         __ERC20Capped_init(1000000000 * 10 ** decimals());
         __Ownable_init();
         __UUPSUpgradeable_init();
 
-        _mint(ezofis, 150000000 * 10 ** decimals()); // EZOFIS team holds 15%
+        _mint(graphiteOwner, 150000000 * 10 ** decimals()); // Founding team holds 15%
     }
 
     //Can only be minted externally 
