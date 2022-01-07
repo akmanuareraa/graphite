@@ -198,7 +198,7 @@ function PrefilledForm({updateMainState}) {
 
                                         // wait for 5 seconds and then redirect
                                         // setTimeout(() => {
-                                        //     window.location.href = 'https://www.ezofis.com/Products.html?appNo=' + (urlParams.appNo).toString() + '?status=success' + '?hash=' + (appState.txnHash).toString()
+                                        //     window.location.href = 'https://www.url.com/Products.html?appNo=' + (urlParams.appNo).toString() + '?status=success' + '?hash=' + (appState.txnHash).toString()
                                         // }, 5000)
                                     } else {
 
@@ -239,7 +239,7 @@ function PrefilledForm({updateMainState}) {
                             }
                         })
                         setTimeout(() => {
-                            window.location.href = 'https://www.ezofis.com/details?appNo=' + (urlParams.appNo).toString + '?status=failed' + '?hash=' + (appState.txnHash).toString
+                            window.location.href = 'https://www.url.com/details?appNo=' + (urlParams.appNo).toString + '?status=failed' + '?hash=' + (appState.txnHash).toString
                         }, 4000)
                     }
                 }).catch(function (e) {
@@ -471,10 +471,12 @@ function PrefilledForm({updateMainState}) {
                     return {
                         ...prevState,
                         ...params,
-                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + response["data"]["Last Record"][0]["JSdoc"]["refId"],
+                        refId: parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1,
+                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + appState.referenceId,
                         pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                     }
                 })
+                console.log(urlParams)
             } else {
                 console.log(error)
             }

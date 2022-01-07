@@ -440,7 +440,7 @@ var gpiABI = `[
       "inputs": [
         {
           "internalType": "address",
-          "name": "ezofis",
+          "name": "foundersteam",
           "type": "address"
         }
       ],
