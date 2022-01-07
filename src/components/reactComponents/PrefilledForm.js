@@ -131,7 +131,7 @@ function PrefilledForm({updateMainState}) {
         })
 
         let web3 = new Web3(window.ethereum);
-        let assetMinterAddress = '0x43Ee17a9D58aDD85ccb59D7d2b73b349e479a5F3'
+        let assetMinterAddress = '0xe084fE65De082F249A26Ae1d80646a26D4bb2174'
         let assetMinterABI = JSON.parse(assetMinter)
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
         let hash = '0x' + sha256(JSON.stringify(formParams))
