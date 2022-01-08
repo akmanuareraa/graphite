@@ -411,7 +411,7 @@ function PrefilledForm({updateMainState}) {
                         taxcu: urlParams.taxcu,
                         appfeect: urlParams.appfeect,
                         iksfeect: urlParams.iksfeect,
-                        tzxct: urlParams.tzxct,
+                        taxct: urlParams.taxct,
                         totalcharge: urlParams.totalcharge,
                         totalgpi: (parseFloat(urlParams.totalcharge) / 0.12).toFixed(4)
                     }}
@@ -496,7 +496,7 @@ function PrefilledForm({updateMainState}) {
                 let txnfeeCalculator = {
                     appfeect: parseFloat(params.appfeeq * params.appfeecu),
                     iksfeect: parseFloat(params.iksfeeq * params.iksfeecu),
-                    tzxct: parseFloat(params.taxq * params.taxcu)
+                    taxct: parseFloat(params.taxq * params.taxcu)
                 }
 
                 // updating the state
@@ -505,7 +505,7 @@ function PrefilledForm({updateMainState}) {
                         ...prevState,
                         ...params,
                         ...txnfeeCalculator,
-                        totalcharge: txnfeeCalculator.appfeect + txnfeeCalculator.iksfeect + txnfeeCalculator.tzxct,
+                        totalcharge: txnfeeCalculator.appfeect + txnfeeCalculator.iksfeect + txnfeeCalculator.taxct,
                         refId: referenceId,
                         rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + referenceId,
                         pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
