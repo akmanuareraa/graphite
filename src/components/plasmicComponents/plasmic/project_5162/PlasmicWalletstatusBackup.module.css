@@ -1,0 +1,80 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 324px;
+  height: auto;
+  max-width: 430%;
+  position: relative;
+  padding: 0px;
+}
+.text__lkiLs {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  text-align: center;
+  min-width: 0;
+  display: none;
+}
+.text__disconnected__lkiLs1GkX2 {
+  display: block;
+}
+.freeBox__leRn6 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 341px;
+  height: auto;
+  max-width: 100%;
+  padding: 0px;
+}
+.freeBox__ufce3 {
+  width: 317px;
+  height: 25px;
+  max-width: 317px;
+  min-height: 25px;
+  max-height: 25px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  min-width: 317px;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.slotTargetWalletaddress {
+  text-align: center;
+  font-size: 12px;
+}
+.freeBox___5CJn9 {
+  display: block;
+  position: relative;
+  width: 330px;
+  height: 2px;
+  max-width: 100%;
+  border-bottom-style: solid;
+  border-bottom-width: 3px;
+  flex-shrink: 0;
+  padding: 0px;
+}
+.text__lkPtr {
+  position: relative;
+  width: 324px;
+  height: auto;
+  text-align: center;
+  font-size: 13px;
+  min-width: 324px;
+  max-width: 324px;
+}
+.text__disconnected__lkPtr1GkX2 {
+  background: none;
+  color: #000000;
+  font-weight: 600;
+}
+.text__connected__lkPtr79B8G {
+  background: #00ec6e;
+  font-weight: 600;
+}
