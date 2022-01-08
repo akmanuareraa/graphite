@@ -6,6 +6,8 @@ const { MongoClient } = require("mongodb");
 const uri ="mongodb://localhost:27017";
 const client = new MongoClient(uri);
 
+const dbName = ""
+//const coll = []
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
@@ -49,12 +51,14 @@ app.post("/addNewAsset", function(req,res){
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
+            res.status(200).end()
         } else {
             sendResponseObject['error'] = error;
             console.log(sendResponseObject);
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
+            res.status(400).end()
         }
     })    
 })
@@ -63,7 +67,7 @@ async function addAsset(JSdoc) {
     try 
     {
         await client.connect();
-        const database = client.db("ezofis");
+        const database = client.db(dbName);
         const coll = database.collection("est");
         const results = await coll.insertOne({
             ...JSdoc
@@ -86,9 +90,9 @@ app.post("/getLastRecord", function(req,res){
         
         if(response)
         {
-            // sendResponseObject['Last Record'] = response;                          
-            // console.log(sendResponseObject);
-            // console.log("sendResponseObject");
+            sendResponseObject['Last Record'] = response;                          
+            console.log(sendResponseObject);
+            console.log("sendResponseObject");
             let jsonString= JSON.stringify(response)
             res.send(jsonString);
             res.status(200).end() 
@@ -98,7 +102,7 @@ app.post("/getLastRecord", function(req,res){
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
-            
+            res.status(400).end()
         }
     })    
 })
@@ -107,7 +111,7 @@ async function getLastRecord() {
     try 
     {
         await client.connect();
-        const database = client.db("ezofis");
+        const database = client.db(dbName);
         const coll = database.collection("est");
         const Cursor = await coll.find({}).project({refId: 1}).sort({"refId": -1}).limit(1);
         const allValues = await Cursor.toArray();
@@ -138,6 +142,7 @@ app.post("/updateIdCard", function(req,res){
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
+            res.status(400).end()
         }
     })    
 })
@@ -146,7 +151,7 @@ async function updateIdCard(JSdoc) {
     try 
     {
         await client.connect();
-        const database = client.db("ezofis");
+        const database = client.db(dbName);
         const coll = database.collection("idcard");
         const Cursor = await coll.findOneAndUpdate(
             {"appNo": JSdoc.appNo},
@@ -172,14 +177,14 @@ app.post("/addNewId", function(req,res){
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
-            
+            res.status(200).end()
         } else {
             sendResponseObject['error'] = error;
             console.log(sendResponseObject);
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
-            
+            res.status(400).end()
         }
     })    
 })
@@ -188,7 +193,7 @@ async function addNewId(JSdoc) {
     try 
     {
         await client.connect();
-        const database = client.db("ezofis");
+        const database = client.db(dbName);
         const coll = database.collection("idcard");
         const Cursor = await coll.insertOne(
             {
@@ -219,14 +224,14 @@ app.post("/getIdCard", function(req,res){
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
             res.send(response);
-            
+            res.status(200).end()
         } else {
             sendResponseObject['error'] = error;
             console.log(sendResponseObject);
             console.log("sendResponseObject");
             let jsonString= JSON.stringify(sendResponseObject)
             res.send(jsonString);
-            
+            res.status(400).end()
         }
     })    
 })
@@ -235,7 +240,7 @@ async function getIdCard(JSdoc) {
     try 
     {
         await client.connect();
-        const database = client.db("ezofis");
+        const database = client.db(dbName);
         const coll = database.collection("idcard");
         const Cursor = await coll.find({"estId": JSdoc.estId});
         const allValues = await Cursor.toArray();     
