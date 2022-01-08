@@ -17,7 +17,7 @@ import {
 import Walletstatus from "../../Walletstatus"; // plasmic-import: yl_7FX-no3/component
 import Navbuttons from "../../Navbuttons"; // plasmic-import: en6sGenXXJ/component
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicNavBar.module.css"; // plasmic-import: -IFVXjvXAy/css
 
 export const PlasmicNavBar__VariantProps = new Array();
@@ -25,7 +25,7 @@ export const PlasmicNavBar__VariantProps = new Array();
 export const PlasmicNavBar__ArgProps = new Array();
 
 function PlasmicNavBar__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -118,12 +118,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicNavBar__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicNavBar__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

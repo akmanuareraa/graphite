@@ -16,7 +16,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicForm.module.css"; // plasmic-import: 6t7XsFT2Kl/css
 import idpngCCgMlOoKl from "./images/idpng.png"; // plasmic-import: CCgMlOoKL/picture
 
@@ -32,7 +32,7 @@ export const PlasmicForm__ArgProps = new Array(
 );
 
 function PlasmicForm__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -309,12 +309,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicForm__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicForm__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicButtonB.module.css"; // plasmic-import: oSXCQ8ez26/css
 import MetamasksvgIcon from "./icons/PlasmicIcon__Metamasksvg"; // plasmic-import: oUB_LRSSgs/icon
 import failgifGV67UXTi from "./images/failgif.gif"; // plasmic-import: gV6-7uXTi/picture
@@ -39,7 +39,7 @@ export const PlasmicButtonB__VariantProps = new Array(
 export const PlasmicButtonB__ArgProps = new Array("hash", "onClick");
 
 function PlasmicButtonB__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return true ? (
     <div
       data-plasmic-name={"root"}
@@ -451,12 +451,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicButtonB__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicButtonB__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

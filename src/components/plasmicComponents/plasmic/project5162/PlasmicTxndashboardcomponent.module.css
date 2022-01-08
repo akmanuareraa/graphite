@@ -313,6 +313,8 @@
   margin-left: 6px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 .slotTargetAppfeecu {
   font-size: 12px;
@@ -377,60 +379,64 @@
   margin-left: 6px;
   display: flex;
   flex-direction: row;
+  align-items: stretch;
 }
 .slotTargetTaxcu {
   font-size: 12px;
 }
-.freeBox__vTmWg {
+.freeBox__sktlE {
   display: flex;
   position: absolute;
   flex-direction: column;
-  width: 50px;
   height: auto;
   max-width: 50%;
+  margin-right: 0px;
+  width: 50px;
   left: 646px;
   top: 0px;
   padding: 0px;
-  margin: 0px;
 }
-.freeBox__vTmWg > :global(.__wab_flex-container) {
+.freeBox__sktlE > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
-.freeBox__vTmWg > :global(.__wab_flex-container) > *,
-.freeBox__vTmWg > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.freeBox__vTmWg > :global(.__wab_flex-container) > picture > img,
-.freeBox__vTmWg
+.freeBox__sktlE > :global(.__wab_flex-container) > *,
+.freeBox__sktlE > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__sktlE > :global(.__wab_flex-container) > picture > img,
+.freeBox__sktlE
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
   > img {
   margin-top: 8px;
 }
-.freeBox__e5Oel {
+.freeBox__jT9KO {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 48px;
-  height: auto;
+  height: 18px;
   max-width: 48px;
   background: #e8e6e6;
   min-width: 48px;
+  min-height: 18px;
+  max-height: 18px;
+  flex-shrink: 0;
   padding: 0px;
 }
-.text__el9La {
+.text__xpXhD {
   position: relative;
   width: auto;
   height: auto;
   max-width: 800px;
   font-size: 12px;
 }
-.freeBox___2HRe {
+.freeBox__ikh9L {
   position: relative;
   width: auto;
   height: auto;
@@ -438,31 +444,37 @@
   margin-left: 6px;
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: -4px;
 }
 .slotTargetAppfeect {
   font-size: 12px;
 }
-.freeBox__a6Q70 {
+.freeBox__cecDa {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 48px;
-  height: auto;
+  height: 18px;
   max-width: 48px;
   background: #e2d3d35e;
   min-width: 48px;
+  min-height: 18px;
+  max-height: 18px;
+  flex-shrink: 0;
   padding: 0px;
 }
-.text__kWT1 {
+.text__av5Kq {
   position: relative;
   width: auto;
   height: auto;
   max-width: 800px;
   font-size: 12px;
 }
-.freeBox___21Blk {
+.freeBox__ye9C {
   position: relative;
   width: auto;
   height: auto;
@@ -470,31 +482,35 @@
   margin-left: 6px;
   display: flex;
   flex-direction: row;
+  margin-top: -4px;
 }
 .slotTargetIksfeect {
   font-size: 12px;
 }
-.freeBox__zz4D {
+.freeBox__xS6Px {
   display: flex;
   position: relative;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 48px;
-  height: auto;
+  height: 18px;
   max-width: 48px;
   background: #e8e6e6;
   min-width: 48px;
+  min-height: 18px;
+  max-height: 18px;
+  flex-shrink: 0;
   padding: 0px;
 }
-.text__wfsCb {
+.text___5NZku {
   position: relative;
   width: auto;
   height: auto;
   max-width: 800px;
   font-size: 12px;
 }
-.freeBox__cyK65 {
+.freeBox___9HLy0 {
   position: relative;
   width: auto;
   height: auto;
@@ -502,8 +518,10 @@
   margin-left: 6px;
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  margin-top: -4px;
 }
-.slotTargetTzxct {
+.slotTargetTaxct {
   font-size: 12px;
 }
 .freeBox__hMpA {
@@ -558,15 +576,17 @@
 }
 .freeBox___6DrVr {
   width: 60px;
-  height: auto;
+  height: 20px;
   max-width: 60px;
   min-width: 60px;
   justify-content: flex-start;
   display: flex;
   flex-direction: row;
   align-items: center;
+  min-height: 20px;
+  max-height: 20px;
   flex-shrink: 0;
-  margin: 0px 0px 0px 5px;
+  margin: -2px 0px 0px 5px;
 }
 .slotTargetTotalcharge {
   font-size: 13px;

@@ -16,7 +16,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicTxndashboardcomponent.module.css"; // plasmic-import: hVy-CJexZCU/css
 
 export const PlasmicTxndashboardcomponent__VariantProps = new Array();
@@ -28,15 +28,15 @@ export const PlasmicTxndashboardcomponent__ArgProps = new Array(
   "appfeecu",
   "iksfeecu",
   "taxcu",
+  "totalcharge",
+  "totalgpi",
   "appfeect",
   "iksfeect",
-  "tzxct",
-  "totalcharge",
-  "totalgpi"
+  "taxct"
 );
 
 function PlasmicTxndashboardcomponent__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return true ? (
     <div
       data-plasmic-name={"root"}
@@ -239,42 +239,40 @@ function PlasmicTxndashboardcomponent__RenderFunc(props) {
             <p.Stack
               as={"div"}
               hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__vTmWg)}
+              className={classNames(projectcss.all, sty.freeBox__sktlE)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__e5Oel)}>
+              <div className={classNames(projectcss.all, sty.freeBox__jT9KO)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__el9La
+                    sty.text__xpXhD
                   )}
                 >
                   {"$"}
                 </div>
 
-                <div className={classNames(projectcss.all, sty.freeBox___2HRe)}>
+                <div className={classNames(projectcss.all, sty.freeBox__ikh9L)}>
                   {p.renderPlasmicSlot({
-                    defaultContents: "100",
+                    defaultContents: "1000",
                     value: args.appfeect,
                     className: classNames(sty.slotTargetAppfeect)
                   })}
                 </div>
               </div>
 
-              <div className={classNames(projectcss.all, sty.freeBox__a6Q70)}>
+              <div className={classNames(projectcss.all, sty.freeBox__cecDa)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__kWT1
+                    sty.text__av5Kq
                   )}
                 >
                   {"$"}
                 </div>
 
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___21Blk)}
-                >
+                <div className={classNames(projectcss.all, sty.freeBox__ye9C)}>
                   {p.renderPlasmicSlot({
                     defaultContents: "100",
                     value: args.iksfeect,
@@ -283,22 +281,24 @@ function PlasmicTxndashboardcomponent__RenderFunc(props) {
                 </div>
               </div>
 
-              <div className={classNames(projectcss.all, sty.freeBox__zz4D)}>
+              <div className={classNames(projectcss.all, sty.freeBox__xS6Px)}>
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__wfsCb
+                    sty.text___5NZku
                   )}
                 >
                   {"$"}
                 </div>
 
-                <div className={classNames(projectcss.all, sty.freeBox__cyK65)}>
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___9HLy0)}
+                >
                   {p.renderPlasmicSlot({
                     defaultContents: "100",
-                    value: args.tzxct,
-                    className: classNames(sty.slotTargetTzxct)
+                    value: args.taxct,
+                    className: classNames(sty.slotTargetTaxct)
                   })}
                 </div>
               </div>
@@ -395,12 +395,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicTxndashboardcomponent__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicTxndashboardcomponent__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

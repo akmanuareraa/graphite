@@ -18,7 +18,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicNavbuttons.module.css"; // plasmic-import: en6sGenXXJ/css
 
 export const PlasmicNavbuttons__VariantProps = new Array(
@@ -30,7 +30,7 @@ export const PlasmicNavbuttons__VariantProps = new Array(
 export const PlasmicNavbuttons__ArgProps = new Array();
 
 function PlasmicNavbuttons__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   const [isNewassetbuttonHover, triggerNewassetbuttonHoverProps] = useTrigger(
     "useHover",
     {}
@@ -143,12 +143,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicNavbuttons__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicNavbuttons__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

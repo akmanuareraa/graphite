@@ -22,7 +22,7 @@ import Txndashboardcomponent from "../../Txndashboardcomponent"; // plasmic-impo
 import Consentandsubmit from "../../Consentandsubmit"; // plasmic-import: eZig3v-AJ7/component
 import ButtonB from "../../ButtonB"; // plasmic-import: oSXCQ8ez26/component
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicFormB.module.css"; // plasmic-import: 3U0yQFHko6/css
 
 export const PlasmicFormB__VariantProps = new Array();
@@ -45,15 +45,12 @@ export const PlasmicFormB__ArgProps = new Array(
   "appfeecu",
   "iksfeecu",
   "taxcu",
-  "appfeect",
-  "tzxct",
-  "iksfeect",
   "totalcharge",
   "totalgpi"
 );
 
 function PlasmicFormB__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -152,7 +149,7 @@ function PlasmicFormB__RenderFunc(props) {
               defaultContents: "N/A",
               value: args.accompanied
             })}
-            applicant={"applicant"}
+            applicant={true}
             applicationNo={p.renderPlasmicSlot({
               defaultContents: "N/A",
               value: args.applicationNo
@@ -201,10 +198,6 @@ function PlasmicFormB__RenderFunc(props) {
           <Txndashboardcomponent
             data-plasmic-name={"transactiondashboard"}
             data-plasmic-override={overrides.transactiondashboard}
-            appfeect={p.renderPlasmicSlot({
-              defaultContents: "100",
-              value: args.appfeect
-            })}
             appfeecu={p.renderPlasmicSlot({
               defaultContents: "1000",
               value: args.appfeecu
@@ -214,10 +207,6 @@ function PlasmicFormB__RenderFunc(props) {
               value: args.appfeeq
             })}
             className={classNames("__wab_instance", sty.transactiondashboard)}
-            iksfeect={p.renderPlasmicSlot({
-              defaultContents: "100",
-              value: args.iksfeect
-            })}
             iksfeecu={p.renderPlasmicSlot({
               defaultContents: "100",
               value: args.iksfeecu
@@ -242,10 +231,6 @@ function PlasmicFormB__RenderFunc(props) {
               defaultContents: "1.2656568",
               value: args.totalgpi
             })}
-            tzxct={p.renderPlasmicSlot({
-              defaultContents: "100",
-              value: args.tzxct
-            })}
           />
         ) : null}
 
@@ -261,7 +246,7 @@ function PlasmicFormB__RenderFunc(props) {
           data-plasmic-name={"formbutton"}
           data-plasmic-override={overrides.formbutton}
           className={classNames("__wab_instance", sty.formbutton)}
-          success={"success"}
+          success={true}
         />
       ) : null}
     </div>
@@ -318,12 +303,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicFormB__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicFormB__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

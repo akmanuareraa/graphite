@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicTabA.module.css"; // plasmic-import: 4t9Lx1xGXs/css
 
 export const PlasmicTabA__VariantProps = new Array("selected");
@@ -25,7 +25,7 @@ export const PlasmicTabA__VariantProps = new Array("selected");
 export const PlasmicTabA__ArgProps = new Array("children");
 
 function PlasmicTabA__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return true ? (
     <div
       data-plasmic-name={"root"}
@@ -73,12 +73,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicTabA__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicTabA__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

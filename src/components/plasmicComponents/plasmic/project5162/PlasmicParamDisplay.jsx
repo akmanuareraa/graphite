@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicParamDisplay.module.css"; // plasmic-import: Pzz-_WqNylx/css
 
 export const PlasmicParamDisplay__VariantProps = new Array(
@@ -41,7 +41,7 @@ export const PlasmicParamDisplay__ArgProps = new Array(
 );
 
 function PlasmicParamDisplay__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <p.Stack
       as={"div"}
@@ -711,12 +711,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicParamDisplay__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicParamDisplay__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

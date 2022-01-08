@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicConsentandsubmit.module.css"; // plasmic-import: eZig3v-AJ7/css
 import tickBoxsvg2Cm7BFHgFe from "./images/tickBoxsvg2.svg"; // plasmic-import: cm7bF_hgFe/picture
 
@@ -26,7 +26,7 @@ export const PlasmicConsentandsubmit__VariantProps = new Array("agreed");
 export const PlasmicConsentandsubmit__ArgProps = new Array();
 
 function PlasmicConsentandsubmit__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -109,12 +109,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicConsentandsubmit__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicConsentandsubmit__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

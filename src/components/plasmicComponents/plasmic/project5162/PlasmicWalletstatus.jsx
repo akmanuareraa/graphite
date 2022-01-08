@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicWalletstatus.module.css"; // plasmic-import: yl_7FX-no3/css
 
 export const PlasmicWalletstatus__VariantProps = new Array(
@@ -28,7 +28,7 @@ export const PlasmicWalletstatus__VariantProps = new Array(
 export const PlasmicWalletstatus__ArgProps = new Array("address");
 
 function PlasmicWalletstatus__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return true ? (
     <div
       data-plasmic-name={"root"}
@@ -138,12 +138,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicWalletstatus__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicWalletstatus__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };

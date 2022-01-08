@@ -17,7 +17,7 @@ import {
   deriveRenderOpts
 } from "@plasmicapp/react-web";
 import "@plasmicapp/react-web/lib/plasmic.css";
-import projectcss from "./plasmic_project5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
+import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicButtonA.module.css"; // plasmic-import: oO9WDKxuzZ/css
 
 export const PlasmicButtonA__VariantProps = new Array("orange");
@@ -25,7 +25,7 @@ export const PlasmicButtonA__VariantProps = new Array("orange");
 export const PlasmicButtonA__ArgProps = new Array("children");
 
 function PlasmicButtonA__RenderFunc(props) {
-  const { variants, args, overrides, forNode, dataFetches } = props;
+  const { variants, args, overrides, forNode } = props;
   return (
     <div
       data-plasmic-name={"root"}
@@ -71,12 +71,10 @@ function makeNodeComponent(nodeName) {
       internalVariantPropNames: PlasmicButtonA__VariantProps
     });
 
-    const { dataFetches } = props;
     return PlasmicButtonA__RenderFunc({
       variants,
       args,
       overrides,
-      dataFetches,
       forNode: nodeName
     });
   };
