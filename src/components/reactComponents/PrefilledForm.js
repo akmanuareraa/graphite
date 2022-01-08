@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Web3 from 'web3';
 import sha256 from 'sha256';
 import axios from 'axios';
+import config from '../../config'
 
 // importing plasmic components
 import Form from '../plasmicComponents/Form';
@@ -50,7 +51,8 @@ function PrefilledForm({updateMainState}) {
             userAccount: null,
             rNo: "---",
             pDate: "---",
-            referenceId: null
+            referenceId: null,
+            web3: new Web3(window.ethereum)
         }
     })
 
@@ -58,7 +60,7 @@ function PrefilledForm({updateMainState}) {
 
         // check if web3 is injected
         if (typeof window.ethereum !== 'undefined') {
-            
+
             // get the user account
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
 
@@ -79,7 +81,7 @@ function PrefilledForm({updateMainState}) {
                     method: 'wallet_switchEthereumChain',
                     params: [{ chainId: '0x13881' }],
                 });
-                
+
                 setUiStates(prevState => {
                     return {
                         ...prevState,
@@ -93,12 +95,12 @@ function PrefilledForm({updateMainState}) {
             } catch (switchError) {
                 console.log("Mumbai Testnet not added to Metamask. Attempting to add chain to Metamask...")
                 try {
-                    
+
                     // if the user has not added the chain already
                     // add now
                     await window.ethereum.request({
                         method: 'wallet_addEthereumChain',
-                        params: [{ chainId: '0x13881', rpcUrl: ' https://rpc-mumbai.maticvigil.com/' /* ... */ }],
+                        params: [{ chainId: '0x13881', rpcUrls: ['https://rpc-mumbai.maticvigil.com/'], chainName: 'Polygon Mumbai Testnet' /* ... */ }],
                     });
 
                     setUiStates(prevState => {
@@ -121,7 +123,6 @@ function PrefilledForm({updateMainState}) {
 
     // function to publish the hash to blockchain and to store the data in mongoDB
     const issueNewId = (formParams) => {
-
         setUiStates(prevState => {
             return {
                 ...prevState,
@@ -130,101 +131,113 @@ function PrefilledForm({updateMainState}) {
             }
         })
 
-        let web3 = new Web3(window.ethereum);
-        let assetMinterAddress = '0xe084fE65De082F249A26Ae1d80646a26D4bb2174'
+        let web3 = appState.web3
+        let assetMinterAddress = config.assetMinterAddress
         let assetMinterABI = JSON.parse(assetMinter)
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
-        let hash = '0x' + sha256(JSON.stringify(formParams))
+        let hash = Web3.utils.keccak256(JSON.stringify(formParams))
 
-        let gpiAddress = '0x8Ee7484a06041288ab98A792C5cD1C3716951299'
+        let gpiAddress = config.gpiAddress
         let gpiABI = JSON.parse(gpi)
         let gpiContract = new web3.eth.Contract(gpiABI, gpiAddress)
-        let amountInGpi = "1415"
+        let idCardFee = config.idCardFee
 
-        // incase if we need later
-        //let amountInGpi = Math.ceil(urlParams.totalcharge/0.12).toString()
-        
         // publishing to blockchain
-
-        // calling approve method 
-        gpiContract.methods.approve( assetMinterAddress, amountInGpi).send({ from: appState.userAccount }).then(function (response, error) {
-            if (response) {
-                console.log("APPROVE: ", response)
-
-                // minting new asset
-                assetMinterContract.methods.issueAsset(hash).send({ from: appState.userAccount }).then(function (response, error) {
-                    if (response) {
-                        console.log("ISSUE ASSET: ", response)
-
+        gpiContract.methods.approve(assetMinterAddress, idCardFee).send({ from: appState.userAccount })
+            .on('transactionHash', function (hash) {
+                console.log(hash)
+            })
+            .on('receipt', function (receipt) {
+                console.log(receipt)
+            })
+            .on('confirmation', function (confirmationNumber, receipt) {
+                if(confirmationNumber == 10){
+                    console.log(confirmationNumber)
+                    console.log(receipt)
+                    assetMinterContract.methods.issueAsset(hash).send({ from: appState.userAccount })
+                    .on('transactionHash', function (hash) {
+                        console.log(hash)
                         setAppState(prevState => {
                             return {
                                 ...prevState,
-                                txnHash: response['transactionHash']
+                                txnHash: hash
                             }
                         })
-
-                        // on successfull transactions, data will be stored in mongoDB
-                        console.log("MongoDB: ", urlParams)
-                        axios.post('http://localhost:5000/addNewAsset', urlParams).then(function (response, error) {
-                            if (response) {
-                                console.log("DB-NEW ASSET: ", response)
-                                // after adding asset data to MonogDB
-                                // create a new ID with only the known parameters in a new collection
-                                let dataToSend = { 
-                                    estName: urlParams.oName,
-                                    pName: urlParams.fName,
-                                    appNo: urlParams.appNo
-                                }
-                                axios.post('http://localhost:5000/addNewId',dataToSend).then(function (response, error) {
-                                    if(response){
-                                        console.log("DB-NEW ID: ", response)
-
-                                        // once all data processing is done, update the state of transaction to "completed"
-                                        // show the transaction hash in the ui component
-                                        setUiStates(prevState => {
-                                            return {
-                                                ...prevState,
-                                                processing: false,
-                                                txnsuccess: true
-                                            }
-                                        })
-                                        setAppState(prevState => {
-                                            return {
-                                                ...prevState,
-                                                rNo: urlParams.rNo,
-                                                pDate: urlParams.pDate
-                                            }
-                                        })
-
-                                        // wait for 5 seconds and then redirect
-                                        // setTimeout(() => {
-                                        //     window.location.href = 'https://www.url.com/Products.html?appNo=' + (urlParams.appNo).toString() + '?status=success' + '?hash=' + (appState.txnHash).toString()
-                                        // }, 5000)
-                                    } else {
-
-                                        // DB error if new id creation has failed
-                                        console.log("DB-NEW ID: ", response)
-                                    }
-                                })
-                            } else {
-                                // DB error if new asset creation failed
-                                console.log("DB-NEW ASSET: ", response)
+                    })
+                    .on('receipt', function (receipt) {
+                        console.log(receipt)
+                        setAppState(prevState => {
+                            return {
+                                ...prevState,
+                                txnReceipt: receipt
                             }
-                        
-                        // using catch here to detect errors thrown by Metamask
-                        // using if-else and try-catch does not detect errors thrown by Metamask   
-                        }).catch(function (e) {
-                            console.log('METAMASK-ASSET MINT: ',e)
-                            setUiStates(prevState => {
-                                return {
-                                    ...prevState,
-                                    processing: false,
-                                    txnfailed: true
+                        })
+                    })
+                    .on('confirmation', function (confirmationNumber, receipt) {
+                        if(confirmationNumber == 10) {
+                            
+                            // on successfull transactions, data will be stored in mongoDB
+                            console.log(confirmationNumber)
+                           
+                            console.log("MongoDB: ", urlParams)
+                            axios.post(config.backendServer + 'addNewAsset', urlParams).then(function (response, error) {
+                                if (response) {
+                                    console.log("DB-NEW ASSET: ", response)
+                                    
+                                    // after adding asset data to MonogDB
+                                    // create a new ID with only the known parameters in a new collection
+
+                                    let body = {
+                                        estName: urlParams.oName,
+                                        pName: urlParams.fName,
+                                        appNo: urlParams.appNo
+                                    }
+                                    axios.post(config.backendServer + 'addNewId', body).then(function (response, error) {
+                                        if (response) {
+                                            console.log("DB-NEW ID: ", response)
+
+                                            // once all data processing is done, update the state of transaction to "completed"
+                                            // show the transaction hash in the ui component
+                                            setUiStates(prevState => {
+                                                return {
+                                                    ...prevState,
+                                                    processing: false,
+                                                    txnsuccess: true
+                                                }
+                                            })
+                                            setAppState(prevState => {
+                                                return {
+                                                    ...prevState,
+                                                    rNo: urlParams.rNo,
+                                                    pDate: urlParams.pDate
+                                                }
+                                            })
+
+                                            let urlParamsToSend = "";
+                                            for (const [key, value] of Object.entries(urlParams)) {
+                                                urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
+                                            }
+
+                                            // wait for 5 seconds and then redirect
+                                            // setTimeout(() => {
+                                            // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=success'
+                                            // }, 5000)
+                                        } else {
+
+                                            // DB error if new id creation has failed
+                                            console.log("DB-NEW ID: ", response)
+                                        }
+                                    })
+                                } else {
+                                    // DB error if new asset creation failed
+                                    console.log("DB-NEW ASSET: ", response)
                                 }
                             })
-                        })
-                    } else {
-                        console.log("ASSET MINT: ",error)
+                        }
+                    })
+                    .on('error', function (error, receipt) {
+                        console.log(error)
+                        console.log(receipt)
                         setUiStates(prevState => {
                             return {
                                 ...prevState,
@@ -232,28 +245,25 @@ function PrefilledForm({updateMainState}) {
                                 txnfailed: true
                             }
                         })
-                        setAppState(prevState => {
+                        // setTimeout(() => {
+                        // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=failed'
+                        // }, 4000)
+                    })
+                    .catch(function (e) {
+                        console.log('METAMASK-ASSET MINT: ', e)
+                        setUiStates(prevState => {
                             return {
                                 ...prevState,
-                                txnHash: appState.txnHash
+                                processing: false,
+                                txnfailed: true
                             }
                         })
-                        setTimeout(() => {
-                            window.location.href = 'https://www.url.com/details?appNo=' + (urlParams.appNo).toString + '?status=failed' + '?hash=' + (appState.txnHash).toString
-                        }, 4000)
-                    }
-                }).catch(function (e) {
-                    console.log('METAMASK-APPROVE: ',e)
-                    setUiStates(prevState => {
-                        return {
-                            ...prevState,
-                            processing: false,
-                            txnfailed: true
-                        }
-                    })
-                })
-            } else {
-                console.log("APPROVE: ",error)
+                    });
+                }  
+            })
+            .on('error', function (error, receipt) {
+                console.log(error)
+                console.log(receipt)
                 setUiStates(prevState => {
                     return {
                         ...prevState,
@@ -261,16 +271,22 @@ function PrefilledForm({updateMainState}) {
                         txnfailed: true
                     }
                 })
-                setAppState(prevState => {
+                // setTimeout(() => {
+                // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=failed'
+                // }, 4000)
+            })
+            .catch(function (e) {
+                console.log('METAMASK-ASSET MINT: ', e)
+                setUiStates(prevState => {
                     return {
                         ...prevState,
-                        txnHash: null
+                        processing: false,
+                        txnfailed: true
                     }
                 })
-            }
-        })
+            })               
     }
-
+                    
     // function that will handle the entire form state
     const formRender = () => {
         return (
@@ -441,21 +457,24 @@ function PrefilledForm({updateMainState}) {
     // function that will,
     // * parse params from URL
     // * create a new refID from the last record in the DB
-    const urlParser = async _ => {
+    const urlParser = () => {
 
         axios.post("http://localhost:5000/getLastRecord").then(function (response, error) {
             if (response) {
                 
+                let referenceId = parseInt(response.data.refId) + 1
+
                 //refID creation
                 setAppState(prevState => {
                     return {
                         ...prevState,
-                        referenceId: parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1
+                        referenceId: referenceId
                     }
                 })
 
                 // url parsing
                 var params = {};
+
                 var parser = document.createElement('a');
                 parser.href = window.location.href;
                 var query = parser.search.substring(1);
@@ -471,8 +490,9 @@ function PrefilledForm({updateMainState}) {
                     return {
                         ...prevState,
                         ...params,
-                        refId: parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1,
-                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + (parseInt(response["data"]["Last Record"][0]["JSdoc"]["refId"]) + 1).toString(),
+                        
+                        refId: referenceId,
+                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + referenceId,
                         pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                     }
                 })
@@ -489,7 +509,6 @@ function PrefilledForm({updateMainState}) {
     useEffect(() => {
         // uncomment this to automate the process of connecting Metamask without user interaction
         //setupMetamask();
-
         urlParser();
     }, [])
 
