@@ -18,7 +18,14 @@ function PrefilledForm({updateMainState}) {
 
     // setting the initial state of url params to empty object
     const [urlParams, setUrlParams] = useState(() => {
-        return {}
+        return {
+            appfeeq: 0,
+            iksfeeq: 0,
+            taxq: 0,
+            appfeecu: 0,
+            iksfeecu: 0,
+            taxcu: 0
+        }
     })
 
     // setting the initial state of Plasmic UI components to default
@@ -404,7 +411,7 @@ function PrefilledForm({updateMainState}) {
                         taxcu: urlParams.taxcu,
                         appfeect: urlParams.appfeect,
                         iksfeect: urlParams.iksfeect,
-                        taxct: urlParams.taxct,
+                        tzxct: urlParams.tzxct,
                         totalcharge: urlParams.totalcharge,
                         totalgpi: (parseFloat(urlParams.totalcharge) / 0.12).toFixed(4)
                     }}
@@ -482,7 +489,14 @@ function PrefilledForm({updateMainState}) {
                 var vars = query.split('&');
                 for (var i = 0; i < vars.length; i++) {
                     var pair = vars[i].split('=');
+                    //if()
                     params[pair[0]] = decodeURIComponent(pair[1]);
+                }
+
+                let txnfeeCalculator = {
+                    appfeect: parseFloat(params.appfeeq * params.appfeecu),
+                    iksfeect: parseFloat(params.iksfeeq * params.iksfeecu),
+                    tzxct: parseFloat(params.taxq * params.taxcu)
                 }
 
                 // updating the state
@@ -490,12 +504,14 @@ function PrefilledForm({updateMainState}) {
                     return {
                         ...prevState,
                         ...params,
-                        
+                        ...txnfeeCalculator,
+                        totalcharge: txnfeeCalculator.appfeect + txnfeeCalculator.iksfeect + txnfeeCalculator.tzxct,
                         refId: referenceId,
                         rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + referenceId,
                         pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                     }
                 })
+
                 console.log(urlParams)
             } else {
                 console.log(error)
