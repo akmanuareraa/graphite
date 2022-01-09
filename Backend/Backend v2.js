@@ -6,7 +6,7 @@ const { MongoClient } = require("mongodb");
 const uri ="mongodb://localhost:27017";
 const client = new MongoClient(uri);
 
-const dbName = ""
+const dbName = "ezofis"
 //const coll = []
 
 app.use(express.json());
@@ -39,26 +39,14 @@ var server = app.listen(process.env.PORT || 5000, function () {
 
 
 app.post("/addNewAsset", function(req,res){
-    
     console.log("Reached here",req.body);
-    var sendResponseObject={};
     addAsset(req.body).then(function(response,error){
-        
         if(response)
         {
-            sendResponseObject['ID Created'] = response;                          
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(200).end()
+            console.log(response)
+            res.status(200).json({"New Asset Added": response});
         } else {
-            sendResponseObject['error'] = error;
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(400).end()
+            res.status(500).json({"Error": error})
         }
     })    
 })
@@ -85,27 +73,21 @@ async function addAsset(JSdoc) {
 
 app.post("/getLastRecord", function(req,res){
     console.log("Reached here",req.body);
-    var sendResponseObject={};
     getLastRecord().then(function(response,error){
-        
         if(response)
         {
-            sendResponseObject['Last Record'] = response;                          
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(response)
-            res.send(jsonString);
-            res.status(200).end() 
+            console.log(response)
+            if(response == 'No Record Found') {
+                res.status(404).json("No Record Found")
+            } else {                          
+                res.status(200).json(response)
+            }
         } else {
-            sendResponseObject['error'] = error;
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(400).end()
+            res.status(500).json({"Error": error})
         }
     })    
 })
+
 
 async function getLastRecord() {
     try 
@@ -115,7 +97,11 @@ async function getLastRecord() {
         const coll = database.collection("est");
         const Cursor = await coll.find({}).project({refId: 1}).sort({"refId": -1}).limit(1);
         const allValues = await Cursor.toArray();
-        return allValues[0];
+        if(Cursor){
+            return allValues[0];
+        } else {
+            return 'No Record Found';
+        }
     } catch(error)
     {
         console.log(error);
@@ -123,26 +109,17 @@ async function getLastRecord() {
 }
 
 app.post("/updateIdCard", function(req,res){
-    
     console.log("Reached here",req.body);
-    var sendResponseObject={};
     updateIdCard(req.body).then(function(response,error){
-        
         if(response)
         {
-            sendResponseObject['ID Card Updated'] = response;                          
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(200).end() 
+            if(response === 'ID Card does not exist'){
+                res.status(404).json({"Error": "No Matching ID Card found"})
+            } else {
+                res.status(200).json({"ID Card Updated": response})
+            }
         } else {
-            sendResponseObject['error'] = error;
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(400).end()
+            res.status(404).json({"Error": error})
         }
     })    
 })
@@ -157,8 +134,11 @@ async function updateIdCard(JSdoc) {
             {"appNo": JSdoc.appNo},
             {$set: {"estId": JSdoc.estId, "expiry": JSdoc.expiry, "issued": JSdoc.issued}}
         )
-        const allValues = await Cursor.toArray();    
-        return allValues;
+        if(Cursor.value==null){
+            return 'ID Card does not exist'
+        } else {
+            return Cursor.value;
+        }
     } catch(error)
     {
         console.log(error);
@@ -167,24 +147,13 @@ async function updateIdCard(JSdoc) {
 
 app.post("/addNewId", function(req,res){
     console.log("Reached here",req.body);
-    var sendResponseObject={};
     addNewId(req.body).then(function(response,error){
-        
         if(response)
         {
-            sendResponseObject['ID Card Added'] = response;                          
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(200).end()
+            console.log(response)
+            res.status(200).json({"New ID Added": response});
         } else {
-            sendResponseObject['error'] = error;
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(400).end()
+            res.status(500).json({"Error": error})
         }
     })    
 })
@@ -203,35 +172,27 @@ async function addNewId(JSdoc) {
                 sector: "Commercial"
             }
         );
-        const allValues = await Cursor.toArray();     
-        return allValues;
+        //const allValues = await Cursor.toArray();     
+        return Cursor;
     } catch(error)
     {
         console.log(error);
     } 
 }
 
-app.post("/getIdCard", function(req,res){
+app.get("/getIdCard", function(req,res){
     console.log("Reached here",req.body);
-    var sendResponseObject={};
-    getIdCard(req.body).then(function(response,error){
-        
+    getIdCard(req.body).then(function(response,error){ 
         if(response)
         {
-            sendResponseObject['ID Card'] = response;                          
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.send(response);
-            res.status(200).end()
+            console.log(response)
+            if(response == 'No Record Found') {
+                res.status(404).json("No Record Found")
+            } else {                          
+                res.status(200).json({"ID Card": response})
+            }
         } else {
-            sendResponseObject['error'] = error;
-            console.log(sendResponseObject);
-            console.log("sendResponseObject");
-            let jsonString= JSON.stringify(sendResponseObject)
-            res.send(jsonString);
-            res.status(400).end()
+            res.status(500).json({"Error": error})
         }
     })    
 })
@@ -242,9 +203,13 @@ async function getIdCard(JSdoc) {
         await client.connect();
         const database = client.db(dbName);
         const coll = database.collection("idcard");
-        const Cursor = await coll.find({"estId": JSdoc.estId});
-        const allValues = await Cursor.toArray();     
-        return allValues[0];
+        const Cursor = await coll.findOne({"estId": JSdoc.estId});
+        console.log('Cursor: ', Cursor)
+        if(Cursor){
+            return Cursor;
+        } else {
+            return 'No Record Found';
+        }
     } catch(error)
     {
         console.log(error);
