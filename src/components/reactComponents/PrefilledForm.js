@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import sha256 from 'sha256';
 import axios from 'axios';
@@ -14,7 +14,7 @@ import gpi from '../../ABI/gpiABI';
 import assetMinter from '../../ABI/assetMinterABI'
 
 
-function PrefilledForm({updateMainState}) {
+function PrefilledForm({ updateMainState }) {
 
     // setting the initial state of url params to empty object
     const [urlParams, setUrlParams] = useState(() => {
@@ -40,8 +40,8 @@ function PrefilledForm({updateMainState}) {
             processing: false,
             txnsuccess: false,
             txnfailed: false,
-            tickboxState: false,     
-            transaction: "null",      
+            tickboxState: false,
+            transaction: "null",
             application: true,
             applicant: false,
             organization: false,
@@ -59,12 +59,12 @@ function PrefilledForm({updateMainState}) {
             rNo: "---",
             pDate: "---",
             referenceId: null,
-            web3: new Web3(window.ethereum)
+            web3: new Web3(window.ethereum),
+            timer: null
         }
     })
 
     const setupMetamask = async () => {
-
         // check if web3 is injected
         if (typeof window.ethereum !== 'undefined') {
 
@@ -87,17 +87,30 @@ function PrefilledForm({updateMainState}) {
                 await window.ethereum.request({
                     method: 'wallet_switchEthereumChain',
                     params: [{ chainId: '0x13881' }],
-                });
-
-                setUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        connectmm: false,
-                        sendtxnconsent: true,
-                        walletStateDis: false,
-                        walletStateCon: true
-                    }
                 })
+
+                //console.log(window.ethereum.networkVersion)
+                if(window.ethereum.networkVersion === "80001"){
+                    setUiStates(prevState => {
+                        if (urlParams.consent) {
+                            return {
+                                ...prevState,
+                                connectmm: false,
+                                sendtxn: true,
+                                walletStateDis: false,
+                                walletStateCon: true
+                            }
+                        } else {
+                            return {
+                                ...prevState,
+                                connectmm: false,
+                                sendtxnconsent: true,
+                                walletStateDis: false,
+                                walletStateCon: true
+                            }
+                        }
+                    })
+                }
 
             } catch (switchError) {
                 console.log("Mumbai Testnet not added to Metamask. Attempting to add chain to Metamask...")
@@ -108,19 +121,34 @@ function PrefilledForm({updateMainState}) {
                     await window.ethereum.request({
                         method: 'wallet_addEthereumChain',
                         params: [{ chainId: '0x13881', rpcUrls: ['https://rpc-mumbai.maticvigil.com/'], chainName: 'Polygon Mumbai Testnet' /* ... */ }],
-                    });
-
-                    setUiStates(prevState => {
-                        return {
-                            ...prevState,
-                            connectmm: false,
-                            sendtxnconsent: true,
-                            walletStateDis: false,
-                            walletStateCon: true
-                        }
                     })
+                    
+                    //console.log(window.ethereum.networkVersion)
+                    if(window.ethereum.networkVersion === "80001"){
+                        setUiStates(prevState => {
+                            if (urlParams.consent) {
+                                return {
+                                    ...prevState,
+                                    connectmm: false,
+                                    sendtxn: true,
+                                    walletStateDis: false,
+                                    walletStateCon: true
+                                }
+                            } else {
+                                return {
+                                    ...prevState,
+                                    connectmm: false,
+                                    sendtxnconsent: true,
+                                    walletStateDis: false,
+                                    walletStateCon: true
+                                }
+                            }
+                        })
+                    }
+
                 } catch (addError) {
                     console.log("Error occured in Adding Mumbai Testnet Network to Metamask")
+                    alert("Error occured in Adding Mumbai Testnet Network to Metamask. Please contact Administrator.")
                 }
             }
         } else {
@@ -130,6 +158,26 @@ function PrefilledForm({updateMainState}) {
 
     // function to publish the hash to blockchain and to store the data in mongoDB
     const issueNewId = (formParams) => {
+
+        let getTimeout = (() => { // IIFE
+            let _setTimeout = setTimeout, // Reference to the original setTimeout
+                map = {}; // Map of all timeouts with their end times
+        
+            setTimeout = (callback, delay) => { // Modify setTimeout
+                let id = _setTimeout(callback, delay); // Run the original, and store the id
+                map[id] = Date.now() + delay; // Store the end time
+                return id; // Return the id
+            };
+        
+            return (id) => { // The actual getTimeout function
+                // If there was no timeout with that id, return NaN, otherwise, return the time left clamped to 0
+                return map[id] ? Math.max(map[id] - Date.now(), 0) : NaN;
+            }
+        })();
+
+        // Compressed version
+        // let getTimeout=(()=>{let t=setTimeout,e={};return setTimeout=((a,o)=>{let u=t(a,o);return e[u]=Date.now()+o,u}),t=>e[t]?Math.max(e[t]-Date.now(),0):NaN})();
+        
         setUiStates(prevState => {
             return {
                 ...prevState,
@@ -143,103 +191,177 @@ function PrefilledForm({updateMainState}) {
         let assetMinterABI = JSON.parse(assetMinter)
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
         let hash = Web3.utils.keccak256(JSON.stringify(formParams))
+	    console.log("HASH: ", hash)
 
         let gpiAddress = config.gpiAddress
         let gpiABI = JSON.parse(gpi)
         let gpiContract = new web3.eth.Contract(gpiABI, gpiAddress)
-        let idCardFee = config.idCardFee
+        console.log("1")
+        let idCardFee = Web3.utils.toBN(urlParams.totalcharge / 0.12);
 
         // publishing to blockchain
-        gpiContract.methods.approve(assetMinterAddress, idCardFee).send({ from: appState.userAccount })
-            .on('transactionHash', function (hash) {
-                console.log(hash)
-            })
-            .on('receipt', function (receipt) {
-                console.log(receipt)
-            })
-            .on('confirmation', function (confirmationNumber, receipt) {
-                if(confirmationNumber == 10){
-                    console.log(confirmationNumber)
-                    console.log(receipt)
-                    assetMinterContract.methods.issueAsset(hash).send({ from: appState.userAccount })
+        gpiContract.methods.decimals().call({ from: appState.userAccount }).then(function (response, error) {
+            if (response) {
+                console.log("2")
+                let decimalsBigInt = Web3.utils.toBN(10 ** response);  
+                let idCardFeeinGPI = idCardFee.mul(decimalsBigInt);
+                console.log(idCardFeeinGPI.toString(),"idCardFeeinGPI");
+
+                // publishing to blockchain
+                gpiContract.methods.approve(assetMinterAddress, idCardFeeinGPI).send({ from: appState.userAccount })
                     .on('transactionHash', function (hash) {
                         console.log(hash)
-                        setAppState(prevState => {
-                            return {
-                                ...prevState,
-                                txnHash: hash
-                            }
-                        })
                     })
                     .on('receipt', function (receipt) {
                         console.log(receipt)
-                        setAppState(prevState => {
-                            return {
-                                ...prevState,
-                                txnReceipt: receipt
-                            }
-                        })
                     })
                     .on('confirmation', function (confirmationNumber, receipt) {
-                        if(confirmationNumber == 10) {
-                            
-                            // on successfull transactions, data will be stored in mongoDB
+                        if (confirmationNumber == 10) {
                             console.log(confirmationNumber)
-                           
-                            console.log("MongoDB: ", urlParams)
-                            axios.post(config.backendServer + 'addNewAsset', urlParams).then(function (response, error) {
-                                if (response) {
-                                    console.log("DB-NEW ASSET: ", response)
-                                    
-                                    // after adding asset data to MonogDB
-                                    // create a new ID with only the known parameters in a new collection
+                            console.log(receipt)
+                            assetMinterContract.methods.issueAsset(hash).send({ from: appState.userAccount })
+                                .on('transactionHash', function (hash) {
+                                    console.log(hash)
+                                    setAppState(prevState => {
+                                        return {
+                                            ...prevState,
+                                            txnHash: hash
+                                        }
+                                    })
+                                })
+                                .on('receipt', function (receipt) {
+                                    console.log(receipt)
+                                    setAppState(prevState => {
+                                        return {
+                                            ...prevState,
+                                            txnReceipt: receipt
+                                        }
+                                    })
+                                })
+                                .on('confirmation', function (confirmationNumber, receipt) {
+                                    if (confirmationNumber == 10) {
 
-                                    let body = {
-                                        estName: urlParams.oName,
-                                        pName: urlParams.fName,
-                                        appNo: urlParams.appNo
-                                    }
-                                    axios.post(config.backendServer + 'addNewId', body).then(function (response, error) {
-                                        if (response) {
-                                            console.log("DB-NEW ID: ", response)
+                                        // on successfull transactions, data will be stored in mongoDB
+                                        console.log(confirmationNumber)
 
-                                            // once all data processing is done, update the state of transaction to "completed"
-                                            // show the transaction hash in the ui component
-                                            setUiStates(prevState => {
-                                                return {
-                                                    ...prevState,
-                                                    processing: false,
-                                                    txnsuccess: true
+                                        console.log("MongoDB: ", urlParams)
+                                        axios.post(config.backendServer + 'addNewAsset', urlParams).then(function (response, error) {
+                                            if (response) {
+                                                console.log("DB-NEW ASSET: ", response)
+
+                                                // after adding asset data to MonogDB
+                                                // create a new ID with only the known parameters in a new collection
+
+                                                let body = {
+                                                    estName: urlParams.oName,
+                                                    pName: urlParams.fName,
+                                                    appNo: urlParams.appNo
                                                 }
-                                            })
+                                                axios.post(config.backendServer + 'addNewId', body).then(function (response, error) {
+                                                    if (response) {
+                                                        console.log("DB-NEW ID: ", response)
+
+                                                        // once all data processing is done, update the state of transaction to "completed"
+                                                        // show the transaction hash in the ui component
+                                                        setUiStates(prevState => {
+                                                            return {
+                                                                ...prevState,
+                                                                processing: false,
+                                                                txnsuccess: true
+                                                            }
+                                                        })
+                                                        setAppState(prevState => {
+                                                            return {
+                                                                ...prevState,
+                                                                rNo: urlParams.rNo,
+                                                                pDate: urlParams.pDate
+                                                            }
+                                                        })
+
+                                                        let urlParamsToSend = "";
+                                                        for (const [key, value] of Object.entries(urlParams)) {
+                                                            urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
+                                                        }
+
+                                                        // redirection in 5 secs
+                                                        let redirectTimeout = setTimeout(() => {
+                                                            window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
+                                                        }, 5400);
+
+                                                        // display the time left until the redirect
+                                                        setInterval(() => {
+                                                            if(getTimeout(redirectTimeout) >= 1 && getTimeout(redirectTimeout) <=5){
+                                                                setAppState(prevState => {
+                                                                    return {
+                                                                        ...prevState,
+                                                                        timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
+                                                                    }
+                                                                })
+                                                            }
+                                                            console.log(getTimeout(redirectTimeout))
+                                                        }, 900);
+
+                                                        // wait for 5 seconds and then redirect
+                                                        //setTimeout(() => {
+                                                        //    window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
+                                                        //}, 5000)
+                                                    } else {
+
+                                                        // DB error if new id creation has failed
+                                                        console.log("DB-NEW ID: ", response)
+                                                    }
+                                                })
+                                            } else {
+                                                // DB error if new asset creation failed
+                                                console.log("DB-NEW ASSET: ", response)
+                                            }
+                                        })
+                                    }
+                                })
+                                .on('error', function (error, receipt) {
+                                    console.log(error)
+                                    console.log(receipt)
+                                    setUiStates(prevState => {
+                                        return {
+                                            ...prevState,
+                                            processing: false,
+                                            txnfailed: true
+                                        }
+                                    })
+
+                                    let urlParamsToSend = "";
+                                    for (const [key, value] of Object.entries(urlParams)) {
+                                        urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
+                                    }
+
+                                    // redirection in 5 secs
+                                    let redirectTimeout = setTimeout(() => {
+                                        window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
+                                    }, 5400);
+
+                                    // display the time left until the redirect
+                                    setInterval(() => {
+                                        if(getTimeout(redirectTimeout) >= 1){
                                             setAppState(prevState => {
                                                 return {
                                                     ...prevState,
-                                                    rNo: urlParams.rNo,
-                                                    pDate: urlParams.pDate
+                                                    timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
                                                 }
                                             })
-
-                                            let urlParamsToSend = "";
-                                            for (const [key, value] of Object.entries(urlParams)) {
-                                                urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
-                                            }
-
-                                            // wait for 5 seconds and then redirect
-                                            // setTimeout(() => {
-                                            // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=success'
-                                            // }, 5000)
-                                        } else {
-
-                                            // DB error if new id creation has failed
-                                            console.log("DB-NEW ID: ", response)
+                                        }
+                                        console.log(getTimeout(redirectTimeout))
+                                    }, 900);
+                                })
+                                .catch(function (e) {
+                                    console.log('METAMASK-ASSET MINT: ', e)
+                                    setUiStates(prevState => {
+                                        return {
+                                            ...prevState,
+                                            processing: false,
+                                            txnfailed: true
                                         }
                                     })
-                                } else {
-                                    // DB error if new asset creation failed
-                                    console.log("DB-NEW ASSET: ", response)
-                                }
-                            })
+                                });
                         }
                     })
                     .on('error', function (error, receipt) {
@@ -252,9 +374,29 @@ function PrefilledForm({updateMainState}) {
                                 txnfailed: true
                             }
                         })
-                        // setTimeout(() => {
-                        // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=failed'
-                        // }, 4000)
+
+                        let urlParamsToSend = "";
+                        for (const [key, value] of Object.entries(urlParams)) {
+                            urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
+                        }
+
+                        // redirection in 5 secs
+                        let redirectTimeout = setTimeout(() => {
+                            window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
+                        }, 5400);
+
+                        // display the time left until the redirection
+                        setInterval(() => {
+                            if(getTimeout(redirectTimeout) >= 1){
+                                setAppState(prevState => {
+                                    return {
+                                        ...prevState,
+                                        timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
+                                    }
+                                })
+                            }
+                            console.log(getTimeout(redirectTimeout))
+                        }, 900);
                     })
                     .catch(function (e) {
                         console.log('METAMASK-ASSET MINT: ', e)
@@ -265,46 +407,22 @@ function PrefilledForm({updateMainState}) {
                                 txnfailed: true
                             }
                         })
-                    });
-                }  
-            })
-            .on('error', function (error, receipt) {
-                console.log(error)
-                console.log(receipt)
-                setUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        processing: false,
-                        txnfailed: true
-                    }
-                })
-                // setTimeout(() => {
-                // window.location.href = 'https://www.url.com/Products.html?' + urlParamsToSend + '&hash=' + (appState.txnHash).toString() + 'status=failed'
-                // }, 4000)
-            })
-            .catch(function (e) {
-                console.log('METAMASK-ASSET MINT: ', e)
-                setUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        processing: false,
-                        txnfailed: true
-                    }
-                })
-            })               
+                    })
+            }
+        })
     }
-                    
+
     // function that will handle the entire form state
     const formRender = () => {
         return (
             <>
                 <FormB
                     copybutton={{
-                        onClick: () => { 
-                            navigator.clipboard.writeText(appState.txnHash) 
+                        onClick: () => {
+                            navigator.clipboard.writeText(appState.txnHash)
                         }
                     }}
-                    
+
                     walletmount={{
                         disconnected: uiStates.walletStateDis,
                         connected: uiStates.walletStateCon,
@@ -322,16 +440,17 @@ function PrefilledForm({updateMainState}) {
                         hash: appState.txnHash,
                         mainbutton: {
                             onClick: () => {
-                                if (uiStates.connectmm) { setupMetamask() }
+                                if (uiStates.connectmm) { setupMetamask().catch((error) => {alert("Please reopen Metamask and connect your wallet")}) }
                                 else if (uiStates.sendtxn) { issueNewId(urlParams) }
                             }
                         },
                         copybutton: {
-                            onClick: () => { 
-                                navigator.clipboard.writeText(appState.txnHash) 
+                            onClick: () => {
+                                navigator.clipboard.writeText(appState.txnHash)
                             }
                         },
-                        installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } }
+                        installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } },
+                        timer: appState.timer
                     }}
 
                     applicationtab={{
@@ -420,7 +539,7 @@ function PrefilledForm({updateMainState}) {
                         agreed: uiStates.tickboxState,
                         tickbox: {
                             onClick: () => {
-                                if (!uiStates.connectmm && !uiStates.processing && !uiStates.txnsuccess && !uiStates.txnfailed) {
+                                if (!uiStates.processing && !uiStates.txnsuccess && !uiStates.txnfailed) {
                                     if (uiStates.tickboxState) {
                                         setUrlParams(prevState => {
                                             return {
@@ -429,11 +548,18 @@ function PrefilledForm({updateMainState}) {
                                             }
                                         })
                                         setUiStates(prevState => {
-                                            return {
-                                                ...prevState,
-                                                tickboxState: false,
-                                                sendtxnconsent: true,
-                                                sendtxn: false
+                                            if(appState.userAccount != null){
+                                                return {
+                                                    ...prevState,
+                                                    tickboxState: false,
+                                                    sendtxnconsent: true,
+                                                    sendtxn: false
+                                                }
+                                            } else {
+                                                return {
+                                                    ...prevState,
+                                                    tickboxState: false
+                                                }
                                             }
                                         })
                                     } else {
@@ -444,11 +570,18 @@ function PrefilledForm({updateMainState}) {
                                             }
                                         })
                                         setUiStates(prevState => {
-                                            return {
-                                                ...prevState,
-                                                tickboxState: true,
-                                                sendtxnconsent: false,
-                                                sendtxn: true
+                                            if(appState.userAccount != null){
+                                                return {
+                                                    ...prevState,
+                                                    tickboxState: true,
+                                                    sendtxnconsent: false,
+                                                    sendtxn: true
+                                                }
+                                            } else {
+                                                return {
+                                                    ...prevState,
+                                                    tickboxState: true
+                                                }
                                             }
                                         })
                                     }
@@ -466,7 +599,7 @@ function PrefilledForm({updateMainState}) {
     // * create a new refID from the last record in the DB
     const urlParser = () => {
 
-        axios.post("http://localhost:5000/getLastRecord").then(function (response, error) {
+        axios.post(config.backendServer + "getLastRecord").then(function (response, error) {
             if (response) {
                 
                 let referenceId = parseInt(response.data.refId) + 1
@@ -518,7 +651,7 @@ function PrefilledForm({updateMainState}) {
             }
         })
     }
-    
+
     // useEffect will only run once when the component is mounted for the first time
     // since we didn't pass any dependency. This function
     // will filter the url params and update the urlParams state
