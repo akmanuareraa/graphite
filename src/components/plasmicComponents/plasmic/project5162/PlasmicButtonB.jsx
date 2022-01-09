@@ -36,7 +36,7 @@ export const PlasmicButtonB__VariantProps = new Array(
   "sendtxnconsent"
 );
 
-export const PlasmicButtonB__ArgProps = new Array("hash", "onClick");
+export const PlasmicButtonB__ArgProps = new Array("hash", "onClick", "timer");
 
 function PlasmicButtonB__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -420,6 +420,219 @@ function PlasmicButtonB__RenderFunc(props) {
         >
           {"( Please agree to the terms and conditions )"}
         </div>
+      ) : null}
+      {(
+        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          ? true
+          : hasVariant(variants, "failed", "failed")
+          ? true
+          : hasVariant(variants, "success", "success")
+          ? true
+          : hasVariant(variants, "processing", "processing")
+          ? true
+          : hasVariant(variants, "sendtxn", "sendtxn")
+          ? true
+          : hasVariant(variants, "connectmm", "connectmm")
+          ? true
+          : hasVariant(variants, "installmm", "installmm")
+          ? true
+          : false
+      ) ? (
+        <p.Stack
+          as={"div"}
+          hasGap={true}
+          className={classNames(projectcss.all, sty.freeBox___6TZiY, {
+            [sty.freeBox__connectmm___6TZiYsqZmt]: hasVariant(
+              variants,
+              "connectmm",
+              "connectmm"
+            ),
+
+            [sty.freeBox__failed___6TZiYocDdJ]: hasVariant(
+              variants,
+              "failed",
+              "failed"
+            ),
+
+            [sty.freeBox__installmm___6TZiYvXuOp]: hasVariant(
+              variants,
+              "installmm",
+              "installmm"
+            ),
+
+            [sty.freeBox__processing___6TZiYPdh5H]: hasVariant(
+              variants,
+              "processing",
+              "processing"
+            ),
+
+            [sty.freeBox__sendtxn___6TZiYQfRAj]: hasVariant(
+              variants,
+              "sendtxn",
+              "sendtxn"
+            ),
+
+            [sty.freeBox__sendtxnconsent___6TZiYljVjA]: hasVariant(
+              variants,
+              "sendtxnconsent",
+              "sendtxnconsent"
+            ),
+
+            [sty.freeBox__success___6TZiYkPrSc]: hasVariant(
+              variants,
+              "success",
+              "success"
+            )
+          })}
+        >
+          {(
+            hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+              ? true
+              : hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "processing", "processing")
+              ? true
+              : hasVariant(variants, "sendtxn", "sendtxn")
+              ? true
+              : hasVariant(variants, "connectmm", "connectmm")
+              ? true
+              : hasVariant(variants, "installmm", "installmm")
+              ? true
+              : true
+          ) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__yLeFm,
+                {
+                  [sty.text__connectmm__yLeFmsqZmt]: hasVariant(
+                    variants,
+                    "connectmm",
+                    "connectmm"
+                  ),
+
+                  [sty.text__failed__yLeFMocDdJ]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.text__installmm__yLeFMvXuOp]: hasVariant(
+                    variants,
+                    "installmm",
+                    "installmm"
+                  ),
+
+                  [sty.text__processing__yLeFmPdh5H]: hasVariant(
+                    variants,
+                    "processing",
+                    "processing"
+                  ),
+
+                  [sty.text__sendtxn__yLeFmQfRAj]: hasVariant(
+                    variants,
+                    "sendtxn",
+                    "sendtxn"
+                  ),
+
+                  [sty.text__sendtxnconsent__yLeFmljVjA]: hasVariant(
+                    variants,
+                    "sendtxnconsent",
+                    "sendtxnconsent"
+                  ),
+
+                  [sty.text__success__yLeFMkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                }
+              )}
+            >
+              {hasVariant(variants, "failed", "failed")
+                ? "Redirecting in "
+                : hasVariant(variants, "success", "success")
+                ? "Redirecting in "
+                : "Enter some text"}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__gtmo0, {
+                [sty.freeBox__failed__gtmo0OcDdJ]: hasVariant(
+                  variants,
+                  "failed",
+                  "failed"
+                ),
+
+                [sty.freeBox__success__gtmo0KPrSc]: hasVariant(
+                  variants,
+                  "success",
+                  "success"
+                )
+              })}
+            >
+              {p.renderPlasmicSlot({
+                defaultContents: "5",
+                value: args.timer,
+                className: classNames(sty.slotTargetTimer, {
+                  [sty.slotTargetTimer__failed]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.slotTargetTimer__success]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                })
+              })}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__re9Xq,
+                {
+                  [sty.text__failed__re9XQocDdJ]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.text__success__re9XQkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                }
+              )}
+            >
+              {hasVariant(variants, "failed", "failed")
+                ? "seconds..."
+                : hasVariant(variants, "success", "success")
+                ? "seconds..."
+                : "Enter some text"}
+            </div>
+          ) : null}
+        </p.Stack>
       ) : null}
     </div>
   ) : null;
