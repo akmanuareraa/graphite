@@ -63,7 +63,9 @@ pragma solidity ^ 0.8.2;
         uint256 amount
     ) external returns(bool);
 
-    function burn(uint256 amount) public virtual;
+    function burn(uint256 amount) external;
+
+    function decimals() external returns (uint8);
 
     /**
      * @dev Emitted when `value` tokens are moved from one account (`from`) to
