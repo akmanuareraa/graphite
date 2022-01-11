@@ -4,7 +4,7 @@ pragma solidity ^0.8.2;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 //import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "./IERC20Burnable.sol";
+import "./ierc20burnableupgradable.sol";
 
 contract AssetMinter is Ownable{ 
     
@@ -14,37 +14,39 @@ contract AssetMinter is Ownable{
         GPI = IERC20BurnableUpgradeable(gpiTokenAddress);
     }
 
-    mapping(bytes32 => uint256) public documentIssued;
+    mapping(bytes32 => uint256) public assetsIssued;
+
     uint public txnfee = 1412;
 
-    event DocumentIssued(bytes32 indexed document);
+    event assetIssued(bytes32 indexed assetHash);
 
     function changeTxnFee(uint newTxnFee) external onlyOwner {
         txnfee = newTxnFee;
     }
 
-    //issueAsset
-    function issueBlockNumber(bytes32 document) public onlyOwner onlyNotIssued(document) {
+    function issueAsset(bytes32 assetHash) public onlyOwner onlyNotIssued(assetHash) {
         require(
             GPI.allowance(msg.sender, address(this)) >= txnfee,
             "GPI Token allowance too low for processing Transaction Fee"
         );
 
-        _safeTransferFrom(msg.sender, address(this), txnfee);
+        _safeTransferFrom(msg.sender, address(this), txnfee * 10  ** GPI.decimals());
 
-        documentIssued[document] = block.number;
-        //assetIssued
-        emit DocumentIssued(document);
+        assetsIssued[assetHash] = block.number;
+        
+        emit assetIssued(assetHash);
 
         GPI.burn(txnfee);
+
+        
     }
 
-    function getBlockNumber(bytes32 document) public view onlyIssued(document) returns (uint256) {
-        return documentIssued[document];
+    function getBlockNumber(bytes32 assetHash) public view onlyIssued(assetHash) returns (uint256) {
+        return assetsIssued[assetHash];
     }
 
-    function isIssued(bytes32 document) public view returns (bool) {
-        return (documentIssued[document] != 0);
+    function isIssued(bytes32 assetHash) public view returns (bool) {
+        return (assetsIssued[assetHash] != 0);
     }
 
     function _safeTransferFrom (
@@ -56,13 +58,13 @@ contract AssetMinter is Ownable{
         require(sent, "Token transfer failed");
     }
 
-    modifier onlyIssued(bytes32 document) {
-        require(isIssued(document), "Error: No such document exists in the Database");
+    modifier onlyIssued(bytes32 assetHash) {
+        require(isIssued(assetHash), "Error: No such asset exists in the Database");
         _;
     }
 
-    modifier onlyNotIssued(bytes32 document) {
-        require(!isIssued(document), "Error: The Document has already been issued. Re-Issue is not applicable.");
+    modifier onlyNotIssued(bytes32 assetHash) {
+        require(!isIssued(assetHash), "Error: The Asset has already been issued. Re-Issue is not applicable.");
         _;
     }
 
