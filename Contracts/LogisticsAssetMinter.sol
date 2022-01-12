@@ -63,6 +63,8 @@ contract LogisticsAssetMinter is Initializable,OwnableUpgradeable, UUPSUpgradeab
 
         a.customerApproval = true;
 
+        emit customerApproved(a);
+
         return a;
         
     }
@@ -70,9 +72,7 @@ contract LogisticsAssetMinter is Initializable,OwnableUpgradeable, UUPSUpgradeab
 
     function isIssued(bytes32 assetHash) public view returns (bool) {
 
-        asset storage a = assetsIssued[assetHash];
-
-        return (a.blockNumber != 0);
+        return (assetsIssued[assetHash].blockNumber > 0);
     }
 
 
