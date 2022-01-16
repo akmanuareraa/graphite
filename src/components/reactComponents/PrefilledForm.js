@@ -1,214 +1,52 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable no-native-reassign */
+import React, { useEffect } from 'react';
 import Web3 from 'web3';
-import sha256 from 'sha256';
 import axios from 'axios';
-import config from '../../config'
+
+import config from '../../config-frontend'
 
 // importing plasmic components
-import Form from '../plasmicComponents/Form';
-import ButtonA from '../plasmicComponents/ButtonA';
 import FormB from '../plasmicComponents/FormB';
 
 // ABI
 import gpi from '../../ABI/gpiABI';
 import assetMinter from '../../ABI/assetMinterABI'
 
-
-function PrefilledForm({ updateMainState }) {
-
-    // setting the initial state of url params to empty object
-    const [urlParams, setUrlParams] = useState(() => {
-        return {
-            appfeeq: 0,
-            iksfeeq: 0,
-            taxq: 0,
-            appfeecu: 0,
-            iksfeecu: 0,
-            taxcu: 0
-        }
-    })
-
-    // setting the initial state of Plasmic UI components to default
-    const [uiStates, setUiStates] = useState(() => {
-        return {
-            walletStateDis: true,
-            walletStateCon: false,
-            installmm: false,
-            connectmm: true,
-            sendtxn: false,
-            sendtxnconsent: false,
-            processing: false,
-            txnsuccess: false,
-            txnfailed: false,
-            tickboxState: false,
-            transaction: "null",
-            application: true,
-            applicant: false,
-            organization: false,
-            applicationtab: true,
-            applicanttab: false,
-            orgtab: false
-        }
-    })
-
-    // setting the initial app state with neceassary variables
-    const [appState, setAppState] = useState(() => {
-        return {
-            txnHash: "defaultHash",
-            userAccount: null,
-            rNo: "---",
-            pDate: "---",
-            referenceId: null,
-            web3: new Web3(window.ethereum),
-            timer: null
-        }
-    })
-
-    const setupMetamask = async () => {
-        // check if web3 is injected
-        if (typeof window.ethereum !== 'undefined') {
-
-            // get the user account
-            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-
-            //update app state
-            setAppState(prevState => {
-                return {
-                    ...prevState,
-                    userAccount: accounts[0]
-                }
-            })
-
-            updateMainState(accounts[0])
-
-            // Switching current chain to Mumbai Testnet 
-            // assuming that the user has already added the Mumbai Testnet chain to Metamask
-            try {
-                await window.ethereum.request({
-                    method: 'wallet_switchEthereumChain',
-                    params: [{ chainId: '0x13881' }],
-                })
-
-                //console.log(window.ethereum.networkVersion)
-                if(window.ethereum.networkVersion === "80001"){
-                    setUiStates(prevState => {
-                        if (urlParams.consent) {
-                            return {
-                                ...prevState,
-                                connectmm: false,
-                                sendtxn: true,
-                                walletStateDis: false,
-                                walletStateCon: true
-                            }
-                        } else {
-                            return {
-                                ...prevState,
-                                connectmm: false,
-                                sendtxnconsent: true,
-                                walletStateDis: false,
-                                walletStateCon: true
-                            }
-                        }
-                    })
-                }
-
-            } catch (switchError) {
-                console.log("Mumbai Testnet not added to Metamask. Attempting to add chain to Metamask...")
-                try {
-
-                    // if the user has not added the chain already
-                    // add now
-                    await window.ethereum.request({
-                        method: 'wallet_addEthereumChain',
-                        params: [{ chainId: '0x13881', rpcUrls: ['https://rpc-mumbai.maticvigil.com/'], chainName: 'Polygon Mumbai Testnet' /* ... */ }],
-                    })
-                    
-                    //console.log(window.ethereum.networkVersion)
-                    if(window.ethereum.networkVersion === "80001"){
-                        setUiStates(prevState => {
-                            if (urlParams.consent) {
-                                return {
-                                    ...prevState,
-                                    connectmm: false,
-                                    sendtxn: true,
-                                    walletStateDis: false,
-                                    walletStateCon: true
-                                }
-                            } else {
-                                return {
-                                    ...prevState,
-                                    connectmm: false,
-                                    sendtxnconsent: true,
-                                    walletStateDis: false,
-                                    walletStateCon: true
-                                }
-                            }
-                        })
-                    }
-
-                } catch (addError) {
-                    console.log("Error occured in Adding Mumbai Testnet Network to Metamask")
-                    alert("Error occured in Adding Mumbai Testnet Network to Metamask. Please contact Administrator.")
-                }
-            }
-        } else {
-            alert("Please install Metamask to proceed")
-        }
-    }
+function PrefilledForm(props) {
 
     // function to publish the hash to blockchain and to store the data in mongoDB
     const issueNewId = (formParams) => {
 
-        let getTimeout = (() => { // IIFE
-            let _setTimeout = setTimeout, // Reference to the original setTimeout
-                map = {}; // Map of all timeouts with their end times
-        
-            setTimeout = (callback, delay) => { // Modify setTimeout
-                let id = _setTimeout(callback, delay); // Run the original, and store the id
-                map[id] = Date.now() + delay; // Store the end time
-                return id; // Return the id
-            };
-        
-            return (id) => { // The actual getTimeout function
-                // If there was no timeout with that id, return NaN, otherwise, return the time left clamped to 0
-                return map[id] ? Math.max(map[id] - Date.now(), 0) : NaN;
-            }
-        })();
-
-        // Compressed version
-        // let getTimeout=(()=>{let t=setTimeout,e={};return setTimeout=((a,o)=>{let u=t(a,o);return e[u]=Date.now()+o,u}),t=>e[t]?Math.max(e[t]-Date.now(),0):NaN})();
-        
-        setUiStates(prevState => {
+        props.setAllUiStates(prevState => {
             return {
                 ...prevState,
-                sendtxn: false,
-                processing: true
+                createAsset: {
+                    ...prevState.createAsset,
+                    sendtxn: false,
+                    processing: true
+                }
             }
         })
 
-        let web3 = appState.web3
+        let web3 = props.mainState.web3
         let assetMinterAddress = config.assetMinterAddress
         let assetMinterABI = JSON.parse(assetMinter)
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
         let hash = Web3.utils.keccak256(JSON.stringify(formParams))
-	    console.log("HASH: ", hash)
 
         let gpiAddress = config.gpiAddress
         let gpiABI = JSON.parse(gpi)
         let gpiContract = new web3.eth.Contract(gpiABI, gpiAddress)
-        console.log("1")
-        let idCardFee = Web3.utils.toBN(urlParams.totalcharge / 0.12);
+        let idCardFee = Web3.utils.toBN(props.allUrlParams.createAsset.totalcharge / 0.12);
 
         // publishing to blockchain
-        gpiContract.methods.decimals().call({ from: appState.userAccount }).then(function (response, error) {
+        gpiContract.methods.decimals().call({ from: props.mainState.account }).then(function (response, error) {
             if (response) {
-                console.log("2")
-                let decimalsBigInt = Web3.utils.toBN(10 ** response);  
+                let decimalsBigInt = Web3.utils.toBN(10 ** response);
                 let idCardFeeinGPI = idCardFee.mul(decimalsBigInt);
-                console.log(idCardFeeinGPI.toString(),"idCardFeeinGPI");
+                console.log(idCardFeeinGPI.toString(), "idCardFeeinGPI");
 
-                // publishing to blockchain
-                gpiContract.methods.approve(assetMinterAddress, idCardFeeinGPI).send({ from: appState.userAccount })
+                gpiContract.methods.approve(assetMinterAddress, idCardFeeinGPI).send({ from: props.mainState.account })
                     .on('transactionHash', function (hash) {
                         console.log(hash)
                     })
@@ -216,197 +54,175 @@ function PrefilledForm({ updateMainState }) {
                         console.log(receipt)
                     })
                     .on('confirmation', function (confirmationNumber, receipt) {
-                        if (confirmationNumber == 10) {
+                        if (confirmationNumber === 10) {
                             console.log(confirmationNumber)
                             console.log(receipt)
-                            assetMinterContract.methods.issueAsset(hash).send({ from: appState.userAccount })
+                            assetMinterContract.methods.issueAsset(hash).send({ from: props.mainState.account })
                                 .on('transactionHash', function (hash) {
                                     console.log(hash)
-                                    setAppState(prevState => {
+                                    props.setMainState(prevState => {
                                         return {
                                             ...prevState,
-                                            txnHash: hash
+                                            createAsset: {
+                                                ...prevState.createAsset,
+                                                txnHash: hash
+                                            }
                                         }
                                     })
                                 })
                                 .on('receipt', function (receipt) {
                                     console.log(receipt)
-                                    setAppState(prevState => {
+                                    props.setMainState(prevState => {
                                         return {
                                             ...prevState,
-                                            txnReceipt: receipt
+                                            createAsset: {
+                                                ...prevState.createAsset,
+                                                txnReceipt: receipt
+                                            }
                                         }
                                     })
                                 })
                                 .on('confirmation', function (confirmationNumber, receipt) {
-                                    if (confirmationNumber == 10) {
+                                    if (confirmationNumber === 10) {
 
                                         // on successfull transactions, data will be stored in mongoDB
                                         console.log(confirmationNumber)
 
-                                        console.log("MongoDB: ", urlParams)
-                                        axios.post(config.backendServer + 'addNewAsset', urlParams).then(function (response, error) {
+                                        console.log("MongoDB: ", formParams)
+                                        axios.post(config.backendServer + 'addNewAsset', formParams).then(function (response, error) {
                                             if (response) {
                                                 console.log("DB-NEW ASSET: ", response)
 
                                                 // after adding asset data to MonogDB
                                                 // create a new ID with only the known parameters in a new collection
-
                                                 let body = {
-                                                    estName: urlParams.oName,
-                                                    pName: urlParams.fName,
-                                                    appNo: urlParams.appNo
+                                                    appNo: formParams.appNo,
+                                                    nationality: formParams.nationality,
+                                                    name: formParams.fName,
+                                                    dob: formParams.dob,
+                                                    sex: formParams.sex
                                                 }
                                                 axios.post(config.backendServer + 'addNewId', body).then(function (response, error) {
                                                     if (response) {
                                                         console.log("DB-NEW ID: ", response)
 
                                                         // once all data processing is done, update the state of transaction to "completed"
-                                                        // show the transaction hash in the ui component
-                                                        setUiStates(prevState => {
+                                                        // show the transaction hash in the UI component
+                                                        props.setAllUiStates(prevState => {
                                                             return {
                                                                 ...prevState,
-                                                                processing: false,
-                                                                txnsuccess: true
+                                                                createAsset: {
+                                                                    ...prevState.createAsset,
+                                                                    processing: false,
+                                                                    txnsuccess: true
+                                                                }
                                                             }
                                                         })
-                                                        setAppState(prevState => {
+                                                        props.setMainState(prevState => {
                                                             return {
                                                                 ...prevState,
-                                                                rNo: urlParams.rNo,
-                                                                pDate: urlParams.pDate
+                                                                createAsset: {
+                                                                    ...prevState.createAsset,
+                                                                    rNo: formParams.rNo,
+                                                                    pDate: formParams.pDate
+                                                                }
                                                             }
                                                         })
 
-                                                        let urlParamsToSend = "";
-                                                        for (const [key, value] of Object.entries(urlParams)) {
-                                                            urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
-                                                        }
-
-                                                        // redirection in 5 secs
-                                                        let redirectTimeout = setTimeout(() => {
-                                                            window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
-                                                        }, 5400);
-
-                                                        // display the time left until the redirect
-                                                        setInterval(() => {
-                                                            if(getTimeout(redirectTimeout) >= 1 && getTimeout(redirectTimeout) <=5){
-                                                                setAppState(prevState => {
-                                                                    return {
-                                                                        ...prevState,
-                                                                        timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
-                                                                    }
-                                                                })
-                                                            }
-                                                            console.log(getTimeout(redirectTimeout))
-                                                        }, 900);
-
-                                                        // wait for 5 seconds and then redirect
-                                                        //setTimeout(() => {
-                                                        //    window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
-                                                        //}, 5000)
+                                                        let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                                                        props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
                                                     } else {
 
                                                         // DB error if new id creation has failed
                                                         console.log("DB-NEW ID: ", response)
                                                     }
                                                 })
+
+                                                    // If any error is encountered during the interaction with database, then
+                                                    // the transaction fails and the user is redirected back to the portal along
+                                                    // with the error message
+                                                    .catch(function (e) {
+                                                        alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                                                        let additionalParams = '&status=failed&reason=' + e.message
+                                                        props.redirectExecution("null", additionalParams, 10, 10, "createAsset")
+                                                    })
                                             } else {
                                                 // DB error if new asset creation failed
                                                 console.log("DB-NEW ASSET: ", response)
                                             }
                                         })
+                                            .catch(function (e) {
+                                                alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                                                let additionalParams = '&status=failed&reason=' + e.message
+                                                props.redirectExecution("null", additionalParams, 10, 10, "createAsset")
+                                            })
                                     }
                                 })
                                 .on('error', function (error, receipt) {
                                     console.log(error)
                                     console.log(receipt)
-                                    setUiStates(prevState => {
+                                    props.setAllUiStates(prevState => {
                                         return {
                                             ...prevState,
-                                            processing: false,
-                                            txnfailed: true
+                                            createAsset: {
+                                                ...prevState.createAsset,
+                                                processing: false,
+                                                txnfailed: true
+                                            }
                                         }
                                     })
 
-                                    let urlParamsToSend = "";
-                                    for (const [key, value] of Object.entries(urlParams)) {
-                                        urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
-                                    }
-
-                                    // redirection in 5 secs
-                                    let redirectTimeout = setTimeout(() => {
-                                        window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
-                                    }, 5400);
-
-                                    // display the time left until the redirect
-                                    setInterval(() => {
-                                        if(getTimeout(redirectTimeout) >= 1){
-                                            setAppState(prevState => {
-                                                return {
-                                                    ...prevState,
-                                                    timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
-                                                }
-                                            })
-                                        }
-                                        console.log(getTimeout(redirectTimeout))
-                                    }, 900);
+                                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
+                                    props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
                                 })
                                 .catch(function (e) {
                                     console.log('METAMASK-ASSET MINT: ', e)
-                                    setUiStates(prevState => {
+                                    props.setAllUiStates(prevState => {
                                         return {
                                             ...prevState,
-                                            processing: false,
-                                            txnfailed: true
+                                            createAsset: {
+                                                ...prevState.createAsset,
+                                                processing: false,
+                                                txnfailed: true
+                                            }
                                         }
                                     })
-                                });
+                                    let additionalParams = '&status=failed&reason=' + e.message
+                                    props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
+                                })
                         }
                     })
                     .on('error', function (error, receipt) {
                         console.log(error)
                         console.log(receipt)
-                        setUiStates(prevState => {
+                        props.setAllUiStates(prevState => {
                             return {
                                 ...prevState,
-                                processing: false,
-                                txnfailed: true
+                                createAsset: {
+                                    ...prevState.createAsset,
+                                    processing: false,
+                                    txnfailed: true
+                                }
                             }
                         })
 
-                        let urlParamsToSend = "";
-                        for (const [key, value] of Object.entries(urlParams)) {
-                            urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
-                        }
-
-                        // redirection in 5 secs
-                        let redirectTimeout = setTimeout(() => {
-                            window.location.href = config.redirectUrl + urlParamsToSend + '&hash=' + appState.txnHash + '&status=success'
-                        }, 5400);
-
-                        // display the time left until the redirection
-                        setInterval(() => {
-                            if(getTimeout(redirectTimeout) >= 1){
-                                setAppState(prevState => {
-                                    return {
-                                        ...prevState,
-                                        timer: (getTimeout(redirectTimeout)).toString().slice(0,1)
-                                    }
-                                })
-                            }
-                            console.log(getTimeout(redirectTimeout))
-                        }, 900);
+                        let additionalParams = '&status=failed&reason=' + error
+                        props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
                     })
                     .catch(function (e) {
-                        console.log('METAMASK-ASSET MINT: ', e)
-                        setUiStates(prevState => {
+                        console.log('METAMASK-ASSET MINT: ', e.message)
+                        props.setAllUiStates(prevState => {
                             return {
                                 ...prevState,
-                                processing: false,
-                                txnfailed: true
+                                createAsset: {
+                                    ...prevState.createAsset,
+                                    processing: false,
+                                    txnfailed: true
+                                }
                             }
                         })
+                        let additionalParams = '&status=failed&reason=' + e.message
+                        props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
                     })
             }
         })
@@ -419,168 +235,202 @@ function PrefilledForm({ updateMainState }) {
                 <FormB
                     copybutton={{
                         onClick: () => {
-                            navigator.clipboard.writeText(appState.txnHash)
+                            navigator.clipboard.writeText(props.mainState.createAsset.txnHash)
                         }
                     }}
 
                     walletmount={{
-                        disconnected: uiStates.walletStateDis,
-                        connected: uiStates.walletStateCon,
-                        address: appState.userAccount
+                        disconnected: props.allUiStates.createAsset.walletStateDis,
+                        connected: props.allUiStates.createAsset.walletStateCon,
+                        address: props.mainState.createAsset.account
                     }}
 
                     formbutton={{
-                        installmm: uiStates.installmm,
-                        connectmm: uiStates.connectmm,
-                        sendtxn: uiStates.sendtxn,
-                        sendtxnconsent: uiStates.sendtxnconsent,
-                        processing: uiStates.processing,
-                        success: uiStates.txnsuccess,
-                        failed: uiStates.txnfailed,
-                        hash: appState.txnHash,
+                        installmm: props.allUiStates.createAsset.installmm,
+                        connectmm: props.allUiStates.createAsset.connectmm,
+                        sendtxn: props.allUiStates.createAsset.sendtxn,
+                        sendtxnconsent: props.allUiStates.createAsset.sendtxnconsent,
+                        processing: props.allUiStates.createAsset.processing,
+                        success: props.allUiStates.createAsset.txnsuccess,
+                        failed: props.allUiStates.createAsset.txnfailed,
+                        hash: props.mainState.createAsset.txnHash,
                         mainbutton: {
                             onClick: () => {
-                                if (uiStates.connectmm) { setupMetamask().catch((error) => {alert("Please reopen Metamask and connect your wallet")}) }
-                                else if (uiStates.sendtxn) { issueNewId(urlParams) }
+                                if (props.allUiStates.createAsset.connectmm) { props.setupMetamask("createAsset").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
+                                else if (props.allUiStates.createAsset.sendtxn) { issueNewId(props.allUrlParams.createAsset) }
                             }
                         },
                         copybutton: {
                             onClick: () => {
-                                navigator.clipboard.writeText(appState.txnHash)
+                                navigator.clipboard.writeText(props.mainState.createAsset.txnHash)
                             }
                         },
                         installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } },
-                        timer: appState.timer
+                        timer: props.mainState.createAsset.timer
                     }}
 
                     applicationtab={{
-                        selected: uiStates.applicationtab,
+                        selected: props.allUiStates.createAsset.applicationtab,
                         onClick: () => {
-                            setUiStates(prevState => {
+                            props.setAllUiStates(prevState => {
                                 return {
                                     ...prevState,
-                                    application: true,
-                                    applicant: false,
-                                    organization: false,
-                                    applicanttab: false,
-                                    applicationtab: true,
-                                    orgtab: false
+                                    createAsset: {
+                                        ...prevState.createAsset,
+                                        application: true,
+                                        applicant: false,
+                                        organization: false,
+                                        applicanttab: false,
+                                        applicationtab: true,
+                                        orgtab: false
+                                    }
                                 }
                             })
                         }
                     }}
 
                     applicanttab={{
-                        selected: uiStates.applicanttab,
+                        selected: props.allUiStates.createAsset.applicanttab,
                         onClick: () => {
-                            setUiStates(prevState => {
+                            props.setAllUiStates(prevState => {
                                 return {
                                     ...prevState,
-                                    application: false,
-                                    applicant: true,
-                                    organization: false,
-                                    applicanttab: true,
-                                    applicationtab: false,
-                                    orgtab: false
+                                    createAsset: {
+                                        ...prevState.createAsset,
+                                        application: false,
+                                        applicant: true,
+                                        organization: false,
+                                        applicanttab: true,
+                                        applicationtab: false,
+                                        orgtab: false
+                                    }
                                 }
                             })
                         }
                     }}
 
                     orgtab={{
-                        selected: uiStates.orgtab,
+                        selected: props.allUiStates.createAsset.orgtab,
                         onClick: () => {
-                            setUiStates(prevState => {
+                            props.setAllUiStates(prevState => {
                                 return {
                                     ...prevState,
-                                    application: false,
-                                    applicant: false,
-                                    organization: true,
-                                    applicanttab: false,
-                                    applicationtab: false,
-                                    orgtab: true
+                                    createAsset: {
+                                        ...prevState.createAsset,
+                                        application: false,
+                                        applicant: false,
+                                        organization: true,
+                                        applicanttab: false,
+                                        applicationtab: false,
+                                        orgtab: true
+                                    }
                                 }
                             })
                         }
                     }}
 
                     paramdisplay={{
-                        application: uiStates.application,
-                        applicant: uiStates.applicant,
-                        organization: uiStates.organization,
-                        applicationNo: urlParams.appNo,
-                        txnNo: urlParams.txnNo,
-                        receiptNo: appState.rNo,
-                        paymentDate: appState.pDate,
-                        fullName: urlParams.fName,
-                        passportNo: urlParams.pNo,
-                        fileNo: urlParams.fNo,
-                        nationality: urlParams.nationality,
-                        accompanied: urlParams.accompanied,
-                        orgName: urlParams.oName,
-                        orgFileNo: urlParams.ofNo
+                        application: props.allUiStates.createAsset.application,
+                        applicant: props.allUiStates.createAsset.applicant,
+                        organization: props.allUiStates.createAsset.organization,
+                        applicationNo: props.allUrlParams.createAsset.appNo,
+                        txnNo: props.allUrlParams.createAsset.txnNo,
+                        receiptNo: props.mainState.createAsset.rNo,
+                        paymentDate: props.mainState.createAsset.pDate,
+                        fullName: props.allUrlParams.createAsset.fName,
+                        passportNo: props.allUrlParams.createAsset.pNo,
+                        fileNo: props.allUrlParams.createAsset.fNo,
+                        nationality: props.allUrlParams.createAsset.nationality,
+                        accompanied: props.allUrlParams.createAsset.accompanied,
+                        orgName: props.allUrlParams.createAsset.oName,
+                        orgFileNo: props.allUrlParams.createAsset.ofNo
                     }}
 
                     transactiondashboard={{
-                        appfeeq: urlParams.appfeeq,
-                        iksfeeq: urlParams.iksfeeq,
-                        taxq: urlParams.taxq,
-                        appfeecu: urlParams.appfeecu,
-                        iksfeecu: urlParams.iksfeecu,
-                        taxcu: urlParams.taxcu,
-                        appfeect: urlParams.appfeect,
-                        iksfeect: urlParams.iksfeect,
-                        taxct: urlParams.taxct,
-                        totalcharge: urlParams.totalcharge,
-                        totalgpi: (parseFloat(urlParams.totalcharge) / 0.12).toFixed(4)
+                        appfeeq: props.allUrlParams.createAsset.appfeeq,
+                        iksfeeq: props.allUrlParams.createAsset.iksfeeq,
+                        taxq: props.allUrlParams.createAsset.taxq,
+                        appfeecu: props.allUrlParams.createAsset.appfeecu,
+                        iksfeecu: props.allUrlParams.createAsset.iksfeecu,
+                        taxcu: props.allUrlParams.createAsset.taxcu,
+                        appfeect: props.allUrlParams.createAsset.appfeect,
+                        iksfeect: props.allUrlParams.createAsset.iksfeect,
+                        taxct: props.allUrlParams.createAsset.taxct,
+                        totalcharge: props.allUrlParams.createAsset.totalcharge,
+                        totalgpi: (parseFloat(props.allUrlParams.createAsset.totalcharge) / 0.12).toFixed(4)
                     }}
 
                     consent={{
-                        agreed: uiStates.tickboxState,
+                        agreed: props.allUiStates.createAsset.tickboxState,
                         tickbox: {
                             onClick: () => {
-                                if (!uiStates.processing && !uiStates.txnsuccess && !uiStates.txnfailed) {
-                                    if (uiStates.tickboxState) {
-                                        setUrlParams(prevState => {
+                                if (!props.allUiStates.createAsset.processing && !props.allUiStates.createAsset.txnsuccess && !props.allUiStates.createAsset.txnfailed) {
+                                    if (props.allUiStates.createAsset.tickboxState) {
+                                        console.log("1")
+                                        props.setAllUrlParams(prevState => {
                                             return {
                                                 ...prevState,
-                                                consent: false
+                                                createAsset: {
+                                                    ...prevState.createAsset,
+                                                    consent: false
+                                                }
                                             }
                                         })
-                                        setUiStates(prevState => {
-                                            if(appState.userAccount != null){
+                                        props.setAllUiStates(prevState => {
+                                            if (props.mainState.account != null) {
+                                                console.log("2")
                                                 return {
                                                     ...prevState,
-                                                    tickboxState: false,
-                                                    sendtxnconsent: true,
-                                                    sendtxn: false
+                                                    createAsset: {
+                                                        ...prevState.createAsset,
+                                                        tickboxState: false,
+                                                        sendtxnconsent: true,
+                                                        sendtxn: false
+                                                    }
                                                 }
                                             } else {
+                                                console.log("6")
                                                 return {
                                                     ...prevState,
-                                                    tickboxState: false
+                                                    createAsset: {
+                                                        ...prevState.createAsset,
+                                                        tickboxState: false
+                                                    }
+
                                                 }
                                             }
                                         })
                                     } else {
-                                        setUrlParams(prevState => {
+                                        console.log("3")
+                                        props.setAllUrlParams(prevState => {
                                             return {
                                                 ...prevState,
-                                                consent: true
+                                                createAsset: {
+                                                    ...prevState.createAsset,
+                                                    consent: true
+                                                }
                                             }
                                         })
-                                        setUiStates(prevState => {
-                                            if(appState.userAccount != null){
+                                        props.setAllUiStates(prevState => {
+                                            if (props.mainState.account != null) {
+                                                console.log("4")
                                                 return {
                                                     ...prevState,
-                                                    tickboxState: true,
-                                                    sendtxnconsent: false,
-                                                    sendtxn: true
+                                                    createAsset: {
+                                                        ...prevState.createAsset,
+                                                        tickboxState: true,
+                                                        sendtxnconsent: false,
+                                                        sendtxn: true
+                                                    }
                                                 }
                                             } else {
+                                                console.log("5")
                                                 return {
                                                     ...prevState,
-                                                    tickboxState: true
+                                                    createAsset: {
+                                                        ...prevState.createAsset,
+                                                        tickboxState: true
+                                                    }
                                                 }
                                             }
                                         })
@@ -594,72 +444,82 @@ function PrefilledForm({ updateMainState }) {
         )
     }
 
-    // function that will,
-    // * parse params from URL
-    // * create a new refID from the last record in the DB
-    const urlParser = () => {
-
-        axios.post(config.backendServer + "getLastRecord").then(function (response, error) {
-            if (response) {
-                
-                let referenceId = parseInt(response.data.refId) + 1
-
-                //refID creation
-                setAppState(prevState => {
-                    return {
-                        ...prevState,
-                        referenceId: referenceId
-                    }
-                })
-
-                // url parsing
-                var params = {};
-
-                var parser = document.createElement('a');
-                parser.href = window.location.href;
-                var query = parser.search.substring(1);
-
-                var vars = query.split('&');
-                for (var i = 0; i < vars.length; i++) {
-                    var pair = vars[i].split('=');
-                    //if()
-                    params[pair[0]] = decodeURIComponent(pair[1]);
-                }
-
-                let txnfeeCalculator = {
-                    appfeect: parseFloat(params.appfeeq * params.appfeecu),
-                    iksfeect: parseFloat(params.iksfeeq * params.iksfeecu),
-                    taxct: parseFloat(params.taxq * params.taxcu)
-                }
-
-                // updating the state
-                setUrlParams(prevState => {
-                    return {
-                        ...prevState,
-                        ...params,
-                        ...txnfeeCalculator,
-                        totalcharge: txnfeeCalculator.appfeect + txnfeeCalculator.iksfeect + txnfeeCalculator.taxct,
-                        refId: referenceId,
-                        rNo: params.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + referenceId,
-                        pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
-                    }
-                })
-
-                console.log(urlParams)
-            } else {
-                console.log(error)
-            }
-        })
-    }
-
     // useEffect will only run once when the component is mounted for the first time
     // since we didn't pass any dependency. This function
-    // will filter the url params and update the urlParams state
+    // will filter the url params, update the urlParams and UI state
     useEffect(() => {
-        // uncomment this to automate the process of connecting Metamask without user interaction
-        //setupMetamask();
-        urlParser();
+        props.setAllUiStates(prevState => {
+            return {
+                ...prevState,
+                navbar: {
+                    newasset: true,
+                    gensalesorder: false,
+                }
+            }
+        })
+        props.urlParser("createAsset");
+
     }, [])
+
+    // This function executes when Application Number is parsed from the URL and then checks
+    // for any duplicate application, if found, throws an error and redirects the user back to
+    // the portal along with the error message. If not found, proceeds as usual
+    useEffect(() => {
+        if (props.allUrlParams.createAsset.appNo > 0) {
+
+            //checks if application already exists
+            axios.get(config.backendServer + "applicationExists", { params: { appNo: props.allUrlParams.createAsset.appNo } }).then(function (response, error) {
+                if (response) {
+                    if (response.data) {
+                        alert("Application Number already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
+                        let urlParamsToSend = "";
+                        for (const [key, value] of Object.entries(props.allUrlParams.createAsset)) {
+                            urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
+                        }
+                        window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+application'
+
+                        // if no duplicate application is found then proceed to get the reference number from the 
+                        // previous document
+                    } else {
+                        axios.get(config.backendServer + "getLastRecord").then(function (response, error) {
+                            if (response) {
+                                let referenceId = parseInt(response.data.refId) + 1
+
+                                // create the receiptNo and payment timestamp
+                                props.setAllUrlParams(prevState => {
+                                    return {
+                                        ...prevState,
+                                        createAsset: {
+                                            ...prevState.createAsset,
+                                            refId: referenceId,
+                                            rNo: props.allUrlParams.createAsset.appNo + new Date().toISOString().slice(0, 10).replaceAll("-", "") + referenceId,
+                                            pDate: new Date().toDateString() + " " + new Date().toLocaleTimeString()
+                                        }
+                                    }
+                                })
+                            } else {
+                                console.log(error)
+                            }
+                        })
+                            .catch(function (e) {
+                                alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                                let additionalParams = '&status=failed&reason=' + e
+                                props.redirectExecution("null", additionalParams, 10, 10, "createAsset")
+                            })
+                    }
+                } else {
+                    console.log(error)
+                }
+            })
+                .catch(function (e) {
+                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                    let additionalParams = '&status=failed&reason=' + e
+                    props.redirectExecution("null", additionalParams, 10, 10, "createAsset")
+                })
+        }
+
+        // only executes when change is detected in props.allUrlParams.createAsset.appNo   
+    }, [props.allUrlParams.createAsset.appNo])
 
     return (
         <>
