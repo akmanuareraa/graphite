@@ -21,11 +21,11 @@
   margin-left: 0px;
 }
 .newassetbutton {
-  max-width: 130px;
-  width: 130px;
+  max-width: 150px;
+  width: 150px;
   text-align: center;
   height: 24px;
-  min-width: 130px;
+  min-width: 150px;
   min-height: 24px;
   max-height: 24px;
   border-top-color: #30d3e0;
@@ -58,12 +58,10 @@
 .root__newasset .newassetbutton__newasset:hover {
   background: #cffad0;
 }
-.sectionone {
-  max-width: 130px;
-  width: 130px;
+.gensalesbutton {
+  width: 150px;
   text-align: center;
   height: 24px;
-  min-width: 130px;
   min-height: 24px;
   max-height: 24px;
   border-top-color: #30d3e0;
@@ -79,10 +77,10 @@
   border-width: 0px;
   border-style: none;
 }
-.sectionone__sectionone {
+.gensalesbutton__gensalesorder {
   background: #cffad0;
 }
-.root .sectionone:hover {
+.root .gensalesbutton:hover {
   color: #000000;
   border-bottom-style: solid;
   border-top-style: none;
@@ -92,12 +90,12 @@
   background: #cffad0;
   border-width: 0px;
 }
-.sectiontwo {
-  max-width: 130px;
-  width: 130px;
+.confirmsalesbutton {
+  max-width: 150px;
+  width: 150px;
   text-align: center;
   height: 24px;
-  min-width: 130px;
+  min-width: 150px;
   min-height: 24px;
   max-height: 24px;
   border-top-color: #30d3e0;
@@ -113,13 +111,14 @@
   border-width: 0px;
   border-style: none;
 }
-.sectiontwo__sectiontwo {
+.confirmsalesbutton__confirmsalesorder {
   background: #cffad0;
 }
-.root .sectiontwo:hover {
+.root .confirmsalesbutton:hover {
   color: #000000;
   border-bottom-color: #1aecdf;
   background: #cffad0;
+  height: auto;
   border-width: 0px;
   border-style: none;
 }

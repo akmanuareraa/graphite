@@ -9,6 +9,15 @@
   position: relative;
   padding: 8px;
 }
+.root__sendtxnso {
+  padding-left: 90px;
+}
+.root__salesorder {
+  padding: 0px 0px 0px 90px;
+}
+.root__sendtxnconsentso {
+  padding-left: 90px;
+}
 .mainbutton {
   width: 436px;
   height: 50px;
@@ -25,6 +34,11 @@
   padding-right: 66px;
   padding-left: 16px;
   border-color: #dd751a;
+}
+.mainbutton__sendtxnso {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
 }
 .mainbutton__connectmm {
   padding-right: 38px;
@@ -58,6 +72,16 @@
   padding-right: 44px;
   border-color: #000000;
 }
+.mainbutton__salesorder {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__sendtxnconsentso {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
 .root .mainbutton:hover {
   background: #dd751a;
   color: #ffffff;
@@ -65,6 +89,9 @@
 .root__installmm .mainbutton__installmm:hover {
   background: #ff9a00;
   border-color: #dd751a;
+}
+.root__sendtxnso .mainbutton__sendtxnso:hover {
+  background: #000000;
 }
 .root__connectmm .mainbutton__connectmm:hover {
   background: #dd751a;
@@ -85,6 +112,12 @@
   border-color: #df2626;
 }
 .root__sendtxnconsent .mainbutton__sendtxnconsent:hover {
+  background: #000000;
+}
+.root__salesorder .mainbutton__salesorder:hover {
+  background: #000000;
+}
+.root__sendtxnconsentso .mainbutton__sendtxnconsentso:hover {
   background: #000000;
 }
 .img___4PNmP {
@@ -139,6 +172,9 @@
 .img__rfRzo > .__wab_img-spacer > img {
   object-fit: cover;
 }
+.img__sendtxnso__rfRzocK3Fg {
+  margin-left: -135px;
+}
 .img__sendtxn__rfRzoQfRAj {
   margin-left: -137px;
   display: inline-block !important;
@@ -146,6 +182,12 @@
 .img__sendtxnconsent__rfRzoLjVjA {
   margin-left: -135px;
   display: inline-block !important;
+}
+.img__salesorder__rfRzoAwkTr {
+  margin-left: -137px;
+}
+.img__sendtxnconsentso__rfRzoEknV0 {
+  margin-left: -135px;
 }
 .svg {
   position: relative;
@@ -162,6 +204,9 @@
 .svg__installmm {
   margin-left: -172px;
 }
+.svg__sendtxnso {
+  display: none;
+}
 .svg__connectmm {
   margin-left: -127px;
 }
@@ -175,6 +220,12 @@
   display: none;
 }
 .svg__sendtxnconsent {
+  display: none;
+}
+.svg__salesorder {
+  display: none;
+}
+.svg__sendtxnconsentso {
   display: none;
 }
 .img___3Qsg6 {
@@ -306,7 +357,14 @@
   font-style: italic;
   display: none;
 }
+.text__sendtxnso__dvzO3CK3Fg {
+  left: 110px;
+}
 .text__sendtxnconsent__dvzO3LjVjA {
+  display: block;
+}
+.text__sendtxnconsentso__dvzO3EknV0 {
+  left: 110px;
   display: block;
 }
 .freeBox___6TZiY {
@@ -327,6 +385,9 @@
   min-width: 0;
 }
 .freeBox__installmm___6TZiYvXuOp {
+  display: none;
+}
+.freeBox__sendtxnso___6TZiYcK3Fg {
   display: none;
 }
 .freeBox__connectmm___6TZiYsqZmt {
@@ -388,6 +449,12 @@
 .freeBox__sendtxnconsent___6TZiYljVjA {
   display: none;
 }
+.freeBox__salesorder___6TZiYAwkTr {
+  display: none;
+}
+.freeBox__sendtxnconsentso___6TZiYEknV0 {
+  display: none;
+}
 .text__yLeFm {
   width: 100%;
   height: auto;
@@ -395,6 +462,9 @@
   min-width: 0;
 }
 .text__installmm__yLeFMvXuOp {
+  display: none;
+}
+.text__sendtxnso__yLeFMcK3Fg {
   display: none;
 }
 .text__connectmm__yLeFmsqZmt {
@@ -424,6 +494,12 @@
   display: block;
 }
 .text__sendtxnconsent__yLeFmljVjA {
+  display: none;
+}
+.text__salesorder__yLeFmAwkTr {
+  display: none;
+}
+.text__sendtxnconsentso__yLeFmEknV0 {
   display: none;
 }
 .freeBox__gtmo0 {
@@ -462,10 +538,10 @@
   flex-shrink: 0;
 }
 .text__failed__re9XQocDdJ {
-  width: 82px;
+  width: 88px;
   height: auto;
-  min-width: 82px;
-  max-width: 82px;
+  min-width: 88px;
+  max-width: 88px;
   text-align: center;
   flex-shrink: 0;
   display: block;

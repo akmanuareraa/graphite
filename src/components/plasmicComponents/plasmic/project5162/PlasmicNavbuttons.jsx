@@ -23,8 +23,8 @@ import sty from "./PlasmicNavbuttons.module.css"; // plasmic-import: en6sGenXXJ/
 
 export const PlasmicNavbuttons__VariantProps = new Array(
   "newasset",
-  "sectionone",
-  "sectiontwo"
+  "gensalesorder",
+  "confirmsalesorder"
 );
 
 export const PlasmicNavbuttons__ArgProps = new Array();
@@ -36,20 +36,17 @@ function PlasmicNavbuttons__RenderFunc(props) {
     {}
   );
 
-  const [isSectiononeHover, triggerSectiononeHoverProps] = useTrigger(
+  const [isGensalesbuttonHover, triggerGensalesbuttonHoverProps] = useTrigger(
     "useHover",
     {}
   );
 
-  const [isSectiontwoHover, triggerSectiontwoHoverProps] = useTrigger(
-    "useHover",
-    {}
-  );
-
+  const [isConfirmsalesbuttonHover, triggerConfirmsalesbuttonHoverProps] =
+    useTrigger("useHover", {});
   const triggers = {
     hover_newassetbutton: isNewassetbuttonHover,
-    hover_sectionone: isSectiononeHover,
-    hover_sectiontwo: isSectiontwoHover
+    hover_gensalesbutton: isGensalesbuttonHover,
+    hover_confirmsalesbutton: isConfirmsalesbuttonHover
   };
 
   return true ? (
@@ -61,6 +58,18 @@ function PlasmicNavbuttons__RenderFunc(props) {
       data-plasmic-for-node={forNode}
       hasGap={true}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
+        [sty.root__confirmsalesorder]: hasVariant(
+          variants,
+          "confirmsalesorder",
+          "confirmsalesorder"
+        ),
+
+        [sty.root__gensalesorder]: hasVariant(
+          variants,
+          "gensalesorder",
+          "gensalesorder"
+        ),
+
         [sty.root__newasset]: hasVariant(variants, "newasset", "newasset")
       })}
     >
@@ -85,53 +94,68 @@ function PlasmicNavbuttons__RenderFunc(props) {
       </button>
 
       <button
-        data-plasmic-name={"sectionone"}
-        data-plasmic-override={overrides.sectionone}
+        data-plasmic-name={"gensalesbutton"}
+        data-plasmic-override={overrides.gensalesbutton}
         className={classNames(
           projectcss.button,
           projectcss.__wab_text,
-          sty.sectionone,
+          sty.gensalesbutton,
           {
-            [sty.sectionone__sectionone]: hasVariant(
+            [sty.gensalesbutton__gensalesorder]: hasVariant(
               variants,
-              "sectionone",
-              "sectionone"
+              "gensalesorder",
+              "gensalesorder"
             )
           }
         )}
-        data-plasmic-trigger-props={[triggerSectiononeHoverProps]}
+        data-plasmic-trigger-props={[triggerGensalesbuttonHoverProps]}
       >
-        {triggers.hover_sectionone ? "Section One" : "Section One"}
+        {triggers.hover_gensalesbutton
+          ? "Generate Sales Order"
+          : "Generate Sales Order"}
       </button>
 
       <button
-        data-plasmic-name={"sectiontwo"}
-        data-plasmic-override={overrides.sectiontwo}
+        data-plasmic-name={"confirmsalesbutton"}
+        data-plasmic-override={overrides.confirmsalesbutton}
         className={classNames(
           projectcss.button,
           projectcss.__wab_text,
-          sty.sectiontwo,
+          sty.confirmsalesbutton,
           {
-            [sty.sectiontwo__sectiontwo]: hasVariant(
+            [sty.confirmsalesbutton__confirmsalesorder]: hasVariant(
               variants,
-              "sectiontwo",
-              "sectiontwo"
+              "confirmsalesorder",
+              "confirmsalesorder"
+            ),
+
+            [sty.confirmsalesbutton__gensalesorder]: hasVariant(
+              variants,
+              "gensalesorder",
+              "gensalesorder"
             )
           }
         )}
-        data-plasmic-trigger-props={[triggerSectiontwoHoverProps]}
+        data-plasmic-trigger-props={[triggerConfirmsalesbuttonHoverProps]}
       >
-        {triggers.hover_sectiontwo ? "Section Two" : "Section Two"}
+        {hasVariant(variants, "confirmsalesorder", "confirmsalesorder") &&
+        triggers.hover_confirmsalesbutton
+          ? "Confirm Sales Order"
+          : triggers.hover_confirmsalesbutton
+          ? "Confirm Sales Order"
+          : hasVariant(variants, "confirmsalesorder", "confirmsalesorder")
+          ? "Confirm Sales Order"
+          : "Confirm Sales Order"}
       </button>
     </p.Stack>
   ) : null;
 }
 
 const PlasmicDescendants = {
-  root: ["root", "newassetbutton", "sectionone", "sectiontwo"],
+  root: ["root", "newassetbutton", "gensalesbutton", "confirmsalesbutton"],
   newassetbutton: ["newassetbutton"],
-  sectionone: ["sectionone"],
-  sectiontwo: ["sectiontwo"]
+  gensalesbutton: ["gensalesbutton"],
+  confirmsalesbutton: ["confirmsalesbutton"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -164,8 +188,8 @@ export const PlasmicNavbuttons = Object.assign(
   {
     // Helper components rendering sub-elements
     newassetbutton: makeNodeComponent("newassetbutton"),
-    sectionone: makeNodeComponent("sectionone"),
-    sectiontwo: makeNodeComponent("sectiontwo"),
+    gensalesbutton: makeNodeComponent("gensalesbutton"),
+    confirmsalesbutton: makeNodeComponent("confirmsalesbutton"),
     // Metadata about props expected for PlasmicNavbuttons
     internalVariantProps: PlasmicNavbuttons__VariantProps,
     internalArgProps: PlasmicNavbuttons__ArgProps

@@ -1,0 +1,55 @@
+.root {
+  display: block;
+  width: 980px;
+  height: 360px;
+  max-width: 100%;
+  background: #04090b33;
+  transform: translateX(0px) translateY(0px) translateZ(0px);
+  position: relative;
+  border-radius: 5%;
+  padding: 8px;
+}
+.text {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  left: 358px;
+  top: 43px;
+  font-size: 30px;
+  color: #535353;
+  font-weight: 600;
+  min-width: 0;
+}
+.tokenidbutton {
+  position: absolute;
+  left: 381px;
+  top: 266px;
+  height: 52px;
+  width: 172px;
+  background: #4b9034;
+  color: #050505;
+  font-size: 20px;
+  border-radius: 5%;
+}
+.tokenId:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  left: 282px;
+  top: 138px;
+  margin-right: 0px;
+  width: 390px;
+  height: 64px;
+}
+.svg___0MoN {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__dXnjg {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}

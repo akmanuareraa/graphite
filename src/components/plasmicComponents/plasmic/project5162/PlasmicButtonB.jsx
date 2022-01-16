@@ -33,7 +33,10 @@ export const PlasmicButtonB__VariantProps = new Array(
   "processing",
   "success",
   "failed",
-  "sendtxnconsent"
+  "sendtxnconsent",
+  "salesorder",
+  "sendtxnconsentso",
+  "sendtxnso"
 );
 
 export const PlasmicButtonB__ArgProps = new Array("hash", "onClick", "timer");
@@ -56,6 +59,12 @@ function PlasmicButtonB__RenderFunc(props) {
           "processing"
         ),
 
+        [sty.root__salesorder]: hasVariant(
+          variants,
+          "salesorder",
+          "salesorder"
+        ),
+
         [sty.root__sendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
         [sty.root__sendtxnconsent]: hasVariant(
           variants,
@@ -63,6 +72,13 @@ function PlasmicButtonB__RenderFunc(props) {
           "sendtxnconsent"
         ),
 
+        [sty.root__sendtxnconsentso]: hasVariant(
+          variants,
+          "sendtxnconsentso",
+          "sendtxnconsentso"
+        ),
+
+        [sty.root__sendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
         [sty.root__success]: hasVariant(variants, "success", "success")
       })}
     >
@@ -93,6 +109,12 @@ function PlasmicButtonB__RenderFunc(props) {
               "processing"
             ),
 
+            [sty.mainbutton__salesorder]: hasVariant(
+              variants,
+              "salesorder",
+              "salesorder"
+            ),
+
             [sty.mainbutton__sendtxn]: hasVariant(
               variants,
               "sendtxn",
@@ -105,6 +127,18 @@ function PlasmicButtonB__RenderFunc(props) {
               "sendtxnconsent"
             ),
 
+            [sty.mainbutton__sendtxnconsentso]: hasVariant(
+              variants,
+              "sendtxnconsentso",
+              "sendtxnconsentso"
+            ),
+
+            [sty.mainbutton__sendtxnso]: hasVariant(
+              variants,
+              "sendtxnso",
+              "sendtxnso"
+            ),
+
             [sty.mainbutton__success]: hasVariant(
               variants,
               "success",
@@ -113,12 +147,20 @@ function PlasmicButtonB__RenderFunc(props) {
           }
         )}
         disabled={
-          hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
             ? true
+            : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+            ? true
+            : hasVariant(variants, "sendtxnso", "sendtxnso")
+            ? false
             : undefined
         }
       >
-        {hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+        {hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? "Confirm Sales Order"
+          : hasVariant(variants, "salesorder", "salesorder")
+          ? "Create Sales Order"
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
           ? "Sign and Submit Request"
           : hasVariant(variants, "failed", "failed")
           ? "Transaction Failed"
@@ -130,6 +172,8 @@ function PlasmicButtonB__RenderFunc(props) {
           ? "Sign and Submit Request"
           : hasVariant(variants, "connectmm", "connectmm")
           ? "Connect Metamask Account"
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
+          ? "Confirm Sales Order"
           : hasVariant(variants, "installmm", "installmm")
           ? "Install Metamask"
           : "Transaction in Process"}
@@ -186,15 +230,27 @@ function PlasmicButtonB__RenderFunc(props) {
         />
       ) : null}
       {(
-        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+        hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? false
+          : hasVariant(variants, "salesorder", "salesorder")
+          ? false
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
           ? true
           : hasVariant(variants, "sendtxn", "sendtxn")
           ? true
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
+          ? false
           : true
       ) ? (
         <p.PlasmicImg
           alt={""}
           className={classNames(sty.img__rfRzo, {
+            [sty.img__salesorder__rfRzoAwkTr]: hasVariant(
+              variants,
+              "salesorder",
+              "salesorder"
+            ),
+
             [sty.img__sendtxn__rfRzoQfRAj]: hasVariant(
               variants,
               "sendtxn",
@@ -205,6 +261,18 @@ function PlasmicButtonB__RenderFunc(props) {
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
+            ),
+
+            [sty.img__sendtxnconsentso__rfRzoEknV0]: hasVariant(
+              variants,
+              "sendtxnconsentso",
+              "sendtxnconsentso"
+            ),
+
+            [sty.img__sendtxnso__rfRzocK3Fg]: hasVariant(
+              variants,
+              "sendtxnso",
+              "sendtxnso"
             )
           })}
           displayHeight={"38px"}
@@ -223,7 +291,11 @@ function PlasmicButtonB__RenderFunc(props) {
         />
       ) : null}
       {(
-        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+        hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? true
+          : hasVariant(variants, "salesorder", "salesorder")
+          ? true
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
           ? true
           : hasVariant(variants, "failed", "failed")
           ? true
@@ -232,6 +304,8 @@ function PlasmicButtonB__RenderFunc(props) {
           : hasVariant(variants, "processing", "processing")
           ? false
           : hasVariant(variants, "sendtxn", "sendtxn")
+          ? true
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
           ? true
           : true
       ) ? (
@@ -258,11 +332,29 @@ function PlasmicButtonB__RenderFunc(props) {
               "processing"
             ),
 
+            [sty.svg__salesorder]: hasVariant(
+              variants,
+              "salesorder",
+              "salesorder"
+            ),
+
             [sty.svg__sendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
             [sty.svg__sendtxnconsent]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
+            ),
+
+            [sty.svg__sendtxnconsentso]: hasVariant(
+              variants,
+              "sendtxnconsentso",
+              "sendtxnconsentso"
+            ),
+
+            [sty.svg__sendtxnso]: hasVariant(
+              variants,
+              "sendtxnso",
+              "sendtxnso"
             ),
 
             [sty.svg__success]: hasVariant(variants, "success", "success")
@@ -402,7 +494,13 @@ function PlasmicButtonB__RenderFunc(props) {
         </a>
       ) : null}
       {(
-        hasVariant(variants, "sendtxnconsent", "sendtxnconsent") ? true : true
+        hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? true
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          ? true
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
+          ? false
+          : true
       ) ? (
         <div
           className={classNames(
@@ -414,6 +512,18 @@ function PlasmicButtonB__RenderFunc(props) {
                 variants,
                 "sendtxnconsent",
                 "sendtxnconsent"
+              ),
+
+              [sty.text__sendtxnconsentso__dvzO3EknV0]: hasVariant(
+                variants,
+                "sendtxnconsentso",
+                "sendtxnconsentso"
+              ),
+
+              [sty.text__sendtxnso__dvzO3CK3Fg]: hasVariant(
+                variants,
+                "sendtxnso",
+                "sendtxnso"
               )
             }
           )}
@@ -422,7 +532,11 @@ function PlasmicButtonB__RenderFunc(props) {
         </div>
       ) : null}
       {(
-        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+        hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? true
+          : hasVariant(variants, "salesorder", "salesorder")
+          ? true
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
           ? true
           : hasVariant(variants, "failed", "failed")
           ? true
@@ -433,6 +547,8 @@ function PlasmicButtonB__RenderFunc(props) {
           : hasVariant(variants, "sendtxn", "sendtxn")
           ? true
           : hasVariant(variants, "connectmm", "connectmm")
+          ? true
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
           ? true
           : hasVariant(variants, "installmm", "installmm")
           ? true
@@ -466,6 +582,12 @@ function PlasmicButtonB__RenderFunc(props) {
               "processing"
             ),
 
+            [sty.freeBox__salesorder___6TZiYAwkTr]: hasVariant(
+              variants,
+              "salesorder",
+              "salesorder"
+            ),
+
             [sty.freeBox__sendtxn___6TZiYQfRAj]: hasVariant(
               variants,
               "sendtxn",
@@ -478,6 +600,18 @@ function PlasmicButtonB__RenderFunc(props) {
               "sendtxnconsent"
             ),
 
+            [sty.freeBox__sendtxnconsentso___6TZiYEknV0]: hasVariant(
+              variants,
+              "sendtxnconsentso",
+              "sendtxnconsentso"
+            ),
+
+            [sty.freeBox__sendtxnso___6TZiYcK3Fg]: hasVariant(
+              variants,
+              "sendtxnso",
+              "sendtxnso"
+            ),
+
             [sty.freeBox__success___6TZiYkPrSc]: hasVariant(
               variants,
               "success",
@@ -486,7 +620,11 @@ function PlasmicButtonB__RenderFunc(props) {
           })}
         >
           {(
-            hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+            hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+              ? true
+              : hasVariant(variants, "salesorder", "salesorder")
+              ? true
+              : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
               ? true
               : hasVariant(variants, "failed", "failed")
               ? true
@@ -495,6 +633,8 @@ function PlasmicButtonB__RenderFunc(props) {
               : hasVariant(variants, "sendtxn", "sendtxn")
               ? true
               : hasVariant(variants, "connectmm", "connectmm")
+              ? true
+              : hasVariant(variants, "sendtxnso", "sendtxnso")
               ? true
               : hasVariant(variants, "installmm", "installmm")
               ? true
@@ -530,6 +670,12 @@ function PlasmicButtonB__RenderFunc(props) {
                     "processing"
                   ),
 
+                  [sty.text__salesorder__yLeFmAwkTr]: hasVariant(
+                    variants,
+                    "salesorder",
+                    "salesorder"
+                  ),
+
                   [sty.text__sendtxn__yLeFmQfRAj]: hasVariant(
                     variants,
                     "sendtxn",
@@ -540,6 +686,18 @@ function PlasmicButtonB__RenderFunc(props) {
                     variants,
                     "sendtxnconsent",
                     "sendtxnconsent"
+                  ),
+
+                  [sty.text__sendtxnconsentso__yLeFmEknV0]: hasVariant(
+                    variants,
+                    "sendtxnconsentso",
+                    "sendtxnconsentso"
+                  ),
+
+                  [sty.text__sendtxnso__yLeFMcK3Fg]: hasVariant(
+                    variants,
+                    "sendtxnso",
+                    "sendtxnso"
                   ),
 
                   [sty.text__success__yLeFMkPrSc]: hasVariant(
@@ -626,7 +784,7 @@ function PlasmicButtonB__RenderFunc(props) {
               )}
             >
               {hasVariant(variants, "failed", "failed")
-                ? "seconds..."
+                ? " seconds..."
                 : hasVariant(variants, "success", "success")
                 ? "seconds..."
                 : "Enter some text"}
