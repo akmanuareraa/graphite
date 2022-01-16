@@ -251,7 +251,9 @@ function ConfirmSalesOrder(props) {
                     
                         // created scenario
                     } else {
-
+                        
+                        let salesOrderFromDB = response.data.SalesOrder
+                            
                         // checks the status of the sales order
                         axios.get(config.backendServer + "getSalesOrderStatus", { params: { "pono": props.allUrlParams.confirmSalesOrder.pono } }).then(function (response, error) {
                             if (response) {
@@ -276,7 +278,7 @@ function ConfirmSalesOrder(props) {
                                         return {
                                             ...prevState,
                                             confirmSalesOrder: {
-                                                ...response.data.SalesOrder
+                                                ...salesOrderFromDB
                                             }
                                         }
                                     })
