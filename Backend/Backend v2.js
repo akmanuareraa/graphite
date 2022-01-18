@@ -263,40 +263,6 @@ app.get("/addVerifyToken", function (req, res) {
         })
 })
 
-app.get("/getIdCardVerify", function (req, res) {
-    console.log("Reached here", req.query);
-    getIdCardVerify(req.query).then(function (response, error) {
-        if (response) {
-            console.log(response)
-            if (response == 'No Record Found') {
-                res.status(404).json("No Record Found")
-            } else {
-                res.status(200).json({ ID: response })
-            }
-        } else {
-            res.status(500).json({ "Error": error })
-        }
-    })
-})
-
-// reuse the getIdCard Function
-async function getIdCardVerify(JSdoc) {
-    try {
-        await client.connect();
-        const database = client.db(dbName);
-        const coll = database.collection("idcard");
-        const Cursor = await coll.findOne({ "docno": JSdoc.docno });
-        console.log('Cursor: ', Cursor)
-        if (Cursor) {
-            return Cursor;
-        } else {
-            return 'No Record Found';
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
-
 app.post("/addSalesOrder", function (req, res) {
     console.log("Reached here", req.body);
     addSalesOrder(req.body).then(function (response, error) {
