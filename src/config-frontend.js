@@ -9,6 +9,7 @@ let data = {
     //backendServer: "http://34.93.254.194:5000/",
     backendServer: "http://localhost:5000/",
     redirectUrl: "https:///www.ezofis.com/Products.html?",
+    //for navbar
     domain: "http://localhost:3000/",
     logisticsAssetMinterAddress: "0x2f2e2A826c7c8f5aF21758d0e1c33cc3d8e38870"
 }

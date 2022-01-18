@@ -8,7 +8,12 @@ import PrefilledForm from './components/reactComponents/PrefilledForm';
 import GenerateSalesOrder from './components/reactComponents/GenerateSalesOrder';
 import ConfirmSalesOrder from './components/reactComponents/ConfirmSalesOrder';
 import VerifyEstId from './components/reactComponents/VerifyEstId';
-import Test from './components/reactComponents/Test';
+import InvoiceGeneration from './components/reactComponents/InvoiceGeneration';
+import InvoiceConfirmation from './components/reactComponents/InvoiceConfirmation';
+import LogisticsGeneration from './components/reactComponents/LogisticsGeneration';
+import LogisticsConfirmation from './components/reactComponents/LogisticsConfirmation';
+import CrossChainBridge from './components/reactComponents/CrossChainBridge';
+import Homepage from './components/reactComponents/Homepage';
 
 function App() {
 
@@ -30,9 +35,23 @@ function App() {
       confirmSalesOrder: {
         dataLoaded: false
       },
-
+      generateinvoice: {
+        txnHash: null,
+      },
+      confirminvoice: {
+        txnHash: null,
+      },
+      generatelogistics: {
+        txnHash: null,
+      },
+      confirmlogistics: {
+        txnHash: null,
+      },
       verifyestid: {
         tokenNo: ""
+      },
+      crosschainbridge: {
+        tokenamount: '',
       }
     }
   })
@@ -48,9 +67,23 @@ function App() {
         iksfeecu: 0,
         taxcu: 0
       },
-      generateSalesOrder: {},
+      generateSalesOrder: {
+        pono: null
+      },
       confirmSalesOrder: {
         pono: null
+      },
+      generateinvoice: {
+        invoiceno: null
+      },
+      confirminvoice: {
+        invoiceno: null
+      },
+      generatelogistics: {
+        cha: null
+      },
+      confirmlogistics: {
+        cha: null
       }
     }
   })
@@ -59,9 +92,8 @@ function App() {
   const [allUiStates, setAllUiStates] = useState(() => {
     return {
       navbar: {
-        newasset: false,
-        gensalesorder: false,
-        confirmsalesorder: false
+        verifyid: false,
+        bridge: false
       },
       createAsset: {
         walletStateDis: true,
@@ -87,10 +119,12 @@ function App() {
         walletStateCon: false,
         installmm: false,
         connectmm: true,
-        sendtxn: false,
         processing: false,
         txnsuccess: false,
-        txnfailed: false
+        txnfailed: false,
+        salesorder: false,
+        sendtxnso: false,
+        sendtxnconsentso: false,
       },
       confirmSalesOrder: {
         dashboard: true,
@@ -106,8 +140,68 @@ function App() {
         sendtxnconsentso: false,
         sendtxnso: false
       },
+      generateinvoice: {
+        walletStateDis: true,
+        walletStateCon: false,
+        installmm: false,
+        connectmm: true,
+        processing: false,
+        txnsuccess: false,
+        txnfailed: false,
+        invoice: false,
+        sendtxninv: false,
+        sendtxnconsentinv: false,
+      },
+      confirminvoice: {
+        tickboxState: false,
+        walletStateDis: true,
+        walletStateCon: false,
+        installmm: false,
+        connectmm: true,
+        sendtxn: false,
+        processing: false,
+        txnsuccess: false,
+        txnfailed: false,
+        invoice: false,
+        sendtxnconsentinv: false,
+        sendtxninv: false
+      },
+      generatelogistics: {
+        walletStateDis: true,
+        walletStateCon: false,
+        installmm: false,
+        connectmm: true,
+        processing: false,
+        txnsuccess: false,
+        txnfailed: false,
+        logistics: false,
+        sendtxnlog: false,
+        sendtxnconsentlog: false,
+      },
+      confirmlogistics: {
+        tickboxState: false,
+        walletStateDis: true,
+        walletStateCon: false,
+        installmm: false,
+        connectmm: true,
+        sendtxn: false,
+        processing: false,
+        txnsuccess: false,
+        txnfailed: false,
+        logistics: false,
+        sendtxnconsentlog: false,
+        sendtxnlog: false
+      },
       verifyestid: {
         displayId: false
+      },
+      crosschainbridge: {
+       bridgeselected: true,
+       returnselected: false, 
+       bridgetoken: true,
+       returntoken: false,
+       bridgeinput: true,
+       returninput: false
       }
     }
   })
@@ -248,6 +342,94 @@ function App() {
                 }
               })
             }
+          } else if (pageName === "generateinvoice") {
+            console.log('Inside Gen Invoice')
+            setAllUiStates(prevState => {
+              return {
+                ...prevState,
+                generateinvoice: {
+                  ...prevState.generateinvoice,
+                  connectmm: false,
+                  invoice: true,
+                  walletStateDis: false,
+                  walletStateCon: true
+                }
+              }
+            })
+          } else if (pageName === "confirminvoice") {
+
+            //changing the UI state depending upon the consent received from the user
+            if (allUiStates.confirminvoice.tickboxState) {
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  confirminvoice: {
+                    ...prevState.confirminvoice,
+                    connectmm: false,
+                    sendtxninv: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            } else {
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  confirminvoice: {
+                    ...prevState.confirminvoice,
+                    connectmm: false,
+                    sendtxnconsentinv: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            }
+          } else if (pageName === "generatelogistics") {
+            console.log('UI STATE:', allUiStates.generatelogistics)
+            setAllUiStates(prevState => {
+              return {
+                ...prevState,
+                generatelogistics: {
+                  ...prevState.generatelogistics,
+                  connectmm: false,
+                  logistics: true,
+                  walletStateDis: false,
+                  walletStateCon: true
+                }
+              }
+            })
+          } else if (pageName === "confirmlogistics") {
+
+            //changing the UI state depending upon the consent received from the user
+            if (allUiStates.confirmlogistics.tickboxState) {
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  confirmlogistics: {
+                    ...prevState.confirmlogistics,
+                    connectmm: false,
+                    sendtxnlog: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            } else {
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  confirmlogistics: {
+                    ...prevState.confirmlogistics,
+                    connectmm: false,
+                    sendtxnconsentlog: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            }
           }
         }
 
@@ -315,6 +497,94 @@ function App() {
                   }
                 }
               })
+            } else if (pageName === "generateinvoice") {
+              console.log('Inside Gen Invoice')
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  generateinvoice: {
+                    ...prevState.generateinvoice,
+                    connectmm: false,
+                    invoice: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            } else if (pageName === "confirminvoice") {
+
+              //changing the UI state depending upon the consent received from the user
+              if (allUiStates.confirminvoice.tickboxState) {
+                setAllUiStates(prevState => {
+                  return {
+                    ...prevState,
+                    confirminvoice: {
+                      ...prevState.confirminvoice,
+                      connectmm: false,
+                      sendtxninv: true,
+                      walletStateDis: false,
+                      walletStateCon: true
+                    }
+                  }
+                })
+              } else {
+                setAllUiStates(prevState => {
+                  return {
+                    ...prevState,
+                    confirminvoice: {
+                      ...prevState.confirminvoice,
+                      connectmm: false,
+                      sendtxnconsentinv: true,
+                      walletStateDis: false,
+                      walletStateCon: true
+                    }
+                  }
+                })
+              }
+            } else if (pageName === "generatelogistics") {
+              console.log('UI STATE:', allUiStates.generatelogistics)
+              setAllUiStates(prevState => {
+                return {
+                  ...prevState,
+                  generatelogistics: {
+                    ...prevState.generatelogistics,
+                    connectmm: false,
+                    logistics: true,
+                    walletStateDis: false,
+                    walletStateCon: true
+                  }
+                }
+              })
+            } else if (pageName === "confirmlogistics") {
+
+              //changing the UI state depending upon the consent received from the user
+              if (allUiStates.confirmlogistics.tickboxState) {
+                setAllUiStates(prevState => {
+                  return {
+                    ...prevState,
+                    confirmlogistics: {
+                      ...prevState.confirmlogistics,
+                      connectmm: false,
+                      sendtxnlog: true,
+                      walletStateDis: false,
+                      walletStateCon: true
+                    }
+                  }
+                })
+              } else {
+                setAllUiStates(prevState => {
+                  return {
+                    ...prevState,
+                    confirmlogistics: {
+                      ...prevState.confirmlogistics,
+                      connectmm: false,
+                      sendtxnconsentlog: true,
+                      walletStateDis: false,
+                      walletStateCon: true
+                    }
+                  }
+                })
+              }
             }
           }
 
@@ -387,8 +657,7 @@ function App() {
         />
         <Routes>
 
-          {/* homepage
-          <Route path="/" element={<EZHomePage />} /> */}
+          <Route path="/" element={<Homepage />} />
 
           <Route path="/createNewAsset/:params" element={<PrefilledForm
             mainState={mainState}
@@ -429,12 +698,71 @@ function App() {
             redirectExecution={redirectExecution}
           />} />
 
+          <Route path="/generateInvoice/:params" element={<InvoiceGeneration
+            mainState={mainState}
+            setMainState={setMainState}
+            allUiStates={allUiStates}
+            setAllUiStates={setAllUiStates}
+            allUrlParams={allUrlParams}
+            setAllUrlParams={setAllUrlParams}
+            setupMetamask={setupMetamask}
+            urlParser={urlParser}
+            getTimeout={getTimeout}
+            redirectExecution={redirectExecution}
+          />} />
+
+          <Route path="/confirmInvoice/:params" element={<InvoiceConfirmation
+            mainState={mainState}
+            setMainState={setMainState}
+            allUiStates={allUiStates}
+            setAllUiStates={setAllUiStates}
+            allUrlParams={allUrlParams}
+            setAllUrlParams={setAllUrlParams}
+            setupMetamask={setupMetamask}
+            urlParser={urlParser}
+            getTimeout={getTimeout}
+            redirectExecution={redirectExecution}
+          />} />
+
+          <Route path="/generateLogistics/:params" element={<LogisticsGeneration
+            mainState={mainState}
+            setMainState={setMainState}
+            allUiStates={allUiStates}
+            setAllUiStates={setAllUiStates}
+            allUrlParams={allUrlParams}
+            setAllUrlParams={setAllUrlParams}
+            setupMetamask={setupMetamask}
+            urlParser={urlParser}
+            getTimeout={getTimeout}
+            redirectExecution={redirectExecution}
+          />} />
+
+          <Route path="/confirmLogistics/:params" element={<LogisticsConfirmation
+            mainState={mainState}
+            setMainState={setMainState}
+            allUiStates={allUiStates}
+            setAllUiStates={setAllUiStates}
+            allUrlParams={allUrlParams}
+            setAllUrlParams={setAllUrlParams}
+            setupMetamask={setupMetamask}
+            urlParser={urlParser}
+            getTimeout={getTimeout}
+            redirectExecution={redirectExecution}
+          />} />
+
           <Route path="/verifyId" element={<VerifyEstId
             mainState={mainState}
             setMainState={setMainState}
             allUiStates={allUiStates}
             setAllUiStates={setAllUiStates}
             setupMetamask={setupMetamask}
+          />} />
+
+          <Route path="/crosschainbridge" element={<CrossChainBridge 
+            mainState={mainState}
+            setMainState={setMainState}
+            allUiStates={allUiStates}
+            setAllUiStates={setAllUiStates}
           />} />
         </Routes>
       </BrowserRouter>
