@@ -1,0 +1,35 @@
+.root {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 45px;
+  max-width: 100%;
+  padding: 0px;
+}
+.text {
+  max-width: 181px;
+  width: 180px;
+  height: auto;
+  background: none;
+  color: #000000;
+  text-align: center;
+  align-self: center;
+  flex-shrink: 0;
+  border-radius: 0px;
+  padding: 10.5px 15px;
+  border: 2px none #000000;
+}
+.text__selected {
+  background: #000000;
+  color: #ffffff;
+}
+.root .text:hover {
+  background: #c5c5c5;
+  color: #ffffff;
+}
+.root__selected .text__selected:hover {
+  background: #000000;
+}

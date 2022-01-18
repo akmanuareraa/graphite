@@ -1,0 +1,47 @@
+.root {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+.applicationForm {
+  background: rgba(255, 255, 255, 1);
+  width: 1388px;
+  height: 594px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+.text {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  left: 293px;
+  top: 214px;
+  text-align: center;
+  font-size: 50px;
+  min-width: 0;
+  display: none;
+}
+.img {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 402px;
+  top: 162px;
+  width: 533px;
+  height: 128px;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.img > .__wab_img-spacer > img {
+  object-fit: cover;
+}
