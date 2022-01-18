@@ -5,18 +5,18 @@ import config from '../../config-frontend'
 
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
 
-import SalesOrderConfirmation from '../plasmicComponents/SalesOrderConfirmation';
+import Logisticsconfirmation from '../plasmicComponents/Logisticsconfirmation.jsx';
 
-function ConfirmSalesOrder(props) {
+function LogisticsConfirmation(props) {
 
-    // handles the confirmation of sales order
-    const confirmSalesOrder = () => {
+    // handles the confirmation of logistics
+    const confirmLogistics = () => {
         props.setAllUiStates(prevState => {
             return {
                 ...prevState,
-                confirmSalesOrder: {
-                    ...prevState.confirmSalesOrder,
-                    sendtxnso: false,
+                confirmlogistics: {
+                    ...prevState.confirmlogistics,
+                    sendtxnlog: false,
                     processing: true
                 }
             }
@@ -26,7 +26,7 @@ function ConfirmSalesOrder(props) {
         let logisticsAssetMinterAddress = config.logisticsAssetMinterAddress
         let logisticsAssetMinterABI = JSON.parse(logisticsAssetMinter)
         let logisticsAssetMinterContract = new web3.eth.Contract(logisticsAssetMinterABI, logisticsAssetMinterAddress)
-        let hash = Web3.utils.keccak256(JSON.stringify(props.allUrlParams.confirmSalesOrder))
+        let hash = Web3.utils.keccak256(JSON.stringify(props.allUrlParams.confirmlogistics))
 
         logisticsAssetMinterContract.methods.addCustomerApproval(hash).send({ from: props.mainState.account })
             .on('transactionHash', function (hash) {
@@ -34,8 +34,8 @@ function ConfirmSalesOrder(props) {
                 props.setMainState(prevState => {
                     return {
                         ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
+                        confirmlogistics: {
+                            ...prevState.confirmlogistics,
                             txnHash: hash
                         }
                     }
@@ -51,8 +51,8 @@ function ConfirmSalesOrder(props) {
                     props.setAllUiStates(prevState => {
                         return {
                             ...prevState,
-                            confirmSalesOrder: {
-                                ...prevState.confirmSalesOrder,
+                            confirmlogistics: {
+                                ...prevState.confirmlogistics,
                                 processing: false,
                                 txnsuccess: true
                             }
@@ -60,7 +60,7 @@ function ConfirmSalesOrder(props) {
                     })
 
                     let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
-                    props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
+                    props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
                 }
             })
             .on('error', function (error, receipt) {
@@ -68,8 +68,8 @@ function ConfirmSalesOrder(props) {
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
+                        confirmlogistics: {
+                            ...prevState.confirmlogistics,
                             processing: false,
                             txnfailed: true
                         }
@@ -77,103 +77,95 @@ function ConfirmSalesOrder(props) {
                 })
 
                 let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
-                props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
+                props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
             })
             .catch(function (e) {
                 console.log(e.message)
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
+                        confirmlogistics: {
+                            ...prevState.confirmlogistics,
                             processing: false,
                             txnfailed: true
                         }
                     }
                 })
                 let additionalParams = '&status=failed&reason=' + e.message
-                props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
+                props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
             })
     }
 
     // handles the UI component
-    const salesOrderRenderer = () => {
+    const logisticsrenderer = () => {
         return (
             <>
-                <SalesOrderConfirmation
-                    loading={props.allUiStates.confirmSalesOrder.loading}
-                    notfound={props.allUiStates.confirmSalesOrder.notfound}
-                    confirmed={props.allUiStates.confirmSalesOrder.confirmed}
+                <Logisticsconfirmation
+                    loading={props.allUiStates.confirmlogistics.loading}
+                    notfound={props.allUiStates.confirmlogistics.notfound}
+                    confirmed={props.allUiStates.confirmlogistics.confirmed}
 
-                    pono={props.allUrlParams.confirmSalesOrder.pono}
-                    supplier={props.allUrlParams.confirmSalesOrder.supplier}
-                    shipmentmode={props.allUrlParams.confirmSalesOrder.shipmentmode}
-                    origincountry={props.allUrlParams.confirmSalesOrder.origincountry}
-                    sap={props.allUrlParams.confirmSalesOrder.sap}
-                    grn={props.allUrlParams.confirmSalesOrder.grn}
-                    creditnotevalue={props.allUrlParams.confirmSalesOrder.creditnotevalue}
-                    balance={props.allUrlParams.confirmSalesOrder.balance}
+                    cha= {props.allUrlParams.confirmlogistics.cha}
+                    ffname={props.allUrlParams.confirmlogistics.ffname}
+                    entryno={props.allUrlParams.confirmlogistics.entryno}
+                    entrydate={props.allUrlParams.confirmlogistics.entrydate}
+                    dutyamount={props.allUrlParams.confirmlogistics.dutyamount}
+                    hts={props.allUrlParams.confirmlogistics.hts}
+                    tfamount={props.allUrlParams.confirmlogistics.tfamount}
+                    ntfamount={props.allUrlParams.confirmlogistics.ntfamount}
+                    tchaamount={props.allUrlParams.confirmlogistics.tchaamount}
+                    ntchaamount={props.allUrlParams.confirmlogistics.ntchaamount}
 
                     formbutton={{
-                        installmm: props.allUiStates.confirmSalesOrder.installmm,
-                        connectmm: props.allUiStates.confirmSalesOrder.connectmm,
-                        salesorder: props.allUiStates.confirmSalesOrder.salesorder,
-                        processing: props.allUiStates.confirmSalesOrder.processing,
-                        success: props.allUiStates.confirmSalesOrder.txnsuccess,
-                        failed: props.allUiStates.confirmSalesOrder.txnfailed,
-                        hash: props.mainState.confirmSalesOrder.txnHash,
-                        sendtxnconsentso: props.allUiStates.confirmSalesOrder.sendtxnconsentso,
-                        sendtxnso: props.allUiStates.confirmSalesOrder.sendtxnso,
+                        installmm: props.allUiStates.confirmlogistics.installmm,
+                        connectmm: props.allUiStates.confirmlogistics.connectmm,
+                        logistics: props.allUiStates.confirmlogistics.logistics,
+                        processing: props.allUiStates.confirmlogistics.processing,
+                        success: props.allUiStates.confirmlogistics.txnsuccess,
+                        failed: props.allUiStates.confirmlogistics.txnfailed,
+                        hash: props.mainState.confirmlogistics.txnHash,
+                        sendtxnconsentlog: props.allUiStates.confirmlogistics.sendtxnconsentlog,
+                        sendtxnlog: props.allUiStates.confirmlogistics.sendtxnlog,
                         mainbutton: {
                             onClick: () => {
-                                console.log(props.allUiStates.confirmSalesOrder.sendtxnso)
-                                if (props.allUiStates.confirmSalesOrder.connectmm) { props.setupMetamask("confirmSalesOrder").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
-                                else if (props.allUiStates.confirmSalesOrder.sendtxnso) { confirmSalesOrder(props.allUrlParams.confirmSalesOrder) }
+                                console.log(props.allUiStates.confirmlogistics.sendtxnlog)
+                                if (props.allUiStates.confirmlogistics.connectmm) { props.setupMetamask("confirmlogistics").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
+                                else if (props.allUiStates.confirmlogistics.sendtxnlog) { confirmLogistics(props.allUrlParams.confirmlogistics) }
                             }
                         },
                         copybutton: {
                             onClick: () => {
-                                navigator.clipboard.writeText(props.mainState.confirmSalesOrder.txnHash)
+                                navigator.clipboard.writeText(props.mainState.confirmlogistics.txnHash)
                             }
                         },
                         installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } },
-                        timer: props.mainState.confirmSalesOrder.timer
+                        timer: props.mainState.confirmlogistics.timer
                     }}
 
                     consent={{
-                        agreed: props.allUiStates.confirmSalesOrder.tickboxState,
+                        agreed: props.allUiStates.confirmlogistics.tickboxState,
                         tickbox: {
                             onClick: () => {
-                                if (!props.allUiStates.confirmSalesOrder.processing && !props.allUiStates.confirmSalesOrder.txnsuccess && !props.allUiStates.confirmSalesOrder.txnfailed) {
-                                    if (props.allUiStates.confirmSalesOrder.tickboxState) {
-                                        console.log("1")
-                                        // props.setAllUrlParams(prevState => {
-                                        //     return {
-                                        //         ...prevState,
-                                        //         confirmSalesOrder: {
-                                        //             ...prevState.confirmSalesOrder,
-                                        //             consent: false
-                                        //         }
-                                        //     }
-                                        // })
+                                if (!props.allUiStates.confirmlogistics.processing && !props.allUiStates.confirmlogistics.txnsuccess && !props.allUiStates.confirmlogistics.txnfailed) {
+                                    if (props.allUiStates.confirmlogistics.tickboxState) {
                                         props.setAllUiStates(prevState => {
                                             if (props.mainState.account != null) {
                                                 console.log("2")
                                                 return {
                                                     ...prevState,
-                                                    confirmSalesOrder: {
-                                                        ...prevState.confirmSalesOrder,
+                                                    confirmlogistics: {
+                                                        ...prevState.confirmlogistics,
                                                         tickboxState: false,
-                                                        sendtxnconsentso: true,
-                                                        sendtxnso: false
+                                                        sendtxnconsentlog: true,
+                                                        sendtxnlog: false
                                                     }
                                                 }
                                             } else {
                                                 console.log("6")
                                                 return {
                                                     ...prevState,
-                                                    confirmSalesOrder: {
-                                                        ...prevState.confirmSalesOrder,
+                                                    confirmlogistics: {
+                                                        ...prevState.confirmlogistics,
                                                         tickboxState: false
                                                     }
 
@@ -186,18 +178,18 @@ function ConfirmSalesOrder(props) {
                                                 console.log("4")
                                                 return {
                                                     ...prevState,
-                                                    confirmSalesOrder: {
-                                                        ...prevState.confirmSalesOrder,
+                                                    confirmlogistics: {
+                                                        ...prevState.confirmlogistics,
                                                         tickboxState: true,
-                                                        sendtxnconsentso: false,
-                                                        sendtxnso: true
+                                                        sendtxnconsentlog: false,
+                                                        sendtxnlog: true
                                                     }
                                                 }
                                             } else {
                                                 return {
                                                     ...prevState,
-                                                    confirmSalesOrder: {
-                                                        ...prevState.confirmSalesOrder,
+                                                    confirmlogistics: {
+                                                        ...prevState.confirmlogistics,
                                                         tickboxState: true
                                                     }
                                                 }
@@ -215,14 +207,14 @@ function ConfirmSalesOrder(props) {
 
     useEffect(() => {
 
-        props.urlParser("confirmSalesOrder")
+        props.urlParser("confirmlogistics")
     }, [])
 
-    // checks if the sales order has already been approved
+    // checks if the logistics has already been approved
     useEffect(() => {
-        if (props.allUrlParams.confirmSalesOrder.pono != null) {
-            // checks if the sales order has already been created
-            axios.get(config.backendServer + "getSalesOrder", { params: { "pono": props.allUrlParams.confirmSalesOrder.pono } }).then(function (response, error) {
+        if (props.allUrlParams.confirmlogistics.cha != null) {
+            // checks if the logistics has already been created
+            axios.get(config.backendServer + "getLogistics", { params: { "cha": props.allUrlParams.confirmlogistics.cha } }).then(function (response, error) {
                 if (response) {
 
                     // Not created scenario
@@ -230,8 +222,8 @@ function ConfirmSalesOrder(props) {
                         props.setAllUiStates(prevState => {
                             return {
                                 ...prevState,
-                                confirmSalesOrder: {
-                                    ...prevState.confirmSalesOrder,
+                                confirmlogistics: {
+                                    ...prevState.confirmlogistics,
                                     loading: false,
                                     notfound: true,
                                     confirmed: false
@@ -242,10 +234,10 @@ function ConfirmSalesOrder(props) {
                         // created scenario
                     } else {
 
-                        let salesOrderFromDB = response.data.SalesOrder
+                        let logisticsFromDB = response.data.Logistics
 
-                        // checks the status of the sales order
-                        axios.get(config.backendServer + "getSalesOrderStatus", { params: { "pono": props.allUrlParams.confirmSalesOrder.pono } }).then(function (response, error) {
+                        // checks the status of the logistics
+                        axios.get(config.backendServer + "getLogisticsStatus", { params: { "cha": props.allUrlParams.confirmlogistics.cha } }).then(function (response, error) {
                             if (response) {
 
                                 // if already approved
@@ -253,8 +245,8 @@ function ConfirmSalesOrder(props) {
                                     props.setAllUiStates(prevState => {
                                         return {
                                             ...prevState,
-                                            confirmSalesOrder: {
-                                                ...prevState.confirmSalesOrder,
+                                            confirmlogistics: {
+                                                ...prevState.confirmlogistics,
                                                 loading: false,
                                                 notfound: false,
                                                 confirmed: true
@@ -267,30 +259,30 @@ function ConfirmSalesOrder(props) {
                                     props.setAllUrlParams(prevState => {
                                         return {
                                             ...prevState,
-                                            confirmSalesOrder: {
-                                                ...salesOrderFromDB
+                                            confirmlogistics: {
+                                                ...logisticsFromDB
                                             }
                                         }
                                     })
                                     props.setAllUiStates(prevState => {
                                         return {
                                             ...prevState,
-                                            confirmSalesOrder: {
-                                                ...prevState.confirmSalesOrder,
+                                            confirmlogistics: {
+                                                ...prevState.confirmlogistics,
                                                 loading: false,
                                                 notfound: false,
                                                 confirmed: false
                                             }
                                         }
                                     })
-                                    console.log('URL STATE: ', props.allUrlParams.confirmSalesOrder)
+                                    console.log('URL STATE: ', props.allUrlParams.confirmlogistics)
                                 }
                             }
                         })
                             .catch(function (e) {
                                 alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                                 let additionalParams = '&status=failed&reason=' + e
-                                props.redirectExecution("null", additionalParams, 10, 10, "confirmSalesOrder")
+                                props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
                             })
                     }
                 }
@@ -298,16 +290,16 @@ function ConfirmSalesOrder(props) {
                 .catch(function (e) {
                     alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                     let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "confirmSalesOrder")
+                    props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
                 })
         }
-    }, [props.allUrlParams.confirmSalesOrder.pono])
+    }, [props.allUrlParams.confirmlogistics.cha])
 
     return (
         <div className="columns is-centered">
-            {salesOrderRenderer()}
+            {logisticsrenderer()}
         </div>
     );
 }
 
-export default ConfirmSalesOrder;
+export default LogisticsConfirmation;

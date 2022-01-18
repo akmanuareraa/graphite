@@ -448,15 +448,6 @@ function PrefilledForm(props) {
     // since we didn't pass any dependency. This function
     // will filter the url params, update the urlParams and UI state
     useEffect(() => {
-        props.setAllUiStates(prevState => {
-            return {
-                ...prevState,
-                navbar: {
-                    newasset: true,
-                    gensalesorder: false,
-                }
-            }
-        })
         props.urlParser("createAsset");
 
     }, [])

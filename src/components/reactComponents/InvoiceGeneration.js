@@ -1,22 +1,20 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import axios from 'axios';
-import Web3 from 'web3';
 import config from '../../config-frontend'
-
-import Salesordergeneration from '../plasmicComponents/Salesordergeneration';
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
+import Web3 from 'web3'
+import axios from 'axios';
 
-function GenerateSalesOrder(props) {
+import Invoicegeneration from '../plasmicComponents/Invoicegeneration.jsx'
 
-    // function to create the sales order
-    const createSalesOrder = (urlParams) => {
+function InvoiceGeneration(props) {
+
+    const createInvoice = (urlParams) => {
         props.setAllUiStates(prevState => {
             return {
                 ...prevState,
-                generateSalesOrder: {
-                    ...prevState.generateSalesOrder,
-                    salesorder: false,
+                generateinvoice: {
+                    ...prevState.generateinvoice,
+                    invoice: false,
                     processing: true
                 }
             }
@@ -36,8 +34,8 @@ function GenerateSalesOrder(props) {
                 props.setMainState(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generateinvoice: {
+                            ...prevState.generateinvoice,
                             txnHash: hash
                         }
                     }
@@ -51,14 +49,14 @@ function GenerateSalesOrder(props) {
                     // on successfull transactions, data will be stored in mongoDB
                     console.log(confirmationNumber)
                     console.log("MongoDB: ", urlParams)
-                    axios.post(config.backendServer + 'addSalesOrder', urlParams).then(function (response, error) {
+                    axios.post(config.backendServer + 'addInvoice', urlParams).then(function (response, error) {
                         if (response) {
                             console.log("DB-NEW-SO: ", response)
                             props.setAllUiStates(prevState => {
                                 return {
                                     ...prevState,
-                                    generateSalesOrder: {
-                                        ...prevState.generateSalesOrder,
+                                    generateinvoice: {
+                                        ...prevState.generateinvoice,
                                         processing: false,
                                         txnsuccess: true
                                     }
@@ -66,29 +64,28 @@ function GenerateSalesOrder(props) {
                             })
 
                             let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
-                            props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateinvoice")
                         } else {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + error
-                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateinvoice")
                         }
                     })
                         .catch(function (e) {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + e
-                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateinvoice")
                         })
                 }
             })
             .on('error', function (error, receipt) {
-                console.log(receipt)
                 console.log(error)
                 console.log(receipt)
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generateinvoice: {
+                            ...prevState.generateinvoice,
                             processing: false,
                             txnfailed: true
                         }
@@ -96,15 +93,15 @@ function GenerateSalesOrder(props) {
                 })
 
                 let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error 
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateinvoice")
             })
             .catch(function (e) {
                 console.log('METAMASK-ERROR: ', e)
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generateinvoice: {
+                            ...prevState.generateinvoice,
                             processing: false,
                             txnfailed: true
                         }
@@ -112,51 +109,49 @@ function GenerateSalesOrder(props) {
                     }
                 })
                 let additionalParams = '&status=failed&reason=' + e.message 
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateinvoice")
             })
-
     }
 
-    // handles the UI component 
-    const salesOrderRenderer = () => {
+    const invoicerenderer = () => {
         return (
             <>
-                <Salesordergeneration
+                <Invoicegeneration
 
-                    displaysalesorder={true}
+                    displayinvoice={true}
 
-                    pono={props.allUrlParams.generateSalesOrder.pono}
-                    supplier={props.allUrlParams.generateSalesOrder.supplier}
-                    shipmentmode={props.allUrlParams.generateSalesOrder.shipmentmode}
-                    origincountry={props.allUrlParams.generateSalesOrder.origincountry}
-                    sap={props.allUrlParams.generateSalesOrder.sap}
-                    grn={props.allUrlParams.generateSalesOrder.grn}
-                    creditnotevalue={props.allUrlParams.generateSalesOrder.creditnotevalue}
-                    balance={props.allUrlParams.generateSalesOrder.balance}
+                    invoiceno={props.allUrlParams.generateinvoice.invoiceno}
+                    date={props.allUrlParams.generateinvoice.date}
+                    value={props.allUrlParams.generateinvoice.value}
+                    awbbl={props.allUrlParams.generateinvoice.awbbl}
+                    qty={props.allUrlParams.generateinvoice.qty}
+                    gross={props.allUrlParams.generateinvoice.gross}
+                    volume={props.allUrlParams.generateinvoice.volume}
+                    eta={props.allUrlParams.generateinvoice.eta}
 
                     formbutton={{
-                        installmm: props.allUiStates.generateSalesOrder.installmm,
-                        connectmm: props.allUiStates.generateSalesOrder.connectmm,
-                        salesorder: props.allUiStates.generateSalesOrder.salesorder,
-                        sendtxnso: props.allUiStates.generateSalesOrder.sendtxnso,
-                        sendtxnconsentso: props.allUiStates.generateSalesOrder.sendtxnconsentso,
-                        processing: props.allUiStates.generateSalesOrder.processing,
-                        success: props.allUiStates.generateSalesOrder.txnsuccess,
-                        failed: props.allUiStates.generateSalesOrder.txnfailed,
-                        hash: props.mainState.generateSalesOrder.txnHash,
+                        installmm: props.allUiStates.generateinvoice.installmm,
+                        connectmm: props.allUiStates.generateinvoice.connectmm,
+                        invoice: props.allUiStates.generateinvoice.invoice,
+                        sendtxninv: props.allUiStates.generateinvoice.sendtxninv,
+                        sendtxnconsentinv: props.allUiStates.generateinvoice.sendtxnconsentinv,
+                        processing: props.allUiStates.generateinvoice.processing,
+                        success: props.allUiStates.generateinvoice.txnsuccess,
+                        failed: props.allUiStates.generateinvoice.txnfailed,
+                        hash: props.mainState.generateinvoice.txnHash,
                         mainbutton: {
                             onClick: () => {
-                                if (props.allUiStates.generateSalesOrder.connectmm) { props.setupMetamask("generateSalesOrder").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
-                                else if (props.allUiStates.generateSalesOrder.salesorder) { createSalesOrder(props.allUrlParams.generateSalesOrder) }
+                                if (props.allUiStates.generateinvoice.connectmm) { props.setupMetamask("generateinvoice").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
+                                else if (props.allUiStates.generateinvoice.invoice) { createInvoice(props.allUrlParams.generateinvoice) }
                             }
                         },
                         copybutton: {
                             onClick: () => {
-                                navigator.clipboard.writeText(props.mainState.generateSalesOrder.txnHash)
+                                navigator.clipboard.writeText(props.mainState.generateinvoice.txnHash)
                             }
                         },
                         installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } },
-                        timer: props.mainState.generateSalesOrder.timer
+                        timer: props.mainState.generateinvoice.timer
                     }}
 
                 />
@@ -164,51 +159,48 @@ function GenerateSalesOrder(props) {
         )
     }
 
-    // executes when component mounts initially
     useEffect(() => {
 
         props.setAllUrlParams(prevState => {
             return {
                 ...prevState,
-                generateSalesOrder: {
-                    ...prevState.generateSalesOrder,
+                generateinvoice: {
+                    ...prevState.generateinvoice,
                     timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                 }
             }
         })
 
-        props.urlParser("generateSalesOrder");
+        props.urlParser("generateinvoice");
     }, [])
 
-    // checks if the sales order with the provided PO Number
-    // has already been created. If found redirect the user back with the error message. If not, proceed as usual
     useEffect(() => {
-        if (props.allUrlParams.generateSalesOrder.pono !== undefined) {
-            axios.get(config.backendServer + "getSalesOrder", { params: { pono: props.allUrlParams.generateSalesOrder.pono } }).then(function (response, error) {
+        if (props.allUrlParams.generateinvoice.invoiceno !== undefined) {
+            axios.get(config.backendServer + "getInvoice", { params: { invoiceno: props.allUrlParams.generateinvoice.invoiceno } }).then(function (response, error) {
                 if (response.data !== "No Record Found") {
-                    alert("Sales Order already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
+                    alert("Invoice already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
                     let urlParamsToSend = "";
-                    for (const [key, value] of Object.entries(props.allUrlParams.generateSalesOrder)) {
+                    for (const [key, value] of Object.entries(props.allUrlParams.invoicegeneration)) {
                         urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
                     }
-                    window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+sales+order'
+                    window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+invoice'
                 }
             })
                 .catch(function (e) {
                     alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                     let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "invoicegeneration")
+                    props.redirectExecution("null", additionalParams, 10, 10, "generateinvoice")
                 })
         }
 
-        //executes when change is detected in props.allUrlParams.generateSalesOrder.pono
-    }, [props.allUrlParams.generateSalesOrder.pono])
+        //executes when change is detected in props.allUrlParams.invoicegeneration.invoiceno
+    }, [props.allUrlParams.generateinvoice.invoiceno])
 
     return (
         <div className="columns is-centered">
-            {salesOrderRenderer()}
+            {invoicerenderer()}
         </div>
     );
 }
 
-export default GenerateSalesOrder;
+export default InvoiceGeneration;

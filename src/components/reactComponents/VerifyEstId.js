@@ -28,20 +28,22 @@ function VerifyEstId(props) {
         let idAssetMinterContract = new web3.eth.Contract(idAssetMinterABI, idAssetMinterAddress)
 
         // retireve the document number from the smart contract which will be used for fetching the ID
-        let estIdFromContract = await idAssetMinterContract.methods.verifyToken(tokenno.toString()).call({ from: props.mainState.account })
+        let docnoFromContract = await idAssetMinterContract.methods.verifyToken(tokenno.toString()).call({ from: props.mainState.account })
         props.setMainState(prevState => {
             return {
                 ...prevState,
                 verifyestid: {
                     ...prevState.verifyestid,
-                    docno: estIdFromContract
+                    docno: docnoFromContract
                 }
             }
         })
         
         // retrieves the ID
-        axios.get(config.backendServer + "getIdCardVerify", {params:{"docno": estIdFromContract.toString()}}).then(function (response, error) {
+        axios.get(config.backendServer + "getIdCard", {params:{"docno": docnoFromContract.toString()}}).then(function (response, error) {
+            console.log(response.data)
             if (response) {
+                console.log("1")
                 props.setMainState(prevState => {
                     return {
                         ...prevState,
@@ -62,10 +64,12 @@ function VerifyEstId(props) {
                     }
                 })
             } else {
+                console.log("2")
                 console.log("Error: ",error)
             }
         })
         .catch(function (e) {
+            console.log("3")
             props.setAllUiStates(prevState => {
                 return {
                     ...prevState,
@@ -125,6 +129,14 @@ function VerifyEstId(props) {
 
     // when the component mounts initially, setupMetamask is executed
     useEffect(() => {
+        props.setAllUiStates(prevState => {
+            return {
+                ...prevState,
+                navbar: {
+                    verifyid: true
+                }
+            }
+        })
         props.setupMetamask("verifyestid");
     }, [])
 

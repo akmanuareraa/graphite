@@ -1,22 +1,20 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from 'react';
-import axios from 'axios';
-import Web3 from 'web3';
 import config from '../../config-frontend'
-
-import Salesordergeneration from '../plasmicComponents/Salesordergeneration';
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
+import Web3 from 'web3'
+import axios from 'axios';
 
-function GenerateSalesOrder(props) {
+import Logisticsgeneration from '../plasmicComponents/Logisticsgeneration.jsx'
 
-    // function to create the sales order
-    const createSalesOrder = (urlParams) => {
+function LogisticsGeneration(props) {
+
+    const createLogistics = (urlParams) => {
         props.setAllUiStates(prevState => {
             return {
                 ...prevState,
-                generateSalesOrder: {
-                    ...prevState.generateSalesOrder,
-                    salesorder: false,
+                generatelogistics: {
+                    ...prevState.generatelogistics,
+                    logistics: false,
                     processing: true
                 }
             }
@@ -36,8 +34,8 @@ function GenerateSalesOrder(props) {
                 props.setMainState(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generatelogistics: {
+                            ...prevState.generatelogistics,
                             txnHash: hash
                         }
                     }
@@ -51,14 +49,14 @@ function GenerateSalesOrder(props) {
                     // on successfull transactions, data will be stored in mongoDB
                     console.log(confirmationNumber)
                     console.log("MongoDB: ", urlParams)
-                    axios.post(config.backendServer + 'addSalesOrder', urlParams).then(function (response, error) {
+                    axios.post(config.backendServer + 'addLogistics', urlParams).then(function (response, error) {
                         if (response) {
                             console.log("DB-NEW-SO: ", response)
                             props.setAllUiStates(prevState => {
                                 return {
                                     ...prevState,
-                                    generateSalesOrder: {
-                                        ...prevState.generateSalesOrder,
+                                    generatelogistics: {
+                                        ...prevState.generatelogistics,
                                         processing: false,
                                         txnsuccess: true
                                     }
@@ -66,29 +64,28 @@ function GenerateSalesOrder(props) {
                             })
 
                             let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
-                            props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
                         } else {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + error
-                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generatelogistics")
                         }
                     })
                         .catch(function (e) {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + e
-                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
+                            props.redirectExecution(urlParams, additionalParams, 10, 10, "generatelogistics")
                         })
                 }
             })
             .on('error', function (error, receipt) {
-                console.log(receipt)
                 console.log(error)
                 console.log(receipt)
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generatelogistics: {
+                            ...prevState.generatelogistics,
                             processing: false,
                             txnfailed: true
                         }
@@ -96,15 +93,15 @@ function GenerateSalesOrder(props) {
                 })
 
                 let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error 
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
             })
             .catch(function (e) {
                 console.log('METAMASK-ERROR: ', e)
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
-                        generateSalesOrder: {
-                            ...prevState.generateSalesOrder,
+                        generatelogistics: {
+                            ...prevState.generatelogistics,
                             processing: false,
                             txnfailed: true
                         }
@@ -112,51 +109,51 @@ function GenerateSalesOrder(props) {
                     }
                 })
                 let additionalParams = '&status=failed&reason=' + e.message 
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
+                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
             })
-
     }
 
-    // handles the UI component 
-    const salesOrderRenderer = () => {
+    const logisticsrenderer = () => {
         return (
             <>
-                <Salesordergeneration
+                <Logisticsgeneration
 
-                    displaysalesorder={true}
+                    displaylogistics={true}
 
-                    pono={props.allUrlParams.generateSalesOrder.pono}
-                    supplier={props.allUrlParams.generateSalesOrder.supplier}
-                    shipmentmode={props.allUrlParams.generateSalesOrder.shipmentmode}
-                    origincountry={props.allUrlParams.generateSalesOrder.origincountry}
-                    sap={props.allUrlParams.generateSalesOrder.sap}
-                    grn={props.allUrlParams.generateSalesOrder.grn}
-                    creditnotevalue={props.allUrlParams.generateSalesOrder.creditnotevalue}
-                    balance={props.allUrlParams.generateSalesOrder.balance}
+                    cha= {props.allUrlParams.generatelogistics.cha}
+                    ffname={props.allUrlParams.generatelogistics.ffname}
+                    entryno={props.allUrlParams.generatelogistics.entryno}
+                    entrydate={props.allUrlParams.generatelogistics.entrydate}
+                    dutyamount={props.allUrlParams.generatelogistics.dutyamount}
+                    hts={props.allUrlParams.generatelogistics.hts}
+                    tfamount={props.allUrlParams.generatelogistics.tfamount}
+                    ntfamount={props.allUrlParams.generatelogistics.ntfamount}
+                    tchaamount={props.allUrlParams.generatelogistics.tchaamount}
+                    ntchaamount={props.allUrlParams.generatelogistics.ntchaamount}
 
                     formbutton={{
-                        installmm: props.allUiStates.generateSalesOrder.installmm,
-                        connectmm: props.allUiStates.generateSalesOrder.connectmm,
-                        salesorder: props.allUiStates.generateSalesOrder.salesorder,
-                        sendtxnso: props.allUiStates.generateSalesOrder.sendtxnso,
-                        sendtxnconsentso: props.allUiStates.generateSalesOrder.sendtxnconsentso,
-                        processing: props.allUiStates.generateSalesOrder.processing,
-                        success: props.allUiStates.generateSalesOrder.txnsuccess,
-                        failed: props.allUiStates.generateSalesOrder.txnfailed,
-                        hash: props.mainState.generateSalesOrder.txnHash,
+                        installmm: props.allUiStates.generatelogistics.installmm,
+                        connectmm: props.allUiStates.generatelogistics.connectmm,
+                        logistics: props.allUiStates.generatelogistics.logistics,
+                        sendtxnconsentlog: props.allUiStates.generatelogistics.sendtxnconsentlog,
+                        sendtxnlog: props.allUiStates.generatelogistics.sendtxnlog,
+                        processing: props.allUiStates.generatelogistics.processing,
+                        success: props.allUiStates.generatelogistics.txnsuccess,
+                        failed: props.allUiStates.generatelogistics.txnfailed,
+                        hash: props.mainState.generatelogistics.txnHash,
                         mainbutton: {
                             onClick: () => {
-                                if (props.allUiStates.generateSalesOrder.connectmm) { props.setupMetamask("generateSalesOrder").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
-                                else if (props.allUiStates.generateSalesOrder.salesorder) { createSalesOrder(props.allUrlParams.generateSalesOrder) }
+                                if (props.allUiStates.generatelogistics.connectmm) { props.setupMetamask("generatelogistics").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
+                                else if (props.allUiStates.generatelogistics.logistics) { createLogistics(props.allUrlParams.generatelogistics) }
                             }
                         },
                         copybutton: {
                             onClick: () => {
-                                navigator.clipboard.writeText(props.mainState.generateSalesOrder.txnHash)
+                                navigator.clipboard.writeText(props.mainState.generatelogistics.txnHash)
                             }
                         },
                         installmetamasktext: { onClick: () => { window.open("https://metamask.io/download", '_blank') } },
-                        timer: props.mainState.generateSalesOrder.timer
+                        timer: props.mainState.generatelogistics.timer
                     }}
 
                 />
@@ -164,51 +161,48 @@ function GenerateSalesOrder(props) {
         )
     }
 
-    // executes when component mounts initially
     useEffect(() => {
 
         props.setAllUrlParams(prevState => {
             return {
                 ...prevState,
-                generateSalesOrder: {
-                    ...prevState.generateSalesOrder,
+                generatelogistics: {
+                    ...prevState.generatelogistics,
                     timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                 }
             }
         })
 
-        props.urlParser("generateSalesOrder");
+        props.urlParser("generatelogistics");
     }, [])
 
-    // checks if the sales order with the provided PO Number
-    // has already been created. If found redirect the user back with the error message. If not, proceed as usual
     useEffect(() => {
-        if (props.allUrlParams.generateSalesOrder.pono !== undefined) {
-            axios.get(config.backendServer + "getSalesOrder", { params: { pono: props.allUrlParams.generateSalesOrder.pono } }).then(function (response, error) {
+        if (props.allUrlParams.generatelogistics.cha !== undefined) {
+            axios.get(config.backendServer + "getLogistics", { params: { cha: props.allUrlParams.generatelogistics.cha } }).then(function (response, error) {
                 if (response.data !== "No Record Found") {
-                    alert("Sales Order already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
+                    alert("Logistics already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
                     let urlParamsToSend = "";
-                    for (const [key, value] of Object.entries(props.allUrlParams.generateSalesOrder)) {
+                    for (const [key, value] of Object.entries(props.allUrlParams.generatelogistics)) {
                         urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
                     }
-                    window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+sales+order'
+                    window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+logistics'
                 }
             })
                 .catch(function (e) {
                     alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
                     let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "invoicegeneration")
+                    props.redirectExecution("null", additionalParams, 10, 10, "generatelogistics")
                 })
         }
 
-        //executes when change is detected in props.allUrlParams.generateSalesOrder.pono
-    }, [props.allUrlParams.generateSalesOrder.pono])
+        //executes when change is detected in props.allUrlParams.generatelogistics.cha
+    }, [props.allUrlParams.generatelogistics.cha])
 
     return (
         <div className="columns is-centered">
-            {salesOrderRenderer()}
+            {logisticsrenderer()}
         </div>
     );
 }
 
-export default GenerateSalesOrder;
+export default LogisticsGeneration;
