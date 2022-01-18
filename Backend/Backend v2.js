@@ -149,7 +149,8 @@ app.post("/updateIdCard", function (req, res) {
                 res.status(200).json({ "ID Card Updated": response })
             }
         } else {
-            res.status(404).json({ "Error": error })
+            //res.status(404).json({ "Error": error })
+            res.status(500).json({ "Error": error })
         }
     })
 })
@@ -228,6 +229,8 @@ app.get("/getIdCard", function (req, res) {
     })
 })
 
+
+
 async function getIdCard(JSdoc) {
     try {
         await client.connect();
@@ -245,22 +248,33 @@ async function getIdCard(JSdoc) {
 }
 
 app.get("/addVerifyToken", function (req, res) {
-    idAssetMinterContract.methods.addVerifyToken(req.body.token, req.body.docno).send({ from: config.owner })
-        .on('transactionHash', function (hash) {
-            console.log(hash)
-        })
-        .on('receipt', function (receipt) {
-            console.log(receipt)
-        })
-        .on('confirmation', function (confirmationNumber, receipt) {
-            if (confirmationNumber == 2) {
-                console.log(confirmationNumber, receipt)
-                res.status(200).json({ "Message": "Successfully added", "Transaction Hash": receipt.transactionHash })
+    getIdCard(req.body).then(function (response, error) {
+        if (response) {
+            console.log(response)
+            if (response === 'No Record Found') {
+                res.status(404).json("No Record Found")
+            } else {
+                idAssetMinterContract.methods.addVerifyToken(req.body.token, req.body.docno).send({ from: config.owner })
+                    .on('transactionHash', function (hash) {
+                        console.log(hash)
+                    })
+                    .on('receipt', function (receipt) {
+                        console.log(receipt)
+                    })
+                    .on('confirmation', function (confirmationNumber, receipt) {
+                        if (confirmationNumber === 2) {
+                            console.log(confirmationNumber, receipt)
+                            res.status(200).json({ "Message": "Successfully added", "Transaction Hash": receipt.transactionHash })
+                        }
+                    })
+                    .on('error', function (error, receipt) {
+                        console.log({ "Message": "Failed", "Error": error })
+                    })
             }
-        })
-        .on('error', function (error, receipt) {
-            console.log({ "Message": "Failed", "Error": error })
-        })
+        } else {
+            res.status(500).json({ "Error": error })
+        }
+    })
 })
 
 app.post("/addSalesOrder", function (req, res) {
@@ -293,9 +307,9 @@ app.get("/getSalesOrder", function (req, res) {
     console.log("Reached here", req.query);
     getSalesOrder(req.query).then(function (response, error) {
         if (response) {
-            console.log('RESPONSE: ',response)
+            console.log('RESPONSE: ', response)
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found")
             } else {
                 res.status(200).json({ "SalesOrder": response })
             }
@@ -336,11 +350,12 @@ app.get("/getSalesOrderStatus", function (req, res) {
     getSalesOrder(param).then(function (response, error) {
         if (response) {
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found in Database. Recheck Input Parameters.")
             } else {
-                getSalesOrderStatus(response).then(function (response, error) {
+                let salesOrderFromDB = response
+                getAssetStatus(response).then(function (response, error) {
                     if (response) {
-                        res.status(200).json({ "Status": response })
+                        res.status(200).json({ "Status": response, "SalesOrder": salesOrderFromDB})
                     } else {
                         console.log(error)
                     }
@@ -351,21 +366,6 @@ app.get("/getSalesOrderStatus", function (req, res) {
         }
     })
 })
-
-async function getSalesOrderStatus(JSdoc) {
-    try {
-        let hash = Web3.utils.keccak256(JSON.stringify(JSdoc))
-        let orderStatus = await logisticsAssetMinterContract.methods.assetsIssued(hash).call({ from: config.owner })
-        if (orderStatus.customerApproval) {
-            return "Approved"
-        } else {
-            return "Not Approved"
-        }
-    } catch (error) {
-        console.log('ERROR')
-    }
-}
-
 
 // invoice
 
@@ -399,9 +399,9 @@ app.get("/getInvoice", function (req, res) {
     console.log("Reached here", req.query);
     getInvoice(req.query).then(function (response, error) {
         if (response) {
-            console.log('RESPONSE: ',response)
+            console.log('RESPONSE: ', response)
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found")
             } else {
                 res.status(200).json({ "Invoice": response })
             }
@@ -442,11 +442,12 @@ app.get("/getInvoiceStatus", function (req, res) {
     getInvoice(param).then(function (response, error) {
         if (response) {
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found in Database. Recheck Input Parameters.")
             } else {
-                getInvoiceStatus(response).then(function (response, error) {
+                let invoiceFromDB = response
+                getAssetStatus(response).then(function (response, error) {
                     if (response) {
-                        res.status(200).json({ "Status": response })
+                        res.status(200).json({ "Status": response, "Invoice": invoiceFromDB })
                     } else {
                         console.log(error)
                     }
@@ -457,20 +458,6 @@ app.get("/getInvoiceStatus", function (req, res) {
         }
     })
 })
-
-async function getInvoiceStatus(JSdoc) {
-    try {
-        let hash = Web3.utils.keccak256(JSON.stringify(JSdoc))
-        let invoiceStatus = await logisticsAssetMinterContract.methods.assetsIssued(hash).call({ from: config.owner })
-        if (invoiceStatus.customerApproval) {
-            return "Approved"
-        } else {
-            return "Not Approved"
-        }
-    } catch (error) {
-        console.log('ERROR')
-    }
-}
 
 // logistics
 
@@ -504,9 +491,9 @@ app.get("/getLogistics", function (req, res) {
     console.log("Reached here", req.query);
     getLogistics(req.query).then(function (response, error) {
         if (response) {
-            console.log('RESPONSE: ',response)
+            console.log('RESPONSE: ', response)
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found")
             } else {
                 res.status(200).json({ "Logistics": response })
             }
@@ -547,11 +534,12 @@ app.get("/getLogisticsStatus", function (req, res) {
     getLogistics(param).then(function (response, error) {
         if (response) {
             if (response === 'No Record Found') {
-                res.status(200).json("No Record Found")
+                res.status(404).json("No Record Found in Database. Recheck Input Parameters.")
             } else {
-                getLogisticsStatus(response).then(function (response, error) {
+                let logisticsFromDB = response
+                getAssetStatus(response).then(function (response, error) {
                     if (response) {
-                        res.status(200).json({ "Status": response })
+                        res.status(200).json({ "Status": response, "Logistics": logisticsFromDB })
                     } else {
                         console.log(error)
                     }
@@ -563,11 +551,12 @@ app.get("/getLogisticsStatus", function (req, res) {
     })
 })
 
-async function getLogisticsStatus(JSdoc) {
+async function getAssetStatus(JSdoc) {
     try {
         let hash = Web3.utils.keccak256(JSON.stringify(JSdoc))
-        let logisticsStatus = await logisticsAssetMinterContract.methods.assetsIssued(hash).call({ from: config.owner })
-        if (logisticsStatus.customerApproval) {
+        let orderStatus = await logisticsAssetMinterContract.methods.assetsIssued(hash).call({ from: config.owner })
+        console.log('orderStatus', orderStatus)
+        if (orderStatus.customerApproval) {
             return "Approved"
         } else {
             return "Not Approved"
