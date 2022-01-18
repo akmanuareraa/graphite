@@ -12,6 +12,24 @@
 .root__sendtxnso {
   padding-left: 90px;
 }
+.root__invoice {
+  padding: 0px 0px 0px 90px;
+}
+.root__sendtxnconsentinv {
+  padding-left: 90px;
+}
+.root__sendtxninv {
+  padding-left: 90px;
+}
+.root__logistics {
+  padding: 0px 0px 0px 90px;
+}
+.root__sendtxnconsentlog {
+  padding-left: 90px;
+}
+.root__sendtxnlog {
+  padding-left: 90px;
+}
 .root__salesorder {
   padding: 0px 0px 0px 90px;
 }
@@ -36,6 +54,36 @@
   border-color: #dd751a;
 }
 .mainbutton__sendtxnso {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__invoice {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__sendtxnconsentinv {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__sendtxninv {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__logistics {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__sendtxnconsentlog {
+  color: #000000;
+  padding: 0px;
+  border-color: #000000;
+}
+.mainbutton__sendtxnlog {
   color: #000000;
   padding: 0px;
   border-color: #000000;
@@ -91,6 +139,24 @@
   border-color: #dd751a;
 }
 .root__sendtxnso .mainbutton__sendtxnso:hover {
+  background: #000000;
+}
+.root__invoice .mainbutton__invoice:hover {
+  background: #000000;
+}
+.root__sendtxnconsentinv .mainbutton__sendtxnconsentinv:hover {
+  background: #000000;
+}
+.root__sendtxninv .mainbutton__sendtxninv:hover {
+  background: #000000;
+}
+.root__logistics .mainbutton__logistics:hover {
+  background: #000000;
+}
+.root__sendtxnconsentlog .mainbutton__sendtxnconsentlog:hover {
+  background: #000000;
+}
+.root__sendtxnlog .mainbutton__sendtxnlog:hover {
   background: #000000;
 }
 .root__connectmm .mainbutton__connectmm:hover {
@@ -175,6 +241,24 @@
 .img__sendtxnso__rfRzocK3Fg {
   margin-left: -135px;
 }
+.img__invoice__rfRzomXQyB {
+  margin-left: -137px;
+}
+.img__sendtxnconsentinv__rfRzoN0H5 {
+  margin-left: -135px;
+}
+.img__sendtxninv__rfRzowqMv {
+  margin-left: -135px;
+}
+.img__logistics__rfRzokbJf2 {
+  margin-left: -137px;
+}
+.img__sendtxnconsentlog__rfRzo9Uo71 {
+  margin-left: -135px;
+}
+.img__sendtxnlog__rfRzoAchdx {
+  margin-left: -135px;
+}
 .img__sendtxn__rfRzoQfRAj {
   margin-left: -137px;
   display: inline-block !important;
@@ -205,6 +289,24 @@
   margin-left: -172px;
 }
 .svg__sendtxnso {
+  display: none;
+}
+.svg__invoice {
+  display: none;
+}
+.svg__sendtxnconsentinv {
+  display: none;
+}
+.svg__sendtxninv {
+  display: none;
+}
+.svg__logistics {
+  display: none;
+}
+.svg__sendtxnconsentlog {
+  display: none;
+}
+.svg__sendtxnlog {
   display: none;
 }
 .svg__connectmm {
@@ -360,6 +462,20 @@
 .text__sendtxnso__dvzO3CK3Fg {
   left: 110px;
 }
+.text__sendtxnconsentinv__dvzO3N0H5 {
+  left: 110px;
+  display: block;
+}
+.text__sendtxninv__dvzO3WqMv {
+  left: 110px;
+}
+.text__sendtxnconsentlog__dvzO39Uo71 {
+  left: 110px;
+  display: block;
+}
+.text__sendtxnlog__dvzO3Achdx {
+  left: 110px;
+}
 .text__sendtxnconsent__dvzO3LjVjA {
   display: block;
 }
@@ -388,6 +504,24 @@
   display: none;
 }
 .freeBox__sendtxnso___6TZiYcK3Fg {
+  display: none;
+}
+.freeBox__invoice___6TZiYmXQyB {
+  display: none;
+}
+.freeBox__sendtxnconsentinv___6TZiYn0H5 {
+  display: none;
+}
+.freeBox__sendtxninv___6TZiYwqMv {
+  display: none;
+}
+.freeBox__logistics___6TZiYkbJf2 {
+  display: none;
+}
+.freeBox__sendtxnconsentlog___6TZiY9Uo71 {
+  display: none;
+}
+.freeBox__sendtxnlog___6TZiYAchdx {
   display: none;
 }
 .freeBox__connectmm___6TZiYsqZmt {
@@ -465,6 +599,24 @@
   display: none;
 }
 .text__sendtxnso__yLeFMcK3Fg {
+  display: none;
+}
+.text__invoice__yLeFMmXQyB {
+  display: none;
+}
+.text__sendtxnconsentinv__yLeFmn0H5 {
+  display: none;
+}
+.text__sendtxninv__yLeFMwqMv {
+  display: none;
+}
+.text__logistics__yLeFMkbJf2 {
+  display: none;
+}
+.text__sendtxnconsentlog__yLeFm9Uo71 {
+  display: none;
+}
+.text__sendtxnlog__yLeFmAchdx {
   display: none;
 }
 .text__connectmm__yLeFmsqZmt {

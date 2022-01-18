@@ -32,7 +32,7 @@
   top: 15px;
 }
 .graphiteLogo2 {
-  background: url("./images/graphiteLogo3.jpeg") center center / cover no-repeat;
+  background: url("./../project_5162/images/newlogopng.png") center center / cover no-repeat;
   width: 227px;
   height: 58px;
   display: block;
@@ -63,5 +63,5 @@
 .navbarbuttons:global(.__wab_instance) {
   position: absolute;
   top: 32px;
-  left: 525px;
+  left: 675px;
 }

@@ -20,45 +20,7 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-left: 0px;
 }
-.newassetbutton {
-  max-width: 150px;
-  width: 150px;
-  text-align: center;
-  height: 24px;
-  min-width: 150px;
-  min-height: 24px;
-  max-height: 24px;
-  border-top-color: #30d3e0;
-  border-right-color: #30d3e0;
-  border-bottom-color: #000000;
-  border-left-color: #30d3e0;
-  background: none;
-  color: #000000;
-  backdrop-filter: none;
-  font-size: 12px;
-  align-self: center;
-  margin-bottom: 0px;
-  flex-shrink: 0;
-  border-width: 0px;
-  border-style: none;
-}
-.newassetbutton__newasset {
-  background: #cffad0;
-}
-.root .newassetbutton:hover {
-  color: #000000;
-  border-bottom-width: 3px;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-left-width: 1px;
-  border-bottom-color: #1aecdf;
-  background: #cffad0;
-  border-style: none;
-}
-.root__newasset .newassetbutton__newasset:hover {
-  background: #cffad0;
-}
-.gensalesbutton {
+.bridgebutton {
   width: 150px;
   text-align: center;
   height: 24px;
@@ -77,10 +39,10 @@
   border-width: 0px;
   border-style: none;
 }
-.gensalesbutton__gensalesorder {
+.bridgebutton__bridge {
   background: #cffad0;
 }
-.root .gensalesbutton:hover {
+.root .bridgebutton:hover {
   color: #000000;
   border-bottom-style: solid;
   border-top-style: none;
@@ -90,7 +52,7 @@
   background: #cffad0;
   border-width: 0px;
 }
-.confirmsalesbutton {
+.verifyidbutton {
   max-width: 150px;
   width: 150px;
   text-align: center;
@@ -111,10 +73,10 @@
   border-width: 0px;
   border-style: none;
 }
-.confirmsalesbutton__confirmsalesorder {
+.verifyidbutton__verifyid {
   background: #cffad0;
 }
-.root .confirmsalesbutton:hover {
+.root .verifyidbutton:hover {
   color: #000000;
   border-bottom-color: #1aecdf;
   background: #cffad0;
