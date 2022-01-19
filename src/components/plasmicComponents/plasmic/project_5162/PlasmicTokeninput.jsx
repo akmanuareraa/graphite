@@ -51,7 +51,7 @@ function PlasmicTokeninput__RenderFunc(props) {
       placeholder={
         hasVariant(variants, "bridgeinput", "bridgeinput")
           ? "Input Amount to Bridge"
-          : "Input Amount to Return"
+          : "Enter Token Amount"
       }
       size={1}
       type={"text"}

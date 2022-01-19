@@ -18,7 +18,7 @@ import {
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: sO5m3uTzIQI/css
-import newlogopngYNlWra0XN from "./images/newlogopng.png"; // plasmic-import: yNLWra0xN/picture
+import graphiteWhitepngBeOjXVnrF from "./images/graphiteWhitepng.jpeg"; // plasmic-import: BeOjXVnrF/picture
 
 export const PlasmicHomepage__VariantProps = new Array();
 
@@ -58,17 +58,17 @@ function PlasmicHomepage__RenderFunc(props) {
           data-plasmic-override={overrides.img}
           alt={""}
           className={classNames(sty.img)}
-          displayHeight={"128px"}
+          displayHeight={"172px"}
           displayMaxHeight={"none"}
           displayMaxWidth={"100%"}
           displayMinHeight={"0"}
           displayMinWidth={"0"}
-          displayWidth={"533px"}
+          displayWidth={"731px"}
           loading={"lazy"}
           src={{
-            src: newlogopngYNlWra0XN,
-            fullWidth: 429,
-            fullHeight: 116,
+            src: graphiteWhitepngBeOjXVnrF,
+            fullWidth: 4096,
+            fullHeight: 1002,
             aspectRatio: undefined
           }}
         />

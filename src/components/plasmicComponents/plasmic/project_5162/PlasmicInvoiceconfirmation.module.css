@@ -250,7 +250,7 @@
   flex-shrink: 0;
 }
 .slotTargetDate {
-  font-weight: 900;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox__hZw1R {
@@ -297,7 +297,7 @@
   flex-shrink: 0;
 }
 .slotTargetValue {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox__qfix4 {
@@ -342,7 +342,7 @@
   flex-shrink: 0;
 }
 .slotTargetAwbbl {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox__qEOme {
@@ -389,7 +389,7 @@
   flex-shrink: 0;
 }
 .slotTargetQty {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox__w1XtY {
@@ -434,7 +434,7 @@
   flex-shrink: 0;
 }
 .slotTargetGross {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox___8CCnY {
@@ -481,7 +481,7 @@
   flex-shrink: 0;
 }
 .slotTargetVolume {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .freeBox__aqpA4 {
@@ -528,7 +528,7 @@
   flex-shrink: 0;
 }
 .slotTargetEta {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
 }
 .consent:global(.__wab_instance) {

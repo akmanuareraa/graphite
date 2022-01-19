@@ -43,6 +43,12 @@ function PlasmicBridgedashboard__RenderFunc(props) {
       data-plasmic-for-node={forNode}
       hasGap={true}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
+        [sty.root__bridgetoken]: hasVariant(
+          variants,
+          "bridgetoken",
+          "bridgetoken"
+        ),
+
         [sty.root__returntoken]: hasVariant(
           variants,
           "returntoken",
@@ -69,12 +75,40 @@ function PlasmicBridgedashboard__RenderFunc(props) {
           : "Bridge your GPI Token"}
       </div>
 
-      <Tokeninput
-        data-plasmic-name={"tokeninput"}
-        data-plasmic-override={overrides.tokeninput}
-        className={classNames("__wab_instance", sty.tokeninput)}
-        onChange={args.onChange}
-      />
+      {(hasVariant(variants, "returntoken", "returntoken") ? false : true) ? (
+        <Tokeninput
+          className={classNames("__wab_instance", sty.tokeninput__c2X2Q, {
+            [sty.tokeninput__bridgetoken__c2X2QMcBiZ]: hasVariant(
+              variants,
+              "bridgetoken",
+              "bridgetoken"
+            ),
+
+            [sty.tokeninput__returntoken__c2X2QzJ1Lk]: hasVariant(
+              variants,
+              "returntoken",
+              "returntoken"
+            )
+          })}
+        />
+      ) : null}
+      {(hasVariant(variants, "bridgetoken", "bridgetoken") ? false : true) ? (
+        <Tokeninput
+          className={classNames("__wab_instance", sty.tokeninput__cM34, {
+            [sty.tokeninput__bridgetoken__cM34McBiZ]: hasVariant(
+              variants,
+              "bridgetoken",
+              "bridgetoken"
+            ),
+
+            [sty.tokeninput__returntoken__cM34ZJ1Lk]: hasVariant(
+              variants,
+              "returntoken",
+              "returntoken"
+            )
+          })}
+        />
+      ) : null}
 
       <button
         data-plasmic-name={"button"}
@@ -241,8 +275,7 @@ function PlasmicBridgedashboard__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tokeninput", "button"],
-  tokeninput: ["tokeninput"],
+  root: ["root", "button"],
   button: ["button"]
 };
 
@@ -275,7 +308,6 @@ export const PlasmicBridgedashboard = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    tokeninput: makeNodeComponent("tokeninput"),
     button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicBridgedashboard
     internalVariantProps: PlasmicBridgedashboard__VariantProps,

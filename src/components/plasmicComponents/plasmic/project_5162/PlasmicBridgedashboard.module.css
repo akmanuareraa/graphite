@@ -29,8 +29,26 @@
   min-width: 1020px;
   max-width: 1020px;
 }
-.tokeninput:global(.__wab_instance) {
+.tokeninput__c2X2Q:global(.__wab_instance) {
+  max-width: 100%;
   position: relative;
+  flex-shrink: 0;
+}
+.tokeninput__bridgetoken__c2X2QMcBiZ:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.tokeninput__returntoken__c2X2QzJ1Lk:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.tokeninput__cM34:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+.tokeninput__bridgetoken__cM34McBiZ:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.tokeninput__returntoken__cM34ZJ1Lk:global(.__wab_instance) {
   flex-shrink: 0;
 }
 .button {
