@@ -51,17 +51,19 @@ function PlasmicNavBar__RenderFunc(props) {
               className={classNames(projectcss.all, sty.graphiteLogo2)}
             />
 
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
-            >
-              {"POWERED BY"}
-            </div>
+            {false ? (
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text
+                )}
+              >
+                {"POWERED BY"}
+              </div>
+            ) : null}
           </div>
 
           <Walletstatus
