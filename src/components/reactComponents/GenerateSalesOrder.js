@@ -65,7 +65,7 @@ function GenerateSalesOrder(props) {
                                 }
                             })
 
-                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'+ "&link=http://localhost:3000/confirmSalesOrder/salesorder?pono=" + props.allUrlParams.generateSalesOrder.pono 
                             props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
                         } else {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
@@ -95,7 +95,7 @@ function GenerateSalesOrder(props) {
                     }
                 })
 
-                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error 
+                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
                 props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
             })
             .catch(function (e) {
@@ -111,7 +111,7 @@ function GenerateSalesOrder(props) {
 
                     }
                 })
-                let additionalParams = '&status=failed&reason=' + e.message 
+                let additionalParams = '&status=failed&reason=' + e.message
                 props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
             })
 
@@ -185,7 +185,7 @@ function GenerateSalesOrder(props) {
     useEffect(() => {
         if (props.allUrlParams.generateSalesOrder.pono !== undefined) {
             axios.get(config.backendServer + "getSalesOrder", { params: { pono: props.allUrlParams.generateSalesOrder.pono } }).then(function (response, error) {
-                if (response.data !== "No Record Found") {
+                if (response) {
                     alert("Sales Order already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
                     let urlParamsToSend = "";
                     for (const [key, value] of Object.entries(props.allUrlParams.generateSalesOrder)) {
@@ -195,13 +195,15 @@ function GenerateSalesOrder(props) {
                 }
             })
                 .catch(function (e) {
-                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                    let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "invoicegeneration")
+                    if (e.response.status !== 404) {
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        let additionalParams = '&status=failed&reason=' + e.response.data
+                        props.redirectExecution("null", additionalParams, 10, 10, "generateSalesOrder")
+                    }
                 })
         }
 
-        //executes when change is detected in props.allUrlParams.generateSalesOrder.pono
+        //executes when change is detected in pono
     }, [props.allUrlParams.generateSalesOrder.pono])
 
     return (

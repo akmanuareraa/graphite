@@ -63,7 +63,7 @@ function LogisticsGeneration(props) {
                                 }
                             })
 
-                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'+ "&link=http://localhost:3000/confirmLogistics/logistics?cha=" + props.allUrlParams.generatelogistics.cha 
                             props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
                         } else {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
@@ -179,7 +179,7 @@ function LogisticsGeneration(props) {
     useEffect(() => {
         if (props.allUrlParams.generatelogistics.cha !== undefined) {
             axios.get(config.backendServer + "getLogistics", { params: { cha: props.allUrlParams.generatelogistics.cha } }).then(function (response, error) {
-                if (response.data !== "No Record Found") {
+                if (response) {
                     alert("Logistics already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
                     let urlParamsToSend = "";
                     for (const [key, value] of Object.entries(props.allUrlParams.generatelogistics)) {
@@ -189,9 +189,11 @@ function LogisticsGeneration(props) {
                 }
             })
                 .catch(function (e) {
-                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                    let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "generatelogistics")
+                    if (e.response.status !== 404) {
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        let additionalParams = '&status=failed&reason=' + e.response.data
+                        props.redirectExecution("null", additionalParams, 10, 10, "generatelogistics")
+                    }
                 })
         }
 

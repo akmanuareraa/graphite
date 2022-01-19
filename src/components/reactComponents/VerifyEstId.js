@@ -38,12 +38,11 @@ function VerifyEstId(props) {
                 }
             }
         })
-        
+
         // retrieves the ID
-        axios.get(config.backendServer + "getIdCard", {params:{"docno": docnoFromContract.toString()}}).then(function (response, error) {
+        axios.get(config.backendServer + "getIdCard", { params: { "docno": docnoFromContract.toString() } }).then(function (response, error) {
             console.log(response.data)
             if (response) {
-                console.log("1")
                 props.setMainState(prevState => {
                     return {
                         ...prevState,
@@ -64,23 +63,21 @@ function VerifyEstId(props) {
                     }
                 })
             } else {
-                console.log("2")
-                console.log("Error: ",error)
+                console.log("Error: ", error)
             }
         })
-        .catch(function (e) {
-            console.log("3")
-            props.setAllUiStates(prevState => {
-                return {
-                    ...prevState,
-                    verifyestid: {
-                        ...prevState.verifyestid,
-                        displayId: false,
-                        notfound: true
+            .catch(function (e) {
+                props.setAllUiStates(prevState => {
+                    return {
+                        ...prevState,
+                        verifyestid: {
+                            ...prevState.verifyestid,
+                            displayId: false,
+                            notfound: true
+                        }
                     }
-                }
+                })
             })
-        })
     }
 
     // renders and handles the state of the UI component
@@ -88,23 +85,27 @@ function VerifyEstId(props) {
         return (
             <VerifyId
                 displayId={props.allUiStates.verifyestid.displayId}
-                notfound = {props.allUiStates.verifyestid.notfound}
+                notfound={props.allUiStates.verifyestid.notfound}
                 onChange={handleChange}
 
-                nationality = {props.mainState.verifyestid.nationality}
-                name = {props.mainState.verifyestid.name}
-                docno = {props.mainState.verifyestid.docno}
-                dob = {props.mainState.verifyestid.dob}
-                expiry = {props.mainState.verifyestid.expiry}
-                issued = {props.mainState.verifyestid.issued}
-                sex = {props.mainState.verifyestid.sex}
+                nationality={props.mainState.verifyestid.nationality}
+                name={props.mainState.verifyestid.name}
+                docno={props.mainState.verifyestid.docno}
+                dob={props.mainState.verifyestid.dob}
+                expiry={props.mainState.verifyestid.expiry}
+                issued={props.mainState.verifyestid.issued}
+                sex={props.mainState.verifyestid.sex}
 
                 verifyidbutton={{
                     onClick: () => {
-                        if (props.mainState.verifyestid.tokenNo.length != 0) {
+                        if(props.mainState.account !== null){
+                            if (props.mainState.verifyestid.tokenNo.length !== 0) {
                                 getIdCard(props.mainState.verifyestid.tokenNo)
+                            } else {
+                                alert("Please provide a Token Number")
+                            }
                         } else {
-                            alert("Please provide a Token Number")
+                            alert("Please connect your Metamask Wallet")
                         }
                     }
                 }}
@@ -121,7 +122,7 @@ function VerifyEstId(props) {
                                 }
                             }
                         })
-                    } 
+                    }
                 }}
             />
         )

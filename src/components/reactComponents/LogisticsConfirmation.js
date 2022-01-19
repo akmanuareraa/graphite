@@ -213,12 +213,52 @@ function LogisticsConfirmation(props) {
     // checks if the logistics has already been approved
     useEffect(() => {
         if (props.allUrlParams.confirmlogistics.cha != null) {
-            // checks if the logistics has already been created
-            axios.get(config.backendServer + "getLogistics", { params: { "cha": props.allUrlParams.confirmlogistics.cha } }).then(function (response, error) {
+            // checks if the sales order has already been created
+            // checks the status of the sales order
+            axios.get(config.backendServer + "getLogisticsStatus", { params: { "cha": props.allUrlParams.confirmlogistics.cha }}).then(function (response, error) {
                 if (response) {
 
-                    // Not created scenario
-                    if (response.data === 'No Record Found') {
+                    // if already approved
+                    if (response.data.Status === 'Approved') {
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirmlogistics: {
+                                    ...prevState.confirmlogistics,
+                                    loading: false,
+                                    notfound: false,
+                                    confirmed: true
+                                }
+                            }
+                        })
+
+                        // else proceed as usual
+                    } else {
+                        props.setAllUrlParams(prevState => {
+                            return {
+                                ...prevState,
+                                confirmlogistics: {
+                                    ...response.data.Logistics
+                                }
+                            }
+                        })
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirmlogistics: {
+                                    ...prevState.confirmlogistics,
+                                    loading: false,
+                                    notfound: false,
+                                    confirmed: false
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+                .catch(function (e) {
+                    if (e.response.status === 404) {
+                        console.log("here")
                         props.setAllUiStates(prevState => {
                             return {
                                 ...prevState,
@@ -230,67 +270,11 @@ function LogisticsConfirmation(props) {
                                 }
                             }
                         })
-                    
-                        // created scenario
                     } else {
-
-                        let logisticsFromDB = response.data.Logistics
-
-                        // checks the status of the logistics
-                        axios.get(config.backendServer + "getLogisticsStatus", { params: { "cha": props.allUrlParams.confirmlogistics.cha } }).then(function (response, error) {
-                            if (response) {
-
-                                // if already approved
-                                if (response.data.Status === 'Approved') {
-                                    props.setAllUiStates(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirmlogistics: {
-                                                ...prevState.confirmlogistics,
-                                                loading: false,
-                                                notfound: false,
-                                                confirmed: true
-                                            }
-                                        }
-                                    })
-
-                                    // else proceed as usual
-                                } else {
-                                    props.setAllUrlParams(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirmlogistics: {
-                                                ...logisticsFromDB
-                                            }
-                                        }
-                                    })
-                                    props.setAllUiStates(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirmlogistics: {
-                                                ...prevState.confirmlogistics,
-                                                loading: false,
-                                                notfound: false,
-                                                confirmed: false
-                                            }
-                                        }
-                                    })
-                                    console.log('URL STATE: ', props.allUrlParams.confirmlogistics)
-                                }
-                            }
-                        })
-                            .catch(function (e) {
-                                alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                                let additionalParams = '&status=failed&reason=' + e
-                                props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
-                            })
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        let additionalParams = '&status=failed&reason=' + e.response.data
+                        props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
                     }
-                }
-            })
-                .catch(function (e) {
-                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                    let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
                 })
         }
     }, [props.allUrlParams.confirmlogistics.cha])

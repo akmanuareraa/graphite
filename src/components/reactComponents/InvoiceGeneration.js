@@ -63,7 +63,7 @@ function InvoiceGeneration(props) {
                                 }
                             })
 
-                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'+ "&link=http://localhost:3000/confirmInvoice/invoice?invoiceno=" + props.allUrlParams.generateinvoice.invoiceno 
                             props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateinvoice")
                         } else {
                             alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
@@ -177,19 +177,21 @@ function InvoiceGeneration(props) {
     useEffect(() => {
         if (props.allUrlParams.generateinvoice.invoiceno !== undefined) {
             axios.get(config.backendServer + "getInvoice", { params: { invoiceno: props.allUrlParams.generateinvoice.invoiceno } }).then(function (response, error) {
-                if (response.data !== "No Record Found") {
+                if (response) {
                     alert("Invoice already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
                     let urlParamsToSend = "";
-                    for (const [key, value] of Object.entries(props.allUrlParams.invoicegeneration)) {
+                    for (const [key, value] of Object.entries(props.allUrlParams.generateinvoice)) {
                         urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
                     }
                     window.location.href = config.redirectUrl + urlParamsToSend + '&status=failed' + '&reason=duplicate+invoice'
                 }
             })
                 .catch(function (e) {
-                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                    let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "generateinvoice")
+                    if (e.response.status !== 404) {
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        let additionalParams = '&status=failed&reason=' + e.response.data
+                        props.redirectExecution("null", additionalParams, 10, 10, "generateinvoice")
+                    }
                 })
         }
 

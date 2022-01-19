@@ -17,7 +17,6 @@ function CrossChainBridge(props) {
                 }
             }
         })
-        console.log('tok amount: ',props.mainState.crosschainbridge.tokenamount)
     }
 
     const dashboardrenderer = () => {
@@ -27,11 +26,6 @@ function CrossChainBridge(props) {
                     
                     onChange={handleChange}
                     value={props.mainState.crosschainbridge.tokenamount}
-
-                    tokeninput={{
-                        bridgeinput: props.allUiStates.crosschainbridge.bridgeinput,
-                        returninput: props.allUiStates.crosschainbridge.returninput
-                    }}
 
                     bridgetab={{
                         selected: props.allUiStates.crosschainbridge.bridgeselected,
@@ -92,18 +86,18 @@ function CrossChainBridge(props) {
         })
     },[])
 
-    useEffect(() => {
-        console.log('Use Effect called')
-        props.setMainState(prevState => {
-            return {
-                ...prevState,
-                crosschainbridge: {
-                    ...prevState.crosschainbridge,
-                    tokenamount: ''
-                }
-            }
-        })
-    },[props.allUiStates.crosschainbridge.bridgeselected])
+    // useEffect(() => {
+    //     console.log('Use Effect called')
+    //     props.setMainState(prevState => {
+    //         return {
+    //             ...prevState,
+    //             crosschainbridge: {
+    //                 ...prevState.crosschainbridge,
+    //                 tokenamount: ''
+    //             }
+    //         }
+    //     })
+    // },[props.allUiStates.crosschainbridge.returnselected])
 
     return (
         <div className="columns is-centered">

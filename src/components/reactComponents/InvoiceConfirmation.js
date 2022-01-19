@@ -58,7 +58,7 @@ function InvoiceConfirmation(props) {
                         }
                     })
 
-                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=success' 
                     props.redirectExecution(props.allUrlParams.confirminvoice, additionalParams, 5400, 900, "confirminvoice")
                 }
             })
@@ -209,12 +209,51 @@ function InvoiceConfirmation(props) {
     // checks if the invoice has already been approved
     useEffect(() => {
         if (props.allUrlParams.confirminvoice.invoiceno != null) {
-            // checks if the invoice has already been created
-            axios.get(config.backendServer + "getInvoice", { params: { "invoiceno": props.allUrlParams.confirminvoice.invoiceno } }).then(function (response, error) {
+            // checks if the sales order has already been created
+            // checks the status of the sales order
+            axios.get(config.backendServer + "getInvoiceStatus", { params: { "invoiceno": props.allUrlParams.confirminvoice.invoiceno } }).then(function (response, error) {
                 if (response) {
 
-                    // Not created scenario
-                    if (response.data === 'No Record Found') {
+                    // if already approved
+                    if (response.data.Status === 'Approved') {
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirminvoice: {
+                                    ...prevState.confirminvoice,
+                                    loading: false,
+                                    notfound: false,
+                                    confirmed: true
+                                }
+                            }
+                        })
+
+                        // else proceed as usual
+                    } else {
+                        props.setAllUrlParams(prevState => {
+                            return {
+                                ...prevState,
+                                confirminvoice: {
+                                    ...response.data.Invoice
+                                }
+                            }
+                        })
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirminvoice: {
+                                    ...prevState.confirminvoice,
+                                    loading: false,
+                                    notfound: false,
+                                    confirmed: false
+                                }
+                            }
+                        })
+                    }
+                }
+            })
+                .catch(function (e) {
+                    if (e.response.status === 404) {
                         props.setAllUiStates(prevState => {
                             return {
                                 ...prevState,
@@ -226,67 +265,11 @@ function InvoiceConfirmation(props) {
                                 }
                             }
                         })
-                    
-                        // created scenario
                     } else {
-
-                        let invoiceFromDB = response.data.Invoice
-
-                        // checks the status of the invoice
-                        axios.get(config.backendServer + "getInvoiceStatus", { params: { "invoiceno": props.allUrlParams.confirminvoice.invoiceno } }).then(function (response, error) {
-                            if (response) {
-
-                                // if already approved
-                                if (response.data.Status === 'Approved') {
-                                    props.setAllUiStates(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirminvoice: {
-                                                ...prevState.confirminvoice,
-                                                loading: false,
-                                                notfound: false,
-                                                confirmed: true
-                                            }
-                                        }
-                                    })
-
-                                    // else proceed as usual
-                                } else {
-                                    props.setAllUrlParams(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirminvoice: {
-                                                ...invoiceFromDB
-                                            }
-                                        }
-                                    })
-                                    props.setAllUiStates(prevState => {
-                                        return {
-                                            ...prevState,
-                                            confirminvoice: {
-                                                ...prevState.confirminvoice,
-                                                loading: false,
-                                                notfound: false,
-                                                confirmed: false
-                                            }
-                                        }
-                                    })
-                                    console.log('URL STATE: ', props.allUrlParams.confirminvoice)
-                                }
-                            }
-                        })
-                            .catch(function (e) {
-                                alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                                let additionalParams = '&status=failed&reason=' + e
-                                props.redirectExecution("null", additionalParams, 10, 10, "confirminvoice")
-                            })
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        let additionalParams = '&status=failed&reason=' + e.response.data
+                        props.redirectExecution("null", additionalParams, 10, 10, "confirminvoice")
                     }
-                }
-            })
-                .catch(function (e) {
-                    alert(e, "Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
-                    let additionalParams = '&status=failed&reason=' + e
-                    props.redirectExecution("null", additionalParams, 10, 10, "confirminvoice")
                 })
         }
     }, [props.allUrlParams.confirminvoice.invoiceno])
