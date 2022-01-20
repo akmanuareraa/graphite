@@ -174,6 +174,40 @@ async function updateIdCard(JSdoc) {
     }
 }
 
+app.post("/addVerifyToken", function (req, res) {
+    console.log("Reached here", req.body);
+    addVerifyToken(req.body).then(function (response, error) {
+        if (response) {
+            if (response === 'ID Card does not exist') {
+                res.status(404).json({ "Error": "No Matching ID Card found" })
+            } else {
+                res.status(200).json({ "ID Card Updated": response })
+            }
+        } else {
+            res.status(500).json({ "Error": error })
+        }
+    })
+})
+
+async function addVerifyToken(JSdoc) {
+    try {
+        await client.connect();
+        const database = client.db(dbName);
+        const coll = database.collection("idcard");
+        const Cursor = await coll.findOneAndUpdate(
+            { "docno": JSdoc.docno },
+            { $set: { "token": JSdoc.token } }
+        )
+        if (Cursor.value == null) {
+            return 'ID Card does not exist'
+        } else {
+            return Cursor.value;
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 app.post("/addNewId", function (req, res) {
     console.log("Reached here", req.body);
     addNewId(req.body).then(function (response, error) {
@@ -247,36 +281,6 @@ async function getIdCard(JSdoc) {
     }
 }
 
-app.get("/addVerifyToken", function (req, res) {
-    getIdCard(req.body).then(function (response, error) {
-        if (response) {
-            console.log(response)
-            if (response === 'No Record Found') {
-                res.status(404).json("No Record Found")
-            } else {
-                idAssetMinterContract.methods.addVerifyToken(req.body.token, req.body.docno).send({ from: config.owner })
-                    .on('transactionHash', function (hash) {
-                        console.log(hash)
-                    })
-                    .on('receipt', function (receipt) {
-                        console.log(receipt)
-                    })
-                    .on('confirmation', function (confirmationNumber, receipt) {
-                        if (confirmationNumber === 2) {
-                            console.log(confirmationNumber, receipt)
-                            res.status(200).json({ "Message": "Successfully added", "Transaction Hash": receipt.transactionHash })
-                        }
-                    })
-                    .on('error', function (error, receipt) {
-                        console.log({ "Message": "Failed", "Error": error })
-                    })
-            }
-        } else {
-            res.status(500).json({ "Error": error })
-        }
-    })
-})
-
 app.post("/addSalesOrder", function (req, res) {
     console.log("Reached here", req.body);
     addSalesOrder(req.body).then(function (response, error) {
@@ -309,8 +313,10 @@ app.get("/getSalesOrder", function (req, res) {
         if (response) {
             console.log('RESPONSE: ', response)
             if (response === 'No Record Found') {
+                console.log(404)
                 res.status(404).json("No Record Found")
             } else {
+                console.log(200)
                 res.status(200).json({ "SalesOrder": response })
             }
         } else {
