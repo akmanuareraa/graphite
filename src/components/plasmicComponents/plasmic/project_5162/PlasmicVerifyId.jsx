@@ -21,7 +21,6 @@ import TextInput from "../../TextInput"; // plasmic-import: mnEoyzyDnh9/componen
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicVerifyId.module.css"; // plasmic-import: 6aKy4XMcUD/css
-import potraitjpgH0YtZTpqU from "./images/potraitjpg.jpeg"; // plasmic-import: h0YtZTpqU/picture
 
 export const PlasmicVerifyId__VariantProps = new Array("displayId", "notfound");
 
@@ -32,7 +31,8 @@ export const PlasmicVerifyId__ArgProps = new Array(
   "dob",
   "issued",
   "expiry",
-  "sex"
+  "sex",
+  "idphoto"
 );
 
 function PlasmicVerifyId__RenderFunc(props) {
@@ -114,10 +114,22 @@ function PlasmicVerifyId__RenderFunc(props) {
                 variants,
                 "displayId",
                 "displayId"
+              ),
+
+              [sty.freeBox__notfound__xkTbvvnAI]: hasVariant(
+                variants,
+                "notfound",
+                "notfound"
               )
             })}
           >
-            {(hasVariant(variants, "displayId", "displayId") ? false : true) ? (
+            {(
+              hasVariant(variants, "notfound", "notfound")
+                ? false
+                : hasVariant(variants, "displayId", "displayId")
+                ? false
+                : false
+            ) ? (
               <p.Stack
                 as={"div"}
                 hasGap={true}
@@ -126,6 +138,12 @@ function PlasmicVerifyId__RenderFunc(props) {
                     variants,
                     "displayId",
                     "displayId"
+                  ),
+
+                  [sty.freeBox__notfound___23PeXvnAI]: hasVariant(
+                    variants,
+                    "notfound",
+                    "notfound"
                   )
                 })}
               >
@@ -171,9 +189,27 @@ function PlasmicVerifyId__RenderFunc(props) {
                 </button>
               </p.Stack>
             ) : null}
+            {(hasVariant(variants, "notfound", "notfound") ? true : true) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4TZsj,
+                  {
+                    [sty.text__notfound___4TZsJvnAI]: hasVariant(
+                      variants,
+                      "notfound",
+                      "notfound"
+                    )
+                  }
+                )}
+              >
+                {"No Matching Record Found"}
+              </div>
+            ) : null}
           </p.Stack>
         ) : null}
-        {(hasVariant(variants, "displayId", "displayId") ? true : true) ? (
+        {(hasVariant(variants, "displayId", "displayId") ? true : false) ? (
           <div
             data-plasmic-name={"idstack"}
             data-plasmic-override={overrides.idstack}
@@ -211,31 +247,20 @@ function PlasmicVerifyId__RenderFunc(props) {
                 )
               })}
             >
-              <p.PlasmicImg
-                data-plasmic-name={"img"}
-                data-plasmic-override={overrides.img}
-                alt={""}
-                className={classNames(sty.img, {
-                  [sty.img__displayId]: hasVariant(
+              <div
+                className={classNames(projectcss.all, sty.freeBox__cAjeo, {
+                  [sty.freeBox__displayId__cAjeoxa4I6]: hasVariant(
                     variants,
                     "displayId",
                     "displayId"
                   )
                 })}
-                displayHeight={"150px"}
-                displayMaxHeight={"none"}
-                displayMaxWidth={"64%"}
-                displayMinHeight={"0"}
-                displayMinWidth={"0"}
-                displayWidth={"150px"}
-                loading={"lazy"}
-                src={{
-                  src: potraitjpgH0YtZTpqU,
-                  fullWidth: 1920,
-                  fullHeight: 1080,
-                  aspectRatio: undefined
-                }}
-              />
+              >
+                {p.renderPlasmicSlot({
+                  defaultContents: null,
+                  value: args.idphoto
+                })}
+              </div>
 
               <p.Stack
                 as={"div"}
@@ -768,14 +793,26 @@ function PlasmicVerifyId__RenderFunc(props) {
             </div>
           </div>
         ) : null}
-        {(hasVariant(variants, "notfound", "notfound") ? true : true) ? (
+        {(
+          hasVariant(variants, "notfound", "notfound")
+            ? false
+            : hasVariant(variants, "displayId", "displayId")
+            ? false
+            : true
+        ) ? (
           <div
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text___4TZsj,
+              sty.text__nG4S9,
               {
-                [sty.text__notfound___4TZsJvnAI]: hasVariant(
+                [sty.text__displayId__nG4S9Xa4I6]: hasVariant(
+                  variants,
+                  "displayId",
+                  "displayId"
+                ),
+
+                [sty.text__notfound__nG4S9VnAI]: hasVariant(
                   variants,
                   "notfound",
                   "notfound"
@@ -783,28 +820,8 @@ function PlasmicVerifyId__RenderFunc(props) {
               }
             )}
           >
-            {"No Matching Record Found"}
+            {"Loading..."}
           </div>
-        ) : null}
-        {(hasVariant(variants, "displayId", "displayId") ? true : false) ? (
-          <button
-            data-plasmic-name={"verifyagain"}
-            data-plasmic-override={overrides.verifyagain}
-            className={classNames(
-              projectcss.button,
-              projectcss.__wab_text,
-              sty.verifyagain,
-              {
-                [sty.verifyagain__displayId]: hasVariant(
-                  variants,
-                  "displayId",
-                  "displayId"
-                )
-              }
-            )}
-          >
-            {"Verify Another ID"}
-          </button>
         ) : null}
       </div>
     </div>
@@ -820,9 +837,7 @@ const PlasmicDescendants = {
     "graphiteLogo2",
     "tokenno",
     "verifyidbutton",
-    "idstack",
-    "img",
-    "verifyagain"
+    "idstack"
   ],
 
   applicationForm: [
@@ -832,9 +847,7 @@ const PlasmicDescendants = {
     "graphiteLogo2",
     "tokenno",
     "verifyidbutton",
-    "idstack",
-    "img",
-    "verifyagain"
+    "idstack"
   ],
 
   walletmount: ["walletmount"],
@@ -842,9 +855,7 @@ const PlasmicDescendants = {
   graphiteLogo2: ["graphiteLogo2"],
   tokenno: ["tokenno"],
   verifyidbutton: ["verifyidbutton"],
-  idstack: ["idstack", "img"],
-  img: ["img"],
-  verifyagain: ["verifyagain"]
+  idstack: ["idstack"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -883,8 +894,6 @@ export const PlasmicVerifyId = Object.assign(
     tokenno: makeNodeComponent("tokenno"),
     verifyidbutton: makeNodeComponent("verifyidbutton"),
     idstack: makeNodeComponent("idstack"),
-    img: makeNodeComponent("img"),
-    verifyagain: makeNodeComponent("verifyagain"),
     // Metadata about props expected for PlasmicVerifyId
     internalVariantProps: PlasmicVerifyId__VariantProps,
     internalArgProps: PlasmicVerifyId__ArgProps

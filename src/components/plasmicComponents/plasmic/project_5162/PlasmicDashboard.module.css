@@ -1,0 +1,199 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 643px;
+  height: auto;
+  max-width: 643px;
+  position: relative;
+  min-width: 643px;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 8px;
+}
+.root__deposit {
+  box-shadow: 0px 4px 16px 0px #00000078;
+  background: #c3c3c3;
+}
+.root__withdraw {
+  background: #c3c3c3;
+  box-shadow: 0px 4px 16px 0px #00000078;
+}
+.freeBox___3Wr1 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 8px 30px;
+}
+.text__sOqX {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 9px;
+  min-width: 0;
+}
+.freeBox__j9Rl0 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #f2f1f1;
+  min-width: 0;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid #f2f1f1;
+}
+.freeBox__j9Rl0 > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
+}
+.freeBox__j9Rl0 > :global(.__wab_flex-container) > *,
+.freeBox__j9Rl0 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__j9Rl0 > :global(.__wab_flex-container) > picture > img,
+.freeBox__j9Rl0
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 0px;
+}
+.img__ddsz2 {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 149px;
+  margin-top: calc(13px + 0px) !important;
+}
+.img__ddsz2 > picture > img {
+  object-fit: cover;
+}
+.img__ddsz2 > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.img__deposit__ddsz2KnLs {
+  height: 42px;
+  object-fit: contain;
+  margin-top: calc(13px + 0px) !important;
+  flex-shrink: 0;
+}
+.img__deposit__ddsz2KnLs > picture > img {
+  object-fit: contain;
+}
+.img__deposit__ddsz2KnLs > .__wab_img-spacer > img {
+  object-fit: contain;
+}
+.img__withdraw__ddsz2GWt2F {
+  margin-top: calc(13px + 0px) !important;
+}
+.bridgeinput:global(.__wab_instance) {
+  position: relative;
+  margin-top: calc(14px + 0px) !important;
+  margin-bottom: 15px;
+}
+.bridgeinput__deposit:global(.__wab_instance) {
+  margin-top: calc(14px + 0px) !important;
+}
+.bridgeinput__withdraw:global(.__wab_instance) {
+  margin-top: calc(14px + 0px) !important;
+}
+.freeBox__quKm0 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 17px;
+  min-width: 0;
+  padding: 8px 30px;
+}
+.text__ohWis {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
+  font-weight: 700;
+  margin-top: 0px;
+  margin-bottom: 9px;
+  min-width: 0;
+}
+.freeBox__abArf {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  background: #f2f1f1;
+  min-width: 0;
+  border-radius: 10px;
+  padding: 8px;
+  border: 1px solid #f2f1f1;
+}
+.freeBox__abArf > :global(.__wab_flex-container) {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  margin-top: calc(0px - 0px);
+  height: calc(100% + 0px);
+}
+.freeBox__abArf > :global(.__wab_flex-container) > *,
+.freeBox__abArf > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__abArf > :global(.__wab_flex-container) > picture > img,
+.freeBox__abArf
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 0px;
+}
+.img__ftbw {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 149px;
+  margin-top: calc(0px + 0px) !important;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+.img__ftbw > picture > img {
+  object-fit: cover;
+}
+.img__ftbw > .__wab_img-spacer > img {
+  object-fit: cover;
+}
+.img__deposit__ftbwKnLs {
+  margin-top: calc(0px + 0px) !important;
+}
+.img__withdraw__ftbwGWt2F {
+  height: 42px;
+  object-fit: contain;
+  margin-top: calc(0px + 0px) !important;
+  flex-shrink: 0;
+}
+.img__withdraw__ftbwGWt2F > picture > img {
+  object-fit: contain;
+}
+.img__withdraw__ftbwGWt2F > .__wab_img-spacer > img {
+  object-fit: contain;
+}

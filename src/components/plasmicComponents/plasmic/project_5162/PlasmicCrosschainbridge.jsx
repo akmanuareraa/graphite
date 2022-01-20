@@ -9,25 +9,21 @@
 // Plasmic Project: 5GT6nVB5WgvLWb2iBXTk1E
 // Component: e2P0A2Lkpp2
 import * as React from "react";
-import * as p from "@plasmicapp/react-web";
 import {
   classNames,
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
-import Bridgedashboard from "../../Bridgedashboard"; // plasmic-import: PjaCRJxgT2C/component
-import Buttonc from "../../Buttonc"; // plasmic-import: 1vHlwVANzy/component
-import Buttond from "../../Buttond"; // plasmic-import: 6TPZ3f8kLA/component
+import SwitchTab from "../../SwitchTab"; // plasmic-import: x2pLauCnbh/component
+import Dashboard from "../../Dashboard"; // plasmic-import: bzHmxPkXfz/component
+import Bridgebutton from "../../Bridgebutton"; // plasmic-import: hMBG4xd795/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicCrosschainbridge.module.css"; // plasmic-import: e2P0A2Lkpp2/css
 
 export const PlasmicCrosschainbridge__VariantProps = new Array();
 
-export const PlasmicCrosschainbridge__ArgProps = new Array(
-  "tokenlockstack",
-  "tokenbridgestack"
-);
+export const PlasmicCrosschainbridge__ArgProps = new Array();
 
 function PlasmicCrosschainbridge__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -52,48 +48,32 @@ function PlasmicCrosschainbridge__RenderFunc(props) {
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm)}
       >
-        <Bridgedashboard
-          data-plasmic-name={"dashboard"}
-          data-plasmic-override={overrides.dashboard}
-          bridgetoken={true}
-          className={classNames("__wab_instance", sty.dashboard)}
-          tokenreturnstack={p.renderPlasmicSlot({
-            defaultContents: null,
-            value: args.tokenlockstack
-          })}
-          tokenunlockstack={p.renderPlasmicSlot({
-            defaultContents: null,
-            value: args.tokenbridgestack
-          })}
-        />
-
         <div
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
           className={classNames(projectcss.all, sty.freeBox)}
-        />
+        >
+          <SwitchTab
+            data-plasmic-name={"switchtab"}
+            data-plasmic-override={overrides.switchtab}
+            className={classNames("__wab_instance", sty.switchtab)}
+            deposit={true}
+          />
 
-        {true ? (
-          <p.Stack
-            as={"div"}
-            data-plasmic-name={"tabs"}
-            data-plasmic-override={overrides.tabs}
-            hasGap={true}
-            className={classNames(projectcss.all, sty.tabs)}
-          >
-            <Buttonc
-              data-plasmic-name={"bridgetab"}
-              data-plasmic-override={overrides.bridgetab}
-              className={classNames("__wab_instance", sty.bridgetab)}
-            />
+          <Dashboard
+            data-plasmic-name={"bridgedashboard"}
+            data-plasmic-override={overrides.bridgedashboard}
+            className={classNames("__wab_instance", sty.bridgedashboard)}
+            deposit={true}
+          />
 
-            <Buttond
-              data-plasmic-name={"returntab"}
-              data-plasmic-override={overrides.returntab}
-              className={classNames("__wab_instance", sty.returntab)}
-            />
-          </p.Stack>
-        ) : null}
+          <Bridgebutton
+            data-plasmic-name={"transferbutton"}
+            data-plasmic-override={overrides.transferbutton}
+            className={classNames("__wab_instance", sty.transferbutton)}
+            deposit={true}
+          />
+        </div>
       </div>
     </div>
   );
@@ -104,28 +84,25 @@ const PlasmicDescendants = {
     "root",
     "text",
     "applicationForm",
-    "dashboard",
     "freeBox",
-    "tabs",
-    "bridgetab",
-    "returntab"
+    "switchtab",
+    "bridgedashboard",
+    "transferbutton"
   ],
 
   text: ["text"],
   applicationForm: [
     "applicationForm",
-    "dashboard",
     "freeBox",
-    "tabs",
-    "bridgetab",
-    "returntab"
+    "switchtab",
+    "bridgedashboard",
+    "transferbutton"
   ],
 
-  dashboard: ["dashboard"],
-  freeBox: ["freeBox"],
-  tabs: ["tabs", "bridgetab", "returntab"],
-  bridgetab: ["bridgetab"],
-  returntab: ["returntab"]
+  freeBox: ["freeBox", "switchtab", "bridgedashboard", "transferbutton"],
+  switchtab: ["switchtab"],
+  bridgedashboard: ["bridgedashboard"],
+  transferbutton: ["transferbutton"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -159,11 +136,10 @@ export const PlasmicCrosschainbridge = Object.assign(
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
     applicationForm: makeNodeComponent("applicationForm"),
-    dashboard: makeNodeComponent("dashboard"),
     freeBox: makeNodeComponent("freeBox"),
-    tabs: makeNodeComponent("tabs"),
-    bridgetab: makeNodeComponent("bridgetab"),
-    returntab: makeNodeComponent("returntab"),
+    switchtab: makeNodeComponent("switchtab"),
+    bridgedashboard: makeNodeComponent("bridgedashboard"),
+    transferbutton: makeNodeComponent("transferbutton"),
     // Metadata about props expected for PlasmicCrosschainbridge
     internalVariantProps: PlasmicCrosschainbridge__VariantProps,
     internalArgProps: PlasmicCrosschainbridge__ArgProps

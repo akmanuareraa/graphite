@@ -1,0 +1,27 @@
+.depositbutton {
+  width: 321.5px;
+  height: 45px;
+  max-width: 321.5px;
+  position: relative;
+  min-width: 321.5px;
+  min-height: 45px;
+  max-height: 45px;
+  padding-top: 11px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  color: #ffffff;
+  background: none;
+}
+.depositbutton__selected {
+  background: #ffffff;
+  width: 310px;
+  min-width: 310px;
+  max-width: 310px;
+  border-radius: 10px;
+}
+.slotTargetChildren {
+  color: #000000;
+  text-align: center;
+}

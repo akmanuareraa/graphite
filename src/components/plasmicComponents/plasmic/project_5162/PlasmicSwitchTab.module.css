@@ -1,0 +1,37 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 643px;
+  height: 60px;
+  max-width: 643px;
+  position: relative;
+  background: #e8e8e8;
+  border-radius: 13px;
+  padding: 5px;
+}
+.root__withdraw {
+  width: 644px;
+  max-width: 644px;
+  min-width: 644px;
+}
+.deposittab:global(.__wab_instance) {
+  position: relative;
+  align-self: center;
+  width: 321.5px;
+  max-width: 332px;
+  flex-shrink: 0;
+}
+.deposittab__withdraw:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.withdrawtab:global(.__wab_instance) {
+  position: relative;
+  align-self: center;
+  width: 321.5px;
+  flex-shrink: 0;
+}
+.withdrawtab__withdraw:global(.__wab_instance) {
+  flex-shrink: 0;
+}

@@ -21,7 +21,7 @@
   min-width: 0;
 }
 .applicationForm {
-  background: rgba(255, 255, 255, 1);
+  background: #ffffff;
   width: 1388px;
   height: 594px;
   display: block;
@@ -31,49 +31,28 @@
   top: auto;
   flex-shrink: 0;
 }
-.dashboard:global(.__wab_instance) {
-  position: absolute;
-  top: 100px;
-  left: 110px;
-}
 .freeBox {
-  display: block;
-  position: absolute;
-  width: 1020px;
-  height: 4px;
-  max-width: 100%;
-  left: 193px;
-  top: 75px;
-  background: #000000;
-  padding: 0px;
-}
-.tabs {
   display: flex;
   position: absolute;
-  flex-direction: row;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  top: 30px;
-  left: 516px;
-  padding: 0px;
-}
-.tabs > :global(.__wab_flex-container) {
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-left: calc(0px - 0px);
-  width: calc(100% + 0px);
-}
-.tabs > :global(.__wab_flex-container) > *,
-.tabs > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.tabs > :global(.__wab_flex-container) > picture > img,
-.tabs > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
-  margin-left: 0px;
-}
-.returntab:global(.__wab_instance) {
+  width: 659px;
+  height: auto;
   max-width: 100%;
+  left: 374px;
+  top: 33px;
+  padding: 8px;
+}
+.switchtab:global(.__wab_instance) {
   position: relative;
-  width: 180px;
   flex-shrink: 0;
+}
+.bridgedashboard:global(.__wab_instance) {
+  position: relative;
+  margin-top: 14px;
+}
+.transferbutton:global(.__wab_instance) {
+  position: relative;
+  margin-top: 23px;
 }
