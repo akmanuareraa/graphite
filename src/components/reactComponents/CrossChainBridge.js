@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react';
 
 import Crosschainbridge from '../plasmicComponents/Crosschainbridge.jsx'
-import IndvTxnElement from '../plasmicComponents/IndvTxnElement.jsx'
+
+//import { MoralisProvider } from "react-moralis";
+
 
 function CrossChainBridge(props) {
 
-    // handles the input  field
+    //Moralis.start({ serverUrl, appId });  // on component mount
+    //console.log('Morallis Integ: ',Moralis)
+    //Moralis.Web3 = //Put state web3 object obtained from metamask here - On component mount
+
+    // to access the inputfield value: props.mainState.crosschainbridge.tokenamount
+    // handles the input field
     const handleChange = e => {
         console.log(e.target.value)
         props.setMainState(prevState => {
@@ -19,55 +26,78 @@ function CrossChainBridge(props) {
         })
     }
 
+    // component that solely manages the UI
     const dashboardrenderer = () => {
         return (
             <>
                 <Crosschainbridge
-                    
-                    onChange={handleChange}
-                    value={props.mainState.crosschainbridge.tokenamount}
 
-                    bridgetab={{
-                        selected: props.allUiStates.crosschainbridge.bridgeselected,
-                        onClick: () => {
-                            props.setAllUiStates(prevState => {
-                                return{
-                                    ...prevState,
-                                    crosschainbridge: {
-                                        ...prevState.crosschainbridge,
-                                        bridgeselected: true,
-                                        returnselected: false,
-                                        bridgetoken: true,
-                                        returntoken: false,
-                                        bridgeinput: true,
-                                        returninput: false
+                    onChange={handleChange}
+
+                    switchtab={{
+                        deposit: props.allUiStates.crosschainbridge.deposittab,
+                        withdraw: props.allUiStates.crosschainbridge.withdrawtab,
+                        deposittab: {
+                            onClick: () => {
+                                console.log('d cl')
+                                // on changing tabs, also change the UI states
+                                props.setAllUiStates(prevState => {
+                                    return {
+                                        ...prevState,
+                                        crosschainbridge: {
+                                            ...prevState.crosschainbridge,
+                                            deposittab: true,
+                                            withdrawtab: false,
+                                            depositdashboard: true,
+                                            withdrawdashboard: false,
+                                            depositbutton: true,
+                                            withdrawbutton: false
+                                        }
                                     }
-                                }
-                            })
+                                })
+                            }
+                        },
+                        withdrawtab: {
+                            onClick: () => {
+                                console.log('w cl')
+                                // on changing tabs, also change the UI states
+                                props.setAllUiStates(prevState => {
+                                    return {
+                                        ...prevState,
+                                        crosschainbridge: {
+                                            ...prevState.crosschainbridge,
+                                            deposittab: false,
+                                            withdrawtab: true,
+                                            depositdashboard: false,
+                                            withdrawdashboard: true,
+                                            depositbutton: false,
+                                            withdrawbutton: true
+                                        }
+                                    }
+                                })
+                            }
                         }
                     }}
-                    returntab={{
-                        selected: props.allUiStates.crosschainbridge.returnselected,
-                        onClick: () => {
-                            props.setAllUiStates(prevState => {
-                                return{
-                                    ...prevState,
-                                    crosschainbridge: {
-                                        ...prevState.crosschainbridge,
-                                        bridgeselected: false,
-                                        returnselected: true,
-                                        bridgetoken: false,
-                                        returntoken: true,
-                                        bridgeinput: false,
-                                        returninput: true
-                                    }
-                                }
-                            })
-                        }
+
+                    bridgedashboard={{
+                        deposit: props.allUiStates.crosschainbridge.depositdashboard,
+                        withdraw: props.allUiStates.crosschainbridge.withdrawdashboard
                     }}
-                    dashboard={{
-                        bridgetoken: props.allUiStates.crosschainbridge.bridgetoken,
-                        returntoken: props.allUiStates.crosschainbridge.returntoken
+
+                    transferbutton={{
+                        deposit: props.allUiStates.crosschainbridge.depositbutton,
+                        withdraw: props.allUiStates.crosschainbridge.withdrawbutton,
+                        onClick: () => {
+                            // if the current active state of button is withdraw
+                            if (props.allUiStates.crosschainbridge.tbuttonwithdraw) {
+                                // execute withdraw function
+                                //depositToPolygon(props.mainState.crosschainbridge.tokenamount)
+                                // if the current active state of button is deposit    
+                            } else if (props.allUiStates.crosschainbridge.tbuttondeposit) {
+                                // execute deposit function
+                                //depositToBSC(props.mainState.crosschainbridge.tokenamount)
+                            }
+                        }
                     }}
                 />
             </>
@@ -75,6 +105,7 @@ function CrossChainBridge(props) {
     }
 
     useEffect(() => {
+        // changing the navbar state
         props.setAllUiStates(prevState => {
             return {
                 ...prevState,
@@ -84,24 +115,23 @@ function CrossChainBridge(props) {
                 }
             }
         })
-    },[])
+    }, [])
 
-    // useEffect(() => {
-    //     console.log('Use Effect called')
-    //     props.setMainState(prevState => {
-    //         return {
-    //             ...prevState,
-    //             crosschainbridge: {
-    //                 ...prevState.crosschainbridge,
-    //                 tokenamount: ''
-    //             }
-    //         }
-    //     })
-    // },[props.allUiStates.crosschainbridge.returnselected])
+    // whenever user changes the tab, reset the tokenamount in the state
+    useEffect(() => {
+        props.setMainState(prevState => {
+            return {
+                ...prevState,
+                crosschainbridge: {
+                    tokenamount: ''
+                }
+            }
+        })
+    }, [props.allUiStates.crosschainbridge.depositselected])
 
     return (
         <div className="columns is-centered">
-            {dashboardrenderer()}    
+            {dashboardrenderer()}
         </div>
     );
 }

@@ -44,7 +44,7 @@ function InvoiceConfirmation(props) {
                 console.log(receipt)
             })
             .on('confirmation', function (confirmationNumber, receipt) {
-                if (confirmationNumber == 10) {
+                if (confirmationNumber == 2) {
                     console.log(confirmationNumber)
 
                     props.setAllUiStates(prevState => {

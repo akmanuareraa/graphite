@@ -16,7 +16,7 @@ function PrefilledForm(props) {
 
     // function to publish the hash to blockchain and to store the data in mongoDB
     const issueNewId = (formParams) => {
-
+        console.log(formParams)
         props.setAllUiStates(prevState => {
             return {
                 ...prevState,
@@ -54,7 +54,7 @@ function PrefilledForm(props) {
                         console.log(receipt)
                     })
                     .on('confirmation', function (confirmationNumber, receipt) {
-                        if (confirmationNumber === 10) {
+                        if (confirmationNumber === 1) {
                             console.log(confirmationNumber)
                             console.log(receipt)
                             assetMinterContract.methods.issueAsset(hash).send({ from: props.mainState.account })
@@ -83,7 +83,7 @@ function PrefilledForm(props) {
                                     })
                                 })
                                 .on('confirmation', function (confirmationNumber, receipt) {
-                                    if (confirmationNumber === 10) {
+                                    if (confirmationNumber === 1) {
 
                                         // on successfull transactions, data will be stored in mongoDB
                                         console.log(confirmationNumber)
@@ -449,7 +449,6 @@ function PrefilledForm(props) {
     // will filter the url params, update the urlParams and UI state
     useEffect(() => {
         props.urlParser("createAsset");
-
     }, [])
 
     // This function executes when Application Number is parsed from the URL and then checks
@@ -475,7 +474,7 @@ function PrefilledForm(props) {
                         axios.get(config.backendServer + "getLastRecord").then(function (response, error) {
                             if (response) {
                                 let referenceId = parseInt(response.data.refId) + 1
-
+                                console.log('refNO', referenceId)
                                 // create the receiptNo and payment timestamp
                                 props.setAllUrlParams(prevState => {
                                     return {
@@ -488,6 +487,7 @@ function PrefilledForm(props) {
                                         }
                                     }
                                 })
+                                console.log(props.allUrlParams.createAsset)
                             } else {
                                 console.log(error)
                             }

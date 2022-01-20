@@ -1,84 +1,15 @@
 import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import config from '../../config-frontend'
 import axios from 'axios';
 
 import VerifyId from '../plasmicComponents/VerifyId.jsx';
 import idassetminterabi from '../../ABI/IdAssetMinterABI'
+import idphoto2 from './idphoto2.jpg'
 
 function VerifyEstId(props) {
 
-    // handles the input  field
-    const handleChange = e => {
-        props.setMainState(prevState => {
-            return {
-                ...prevState,
-                verifyestid: {
-                    ...prevState.verifyestid,
-                    tokenNo: e.target.value
-                }
-            }
-        })
-    }
-
-    // retrieves the ID card from the database after checking with the Smart Contract
-    const getIdCard = async (tokenno) => {
-        let web3 = props.mainState.web3
-        let idAssetMinterAddress = config.idAssetMinterAddress
-        let idAssetMinterABI = JSON.parse(idassetminterabi)
-        let idAssetMinterContract = new web3.eth.Contract(idAssetMinterABI, idAssetMinterAddress)
-
-        // retireve the document number from the smart contract which will be used for fetching the ID
-        let docnoFromContract = await idAssetMinterContract.methods.verifyToken(tokenno.toString()).call({ from: props.mainState.account })
-        props.setMainState(prevState => {
-            return {
-                ...prevState,
-                verifyestid: {
-                    ...prevState.verifyestid,
-                    docno: docnoFromContract
-                }
-            }
-        })
-
-        // retrieves the ID
-        axios.get(config.backendServer + "getIdCard", { params: { "docno": docnoFromContract.toString() } }).then(function (response, error) {
-            console.log(response.data)
-            if (response) {
-                props.setMainState(prevState => {
-                    return {
-                        ...prevState,
-                        verifyestid: {
-                            ...prevState.verifyestid,
-                            ...response.data.ID
-                        }
-                    }
-                })
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        verifyestid: {
-                            ...prevState.verifyestid,
-                            displayId: true,
-                            notfound: false
-                        }
-                    }
-                })
-            } else {
-                console.log("Error: ", error)
-            }
-        })
-            .catch(function (e) {
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        verifyestid: {
-                            ...prevState.verifyestid,
-                            displayId: false,
-                            notfound: true
-                        }
-                    }
-                })
-            })
-    }
+    const { docno } = useParams()
 
     // renders and handles the state of the UI component
     const idrenderer = () => {
@@ -86,44 +17,15 @@ function VerifyEstId(props) {
             <VerifyId
                 displayId={props.allUiStates.verifyestid.displayId}
                 notfound={props.allUiStates.verifyestid.notfound}
-                onChange={handleChange}
 
-                nationality={props.mainState.verifyestid.nationality}
-                name={props.mainState.verifyestid.name}
-                docno={props.mainState.verifyestid.docno}
-                dob={props.mainState.verifyestid.dob}
-                expiry={props.mainState.verifyestid.expiry}
-                issued={props.mainState.verifyestid.issued}
-                sex={props.mainState.verifyestid.sex}
-
-                verifyidbutton={{
-                    onClick: () => {
-                        if(props.mainState.account !== null){
-                            if (props.mainState.verifyestid.tokenNo.length !== 0) {
-                                getIdCard(props.mainState.verifyestid.tokenNo)
-                            } else {
-                                alert("Please provide a Token Number")
-                            }
-                        } else {
-                            alert("Please connect your Metamask Wallet")
-                        }
-                    }
-                }}
-
-                verifyagain={{
-                    onClick: () => {
-                        props.setAllUiStates(prevState => {
-                            return {
-                                ...prevState,
-                                verifyestid: {
-                                    ...prevState.verifyestid,
-                                    displayId: false,
-                                    notfound: false
-                                }
-                            }
-                        })
-                    }
-                }}
+                idphoto={<img src={props.allUrlParams.verifyestid.imgUrl}/>}
+                nationality={props.allUrlParams.verifyestid.nationality}
+                name={props.allUrlParams.verifyestid.name}
+                docno={props.allUrlParams.verifyestid.docno}
+                dob={props.allUrlParams.verifyestid.dob}
+                expiry={props.allUrlParams.verifyestid.expiry}
+                issued={props.allUrlParams.verifyestid.issued}
+                sex={props.allUrlParams.verifyestid.sex}
             />
         )
     }
@@ -138,8 +40,68 @@ function VerifyEstId(props) {
                 }
             }
         })
-        props.setupMetamask("verifyestid");
+        
+        props.setAllUrlParams(prevState => {
+            return {
+                ...prevState,
+                verifyestid: {
+                    ...prevState.verifyestid,
+                    docno: docno
+                }
+            }
+        })
     }, [])
+
+    useEffect(() => {
+        console.log('urlParams', props.allUrlParams.verifyestid)
+        // retrieves the ID card from the database 
+        if (props.allUrlParams.verifyestid.docno != null) {
+            axios.get(config.backendServer + "getIdCard", { params: { "docno": props.allUrlParams.verifyestid.docno } }).then(function (response, error) {
+                console.log(response.data)
+                if (response) {
+                    props.setAllUrlParams(prevState => {
+                        return {
+                            ...prevState,
+                            verifyestid: {
+                                ...prevState.verifyestid,
+                                ...response.data.ID
+                            }
+                        }
+                    })
+                    props.setAllUiStates(prevState => {
+                        return {
+                            ...prevState,
+                            verifyestid: {
+                                ...prevState.verifyestid,
+                                displayId: true,
+                                notfound: false
+                            }
+                        }
+                    })
+                } else {
+                    console.log("Error: ", error)
+                }
+            })
+                .catch(function (e) {
+                    if (e.response.status === 404) {
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                verifyestid: {
+                                    ...prevState.verifyestid,
+                                    displayId: false,
+                                    notfound: true
+                                }
+                            }
+                        })
+                    } else {
+                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                    }
+                })
+        }
+        console.log('ui', props.allUiStates.verifyestid)
+        
+    }, [props.allUrlParams.verifyestid.docno])
 
     return (
         <div className="columns is-centered">
