@@ -17,6 +17,8 @@ import Homepage from './components/reactComponents/Homepage';
 
 function App() {
 
+  
+
   // a main state to handle data flows between parent-child components
   const [mainState, setMainState] = useState(() => {
     return {
@@ -66,6 +68,9 @@ function App() {
         appfeecu: 0,
         iksfeecu: 0,
         taxcu: 0
+      },
+      verifyestid: {
+        docno:null
       },
       generateSalesOrder: {
         pono: null
@@ -196,12 +201,12 @@ function App() {
         displayId: false
       },
       crosschainbridge: {
-       bridgeselected: true,
-       returnselected: false, 
-       bridgetoken: true,
-       returntoken: false,
-       bridgeinput: true,
-       returninput: false
+        deposittab: true,
+        withdrawtab: false,
+        depositdashboard: true,
+        withdrawdashboard: false,
+        depositbutton: true,
+        withdrawbutton: false
       }
     }
   })
@@ -750,11 +755,13 @@ function App() {
             redirectExecution={redirectExecution}
           />} />
 
-          <Route path="/verifyId" element={<VerifyEstId
+          <Route path="/verifyid/:docno" element={<VerifyEstId
             mainState={mainState}
             setMainState={setMainState}
             allUiStates={allUiStates}
             setAllUiStates={setAllUiStates}
+            allUrlParams={allUrlParams}
+            setAllUrlParams={setAllUrlParams}
             setupMetamask={setupMetamask}
           />} />
 
