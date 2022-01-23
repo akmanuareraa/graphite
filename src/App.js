@@ -12,7 +12,7 @@ import InvoiceGeneration from './components/reactComponents/InvoiceGeneration';
 import InvoiceConfirmation from './components/reactComponents/InvoiceConfirmation';
 import LogisticsGeneration from './components/reactComponents/LogisticsGeneration';
 import LogisticsConfirmation from './components/reactComponents/LogisticsConfirmation';
-import CrossChainBridge from './components/reactComponents/CrossChainBridge';
+//import CrossChainBridge from './components/reactComponents/CrossChainBridge';
 import Homepage from './components/reactComponents/Homepage';
 
 function App() {
@@ -206,7 +206,8 @@ function App() {
         depositdashboard: true,
         withdrawdashboard: false,
         depositbutton: true,
-        withdrawbutton: false
+        withdrawbutton: false,
+        metamaskstate: true
       }
     }
   })
@@ -765,12 +766,12 @@ function App() {
             setupMetamask={setupMetamask}
           />} />
 
-          <Route path="/crosschainbridge" element={<CrossChainBridge 
+          {/* <Route path="/crosschainbridge" element={<CrossChainBridge 
             mainState={mainState}
             setMainState={setMainState}
             allUiStates={allUiStates}
             setAllUiStates={setAllUiStates}
-          />} />
+          />} /> */}
         </Routes>
       </BrowserRouter>
     </>
