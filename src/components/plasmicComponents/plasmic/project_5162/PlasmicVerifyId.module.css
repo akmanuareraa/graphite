@@ -16,8 +16,8 @@
   text-align: center;
   font-size: 30px;
   font-weight: 600;
-  font-family: "Inria Sans", sans-serif;
-  background: #e4dada;
+  font-family: "Open Sans", sans-serif;
+  background: #e0e0e0;
   min-width: 0;
 }
 .applicationForm {
@@ -30,6 +30,9 @@
   left: auto;
   top: auto;
   flex-shrink: 0;
+}
+.applicationFormdisplayId {
+  box-shadow: 0px 4px 16px 0px #00000033;
 }
 .freeBox__tyPfi {
   display: block;
@@ -108,10 +111,10 @@
   > img {
   margin-top: 50px;
 }
-.freeBox__displayId__xkTbvXa4I6 {
+.freeBoxdisplayId__xkTbvXa4I6 {
   display: none;
 }
-.freeBox__notfound__xkTbvvnAI {
+.freeBoxnotfound__xkTbvvnAI {
   left: 250px;
 }
 .freeBox___23Pex {
@@ -223,10 +226,11 @@
   font-weight: 700;
   display: none;
 }
-.text__notfound___4TZsJvnAI {
+.textnotfound___4TZsJvnAI {
   left: auto;
   top: auto;
   align-self: auto;
+  font-family: "Open Sans", sans-serif;
   display: block;
 }
 .idstack {
@@ -234,19 +238,19 @@
   position: absolute;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 742px;
-  height: auto;
+  height: 300px;
   max-width: 100%;
   left: 315px;
   top: 72px;
-  box-shadow: none;
-  background: #e2e5db;
-  border-radius: 15px;
-  padding: 8px;
-  border: 2px solid #ffffff;
+  box-shadow: 0px 4px 16px 0px #e0e0e0 /* plasmic-token: LIdMPRpET */;
+  background: #ffffff;
+  border-radius: 0px;
+  padding: 0px;
+  border: 2px none #ffffff;
 }
-.idstack__displayId {
+.idstackdisplayId {
   display: flex;
 }
 .text__o3Gr6 {
@@ -254,10 +258,10 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: #707e83;
+  background: #15b2b8;
   margin-top: 0px;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -290,6 +294,7 @@
   min-height: 182px;
   max-width: 150px;
   max-height: 182px;
+  margin-bottom: 0px;
   flex-shrink: 0;
 }
 .freeBox__gMzA {
@@ -326,8 +331,9 @@
   height: auto;
   max-width: 800px;
   font-weight: 600;
-  color: #363434;
+  color: #535353;
   text-decoration-line: underline;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__bvHml {
   display: flex;
@@ -350,7 +356,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: #b8cdd5;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -361,6 +367,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text___2A37F {
@@ -380,8 +387,9 @@
   flex-direction: row;
 }
 .slotTargetNationality {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__iYx6L {
   display: flex;
@@ -402,6 +410,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text__hzag4 {
@@ -421,8 +430,8 @@
   flex-direction: row;
 }
 .slotTargetName {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
 }
 .freeBox__kyzOe {
   display: flex;
@@ -433,7 +442,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: #b8cdd5;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -444,6 +453,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text__w4Ht3 {
@@ -463,8 +473,9 @@
   flex-direction: row;
 }
 .slotTargetDocno {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__jZShn {
   display: flex;
@@ -485,6 +496,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text___6BTzR {
@@ -504,8 +516,9 @@
   flex-direction: row;
 }
 .slotTargetDob {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__wpCe {
   display: flex;
@@ -516,7 +529,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  background: #b8cdd5;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -527,6 +540,8 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text___18Bpw {
@@ -546,8 +561,9 @@
   flex-direction: row;
 }
 .slotTargetIssued {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__sq35 {
   display: flex;
@@ -568,6 +584,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text__mg0A {
@@ -587,8 +604,9 @@
   flex-direction: row;
 }
 .slotTargetExpiry {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__zG60I {
   display: flex;
@@ -599,6 +617,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -609,6 +628,7 @@
   max-width: 250px;
   min-width: 250px;
   padding-left: 94px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text__nPGq3 {
@@ -628,8 +648,9 @@
   flex-direction: row;
 }
 .slotTargetSex {
-  font-weight: 600;
-  color: #191919;
+  font-weight: 400;
+  color: #535353;
+  font-family: "Open Sans", sans-serif;
 }
 .text__nG4S9 {
   position: absolute;
@@ -640,4 +661,5 @@
   top: 74px;
   font-size: 20px;
   font-weight: 700;
+  font-family: "Open Sans", sans-serif;
 }

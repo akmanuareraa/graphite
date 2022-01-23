@@ -14,14 +14,18 @@
   color: #ffffff;
   background: none;
 }
-.depositbutton__selected {
+.depositbuttonselected {
   background: #ffffff;
   width: 310px;
   min-width: 310px;
   max-width: 310px;
+  color: #000000;
   border-radius: 10px;
 }
 .slotTargetChildren {
   color: #000000;
   text-align: center;
+}
+.slotTargetChildrenselected {
+  color: #000000;
 }

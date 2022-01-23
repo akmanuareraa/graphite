@@ -43,13 +43,13 @@ function PlasmicBridgedashboard__RenderFunc(props) {
       data-plasmic-for-node={forNode}
       hasGap={true}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__bridgetoken]: hasVariant(
+        [sty.rootbridgetoken]: hasVariant(
           variants,
           "bridgetoken",
           "bridgetoken"
         ),
 
-        [sty.root__returntoken]: hasVariant(
+        [sty.rootreturntoken]: hasVariant(
           variants,
           "returntoken",
           "returntoken"
@@ -62,7 +62,7 @@ function PlasmicBridgedashboard__RenderFunc(props) {
           projectcss.__wab_text,
           sty.text__wlcsZ,
           {
-            [sty.text__returntoken__wlcsZzJ1Lk]: hasVariant(
+            [sty.textreturntoken__wlcsZzJ1Lk]: hasVariant(
               variants,
               "returntoken",
               "returntoken"
@@ -78,13 +78,13 @@ function PlasmicBridgedashboard__RenderFunc(props) {
       {(hasVariant(variants, "returntoken", "returntoken") ? false : true) ? (
         <Tokeninput
           className={classNames("__wab_instance", sty.tokeninput__c2X2Q, {
-            [sty.tokeninput__bridgetoken__c2X2QMcBiZ]: hasVariant(
+            [sty.tokeninputbridgetoken__c2X2QMcBiZ]: hasVariant(
               variants,
               "bridgetoken",
               "bridgetoken"
             ),
 
-            [sty.tokeninput__returntoken__c2X2QzJ1Lk]: hasVariant(
+            [sty.tokeninputreturntoken__c2X2QzJ1Lk]: hasVariant(
               variants,
               "returntoken",
               "returntoken"
@@ -95,13 +95,13 @@ function PlasmicBridgedashboard__RenderFunc(props) {
       {(hasVariant(variants, "bridgetoken", "bridgetoken") ? false : true) ? (
         <Tokeninput
           className={classNames("__wab_instance", sty.tokeninput__cM34, {
-            [sty.tokeninput__bridgetoken__cM34McBiZ]: hasVariant(
+            [sty.tokeninputbridgetoken__cM34McBiZ]: hasVariant(
               variants,
               "bridgetoken",
               "bridgetoken"
             ),
 
-            [sty.tokeninput__returntoken__cM34ZJ1Lk]: hasVariant(
+            [sty.tokeninputreturntoken__cM34ZJ1Lk]: hasVariant(
               variants,
               "returntoken",
               "returntoken"
@@ -118,7 +118,7 @@ function PlasmicBridgedashboard__RenderFunc(props) {
           projectcss.__wab_text,
           sty.button,
           {
-            [sty.button__returntoken]: hasVariant(
+            [sty.buttonreturntoken]: hasVariant(
               variants,
               "returntoken",
               "returntoken"
@@ -137,7 +137,7 @@ function PlasmicBridgedashboard__RenderFunc(props) {
           projectcss.__wab_text,
           sty.text__ih4HX,
           {
-            [sty.text__returntoken__ih4HXzJ1Lk]: hasVariant(
+            [sty.textreturntoken__ih4HXzJ1Lk]: hasVariant(
               variants,
               "returntoken",
               "returntoken"
@@ -203,13 +203,13 @@ function PlasmicBridgedashboard__RenderFunc(props) {
           projectcss.__wab_text,
           sty.text__krOwd,
           {
-            [sty.text__bridgetoken__krOwdMcBiZ]: hasVariant(
+            [sty.textbridgetoken__krOwdMcBiZ]: hasVariant(
               variants,
               "bridgetoken",
               "bridgetoken"
             ),
 
-            [sty.text__returntoken__krOwdzJ1Lk]: hasVariant(
+            [sty.textreturntoken__krOwdzJ1Lk]: hasVariant(
               variants,
               "returntoken",
               "returntoken"

@@ -43,23 +43,38 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
+        [sty.rootdisplaysalesorder]: hasVariant(
+          variants,
+          "displaysalesorder",
+          "displaysalesorder"
+        )
+      })}
     >
       <div
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__zLbSn
+          sty.text__zLbSn,
+          {
+            [sty.textdisplaysalesorder__zLbSntEf4M]: hasVariant(
+              variants,
+              "displaysalesorder",
+              "displaysalesorder"
+            )
+          }
         )}
       >
-        {"SALES ORDER GENERATION"}
+        {hasVariant(variants, "displaysalesorder", "displaysalesorder")
+          ? "SALES ORDER GENERATION"
+          : "SALES ORDER GENERATION"}
       </div>
 
       <div
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__displaysalesorder]: hasVariant(
+          [sty.applicationFormdisplaysalesorder]: hasVariant(
             variants,
             "displaysalesorder",
             "displaysalesorder"
@@ -70,7 +85,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__w7M6X, {
-            [sty.freeBox__displaysalesorder__w7M6XtEf4M]: hasVariant(
+            [sty.freeBoxdisplaysalesorder__w7M6XtEf4M]: hasVariant(
               variants,
               "displaysalesorder",
               "displaysalesorder"
@@ -79,7 +94,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
         >
           <div
             className={classNames(projectcss.all, sty.freeBox__yY8Gk, {
-              [sty.freeBox__displaysalesorder__yY8GktEf4M]: hasVariant(
+              [sty.freeBoxdisplaysalesorder__yY8GktEf4M]: hasVariant(
                 variants,
                 "displaysalesorder",
                 "displaysalesorder"
@@ -88,7 +103,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
           >
             <div
               className={classNames(projectcss.all, sty.freeBox__bHvUz, {
-                [sty.freeBox__displaysalesorder__bHvUztEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__bHvUztEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -101,7 +116,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__vOjIe,
                   {
-                    [sty.text__displaysalesorder__vOjIetEf4M]: hasVariant(
+                    [sty.textdisplaysalesorder__vOjIetEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -117,7 +132,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               {true ? (
                 <div
                   className={classNames(projectcss.all, sty.freeBox__pfmEn, {
-                    [sty.freeBox__displaysalesorder__pfmEntEf4M]: hasVariant(
+                    [sty.freeBoxdisplaysalesorder__pfmEntEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -128,7 +143,14 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__fjkCq
+                      sty.text__fjkCq,
+                      {
+                        [sty.textdisplaysalesorder__fjkCqtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
                     )}
                   >
                     {"#"}
@@ -136,7 +158,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__oqnY, {
-                      [sty.freeBox__displaysalesorder__oqnYtEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder__oqnYtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -147,7 +169,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       defaultContents: "ABC123",
                       value: args.pono,
                       className: classNames(sty.slotTargetPono, {
-                        [sty.slotTargetPono__displaysalesorder]: hasVariant(
+                        [sty.slotTargetPonodisplaysalesorder]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -169,7 +191,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__b4EWt, {
-                [sty.freeBox__displaysalesorder__b4EWttEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__b4EWttEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -187,7 +209,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__s59Kq,
                     {
-                      [sty.text__displaysalesorder__s59KQtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__s59KQtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -209,7 +231,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___1FyxZ,
                     {
-                      [sty.text__displaysalesorder___1FyxZtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___1FyxZtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -229,7 +251,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__vBrpa, {
-                [sty.freeBox__displaysalesorder__vBrpatEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__vBrpatEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -238,7 +260,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__mjsTp, {
-                  [sty.freeBox__displaysalesorder__mjsTPtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__mjsTPtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -251,7 +273,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__ktQqf,
                     {
-                      [sty.text__displaysalesorder__ktQqftEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__ktQqftEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -268,7 +290,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__mSwmf,
                     {
-                      [sty.text__displaysalesorder__mSwmftEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__mSwmftEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -283,7 +305,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"supplier"}
                   data-plasmic-override={overrides.supplier}
                   className={classNames(projectcss.all, sty.supplier, {
-                    [sty.supplier__displaysalesorder]: hasVariant(
+                    [sty.supplierdisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -294,7 +316,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.children,
                     className: classNames(sty.slotTargetChildren, {
-                      [sty.slotTargetChildren__displaysalesorder]: hasVariant(
+                      [sty.slotTargetChildrendisplaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -306,7 +328,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__x4R0, {
-                  [sty.freeBox__displaysalesorder__x4R0TEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__x4R0TEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -319,7 +341,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__anpj4,
                     {
-                      [sty.text__displaysalesorder__anpj4TEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__anpj4TEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -336,7 +358,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___15DvJ,
                     {
-                      [sty.text__displaysalesorder___15DvJtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___15DvJtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -351,7 +373,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"shipmentmode"}
                   data-plasmic-override={overrides.shipmentmode}
                   className={classNames(projectcss.all, sty.shipmentmode, {
-                    [sty.shipmentmode__displaysalesorder]: hasVariant(
+                    [sty.shipmentmodedisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -362,7 +384,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.slot,
                     className: classNames(sty.slotTargetSlot, {
-                      [sty.slotTargetSlot__displaysalesorder]: hasVariant(
+                      [sty.slotTargetSlotdisplaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -374,7 +396,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__nbokJ, {
-                  [sty.freeBox__displaysalesorder__nbokJtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__nbokJtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -387,7 +409,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___5TUc,
                     {
-                      [sty.text__displaysalesorder___5TUctEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___5TUctEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -404,7 +426,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__mWFfr,
                     {
-                      [sty.text__displaysalesorder__mWFfrtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__mWFfrtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -419,7 +441,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"origincountry"}
                   data-plasmic-override={overrides.origincountry}
                   className={classNames(projectcss.all, sty.origincountry, {
-                    [sty.origincountry__displaysalesorder]: hasVariant(
+                    [sty.origincountrydisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -430,7 +452,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.slot2,
                     className: classNames(sty.slotTargetSlot2, {
-                      [sty.slotTargetSlot2__displaysalesorder]: hasVariant(
+                      [sty.slotTargetSlot2displaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -442,7 +464,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__auUkj, {
-                  [sty.freeBox__displaysalesorder__auUkJtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__auUkJtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -455,7 +477,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__zbaIm,
                     {
-                      [sty.text__displaysalesorder__zbaImtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__zbaImtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -472,7 +494,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__xsU9M,
                     {
-                      [sty.text__displaysalesorder__xsU9MtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__xsU9MtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -487,7 +509,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"sap"}
                   data-plasmic-override={overrides.sap}
                   className={classNames(projectcss.all, sty.sap, {
-                    [sty.sap__displaysalesorder]: hasVariant(
+                    [sty.sapdisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -498,7 +520,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.slot3,
                     className: classNames(sty.slotTargetSlot3, {
-                      [sty.slotTargetSlot3__displaysalesorder]: hasVariant(
+                      [sty.slotTargetSlot3displaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -510,7 +532,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__xuFu9, {
-                  [sty.freeBox__displaysalesorder__xuFu9TEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__xuFu9TEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -523,7 +545,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__mFrrL,
                     {
-                      [sty.text__displaysalesorder__mFrrLtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__mFrrLtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -540,7 +562,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__xebXu,
                     {
-                      [sty.text__displaysalesorder__xebXutEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__xebXutEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -555,7 +577,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"grn"}
                   data-plasmic-override={overrides.grn}
                   className={classNames(projectcss.all, sty.grn, {
-                    [sty.grn__displaysalesorder]: hasVariant(
+                    [sty.grndisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -566,7 +588,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.slot4,
                     className: classNames(sty.slotTargetSlot4, {
-                      [sty.slotTargetSlot4__displaysalesorder]: hasVariant(
+                      [sty.slotTargetSlot4displaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -578,7 +600,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__yTdH5, {
-                  [sty.freeBox__displaysalesorder__yTdH5TEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__yTdH5TEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -591,7 +613,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___8U67Z,
                     {
-                      [sty.text__displaysalesorder___8U67ZtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___8U67ZtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -608,7 +630,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__yaMpg,
                     {
-                      [sty.text__displaysalesorder__yaMpGtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__yaMpGtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -623,7 +645,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue"}
                   data-plasmic-override={overrides.creditnotevalue}
                   className={classNames(projectcss.all, sty.creditnotevalue, {
-                    [sty.creditnotevalue__displaysalesorder]: hasVariant(
+                    [sty.creditnotevaluedisplaysalesorder]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -634,7 +656,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.slot5,
                     className: classNames(sty.slotTargetSlot5, {
-                      [sty.slotTargetSlot5__displaysalesorder]: hasVariant(
+                      [sty.slotTargetSlot5displaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -646,7 +668,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox___2FeWl, {
-                  [sty.freeBox__displaysalesorder___2FeWLtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder___2FeWLtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -659,7 +681,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__ddB3I,
                     {
-                      [sty.text__displaysalesorder__ddB3ItEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__ddB3ItEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -676,7 +698,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__qPy9J,
                     {
-                      [sty.text__displaysalesorder__qPy9JtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__qPy9JtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -695,7 +717,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.balance2,
                     {
-                      [sty.balance2__displaysalesorder]: hasVariant(
+                      [sty.balance2displaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -714,7 +736,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.balance,
                     {
-                      [sty.balance__displaysalesorder]: hasVariant(
+                      [sty.balancedisplaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -736,7 +758,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___245Hm, {
-                [sty.freeBox__displaysalesorder___245HmtEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder___245HmtEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -749,7 +771,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__bWoK0,
                   {
-                    [sty.text__displaysalesorder__bWoK0TEf4M]: hasVariant(
+                    [sty.textdisplaysalesorder__bWoK0TEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -766,7 +788,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__cjsD,
                   {
-                    [sty.text__displaysalesorder__cjsDTEf4M]: hasVariant(
+                    [sty.textdisplaysalesorder__cjsDTEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -787,7 +809,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__vWOoc, {
-                [sty.freeBox__displaysalesorder__vWOoctEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__vWOoctEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -800,7 +822,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text___8VMV,
                   {
-                    [sty.text__displaysalesorder___8VMVtEf4M]: hasVariant(
+                    [sty.textdisplaysalesorder___8VMVtEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -817,7 +839,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__q5G7Q,
                   {
-                    [sty.text__displaysalesorder__q5G7QtEf4M]: hasVariant(
+                    [sty.textdisplaysalesorder__q5G7QtEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -838,7 +860,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__cuKyd, {
-                [sty.freeBox__displaysalesorder__cuKyDtEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__cuKyDtEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -847,7 +869,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__eT7O, {
-                  [sty.freeBox__displaysalesorder__eT7OtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__eT7OtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -869,7 +891,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__zvzcC, {
-                      [sty.freeBox__displaysalesorder__zvzcCtEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder__zvzcCtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -882,7 +904,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__ceY4R,
                         {
-                          [sty.text__displaysalesorder__ceY4RtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__ceY4RtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -899,7 +921,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__ea37B,
                         {
-                          [sty.text__displaysalesorder__ea37BtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__ea37BtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -915,7 +937,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__ld89R, {
-                  [sty.freeBox__displaysalesorder__ld89RtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__ld89RtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -928,7 +950,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__qkv2R,
                     {
-                      [sty.text__displaysalesorder__qkv2RtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__qkv2RtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -944,7 +966,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__znHNl, {
-                      [sty.freeBox__displaysalesorder__znHNltEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder__znHNltEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -957,7 +979,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__vpA3B,
                         {
-                          [sty.text__displaysalesorder__vpA3BtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__vpA3BtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -979,7 +1001,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__s2Ozy, {
-                [sty.freeBox__displaysalesorder__s2OzytEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__s2OzytEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -988,7 +1010,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox___0WUzi, {
-                  [sty.freeBox__displaysalesorder___0WUzitEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder___0WUzitEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -1001,7 +1023,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__bOtOp,
                     {
-                      [sty.text__displaysalesorder__bOtOptEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__bOtOptEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1018,7 +1040,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__bqron,
                     {
-                      [sty.text__displaysalesorder__bqrontEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__bqrontEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1035,7 +1057,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__dXeVq,
                     {
-                      [sty.text__displaysalesorder__dXeVQtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__dXeVQtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1052,7 +1074,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__o8Yg1,
                     {
-                      [sty.text__displaysalesorder__o8Yg1TEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__o8Yg1TEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1069,7 +1091,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__pnLps,
                     {
-                      [sty.text__displaysalesorder__pnLpstEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__pnLpstEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1086,7 +1108,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___4A41G,
                     {
-                      [sty.text__displaysalesorder___4A41GtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___4A41GtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1101,7 +1123,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               <div className={classNames(projectcss.all, sty.freeBox__dqBug)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__zmo0S, {
-                    [sty.freeBox__displaysalesorder__zmo0StEf4M]: hasVariant(
+                    [sty.freeBoxdisplaysalesorder__zmo0StEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -1114,7 +1136,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__uaGfx,
                       {
-                        [sty.text__displaysalesorder__uaGfxtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__uaGfxtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1131,7 +1153,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text___46A5X,
                       {
-                        [sty.text__displaysalesorder___46A5XtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder___46A5XtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1148,7 +1170,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__z033A,
                       {
-                        [sty.text__displaysalesorder__z033AtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__z033AtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1165,7 +1187,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__riOv9,
                       {
-                        [sty.text__displaysalesorder__riOv9TEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__riOv9TEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1182,7 +1204,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__tZVfG,
                       {
-                        [sty.text__displaysalesorder__tZVfGtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__tZVfGtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1199,7 +1221,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__gSSc,
                       {
-                        [sty.text__displaysalesorder__gSSCtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__gSSCtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1218,7 +1240,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox___5Wzvb, {
-                      [sty.freeBox__displaysalesorder___5WzvbtEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder___5WzvbtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1231,7 +1253,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___5PwY,
                         {
-                          [sty.text__displaysalesorder___5PwYtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder___5PwYtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1248,7 +1270,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__iYYiU,
                         {
-                          [sty.text__displaysalesorder__iYYiUtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__iYYiUtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1265,7 +1287,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__i4Wih,
                         {
-                          [sty.text__displaysalesorder__i4WiHtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__i4WiHtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1314,7 +1336,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox___7M5TU, {
-                      [sty.freeBox__displaysalesorder___7M5TUtEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder___7M5TUtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1389,7 +1411,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox__lwuNg, {
-                      [sty.freeBox__displaysalesorder__lwuNGtEf4M]: hasVariant(
+                      [sty.freeBoxdisplaysalesorder__lwuNGtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1469,7 +1491,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__aXv47, {
-                [sty.freeBox__displaysalesorder__aXv47TEf4M]: hasVariant(
+                [sty.freeBoxdisplaysalesorder__aXv47TEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -1480,7 +1502,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___9EyPa, {
-                  [sty.freeBox__displaysalesorder___9EyPAtEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder___9EyPAtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -1493,7 +1515,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__zcGxz,
                     {
-                      [sty.text__displaysalesorder__zcGxZtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__zcGxZtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1510,7 +1532,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__k92Ac,
                     {
-                      [sty.text__displaysalesorder__k92ActEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__k92ActEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1526,7 +1548,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__xILdf, {
-                  [sty.freeBox__displaysalesorder__xILdftEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__xILdftEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -1549,7 +1571,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__kluIb,
                     {
-                      [sty.text__displaysalesorder__kluIBtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__kluIBtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1565,7 +1587,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__f3KBs, {
-                  [sty.freeBox__displaysalesorder__f3KBStEf4M]: hasVariant(
+                  [sty.freeBoxdisplaysalesorder__f3KBStEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -1578,7 +1600,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__ovPbO,
                     {
-                      [sty.text__displaysalesorder__ovPbOtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__ovPbOtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1595,7 +1617,7 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__m8J1O,
                     {
-                      [sty.text__displaysalesorder__m8J1OtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__m8J1OtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1608,21 +1630,22 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               </p.Stack>
             </p.Stack>
           ) : null}
-          {true ? (
-            <ButtonB
-              data-plasmic-name={"formbutton"}
-              data-plasmic-override={overrides.formbutton}
-              className={classNames("__wab_instance", sty.formbutton, {
-                [sty.formbutton__displaysalesorder]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-              connectmm={true}
-            />
-          ) : null}
         </p.Stack>
+
+        {true ? (
+          <ButtonB
+            data-plasmic-name={"formbutton"}
+            data-plasmic-override={overrides.formbutton}
+            className={classNames("__wab_instance", sty.formbutton, {
+              [sty.formbuttondisplaysalesorder]: hasVariant(
+                variants,
+                "displaysalesorder",
+                "displaysalesorder"
+              )
+            })}
+            connectmm={true}
+          />
+        ) : null}
       </div>
     </div>
   );

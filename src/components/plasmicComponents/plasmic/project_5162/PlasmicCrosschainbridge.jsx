@@ -14,9 +14,7 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
-import SwitchTab from "../../SwitchTab"; // plasmic-import: x2pLauCnbh/component
-import Dashboard from "../../Dashboard"; // plasmic-import: bzHmxPkXfz/component
-import Bridgebutton from "../../Bridgebutton"; // plasmic-import: hMBG4xd795/component
+import Fullbridgeverticalstack from "../../Fullbridgeverticalstack"; // plasmic-import: KniaaOoC0Y/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicCrosschainbridge.module.css"; // plasmic-import: e2P0A2Lkpp2/css
@@ -48,61 +46,21 @@ function PlasmicCrosschainbridge__RenderFunc(props) {
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm)}
       >
-        <div
-          data-plasmic-name={"freeBox"}
-          data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox)}
-        >
-          <SwitchTab
-            data-plasmic-name={"switchtab"}
-            data-plasmic-override={overrides.switchtab}
-            className={classNames("__wab_instance", sty.switchtab)}
-            deposit={true}
-          />
-
-          <Dashboard
-            data-plasmic-name={"bridgedashboard"}
-            data-plasmic-override={overrides.bridgedashboard}
-            className={classNames("__wab_instance", sty.bridgedashboard)}
-            deposit={true}
-          />
-
-          <Bridgebutton
-            data-plasmic-name={"transferbutton"}
-            data-plasmic-override={overrides.transferbutton}
-            className={classNames("__wab_instance", sty.transferbutton)}
-            deposit={true}
-          />
-        </div>
+        <Fullbridgeverticalstack
+          data-plasmic-name={"crossbridgestack"}
+          data-plasmic-override={overrides.crossbridgestack}
+          className={classNames("__wab_instance", sty.crossbridgestack)}
+        />
       </div>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "text",
-    "applicationForm",
-    "freeBox",
-    "switchtab",
-    "bridgedashboard",
-    "transferbutton"
-  ],
-
+  root: ["root", "text", "applicationForm", "crossbridgestack"],
   text: ["text"],
-  applicationForm: [
-    "applicationForm",
-    "freeBox",
-    "switchtab",
-    "bridgedashboard",
-    "transferbutton"
-  ],
-
-  freeBox: ["freeBox", "switchtab", "bridgedashboard", "transferbutton"],
-  switchtab: ["switchtab"],
-  bridgedashboard: ["bridgedashboard"],
-  transferbutton: ["transferbutton"]
+  applicationForm: ["applicationForm", "crossbridgestack"],
+  crossbridgestack: ["crossbridgestack"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -136,10 +94,7 @@ export const PlasmicCrosschainbridge = Object.assign(
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
     applicationForm: makeNodeComponent("applicationForm"),
-    freeBox: makeNodeComponent("freeBox"),
-    switchtab: makeNodeComponent("switchtab"),
-    bridgedashboard: makeNodeComponent("bridgedashboard"),
-    transferbutton: makeNodeComponent("transferbutton"),
+    crossbridgestack: makeNodeComponent("crossbridgestack"),
     // Metadata about props expected for PlasmicCrosschainbridge
     internalVariantProps: PlasmicCrosschainbridge__VariantProps,
     internalArgProps: PlasmicCrosschainbridge__ArgProps

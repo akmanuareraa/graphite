@@ -29,7 +29,6 @@ export const PlasmicLogisticsconfirmation__VariantProps = new Array(
 );
 
 export const PlasmicLogisticsconfirmation__ArgProps = new Array(
-  "cha",
   "ffname",
   "entryno",
   "entrydate",
@@ -38,7 +37,8 @@ export const PlasmicLogisticsconfirmation__ArgProps = new Array(
   "tfamount",
   "ntfamount",
   "tchaamount",
-  "ntchaamount"
+  "ntchaamount",
+  "cha"
 );
 
 function PlasmicLogisticsconfirmation__RenderFunc(props) {
@@ -65,19 +65,19 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__confirmed]: hasVariant(
+          [sty.applicationFormconfirmed]: hasVariant(
             variants,
             "confirmed",
             "confirmed"
           ),
 
-          [sty.applicationForm__loading]: hasVariant(
+          [sty.applicationFormloading]: hasVariant(
             variants,
             "loading",
             "loading"
           ),
 
-          [sty.applicationForm__notfound]: hasVariant(
+          [sty.applicationFormnotfound]: hasVariant(
             variants,
             "notfound",
             "notfound"
@@ -97,19 +97,19 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__sZeKg, {
-              [sty.freeBox__confirmed__sZeKg3JYSs]: hasVariant(
+              [sty.freeBoxconfirmed__sZeKg3JYSs]: hasVariant(
                 variants,
                 "confirmed",
                 "confirmed"
               ),
 
-              [sty.freeBox__loading__sZeKgqCclm]: hasVariant(
+              [sty.freeBoxloading__sZeKgqCclm]: hasVariant(
                 variants,
                 "loading",
                 "loading"
               ),
 
-              [sty.freeBox__notfound__sZeKgONFd]: hasVariant(
+              [sty.freeBoxnotfound__sZeKgONFd]: hasVariant(
                 variants,
                 "notfound",
                 "notfound"
@@ -117,69 +117,35 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
             })}
           >
             {true ? (
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__i2QLc)}
-              >
-                {true ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sfGY
-                    )}
-                  >
-                    {"Order To: "}
-                  </div>
-                ) : null}
-                {true ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aAnoN
-                    )}
-                  >
-                    {"Ship To:"}
-                  </div>
-                ) : null}
-              </p.Stack>
-            ) : null}
-            {true ? (
               <div className={classNames(projectcss.all, sty.freeBox__cVo1U)}>
-                <div className={classNames(projectcss.all, sty.freeBox__rst33)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ysWjo
-                    )}
-                  >
-                    {"CHA Name"}
-                  </div>
+                <div className={classNames(projectcss.all, sty.freeBox___2WHb)}>
+                  {true ? (
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__cmAFf)}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jmZkw
+                        )}
+                      >
+                        {"CHA Name"}
+                      </div>
 
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aaSE
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"supplier"}
-                    data-plasmic-override={overrides.supplier}
-                    className={classNames(projectcss.all, sty.supplier)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.cha,
-                      className: classNames(sty.slotTargetCha)
-                    })}
-                  </div>
+                      <div
+                        data-plasmic-name={"supplier"}
+                        data-plasmic-override={overrides.supplier}
+                        className={classNames(projectcss.all, sty.supplier)}
+                      >
+                        {p.renderPlasmicSlot({
+                          defaultContents: "N/A",
+                          value: args.cha,
+                          className: classNames(sty.slotTargetCha)
+                        })}
+                      </div>
+                    </div>
+                  ) : null}
                 </div>
 
                 <div className={classNames(projectcss.all, sty.freeBox__qWbj)}>
@@ -492,6 +458,36 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
                   </div>
                 </div>
               </div>
+            ) : null}
+            {true ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__i2QLc)}
+              >
+                {true ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__sfGY
+                    )}
+                  >
+                    {"Order To: "}
+                  </div>
+                ) : null}
+                {true ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__aAnoN
+                    )}
+                  >
+                    {"Ship To:"}
+                  </div>
+                ) : null}
+              </p.Stack>
             ) : null}
 
             <Consentandsubmit
@@ -1072,19 +1068,19 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
               projectcss.__wab_text,
               sty.text__tDcVd,
               {
-                [sty.text__confirmed__tDcVd3JYSs]: hasVariant(
+                [sty.textconfirmed__tDcVd3JYSs]: hasVariant(
                   variants,
                   "confirmed",
                   "confirmed"
                 ),
 
-                [sty.text__loading__tDcVDqCclm]: hasVariant(
+                [sty.textloading__tDcVDqCclm]: hasVariant(
                   variants,
                   "loading",
                   "loading"
                 ),
 
-                [sty.text__notfound__tDcVdoNFd]: hasVariant(
+                [sty.textnotfound__tDcVdoNFd]: hasVariant(
                   variants,
                   "notfound",
                   "notfound"

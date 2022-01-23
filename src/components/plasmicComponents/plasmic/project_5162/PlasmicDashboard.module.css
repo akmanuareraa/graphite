@@ -12,12 +12,12 @@
   border-radius: 15px;
   padding: 8px;
 }
-.root__deposit {
+.rootdeposit {
   box-shadow: 0px 4px 16px 0px #00000078;
-  background: #c3c3c3;
+  background: #ffffff;
 }
-.root__withdraw {
-  background: #c3c3c3;
+.rootwithdraw {
+  background: #ffffff;
   box-shadow: 0px 4px 16px 0px #00000078;
 }
 .freeBox___3Wr1 {
@@ -73,6 +73,12 @@
   > img {
   margin-top: 0px;
 }
+.freeBoxdeposit__j9Rl0KnLs {
+  background: #e8e8e8;
+}
+.freeBoxwithdraw__j9Rl0GWt2F {
+  background: #e8e8e8;
+}
 .img__ddsz2 {
   position: relative;
   object-fit: cover;
@@ -86,19 +92,19 @@
 .img__ddsz2 > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__deposit__ddsz2KnLs {
+.imgdeposit__ddsz2KnLs {
   height: 42px;
   object-fit: contain;
   margin-top: calc(13px + 0px) !important;
   flex-shrink: 0;
 }
-.img__deposit__ddsz2KnLs > picture > img {
+.imgdeposit__ddsz2KnLs > picture > img {
   object-fit: contain;
 }
-.img__deposit__ddsz2KnLs > .__wab_img-spacer > img {
+.imgdeposit__ddsz2KnLs > .__wab_img-spacer > img {
   object-fit: contain;
 }
-.img__withdraw__ddsz2GWt2F {
+.imgwithdraw__ddsz2GWt2F {
   margin-top: calc(13px + 0px) !important;
 }
 .bridgeinput:global(.__wab_instance) {
@@ -106,10 +112,10 @@
   margin-top: calc(14px + 0px) !important;
   margin-bottom: 15px;
 }
-.bridgeinput__deposit:global(.__wab_instance) {
+.bridgeinputdeposit:global(.__wab_instance) {
   margin-top: calc(14px + 0px) !important;
 }
-.bridgeinput__withdraw:global(.__wab_instance) {
+.bridgeinputwithdraw:global(.__wab_instance) {
   margin-top: calc(14px + 0px) !important;
 }
 .freeBox__quKm0 {
@@ -166,6 +172,12 @@
   > img {
   margin-top: 0px;
 }
+.freeBoxdeposit__abArfKnLs {
+  background: #e8e8e8;
+}
+.freeBoxwithdraw__abArfgWt2F {
+  background: #e8e8e8;
+}
 .img__ftbw {
   position: relative;
   object-fit: cover;
@@ -182,18 +194,18 @@
 .img__ftbw > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__deposit__ftbwKnLs {
+.imgdeposit__ftbwKnLs {
   margin-top: calc(0px + 0px) !important;
 }
-.img__withdraw__ftbwGWt2F {
+.imgwithdraw__ftbwGWt2F {
   height: 42px;
   object-fit: contain;
   margin-top: calc(0px + 0px) !important;
   flex-shrink: 0;
 }
-.img__withdraw__ftbwGWt2F > picture > img {
+.imgwithdraw__ftbwGWt2F > picture > img {
   object-fit: contain;
 }
-.img__withdraw__ftbwGWt2F > .__wab_img-spacer > img {
+.imgwithdraw__ftbwGWt2F > .__wab_img-spacer > img {
   object-fit: contain;
 }

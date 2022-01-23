@@ -32,14 +32,14 @@ function PlasmicButtond__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__selected]: hasVariant(variants, "selected", "selected")
+        [sty.rootselected]: hasVariant(variants, "selected", "selected")
       })}
     >
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
         className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
-          [sty.text__selected]: hasVariant(variants, "selected", "selected")
+          [sty.textselected]: hasVariant(variants, "selected", "selected")
         })}
       >
         {"Return Tokens"}

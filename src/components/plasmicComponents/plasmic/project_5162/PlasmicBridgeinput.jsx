@@ -32,7 +32,7 @@ function PlasmicBridgeinput__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.input, projectcss.root_reset, sty.root, {
-        [sty.root__withdraw]: hasVariant(variants, "withdraw", "withdraw")
+        [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
       })}
       placeholder={"Enter Token Amount"}
       size={1}

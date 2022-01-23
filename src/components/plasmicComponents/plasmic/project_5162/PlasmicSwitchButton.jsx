@@ -37,7 +37,7 @@ function PlasmicSwitchButton__RenderFunc(props) {
         projectcss.root_reset,
         sty.depositbutton,
         {
-          [sty.depositbutton__selected]: hasVariant(
+          [sty.depositbuttonselected]: hasVariant(
             variants,
             "selected",
             "selected"
@@ -50,7 +50,7 @@ function PlasmicSwitchButton__RenderFunc(props) {
         defaultContents: "Deposit",
         value: args.children,
         className: classNames(sty.slotTargetChildren, {
-          [sty.slotTargetChildren__selected]: hasVariant(
+          [sty.slotTargetChildrenselected]: hasVariant(
             variants,
             "selected",
             "selected"

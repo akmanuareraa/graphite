@@ -36,29 +36,29 @@ function PlasmicBridgebutton__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__deposit]: hasVariant(variants, "deposit", "deposit"),
-        [sty.root__withdraw]: hasVariant(variants, "withdraw", "withdraw")
+        [sty.rootdeposit]: hasVariant(variants, "deposit", "deposit"),
+        [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
       })}
     >
       <button
         data-plasmic-name={"button"}
         data-plasmic-override={overrides.button}
         className={classNames(projectcss.button, sty.button, {
-          [sty.button__deposit]: hasVariant(variants, "deposit", "deposit"),
-          [sty.button__withdraw]: hasVariant(variants, "withdraw", "withdraw")
+          [sty.buttondeposit]: hasVariant(variants, "deposit", "deposit"),
+          [sty.buttonwithdraw]: hasVariant(variants, "withdraw", "withdraw")
         })}
       >
         {p.renderPlasmicSlot({
           defaultContents: "Transfer",
           value: args.children,
           className: classNames(sty.slotTargetChildren, {
-            [sty.slotTargetChildren__deposit]: hasVariant(
+            [sty.slotTargetChildrendeposit]: hasVariant(
               variants,
               "deposit",
               "deposit"
             ),
 
-            [sty.slotTargetChildren__withdraw]: hasVariant(
+            [sty.slotTargetChildrenwithdraw]: hasVariant(
               variants,
               "withdraw",
               "withdraw"

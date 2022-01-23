@@ -63,19 +63,19 @@ function PlasmicInvoiceconfirmation__RenderFunc(props) {
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__confirmed]: hasVariant(
+          [sty.applicationFormconfirmed]: hasVariant(
             variants,
             "confirmed",
             "confirmed"
           ),
 
-          [sty.applicationForm__loading]: hasVariant(
+          [sty.applicationFormloading]: hasVariant(
             variants,
             "loading",
             "loading"
           ),
 
-          [sty.applicationForm__notfound]: hasVariant(
+          [sty.applicationFormnotfound]: hasVariant(
             variants,
             "notfound",
             "notfound"
@@ -95,97 +95,75 @@ function PlasmicInvoiceconfirmation__RenderFunc(props) {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__zc9Bi, {
-              [sty.freeBox__confirmed__zc9BIuViL]: hasVariant(
+              [sty.freeBoxconfirmed__zc9BIuViL]: hasVariant(
                 variants,
                 "confirmed",
                 "confirmed"
               ),
 
-              [sty.freeBox__loading__zc9Biqts2B]: hasVariant(
+              [sty.freeBoxloading__zc9Biqts2B]: hasVariant(
                 variants,
                 "loading",
                 "loading"
               ),
 
-              [sty.freeBox__notfound__zc9BIoAGbJ]: hasVariant(
+              [sty.freeBoxnotfound__zc9BIoAGbJ]: hasVariant(
                 variants,
                 "notfound",
                 "notfound"
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__qyEcn)}>
-              <div className={classNames(projectcss.all, sty.freeBox___0DfbY)}>
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bPzdx
-                  )}
-                >
-                  {"Invoice No"}
-                </div>
-
-                {true ? (
+            {true ? (
+              <div className={classNames(projectcss.all, sty.freeBox__xoX1Q)}>
+                <div className={classNames(projectcss.all, sty.freeBox__qyEcn)}>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__pa1Qx)}
+                    className={classNames(projectcss.all, sty.freeBox___0DfbY)}
                   >
                     <div
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__uJlia
+                        sty.text__bPzdx
                       )}
                     >
-                      {"#"}
+                      {"Invoice No"}
                     </div>
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__dD6H)}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "ABC123",
-                        value: args.invoiceno,
-                        className: classNames(sty.slotTargetInvoiceno)
-                      })}
-                    </div>
-                  </div>
-                ) : null}
-              </div>
-            </div>
+                    {true ? (
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          sty.freeBox__pa1Qx
+                        )}
+                      >
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text__uJlia
+                          )}
+                        >
+                          {"#"}
+                        </div>
 
-            {true ? (
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__bozuU)}
-              >
-                {true ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___2Ud6F
-                    )}
-                  >
-                    {"Order To: "}
+                        <div
+                          className={classNames(
+                            projectcss.all,
+                            sty.freeBox__dD6H
+                          )}
+                        >
+                          {p.renderPlasmicSlot({
+                            defaultContents: "ABC123",
+                            value: args.invoiceno,
+                            className: classNames(sty.slotTargetInvoiceno)
+                          })}
+                        </div>
+                      </div>
+                    ) : null}
                   </div>
-                ) : null}
-                {true ? (
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eQmM
-                    )}
-                  >
-                    {"Ship To:"}
-                  </div>
-                ) : null}
-              </p.Stack>
-            ) : null}
-            {true ? (
-              <div className={classNames(projectcss.all, sty.freeBox__xoX1Q)}>
+                </div>
+
                 <div className={classNames(projectcss.all, sty.freeBox__vkTwU)}>
                   <div
                     className={classNames(
@@ -1010,19 +988,19 @@ function PlasmicInvoiceconfirmation__RenderFunc(props) {
               projectcss.__wab_text,
               sty.text__g2SGa,
               {
-                [sty.text__confirmed__g2SGAuViL]: hasVariant(
+                [sty.textconfirmed__g2SGAuViL]: hasVariant(
                   variants,
                   "confirmed",
                   "confirmed"
                 ),
 
-                [sty.text__loading__g2SGaqts2B]: hasVariant(
+                [sty.textloading__g2SGaqts2B]: hasVariant(
                   variants,
                   "loading",
                   "loading"
                 ),
 
-                [sty.text__notfound__g2SGAoAGbJ]: hasVariant(
+                [sty.textnotfound__g2SGAoAGbJ]: hasVariant(
                   variants,
                   "notfound",
                   "notfound"

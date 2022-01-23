@@ -1,0 +1,65 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 659px;
+  height: auto;
+  max-width: 100%;
+  position: relative;
+  padding: 8px;
+}
+.rootmetamaskstate {
+  display: flex;
+}
+.switchtab:global(.__wab_instance) {
+  position: relative;
+  flex-shrink: 0;
+}
+.switchtabmetamaskstate:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.bridgedashboard:global(.__wab_instance) {
+  position: relative;
+  margin-top: 14px;
+}
+.transferbutton:global(.__wab_instance) {
+  position: relative;
+  margin-top: 23px;
+}
+.freeBox {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  margin-top: 12px;
+  display: none;
+  padding: 8px;
+}
+.freeBoxmetamaskstate {
+  display: flex;
+}
+.mmbutton:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  width: 425px;
+  display: none;
+}
+.mmbuttonmetamaskstate:global(.__wab_instance) {
+  display: flex;
+}
+.svg__tuk7R {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__fdjNn {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}

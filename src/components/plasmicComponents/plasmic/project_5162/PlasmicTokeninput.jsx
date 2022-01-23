@@ -35,13 +35,13 @@ function PlasmicTokeninput__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.input, projectcss.root_reset, sty.root, {
-        [sty.root__bridgeinput]: hasVariant(
+        [sty.rootbridgeinput]: hasVariant(
           variants,
           "bridgeinput",
           "bridgeinput"
         ),
 
-        [sty.root__returninput]: hasVariant(
+        [sty.rootreturninput]: hasVariant(
           variants,
           "returninput",
           "returninput"

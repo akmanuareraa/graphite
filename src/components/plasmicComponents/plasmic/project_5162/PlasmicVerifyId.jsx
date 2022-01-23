@@ -49,7 +49,14 @@ function PlasmicVerifyId__RenderFunc(props) {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text__m0Lqc
+          sty.text__m0Lqc,
+          {
+            [sty.textdisplayId__m0LqcXa4I6]: hasVariant(
+              variants,
+              "displayId",
+              "displayId"
+            )
+          }
         )}
       >
         {"VERIFY ID CARD"}
@@ -59,13 +66,13 @@ function PlasmicVerifyId__RenderFunc(props) {
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__displayId]: hasVariant(
+          [sty.applicationFormdisplayId]: hasVariant(
             variants,
             "displayId",
             "displayId"
           ),
 
-          [sty.applicationForm__notfound]: hasVariant(
+          [sty.applicationFormnotfound]: hasVariant(
             variants,
             "notfound",
             "notfound"
@@ -110,13 +117,13 @@ function PlasmicVerifyId__RenderFunc(props) {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__xkTbv, {
-              [sty.freeBox__displayId__xkTbvXa4I6]: hasVariant(
+              [sty.freeBoxdisplayId__xkTbvXa4I6]: hasVariant(
                 variants,
                 "displayId",
                 "displayId"
               ),
 
-              [sty.freeBox__notfound__xkTbvvnAI]: hasVariant(
+              [sty.freeBoxnotfound__xkTbvvnAI]: hasVariant(
                 variants,
                 "notfound",
                 "notfound"
@@ -134,13 +141,13 @@ function PlasmicVerifyId__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox___23Pex, {
-                  [sty.freeBox__displayId___23Pexxa4I6]: hasVariant(
+                  [sty.freeBoxdisplayId___23Pexxa4I6]: hasVariant(
                     variants,
                     "displayId",
                     "displayId"
                   ),
 
-                  [sty.freeBox__notfound___23PeXvnAI]: hasVariant(
+                  [sty.freeBoxnotfound___23PeXvnAI]: hasVariant(
                     variants,
                     "notfound",
                     "notfound"
@@ -167,7 +174,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                   data-plasmic-name={"tokenno"}
                   data-plasmic-override={overrides.tokenno}
                   className={classNames("__wab_instance", sty.tokenno, {
-                    [sty.tokenno__notfound]: hasVariant(
+                    [sty.tokennonotfound]: hasVariant(
                       variants,
                       "notfound",
                       "notfound"
@@ -196,7 +203,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text___4TZsj,
                   {
-                    [sty.text__notfound___4TZsJvnAI]: hasVariant(
+                    [sty.textnotfound___4TZsJvnAI]: hasVariant(
                       variants,
                       "notfound",
                       "notfound"
@@ -214,7 +221,7 @@ function PlasmicVerifyId__RenderFunc(props) {
             data-plasmic-name={"idstack"}
             data-plasmic-override={overrides.idstack}
             className={classNames(projectcss.all, sty.idstack, {
-              [sty.idstack__displayId]: hasVariant(
+              [sty.idstackdisplayId]: hasVariant(
                 variants,
                 "displayId",
                 "displayId"
@@ -227,7 +234,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                 projectcss.__wab_text,
                 sty.text__o3Gr6,
                 {
-                  [sty.text__displayId__o3Gr6Xa4I6]: hasVariant(
+                  [sty.textdisplayId__o3Gr6Xa4I6]: hasVariant(
                     variants,
                     "displayId",
                     "displayId"
@@ -240,7 +247,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
             <div
               className={classNames(projectcss.all, sty.freeBox___4JtSl, {
-                [sty.freeBox__displayId___4JtSlXa4I6]: hasVariant(
+                [sty.freeBoxdisplayId___4JtSlXa4I6]: hasVariant(
                   variants,
                   "displayId",
                   "displayId"
@@ -249,7 +256,7 @@ function PlasmicVerifyId__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__cAjeo, {
-                  [sty.freeBox__displayId__cAjeoxa4I6]: hasVariant(
+                  [sty.freeBoxdisplayId__cAjeoxa4I6]: hasVariant(
                     variants,
                     "displayId",
                     "displayId"
@@ -266,7 +273,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__gMzA, {
-                  [sty.freeBox__displayId__gMzAxa4I6]: hasVariant(
+                  [sty.freeBoxdisplayId__gMzAxa4I6]: hasVariant(
                     variants,
                     "displayId",
                     "displayId"
@@ -279,7 +286,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___3NyQl,
                     {
-                      [sty.text__displayId___3NyQlxa4I6]: hasVariant(
+                      [sty.textdisplayId___3NyQlxa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -292,7 +299,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                 <div
                   className={classNames(projectcss.all, sty.freeBox__bvHml, {
-                    [sty.freeBox__displayId__bvHmlxa4I6]: hasVariant(
+                    [sty.freeBoxdisplayId__bvHmlxa4I6]: hasVariant(
                       variants,
                       "displayId",
                       "displayId"
@@ -301,7 +308,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                 >
                   <div
                     className={classNames(projectcss.all, sty.freeBox__h8CVh, {
-                      [sty.freeBox__displayId__h8CVhXa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__h8CVhXa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -314,7 +321,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__ww3Lc,
                         {
-                          [sty.text__displayId__ww3LcXa4I6]: hasVariant(
+                          [sty.textdisplayId__ww3LcXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -331,7 +338,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___2A37F,
                         {
-                          [sty.text__displayId___2A37FXa4I6]: hasVariant(
+                          [sty.textdisplayId___2A37FXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -347,7 +354,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__j2Y06,
                         {
-                          [sty.freeBox__displayId__j2Y06Xa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__j2Y06Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -359,7 +366,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.nationality,
                         className: classNames(sty.slotTargetNationality, {
-                          [sty.slotTargetNationality__displayId]: hasVariant(
+                          [sty.slotTargetNationalitydisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -371,7 +378,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__iYx6L, {
-                      [sty.freeBox__displayId__iYx6Lxa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__iYx6Lxa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -384,7 +391,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__yw2Rp,
                         {
-                          [sty.text__displayId__yw2RpXa4I6]: hasVariant(
+                          [sty.textdisplayId__yw2RpXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -401,7 +408,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__hzag4,
                         {
-                          [sty.text__displayId__hzag4Xa4I6]: hasVariant(
+                          [sty.textdisplayId__hzag4Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -417,7 +424,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__yftH9,
                         {
-                          [sty.freeBox__displayId__yftH9Xa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__yftH9Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -429,7 +436,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.name,
                         className: classNames(sty.slotTargetName, {
-                          [sty.slotTargetName__displayId]: hasVariant(
+                          [sty.slotTargetNamedisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -441,7 +448,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__kyzOe, {
-                      [sty.freeBox__displayId__kyzOeXa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__kyzOeXa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -454,7 +461,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__ylFn,
                         {
-                          [sty.text__displayId__ylFnxa4I6]: hasVariant(
+                          [sty.textdisplayId__ylFnxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -471,7 +478,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__w4Ht3,
                         {
-                          [sty.text__displayId__w4Ht3Xa4I6]: hasVariant(
+                          [sty.textdisplayId__w4Ht3Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -487,7 +494,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__xWiVr,
                         {
-                          [sty.freeBox__displayId__xWiVrXa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__xWiVrXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -499,7 +506,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.docno,
                         className: classNames(sty.slotTargetDocno, {
-                          [sty.slotTargetDocno__displayId]: hasVariant(
+                          [sty.slotTargetDocnodisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -511,7 +518,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__jZShn, {
-                      [sty.freeBox__displayId__jZShnXa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__jZShnXa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -524,7 +531,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__pupwj,
                         {
-                          [sty.text__displayId__pupwjxa4I6]: hasVariant(
+                          [sty.textdisplayId__pupwjxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -541,7 +548,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___6BTzR,
                         {
-                          [sty.text__displayId___6BTzRxa4I6]: hasVariant(
+                          [sty.textdisplayId___6BTzRxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -557,7 +564,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__jQoPe,
                         {
-                          [sty.freeBox__displayId__jQoPeXa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__jQoPeXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -569,7 +576,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.dob,
                         className: classNames(sty.slotTargetDob, {
-                          [sty.slotTargetDob__displayId]: hasVariant(
+                          [sty.slotTargetDobdisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -581,7 +588,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__wpCe, {
-                      [sty.freeBox__displayId__wpCeXa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__wpCeXa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -594,7 +601,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__tufEc,
                         {
-                          [sty.text__displayId__tufEcxa4I6]: hasVariant(
+                          [sty.textdisplayId__tufEcxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -611,7 +618,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___18Bpw,
                         {
-                          [sty.text__displayId___18BpwXa4I6]: hasVariant(
+                          [sty.textdisplayId___18BpwXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -627,7 +634,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__dsSsV,
                         {
-                          [sty.freeBox__displayId__dsSsVxa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__dsSsVxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -639,7 +646,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.issued,
                         className: classNames(sty.slotTargetIssued, {
-                          [sty.slotTargetIssued__displayId]: hasVariant(
+                          [sty.slotTargetIssueddisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -651,7 +658,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__sq35, {
-                      [sty.freeBox__displayId__sq35Xa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__sq35Xa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -664,7 +671,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__irrO7,
                         {
-                          [sty.text__displayId__irrO7Xa4I6]: hasVariant(
+                          [sty.textdisplayId__irrO7Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -681,7 +688,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__mg0A,
                         {
-                          [sty.text__displayId__mg0AXa4I6]: hasVariant(
+                          [sty.textdisplayId__mg0AXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -697,7 +704,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__qkNYb,
                         {
-                          [sty.freeBox__displayId__qkNYbXa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__qkNYbXa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -709,7 +716,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.expiry,
                         className: classNames(sty.slotTargetExpiry, {
-                          [sty.slotTargetExpiry__displayId]: hasVariant(
+                          [sty.slotTargetExpirydisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -721,7 +728,7 @@ function PlasmicVerifyId__RenderFunc(props) {
 
                   <div
                     className={classNames(projectcss.all, sty.freeBox__zG60I, {
-                      [sty.freeBox__displayId__zG60IXa4I6]: hasVariant(
+                      [sty.freeBoxdisplayId__zG60IXa4I6]: hasVariant(
                         variants,
                         "displayId",
                         "displayId"
@@ -734,7 +741,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__zzwPb,
                         {
-                          [sty.text__displayId__zzwPbxa4I6]: hasVariant(
+                          [sty.textdisplayId__zzwPbxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -751,7 +758,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__nPGq3,
                         {
-                          [sty.text__displayId__nPGq3Xa4I6]: hasVariant(
+                          [sty.textdisplayId__nPGq3Xa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -767,7 +774,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__rqglL,
                         {
-                          [sty.freeBox__displayId__rqglLxa4I6]: hasVariant(
+                          [sty.freeBoxdisplayId__rqglLxa4I6]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -779,7 +786,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                         defaultContents: "N/A",
                         value: args.sex,
                         className: classNames(sty.slotTargetSex, {
-                          [sty.slotTargetSex__displayId]: hasVariant(
+                          [sty.slotTargetSexdisplayId]: hasVariant(
                             variants,
                             "displayId",
                             "displayId"
@@ -806,13 +813,13 @@ function PlasmicVerifyId__RenderFunc(props) {
               projectcss.__wab_text,
               sty.text__nG4S9,
               {
-                [sty.text__displayId__nG4S9Xa4I6]: hasVariant(
+                [sty.textdisplayId__nG4S9Xa4I6]: hasVariant(
                   variants,
                   "displayId",
                   "displayId"
                 ),
 
-                [sty.text__notfound__nG4S9VnAI]: hasVariant(
+                [sty.textnotfound__nG4S9VnAI]: hasVariant(
                   variants,
                   "notfound",
                   "notfound"

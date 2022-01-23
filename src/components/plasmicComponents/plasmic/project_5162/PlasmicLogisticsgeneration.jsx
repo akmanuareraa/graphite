@@ -55,7 +55,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
           projectcss.__wab_text,
           sty.text__qyUD,
           {
-            [sty.text__displaylogistics__qyUDrz7MF]: hasVariant(
+            [sty.textdisplaylogistics__qyUDrz7MF]: hasVariant(
               variants,
               "displaylogistics",
               "displaylogistics"
@@ -72,7 +72,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__displaylogistics]: hasVariant(
+          [sty.applicationFormdisplaylogistics]: hasVariant(
             variants,
             "displaylogistics",
             "displaylogistics"
@@ -83,7 +83,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__e6Sc, {
-            [sty.freeBox__displaylogistics__e6Scrz7MF]: hasVariant(
+            [sty.freeBoxdisplaylogistics__e6Scrz7MF]: hasVariant(
               variants,
               "displaylogistics",
               "displaylogistics"
@@ -97,7 +97,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__gMcPj, {
-                [sty.freeBox__displaylogistics__gMcPjrz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__gMcPjrz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -106,7 +106,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__d2J9O, {
-                  [sty.freeBox__displaylogistics__d2J9Orz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__d2J9Orz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -119,7 +119,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__yo3Lw,
                     {
-                      [sty.text__displaylogistics__yo3LWrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__yo3LWrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -135,7 +135,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 {true ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox__oYd2H, {
-                      [sty.freeBox__displaylogistics__oYd2Hrz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics__oYd2Hrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -148,7 +148,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__mgIY,
                         {
-                          [sty.text__displaylogistics__mgIYrz7MF]: hasVariant(
+                          [sty.textdisplaylogistics__mgIYrz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -164,12 +164,11 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.all,
                         sty.freeBox__nUvZn,
                         {
-                          [sty.freeBox__displaylogistics__nUvZnrz7MF]:
-                            hasVariant(
-                              variants,
-                              "displaylogistics",
-                              "displaylogistics"
-                            )
+                          [sty.freeBoxdisplaylogistics__nUvZnrz7MF]: hasVariant(
+                            variants,
+                            "displaylogistics",
+                            "displaylogistics"
+                          )
                         }
                       )}
                     >
@@ -177,12 +176,11 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         defaultContents: "ABC123",
                         value: args.invoiceno,
                         className: classNames(sty.slotTargetInvoiceno, {
-                          [sty.slotTargetInvoiceno__displaylogistics]:
-                            hasVariant(
-                              variants,
-                              "displaylogistics",
-                              "displaylogistics"
-                            )
+                          [sty.slotTargetInvoicenodisplaylogistics]: hasVariant(
+                            variants,
+                            "displaylogistics",
+                            "displaylogistics"
+                          )
                         })
                       })}
                     </div>
@@ -200,7 +198,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__nzzHx, {
-                [sty.freeBox__displaylogistics__nzzHxrz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__nzzHxrz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -218,7 +216,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__fsEkk,
                     {
-                      [sty.text__displaylogistics__fsEkKrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__fsEkKrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -240,7 +238,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___0R5O1,
                     {
-                      [sty.text__displaylogistics___0R5O1Rz7MF]: hasVariant(
+                      [sty.textdisplaylogistics___0R5O1Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -260,7 +258,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__mbAAm, {
-                [sty.freeBox__displaylogistics__mbAAmrz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__mbAAmrz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -269,75 +267,74 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__ikdL, {
-                  [sty.freeBox__displaylogistics__ikdLRz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__ikdLRz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
                   )
                 })}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__v5HU,
-                    {
-                      [sty.text__displaylogistics__v5HUrz7MF]: hasVariant(
+                {(
+                  hasVariant(variants, "displaylogistics", "displaylogistics")
+                    ? true
+                    : true
+                ) ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__gJnN, {
+                      [sty.freeBoxdisplaylogistics__gJnNrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
                       )
-                    }
-                  )}
-                >
-                  {"CHA Name"}
-                </div>
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__v5HU,
+                        {
+                          [sty.textdisplaylogistics__v5HUrz7MF]: hasVariant(
+                            variants,
+                            "displaylogistics",
+                            "displaylogistics"
+                          )
+                        }
+                      )}
+                    >
+                      {"CHA Name"}
+                    </div>
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ku7Xl,
-                    {
-                      [sty.text__displaylogistics__ku7XLrz7MF]: hasVariant(
-                        variants,
-                        "displaylogistics",
-                        "displaylogistics"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"supplier"}
-                  data-plasmic-override={overrides.supplier}
-                  className={classNames(projectcss.all, sty.supplier, {
-                    [sty.supplier__displaylogistics]: hasVariant(
-                      variants,
-                      "displaylogistics",
-                      "displaylogistics"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.cha,
-                    className: classNames(sty.slotTargetCha, {
-                      [sty.slotTargetCha__displaylogistics]: hasVariant(
-                        variants,
-                        "displaylogistics",
-                        "displaylogistics"
-                      )
-                    })
-                  })}
-                </div>
+                    <div
+                      data-plasmic-name={"supplier"}
+                      data-plasmic-override={overrides.supplier}
+                      className={classNames(projectcss.all, sty.supplier, {
+                        [sty.supplierdisplaylogistics]: hasVariant(
+                          variants,
+                          "displaylogistics",
+                          "displaylogistics"
+                        )
+                      })}
+                    >
+                      {p.renderPlasmicSlot({
+                        defaultContents: "N/A",
+                        value: args.cha,
+                        className: classNames(sty.slotTargetCha, {
+                          [sty.slotTargetChadisplaylogistics]: hasVariant(
+                            variants,
+                            "displaylogistics",
+                            "displaylogistics"
+                          )
+                        })
+                      })}
+                    </div>
+                  </div>
+                ) : null}
               </div>
 
               <div
                 className={classNames(projectcss.all, sty.freeBox___0OxFq, {
-                  [sty.freeBox__displaylogistics___0OxFqrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics___0OxFqrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -350,7 +347,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__x5Kt,
                     {
-                      [sty.text__displaylogistics__x5KTrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__x5KTrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -367,7 +364,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__jV0,
                     {
-                      [sty.text__displaylogistics__jV0Rz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__jV0Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -382,7 +379,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"shipmentmode"}
                   data-plasmic-override={overrides.shipmentmode}
                   className={classNames(projectcss.all, sty.shipmentmode, {
-                    [sty.shipmentmode__displaylogistics]: hasVariant(
+                    [sty.shipmentmodedisplaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -393,7 +390,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.ffname,
                     className: classNames(sty.slotTargetFfname, {
-                      [sty.slotTargetFfname__displaylogistics]: hasVariant(
+                      [sty.slotTargetFfnamedisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -405,7 +402,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__jyOub, {
-                  [sty.freeBox__displaylogistics__jyOubrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__jyOubrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -418,7 +415,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__cqMCs,
                     {
-                      [sty.text__displaylogistics__cqMCsrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__cqMCsrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -435,7 +432,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__oGcx,
                     {
-                      [sty.text__displaylogistics__oGcxRz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__oGcxRz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -450,7 +447,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"origincountry"}
                   data-plasmic-override={overrides.origincountry}
                   className={classNames(projectcss.all, sty.origincountry, {
-                    [sty.origincountry__displaylogistics]: hasVariant(
+                    [sty.origincountrydisplaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -461,7 +458,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.entryno,
                     className: classNames(sty.slotTargetEntryno, {
-                      [sty.slotTargetEntryno__displaylogistics]: hasVariant(
+                      [sty.slotTargetEntrynodisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -473,7 +470,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__rK0J, {
-                  [sty.freeBox__displaylogistics__rK0Jrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__rK0Jrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -486,7 +483,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__ctDte,
                     {
-                      [sty.text__displaylogistics__ctDterz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__ctDterz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -503,7 +500,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__q9AaQ,
                     {
-                      [sty.text__displaylogistics__q9AaQrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__q9AaQrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -518,7 +515,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"sap"}
                   data-plasmic-override={overrides.sap}
                   className={classNames(projectcss.all, sty.sap, {
-                    [sty.sap__displaylogistics]: hasVariant(
+                    [sty.sapdisplaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -529,7 +526,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.entrydate,
                     className: classNames(sty.slotTargetEntrydate, {
-                      [sty.slotTargetEntrydate__displaylogistics]: hasVariant(
+                      [sty.slotTargetEntrydatedisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -541,7 +538,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__hu0DY, {
-                  [sty.freeBox__displaylogistics__hu0DYrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__hu0DYrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -554,7 +551,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__gf6Ee,
                     {
-                      [sty.text__displaylogistics__gf6EErz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__gf6EErz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -571,7 +568,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__sySf,
                     {
-                      [sty.text__displaylogistics__sySfRz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__sySfRz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -586,7 +583,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"grn"}
                   data-plasmic-override={overrides.grn}
                   className={classNames(projectcss.all, sty.grn, {
-                    [sty.grn__displaylogistics]: hasVariant(
+                    [sty.grndisplaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -597,7 +594,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.dutyamount,
                     className: classNames(sty.slotTargetDutyamount, {
-                      [sty.slotTargetDutyamount__displaylogistics]: hasVariant(
+                      [sty.slotTargetDutyamountdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -609,7 +606,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__qdErP, {
-                  [sty.freeBox__displaylogistics__qdErPrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__qdErPrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -622,7 +619,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__gsoau,
                     {
-                      [sty.text__displaylogistics__gsoaurz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__gsoaurz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -639,7 +636,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___0KUpu,
                     {
-                      [sty.text__displaylogistics___0KUpurz7MF]: hasVariant(
+                      [sty.textdisplaylogistics___0KUpurz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -654,7 +651,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue"}
                   data-plasmic-override={overrides.creditnotevalue}
                   className={classNames(projectcss.all, sty.creditnotevalue, {
-                    [sty.creditnotevalue__displaylogistics]: hasVariant(
+                    [sty.creditnotevaluedisplaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -665,7 +662,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.hts,
                     className: classNames(sty.slotTargetHts, {
-                      [sty.slotTargetHts__displaylogistics]: hasVariant(
+                      [sty.slotTargetHtsdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -677,7 +674,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__jrUbR, {
-                  [sty.freeBox__displaylogistics__jrUbRrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__jrUbRrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -690,7 +687,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__qJ1Uo,
                     {
-                      [sty.text__displaylogistics__qJ1Uorz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__qJ1Uorz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -707,7 +704,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__uOe3C,
                     {
-                      [sty.text__displaylogistics__uOe3Crz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__uOe3Crz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -722,7 +719,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue2"}
                   data-plasmic-override={overrides.creditnotevalue2}
                   className={classNames(projectcss.all, sty.creditnotevalue2, {
-                    [sty.creditnotevalue2__displaylogistics]: hasVariant(
+                    [sty.creditnotevalue2displaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -733,7 +730,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.tfamount,
                     className: classNames(sty.slotTargetTfamount, {
-                      [sty.slotTargetTfamount__displaylogistics]: hasVariant(
+                      [sty.slotTargetTfamountdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -745,7 +742,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__alz7, {
-                  [sty.freeBox__displaylogistics__alz7Rz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__alz7Rz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -758,7 +755,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__qZrRs,
                     {
-                      [sty.text__displaylogistics__qZrRSrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__qZrRSrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -775,7 +772,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__dV1GG,
                     {
-                      [sty.text__displaylogistics__dV1GGrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__dV1GGrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -790,7 +787,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue3"}
                   data-plasmic-override={overrides.creditnotevalue3}
                   className={classNames(projectcss.all, sty.creditnotevalue3, {
-                    [sty.creditnotevalue3__displaylogistics]: hasVariant(
+                    [sty.creditnotevalue3displaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -801,7 +798,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.ntfamount,
                     className: classNames(sty.slotTargetNtfamount, {
-                      [sty.slotTargetNtfamount__displaylogistics]: hasVariant(
+                      [sty.slotTargetNtfamountdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -813,7 +810,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__mc2Dc, {
-                  [sty.freeBox__displaylogistics__mc2DCrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__mc2DCrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -826,7 +823,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__wyEWc,
                     {
-                      [sty.text__displaylogistics__wyEWcrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__wyEWcrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -843,7 +840,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__lhzhb,
                     {
-                      [sty.text__displaylogistics__lhzhBrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__lhzhBrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -858,7 +855,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue4"}
                   data-plasmic-override={overrides.creditnotevalue4}
                   className={classNames(projectcss.all, sty.creditnotevalue4, {
-                    [sty.creditnotevalue4__displaylogistics]: hasVariant(
+                    [sty.creditnotevalue4displaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -869,7 +866,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.tchaamount,
                     className: classNames(sty.slotTargetTchaamount, {
-                      [sty.slotTargetTchaamount__displaylogistics]: hasVariant(
+                      [sty.slotTargetTchaamountdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -881,7 +878,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__i0Wvv, {
-                  [sty.freeBox__displaylogistics__i0Wvvrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__i0Wvvrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -894,7 +891,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__nrkk5,
                     {
-                      [sty.text__displaylogistics__nrkk5Rz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__nrkk5Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -911,7 +908,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__sxuUm,
                     {
-                      [sty.text__displaylogistics__sxuUmrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__sxuUmrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -926,7 +923,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   data-plasmic-name={"creditnotevalue5"}
                   data-plasmic-override={overrides.creditnotevalue5}
                   className={classNames(projectcss.all, sty.creditnotevalue5, {
-                    [sty.creditnotevalue5__displaylogistics]: hasVariant(
+                    [sty.creditnotevalue5displaylogistics]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -937,7 +934,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     defaultContents: "N/A",
                     value: args.ntchaamount,
                     className: classNames(sty.slotTargetNtchaamount, {
-                      [sty.slotTargetNtchaamount__displaylogistics]: hasVariant(
+                      [sty.slotTargetNtchaamountdisplaylogistics]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -957,7 +954,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__jzDf6, {
-                [sty.freeBox__displaylogistics__jzDf6Rz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__jzDf6Rz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -970,7 +967,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text___4Yz8E,
                   {
-                    [sty.text__displaylogistics___4Yz8Erz7MF]: hasVariant(
+                    [sty.textdisplaylogistics___4Yz8Erz7MF]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -987,7 +984,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__n8EeS,
                   {
-                    [sty.text__displaylogistics__n8EeSrz7MF]: hasVariant(
+                    [sty.textdisplaylogistics__n8EeSrz7MF]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -1008,7 +1005,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__i2GFa, {
-                [sty.freeBox__displaylogistics__i2GFArz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__i2GFArz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -1021,7 +1018,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__i08O,
                   {
-                    [sty.text__displaylogistics__i08Orz7MF]: hasVariant(
+                    [sty.textdisplaylogistics__i08Orz7MF]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -1038,7 +1035,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                   projectcss.__wab_text,
                   sty.text__e3Z3S,
                   {
-                    [sty.text__displaylogistics__e3Z3Srz7MF]: hasVariant(
+                    [sty.textdisplaylogistics__e3Z3Srz7MF]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -1059,7 +1056,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox__lZ46, {
-                [sty.freeBox__displaylogistics__lZ46Rz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__lZ46Rz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -1068,7 +1065,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__ygeSt, {
-                  [sty.freeBox__displaylogistics__ygeStrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__ygeStrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1090,7 +1087,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox__nzCcN, {
-                      [sty.freeBox__displaylogistics__nzCcNrz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics__nzCcNrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1103,7 +1100,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__txftM,
                         {
-                          [sty.text__displaylogistics__txftMrz7MF]: hasVariant(
+                          [sty.textdisplaylogistics__txftMrz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1120,7 +1117,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___8Fv9D,
                         {
-                          [sty.text__displaylogistics___8Fv9Drz7MF]: hasVariant(
+                          [sty.textdisplaylogistics___8Fv9Drz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1136,7 +1133,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
 
               <div
                 className={classNames(projectcss.all, sty.freeBox__hYlyT, {
-                  [sty.freeBox__displaylogistics__hYlyTrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__hYlyTrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1149,7 +1146,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__nZaG,
                     {
-                      [sty.text__displaylogistics__nZaGrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__nZaGrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1165,7 +1162,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     as={"div"}
                     hasGap={true}
                     className={classNames(projectcss.all, sty.freeBox___2V2X9, {
-                      [sty.freeBox__displaylogistics___2V2X9Rz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics___2V2X9Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1178,7 +1175,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__stoGk,
                         {
-                          [sty.text__displaylogistics__stoGkrz7MF]: hasVariant(
+                          [sty.textdisplaylogistics__stoGkrz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1200,7 +1197,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__mTwTv, {
-                [sty.freeBox__displaylogistics__mTwTVrz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics__mTwTVrz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -1209,7 +1206,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
             >
               <div
                 className={classNames(projectcss.all, sty.freeBox__qxkVz, {
-                  [sty.freeBox__displaylogistics__qxkVzrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__qxkVzrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1222,7 +1219,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__fjn0O,
                     {
-                      [sty.text__displaylogistics__fjn0Orz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__fjn0Orz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1239,7 +1236,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__dJ3WJ,
                     {
-                      [sty.text__displaylogistics__dJ3WJrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__dJ3WJrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1256,7 +1253,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__burww,
                     {
-                      [sty.text__displaylogistics__burwwrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__burwwrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1273,7 +1270,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___3V4Oj,
                     {
-                      [sty.text__displaylogistics___3V4Ojrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics___3V4Ojrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1290,7 +1287,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__uvAh0,
                     {
-                      [sty.text__displaylogistics__uvAh0Rz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__uvAh0Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1307,7 +1304,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___8UKnz,
                     {
-                      [sty.text__displaylogistics___8UKnZrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics___8UKnZrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1322,7 +1319,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               <div className={classNames(projectcss.all, sty.freeBox__gRpJh)}>
                 <div
                   className={classNames(projectcss.all, sty.freeBox__y8Tma, {
-                    [sty.freeBox__displaylogistics__y8Tmarz7MF]: hasVariant(
+                    [sty.freeBoxdisplaylogistics__y8Tmarz7MF]: hasVariant(
                       variants,
                       "displaylogistics",
                       "displaylogistics"
@@ -1335,7 +1332,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__chAaV,
                       {
-                        [sty.text__displaylogistics__chAaVrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics__chAaVrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1352,7 +1349,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__ihHlM,
                       {
-                        [sty.text__displaylogistics__ihHlMrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics__ihHlMrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1369,7 +1366,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__zGLzY,
                       {
-                        [sty.text__displaylogistics__zGLzYrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics__zGLzYrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1386,7 +1383,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__yhjaY,
                       {
-                        [sty.text__displaylogistics__yhjaYrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics__yhjaYrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1403,7 +1400,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text__yfEry,
                       {
-                        [sty.text__displaylogistics__yfErYrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics__yfErYrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1420,7 +1417,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                       projectcss.__wab_text,
                       sty.text___3Q9Db,
                       {
-                        [sty.text__displaylogistics___3Q9DBrz7MF]: hasVariant(
+                        [sty.textdisplaylogistics___3Q9DBrz7MF]: hasVariant(
                           variants,
                           "displaylogistics",
                           "displaylogistics"
@@ -1439,7 +1436,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox___1HrMo, {
-                      [sty.freeBox__displaylogistics___1HrMorz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics___1HrMorz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1452,7 +1449,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__cEHs6,
                         {
-                          [sty.text__displaylogistics__cEHs6Rz7MF]: hasVariant(
+                          [sty.textdisplaylogistics__cEHs6Rz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1469,7 +1466,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text___1ILum,
                         {
-                          [sty.text__displaylogistics___1ILumrz7MF]: hasVariant(
+                          [sty.textdisplaylogistics___1ILumrz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1486,7 +1483,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                         projectcss.__wab_text,
                         sty.text__y5KSe,
                         {
-                          [sty.text__displaylogistics__y5KSerz7MF]: hasVariant(
+                          [sty.textdisplaylogistics__y5KSerz7MF]: hasVariant(
                             variants,
                             "displaylogistics",
                             "displaylogistics"
@@ -1535,7 +1532,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox___1Vp29, {
-                      [sty.freeBox__displaylogistics___1Vp29Rz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics___1Vp29Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1610,7 +1607,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 ) ? (
                   <div
                     className={classNames(projectcss.all, sty.freeBox__bj0Zs, {
-                      [sty.freeBox__displaylogistics__bj0ZSrz7MF]: hasVariant(
+                      [sty.freeBoxdisplaylogistics__bj0ZSrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1690,7 +1687,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               as={"div"}
               hasGap={true}
               className={classNames(projectcss.all, sty.freeBox___1LbaT, {
-                [sty.freeBox__displaylogistics___1LbaTrz7MF]: hasVariant(
+                [sty.freeBoxdisplaylogistics___1LbaTrz7MF]: hasVariant(
                   variants,
                   "displaylogistics",
                   "displaylogistics"
@@ -1701,7 +1698,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__gQr4G, {
-                  [sty.freeBox__displaylogistics__gQr4Grz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__gQr4Grz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1714,7 +1711,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__u1Vd5,
                     {
-                      [sty.text__displaylogistics__u1Vd5Rz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__u1Vd5Rz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1731,7 +1728,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__ijGJw,
                     {
-                      [sty.text__displaylogistics__ijGJwrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__ijGJwrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1747,7 +1744,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__fuWps, {
-                  [sty.freeBox__displaylogistics__fuWpsrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__fuWpsrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1770,7 +1767,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__bkIQ,
                     {
-                      [sty.text__displaylogistics__bkIQrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__bkIQrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1786,7 +1783,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                 as={"div"}
                 hasGap={true}
                 className={classNames(projectcss.all, sty.freeBox__zJH, {
-                  [sty.freeBox__displaylogistics__zJHrz7MF]: hasVariant(
+                  [sty.freeBoxdisplaylogistics__zJHrz7MF]: hasVariant(
                     variants,
                     "displaylogistics",
                     "displaylogistics"
@@ -1799,7 +1796,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text___8RPsv,
                     {
-                      [sty.text__displaylogistics___8RPsVrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics___8RPsVrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1816,7 +1813,7 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
                     projectcss.__wab_text,
                     sty.text__aAIfk,
                     {
-                      [sty.text__displaylogistics__aAIfkrz7MF]: hasVariant(
+                      [sty.textdisplaylogistics__aAIfkrz7MF]: hasVariant(
                         variants,
                         "displaylogistics",
                         "displaylogistics"
@@ -1829,21 +1826,22 @@ function PlasmicLogisticsgeneration__RenderFunc(props) {
               </p.Stack>
             </p.Stack>
           ) : null}
-          {true ? (
-            <ButtonB
-              data-plasmic-name={"formbutton"}
-              data-plasmic-override={overrides.formbutton}
-              className={classNames("__wab_instance", sty.formbutton, {
-                [sty.formbutton__displaylogistics]: hasVariant(
-                  variants,
-                  "displaylogistics",
-                  "displaylogistics"
-                )
-              })}
-              connectmm={true}
-            />
-          ) : null}
         </p.Stack>
+
+        {true ? (
+          <ButtonB
+            data-plasmic-name={"formbutton"}
+            data-plasmic-override={overrides.formbutton}
+            className={classNames("__wab_instance", sty.formbutton, {
+              [sty.formbuttondisplaylogistics]: hasVariant(
+                variants,
+                "displaylogistics",
+                "displaylogistics"
+              )
+            })}
+            connectmm={true}
+          />
+        ) : null}
       </div>
     </div>
   );

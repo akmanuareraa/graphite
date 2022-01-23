@@ -36,16 +36,22 @@ function PlasmicDashboard__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__deposit]: hasVariant(variants, "deposit", "deposit"),
-        [sty.root__withdraw]: hasVariant(variants, "withdraw", "withdraw")
+        [sty.rootdeposit]: hasVariant(variants, "deposit", "deposit"),
+        [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
       })}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox___3Wr1, {
-          [sty.freeBox__deposit___3Wr1KnLs]: hasVariant(
+          [sty.freeBoxdeposit___3Wr1KnLs]: hasVariant(
             variants,
             "deposit",
             "deposit"
+          ),
+
+          [sty.freeBoxwithdraw___3Wr1GWt2F]: hasVariant(
+            variants,
+            "withdraw",
+            "withdraw"
           )
         })}
       >
@@ -63,13 +69,13 @@ function PlasmicDashboard__RenderFunc(props) {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__j9Rl0, {
-            [sty.freeBox__deposit__j9Rl0KnLs]: hasVariant(
+            [sty.freeBoxdeposit__j9Rl0KnLs]: hasVariant(
               variants,
               "deposit",
               "deposit"
             ),
 
-            [sty.freeBox__withdraw__j9Rl0GWt2F]: hasVariant(
+            [sty.freeBoxwithdraw__j9Rl0GWt2F]: hasVariant(
               variants,
               "withdraw",
               "withdraw"
@@ -79,13 +85,13 @@ function PlasmicDashboard__RenderFunc(props) {
           <p.PlasmicImg
             alt={""}
             className={classNames(sty.img__ddsz2, {
-              [sty.img__deposit__ddsz2KnLs]: hasVariant(
+              [sty.imgdeposit__ddsz2KnLs]: hasVariant(
                 variants,
                 "deposit",
                 "deposit"
               ),
 
-              [sty.img__withdraw__ddsz2GWt2F]: hasVariant(
+              [sty.imgwithdraw__ddsz2GWt2F]: hasVariant(
                 variants,
                 "withdraw",
                 "withdraw"
@@ -121,13 +127,13 @@ function PlasmicDashboard__RenderFunc(props) {
             data-plasmic-name={"bridgeinput"}
             data-plasmic-override={overrides.bridgeinput}
             className={classNames("__wab_instance", sty.bridgeinput, {
-              [sty.bridgeinput__deposit]: hasVariant(
+              [sty.bridgeinputdeposit]: hasVariant(
                 variants,
                 "deposit",
                 "deposit"
               ),
 
-              [sty.bridgeinput__withdraw]: hasVariant(
+              [sty.bridgeinputwithdraw]: hasVariant(
                 variants,
                 "withdraw",
                 "withdraw"
@@ -142,13 +148,13 @@ function PlasmicDashboard__RenderFunc(props) {
 
       <div
         className={classNames(projectcss.all, sty.freeBox__quKm0, {
-          [sty.freeBox__deposit__quKm0KnLs]: hasVariant(
+          [sty.freeBoxdeposit__quKm0KnLs]: hasVariant(
             variants,
             "deposit",
             "deposit"
           ),
 
-          [sty.freeBox__withdraw__quKm0GWt2F]: hasVariant(
+          [sty.freeBoxwithdraw__quKm0GWt2F]: hasVariant(
             variants,
             "withdraw",
             "withdraw"
@@ -168,18 +174,30 @@ function PlasmicDashboard__RenderFunc(props) {
         <p.Stack
           as={"div"}
           hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__abArf)}
+          className={classNames(projectcss.all, sty.freeBox__abArf, {
+            [sty.freeBoxdeposit__abArfKnLs]: hasVariant(
+              variants,
+              "deposit",
+              "deposit"
+            ),
+
+            [sty.freeBoxwithdraw__abArfgWt2F]: hasVariant(
+              variants,
+              "withdraw",
+              "withdraw"
+            )
+          })}
         >
           <p.PlasmicImg
             alt={""}
             className={classNames(sty.img__ftbw, {
-              [sty.img__deposit__ftbwKnLs]: hasVariant(
+              [sty.imgdeposit__ftbwKnLs]: hasVariant(
                 variants,
                 "deposit",
                 "deposit"
               ),
 
-              [sty.img__withdraw__ftbwGWt2F]: hasVariant(
+              [sty.imgwithdraw__ftbwGWt2F]: hasVariant(
                 variants,
                 "withdraw",
                 "withdraw"

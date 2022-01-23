@@ -24,29 +24,30 @@
   border-width: 1px;
   border-style: none;
 }
-.button__withdraw {
-  background: #ffc500ad;
+.buttonwithdraw {
+  background: linear-gradient(#15b2b8, #15b2b8), #ffc500ad;
   align-items: center;
   justify-content: center;
 }
-.button__deposit {
+.buttondeposit {
   align-items: center;
   justify-content: center;
-  background: #7c22a399;
+  background: linear-gradient(#15b2b8, #15b2b8), #7c22a399;
 }
-.root__withdraw .button__withdraw:hover {
+.rootwithdraw .buttonwithdraw:hover {
   background: #ffc5006e;
 }
-.root__deposit .button__deposit:hover {
+.rootdeposit .buttondeposit:hover {
   background: #7c22a35c;
 }
 .slotTargetChildren {
   text-align: center;
   line-height: 2.66;
 }
-.slotTargetChildren__withdraw {
+.slotTargetChildrenwithdraw {
   line-height: 0;
+  color: #ffffff;
 }
-.slotTargetChildren__deposit {
+.slotTargetChildrendeposit {
   color: #ffffff;
 }

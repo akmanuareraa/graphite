@@ -44,7 +44,7 @@ function PlasmicWalletstatusBackup__RenderFunc(props) {
             projectcss.__wab_text,
             sty.text__lkiLs,
             {
-              [sty.text__disconnected__lkiLs1GkX2]: hasVariant(
+              [sty.textdisconnected__lkiLs1GkX2]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"
@@ -58,7 +58,7 @@ function PlasmicWalletstatusBackup__RenderFunc(props) {
 
       <div
         className={classNames(projectcss.all, sty.freeBox__leRn6, {
-          [sty.freeBox__connected__leRn679B8G]: hasVariant(
+          [sty.freeBoxconnected__leRn679B8G]: hasVariant(
             variants,
             "connected",
             "connected"
@@ -70,13 +70,13 @@ function PlasmicWalletstatusBackup__RenderFunc(props) {
         ) ? (
           <div
             className={classNames(projectcss.all, sty.freeBox__ufce3, {
-              [sty.freeBox__connected__ufce379B8G]: hasVariant(
+              [sty.freeBoxconnected__ufce379B8G]: hasVariant(
                 variants,
                 "connected",
                 "connected"
               ),
 
-              [sty.freeBox__disconnected__ufce31GkX2]: hasVariant(
+              [sty.freeBoxdisconnected__ufce31GkX2]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"
@@ -92,13 +92,13 @@ function PlasmicWalletstatusBackup__RenderFunc(props) {
                   defaultContents: "0xB545A207759a397b5A4e24AF020DaBF619C7d809",
                   value: args.walletaddress,
                   className: classNames(sty.slotTargetWalletaddress, {
-                    [sty.slotTargetWalletaddress__connected]: hasVariant(
+                    [sty.slotTargetWalletaddressconnected]: hasVariant(
                       variants,
                       "connected",
                       "connected"
                     ),
 
-                    [sty.slotTargetWalletaddress__disconnected]: hasVariant(
+                    [sty.slotTargetWalletaddressdisconnected]: hasVariant(
                       variants,
                       "disconnected",
                       "disconnected"
@@ -117,13 +117,13 @@ function PlasmicWalletstatusBackup__RenderFunc(props) {
             projectcss.__wab_text,
             sty.text__lkPtr,
             {
-              [sty.text__connected__lkPtr79B8G]: hasVariant(
+              [sty.textconnected__lkPtr79B8G]: hasVariant(
                 variants,
                 "connected",
                 "connected"
               ),
 
-              [sty.text__disconnected__lkPtr1GkX2]: hasVariant(
+              [sty.textdisconnected__lkPtr1GkX2]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"

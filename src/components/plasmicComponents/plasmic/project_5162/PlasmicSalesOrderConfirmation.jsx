@@ -52,7 +52,14 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
         className={classNames(
           projectcss.all,
           projectcss.__wab_text,
-          sty.text___8TsS7
+          sty.text___8TsS7,
+          {
+            [sty.textnotfound___8TsS7MPOd]: hasVariant(
+              variants,
+              "notfound",
+              "notfound"
+            )
+          }
         )}
       >
         {"SALES ORDER CONFIRMATION"}
@@ -62,19 +69,19 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
         data-plasmic-name={"applicationForm"}
         data-plasmic-override={overrides.applicationForm}
         className={classNames(projectcss.all, sty.applicationForm, {
-          [sty.applicationForm__confirmed]: hasVariant(
+          [sty.applicationFormconfirmed]: hasVariant(
             variants,
             "confirmed",
             "confirmed"
           ),
 
-          [sty.applicationForm__loading]: hasVariant(
+          [sty.applicationFormloading]: hasVariant(
             variants,
             "loading",
             "loading"
           ),
 
-          [sty.applicationForm__notfound]: hasVariant(
+          [sty.applicationFormnotfound]: hasVariant(
             variants,
             "notfound",
             "notfound"
@@ -94,19 +101,19 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
             as={"div"}
             hasGap={true}
             className={classNames(projectcss.all, sty.freeBox__zponD, {
-              [sty.freeBox__confirmed__zponDok5D2]: hasVariant(
+              [sty.freeBoxconfirmed__zponDok5D2]: hasVariant(
                 variants,
                 "confirmed",
                 "confirmed"
               ),
 
-              [sty.freeBox__loading__zponDnqWfg]: hasVariant(
+              [sty.freeBoxloading__zponDnqWfg]: hasVariant(
                 variants,
                 "loading",
                 "loading"
               ),
 
-              [sty.freeBox__notfound__zponDmPOd]: hasVariant(
+              [sty.freeBoxnotfound__zponDmPOd]: hasVariant(
                 variants,
                 "notfound",
                 "notfound"
@@ -440,13 +447,6 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
                 </div>
               </div>
             ) : null}
-
-            <Consentandsubmit
-              data-plasmic-name={"consent"}
-              data-plasmic-override={overrides.consent}
-              className={classNames("__wab_instance", sty.consent)}
-            />
-
             {true ? (
               <p.Stack
                 as={"div"}
@@ -997,14 +997,6 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
                 </p.Stack>
               </p.Stack>
             ) : null}
-            {true ? (
-              <ButtonB
-                data-plasmic-name={"formbutton"}
-                data-plasmic-override={overrides.formbutton}
-                className={classNames("__wab_instance", sty.formbutton)}
-                connectmm={true}
-              />
-            ) : null}
           </p.Stack>
         ) : null}
         {(
@@ -1022,19 +1014,19 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
               projectcss.__wab_text,
               sty.text__qJBg,
               {
-                [sty.text__confirmed__qJBgOk5D2]: hasVariant(
+                [sty.textconfirmed__qJBgOk5D2]: hasVariant(
                   variants,
                   "confirmed",
                   "confirmed"
                 ),
 
-                [sty.text__loading__qJBgnqWfg]: hasVariant(
+                [sty.textloading__qJBgnqWfg]: hasVariant(
                   variants,
                   "loading",
                   "loading"
                 ),
 
-                [sty.text__notfound__qJBgmPOd]: hasVariant(
+                [sty.textnotfound__qJBgmPOd]: hasVariant(
                   variants,
                   "notfound",
                   "notfound"
@@ -1048,6 +1040,68 @@ function PlasmicSalesOrderConfirmation__RenderFunc(props) {
               ? "No Record Found.\nPlease create the sales order."
               : "Fetching Data from Database...."}
           </div>
+        ) : null}
+        {(
+          hasVariant(variants, "confirmed", "confirmed")
+            ? false
+            : hasVariant(variants, "notfound", "notfound")
+            ? false
+            : hasVariant(variants, "loading", "loading")
+            ? false
+            : true
+        ) ? (
+          <Consentandsubmit
+            data-plasmic-name={"consent"}
+            data-plasmic-override={overrides.consent}
+            className={classNames("__wab_instance", sty.consent, {
+              [sty.consentconfirmed]: hasVariant(
+                variants,
+                "confirmed",
+                "confirmed"
+              ),
+
+              [sty.consentloading]: hasVariant(variants, "loading", "loading"),
+              [sty.consentnotfound]: hasVariant(
+                variants,
+                "notfound",
+                "notfound"
+              )
+            })}
+          />
+        ) : null}
+        {(
+          hasVariant(variants, "confirmed", "confirmed")
+            ? false
+            : hasVariant(variants, "notfound", "notfound")
+            ? false
+            : hasVariant(variants, "loading", "loading")
+            ? false
+            : true
+        ) ? (
+          <ButtonB
+            data-plasmic-name={"formbutton"}
+            data-plasmic-override={overrides.formbutton}
+            className={classNames("__wab_instance", sty.formbutton, {
+              [sty.formbuttonconfirmed]: hasVariant(
+                variants,
+                "confirmed",
+                "confirmed"
+              ),
+
+              [sty.formbuttonloading]: hasVariant(
+                variants,
+                "loading",
+                "loading"
+              ),
+
+              [sty.formbuttonnotfound]: hasVariant(
+                variants,
+                "notfound",
+                "notfound"
+              )
+            })}
+            connectmm={true}
+          />
         ) : null}
       </div>
     </div>

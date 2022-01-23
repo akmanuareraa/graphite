@@ -7,11 +7,11 @@
   height: 60px;
   max-width: 643px;
   position: relative;
-  background: #e8e8e8;
+  background: #15b2b8;
   border-radius: 13px;
   padding: 5px;
 }
-.root__withdraw {
+.rootwithdraw {
   width: 644px;
   max-width: 644px;
   min-width: 644px;
@@ -23,8 +23,14 @@
   max-width: 332px;
   flex-shrink: 0;
 }
-.deposittab__withdraw:global(.__wab_instance) {
+.deposittabdeposit:global(.__wab_instance) {
   flex-shrink: 0;
+}
+.deposittabwithdraw:global(.__wab_instance) {
+  flex-shrink: 0;
+}
+.textwithdraw__oyoPlVGfy {
+  color: #ffffff;
 }
 .withdrawtab:global(.__wab_instance) {
   position: relative;
@@ -32,6 +38,9 @@
   width: 321.5px;
   flex-shrink: 0;
 }
-.withdrawtab__withdraw:global(.__wab_instance) {
+.withdrawtabwithdraw:global(.__wab_instance) {
   flex-shrink: 0;
+}
+.textdeposit__jsltqUr7Ra {
+  color: #ffffff;
 }

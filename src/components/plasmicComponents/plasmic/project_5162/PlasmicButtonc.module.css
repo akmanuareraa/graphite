@@ -22,7 +22,7 @@
   padding: 10.5px 15px;
   border: 2px none #000000;
 }
-.text__selected {
+.textselected {
   background: #000000;
   color: #ffffff;
 }
@@ -30,6 +30,6 @@
   background: #c5c5c5;
   color: #ffffff;
 }
-.root__selected .text__selected:hover {
+.rootselected .textselected:hover {
   background: #000000;
 }

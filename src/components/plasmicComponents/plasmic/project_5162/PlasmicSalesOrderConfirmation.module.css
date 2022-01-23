@@ -16,9 +16,12 @@
   text-align: center;
   font-size: 30px;
   font-weight: 600;
-  font-family: "Inria Sans", sans-serif;
-  background: #e4dada;
+  font-family: "Open Sans", sans-serif;
+  background: #e0e0e0;
   min-width: 0;
+}
+.textnotfound___8TsS7MPOd {
+  color: #535353;
 }
 .applicationForm {
   background: rgba(255, 255, 255, 1);
@@ -32,14 +35,15 @@
   flex-shrink: 0;
 }
 .freeBox__zponD {
-  top: -3px;
-  left: 46px;
+  top: 59px;
+  left: 306px;
   display: flex;
   position: absolute;
   flex-direction: column;
-  width: 1249px;
+  width: auto;
   height: auto;
   max-width: 100%;
+  box-shadow: 0px 4px 16px 0px #00000033;
   padding: 0px;
   margin: 0px;
   border-width: 2px;
@@ -67,24 +71,22 @@
   justify-content: flex-start;
   width: 723px;
   align-self: auto;
-  margin-top: calc(22px + 0px) !important;
+  margin-top: calc(0px + 0px) !important;
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
-  border-top-style: solid;
   border-top-width: 1px;
-  border-right-style: solid;
   border-right-width: 1px;
-  border-bottom-style: none;
   border-bottom-width: 0px;
-  border-left-style: solid;
   border-left-width: 1px;
   display: flex;
   position: relative;
   flex-direction: row;
   height: auto;
   max-width: 100%;
-  padding: 0px;
+  background: #15b2b8;
+  padding: 4px 0px;
+  border-style: none;
 }
 .freeBox__gewWb {
   display: flex;
@@ -103,6 +105,7 @@
   width: auto;
   height: auto;
   max-width: 800px;
+  color: #ffffff;
 }
 .freeBox__y4Hq1 {
   margin-top: -7px;
@@ -123,6 +126,7 @@
   max-width: 800px;
   font-size: 24px;
   font-weight: 700;
+  color: #ffffff;
 }
 .freeBox__jnRrA {
   height: 36px;
@@ -137,6 +141,7 @@
 .slotTargetPono {
   font-size: 24px;
   font-weight: 700;
+  color: #ffffff;
 }
 .freeBox__zMf9C {
   width: 723px;
@@ -147,7 +152,7 @@
   max-width: 100%;
   padding: 0px;
   border-width: 1px;
-  border-style: solid;
+  border-style: none;
 }
 .freeBox__zMf9C > :global(.__wab_flex-container) {
   flex-direction: row;
@@ -198,9 +203,9 @@
   height: auto;
   max-width: 723%;
   min-width: 723px;
-  border-left-style: solid;
+  border-left-style: none;
   border-left-width: 1px;
-  border-right-style: solid;
+  border-right-style: none;
   border-right-width: 1px;
   padding: 0px;
 }
@@ -213,8 +218,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -225,6 +231,7 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text__xVoQo {
@@ -249,8 +256,9 @@
   flex-shrink: 0;
 }
 .slotTargetChildren {
-  font-weight: 900;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__iZwuY {
   display: flex;
@@ -261,7 +269,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
   min-width: 0;
   padding: 0px;
@@ -273,6 +281,8 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text__vfWf5 {
@@ -296,8 +306,9 @@
   flex-shrink: 0;
 }
 .slotTargetSlot {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__v2ULp {
   display: flex;
@@ -308,8 +319,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -320,6 +332,8 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text__xRnQg {
@@ -341,8 +355,9 @@
   flex-shrink: 0;
 }
 .slotTargetSlot2 {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__s3Nvt {
   display: flex;
@@ -353,7 +368,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
   min-width: 0;
   padding: 0px;
@@ -365,6 +380,8 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text__aqu6R {
@@ -388,8 +405,9 @@
   flex-shrink: 0;
 }
 .slotTargetSlot3 {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox___1U569 {
   display: flex;
@@ -400,8 +418,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -412,6 +431,8 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text__oug2R {
@@ -433,8 +454,9 @@
   flex-shrink: 0;
 }
 .slotTargetSlot4 {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__iY4Jb {
   display: flex;
@@ -445,7 +467,7 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
   min-width: 0;
   padding: 0px;
@@ -457,6 +479,8 @@
   max-width: 274px;
   min-width: 274px;
   padding-left: 10px;
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
   flex-shrink: 0;
 }
 .text__epal {
@@ -480,8 +504,9 @@
   flex-shrink: 0;
 }
 .slotTargetSlot5 {
-  font-weight: 600;
+  font-weight: 400;
   text-align: left;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__aiMKe {
   display: flex;
@@ -492,8 +517,9 @@
   width: 100%;
   height: auto;
   max-width: 100%;
-  border-bottom-style: solid;
+  border-bottom-style: none;
   border-bottom-width: 1px;
+  background: #e0e0e0;
   min-width: 0;
   padding: 0px;
 }
@@ -504,6 +530,7 @@
   padding-left: 10px;
   min-width: 491px;
   max-width: 491px;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }
 .text___7FFoH {
@@ -532,14 +559,9 @@
   height: auto;
   text-align: left;
   padding-left: 12px;
-  font-weight: 600;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
-}
-.consent:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  margin-top: calc(14px + 0px) !important;
-  margin-left: 68px;
 }
 .freeBox___0Tto4 {
   width: 723px;
@@ -1456,14 +1478,6 @@
   flex-shrink: 0;
   padding: 0px;
 }
-.formbutton:global(.__wab_instance) {
-  left: auto;
-  top: auto;
-  margin-left: -145px;
-  margin-top: calc(27px + 0px) !important;
-  position: relative;
-  align-self: auto;
-}
 .text__qJBg {
   position: absolute;
   width: 100%;
@@ -1476,12 +1490,30 @@
   min-width: 0;
   display: none;
 }
-.text__loading__qJBgnqWfg {
+.textloading__qJBgnqWfg {
+  font-family: "Open Sans", sans-serif;
   display: block;
 }
-.text__notfound__qJBgmPOd {
+.textnotfound__qJBgmPOd {
+  font-family: "Open Sans", sans-serif;
   display: block;
 }
-.text__confirmed__qJBgOk5D2 {
+.textconfirmed__qJBgOk5D2 {
   display: block;
+}
+.consent:global(.__wab_instance) {
+  max-width: 100%;
+  position: absolute;
+  margin-top: 14px;
+  margin-left: 68px;
+  left: 199px;
+  top: 318px;
+}
+.formbutton:global(.__wab_instance) {
+  left: 555px;
+  top: 380px;
+  margin-left: -145px;
+  margin-top: 27px;
+  position: absolute;
+  align-self: auto;
 }

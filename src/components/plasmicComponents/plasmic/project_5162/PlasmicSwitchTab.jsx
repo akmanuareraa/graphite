@@ -33,29 +33,44 @@ function PlasmicSwitchTab__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__withdraw]: hasVariant(variants, "withdraw", "withdraw")
+        [sty.rootdeposit]: hasVariant(variants, "deposit", "deposit"),
+        [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
       })}
     >
       <SwitchButton
         data-plasmic-name={"deposittab"}
         data-plasmic-override={overrides.deposittab}
         className={classNames("__wab_instance", sty.deposittab, {
-          [sty.deposittab__withdraw]: hasVariant(
-            variants,
-            "withdraw",
-            "withdraw"
-          )
+          [sty.deposittabdeposit]: hasVariant(variants, "deposit", "deposit"),
+          [sty.deposittabwithdraw]: hasVariant(variants, "withdraw", "withdraw")
         })}
         selected={
           hasVariant(variants, "withdraw", "withdraw") ? undefined : true
         }
-      />
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__oyoPl,
+            {
+              [sty.textwithdraw__oyoPlVGfy]: hasVariant(
+                variants,
+                "withdraw",
+                "withdraw"
+              )
+            }
+          )}
+        >
+          {"Deposit"}
+        </div>
+      </SwitchButton>
 
       <SwitchButton
         data-plasmic-name={"withdrawtab"}
         data-plasmic-override={overrides.withdrawtab}
         className={classNames("__wab_instance", sty.withdrawtab, {
-          [sty.withdrawtab__withdraw]: hasVariant(
+          [sty.withdrawtabwithdraw]: hasVariant(
             variants,
             "withdraw",
             "withdraw"
@@ -65,7 +80,28 @@ function PlasmicSwitchTab__RenderFunc(props) {
           hasVariant(variants, "withdraw", "withdraw") ? true : undefined
         }
       >
-        {"Withdraw"}
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__jsltq,
+            {
+              [sty.textdeposit__jsltqUr7Ra]: hasVariant(
+                variants,
+                "deposit",
+                "deposit"
+              ),
+
+              [sty.textwithdraw__jsltqVGfy]: hasVariant(
+                variants,
+                "withdraw",
+                "withdraw"
+              )
+            }
+          )}
+        >
+          {"Withdraw"}
+        </div>
       </SwitchButton>
     </div>
   );

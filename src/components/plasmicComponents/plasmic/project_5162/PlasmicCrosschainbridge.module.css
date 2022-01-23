@@ -16,8 +16,8 @@
   text-align: center;
   font-size: 30px;
   font-weight: 600;
-  font-family: "Inria Sans", sans-serif;
-  background: #e4dada;
+  font-family: "Open Sans", sans-serif;
+  background: #e0e0e0;
   min-width: 0;
 }
 .applicationForm {
@@ -31,28 +31,8 @@
   top: auto;
   flex-shrink: 0;
 }
-.freeBox {
-  display: flex;
+.crossbridgestack:global(.__wab_instance) {
   position: absolute;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 659px;
-  height: auto;
-  max-width: 100%;
-  left: 374px;
   top: 33px;
-  padding: 8px;
-}
-.switchtab:global(.__wab_instance) {
-  position: relative;
-  flex-shrink: 0;
-}
-.bridgedashboard:global(.__wab_instance) {
-  position: relative;
-  margin-top: 14px;
-}
-.transferbutton:global(.__wab_instance) {
-  position: relative;
-  margin-top: 23px;
+  left: 374px;
 }
