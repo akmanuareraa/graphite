@@ -37,7 +37,7 @@ contract LogisticsAssetMinter is Initializable,OwnableUpgradeable, UUPSUpgradeab
     {}
 
     
-    function issueAsset(bytes32 assetHash, address customer) public onlyOwner onlyNotIssued(assetHash) {
+    function issueAsset(bytes32 assetHash, address customer) public onlyNotIssued(assetHash) {
 
         asset storage a = assetsIssued[assetHash];
         a.blockNumber = block.number;

@@ -40,7 +40,7 @@ contract IDAssetMinter is Initializable,OwnableUpgradeable, UUPSUpgradeable{
         txnfee = newTxnFee;
     }
 
-    function issueAsset(bytes32 assetHash) public onlyOwner onlyNotIssued(assetHash) {
+    function issueAsset(bytes32 assetHash) public onlyNotIssued(assetHash) {
         require(
             GPI.allowance(msg.sender, address(this)) >= txnfee,
             "GPI Token allowance too low for processing Transaction Fee"
