@@ -4,8 +4,6 @@ import config from '../../config-frontend'
 import axios from 'axios';
 
 import VerifyId from '../plasmicComponents/VerifyId.jsx';
-import idassetminterabi from '../../ABI/IdAssetMinterABI'
-import idphoto2 from './idphoto2.jpg'
 
 function VerifyEstId(props) {
 

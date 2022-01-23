@@ -7,6 +7,7 @@ import config from '../../config-frontend'
 
 // importing plasmic components
 import FormB from '../plasmicComponents/FormB';
+import BeFormB from '../plasmicComponents/BeFormB'
 
 // ABI
 import gpi from '../../ABI/gpiABI';
@@ -232,7 +233,7 @@ function PrefilledForm(props) {
     const formRender = () => {
         return (
             <>
-                <FormB
+                <BeFormB
                     copybutton={{
                         onClick: () => {
                             navigator.clipboard.writeText(props.mainState.createAsset.txnHash)
@@ -473,7 +474,9 @@ function PrefilledForm(props) {
                     } else {
                         axios.get(config.backendServer + "getLastRecord").then(function (response, error) {
                             if (response) {
-                                let referenceId = parseInt(response.data.refId) + 1
+                                console.log('res',response.data.refId)
+                                let referenceId = 1
+                                if(response.data.refId !== undefined){referenceId = parseInt(response.data.refId) + 1}
                                 console.log('refNO', referenceId)
                                 // create the receiptNo and payment timestamp
                                 props.setAllUrlParams(prevState => {
