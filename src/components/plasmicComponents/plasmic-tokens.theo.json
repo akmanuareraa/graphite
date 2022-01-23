@@ -1,6 +1,36 @@
 {
   "props": [
     {
+      "name": "Black Table Font",
+      "type": "color",
+      "value": "#000000",
+      "category": "color",
+      "meta": {
+        "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+        "id": "9fTxjIZv1"
+      }
+    },
+    {
+      "name": "Cyan Shade",
+      "type": "color",
+      "value": "#15B2B8",
+      "category": "color",
+      "meta": {
+        "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+        "id": "Kr1Y7W0dV"
+      }
+    },
+    {
+      "name": "GreyShade",
+      "type": "color",
+      "value": "#E0E0E0",
+      "category": "color",
+      "meta": {
+        "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+        "id": "LIdMPRpET"
+      }
+    },
+    {
       "name": "tabbg1",
       "type": "color",
       "value": "#E2D3D35E",
