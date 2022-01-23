@@ -22,7 +22,7 @@
 .root .signButton {
   justify-content: center;
 }
-.signButton__orange {
+.signButtonorange {
   background: #b92b2b;
   justify-content: center;
 }
@@ -31,6 +31,6 @@
   color: #ffffff;
   text-align: center;
 }
-.slotTargetChildren__orange {
+.slotTargetChildrenorange {
   text-align: center;
 }

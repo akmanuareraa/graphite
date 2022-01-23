@@ -9,31 +9,31 @@
   position: relative;
   padding: 8px;
 }
-.root__sendtxnso {
+.rootsendtxnso {
   padding-left: 90px;
 }
-.root__invoice {
+.rootinvoice {
   padding: 0px 0px 0px 90px;
 }
-.root__sendtxnconsentinv {
+.rootsendtxnconsentinv {
   padding-left: 90px;
 }
-.root__sendtxninv {
+.rootsendtxninv {
   padding-left: 90px;
 }
-.root__logistics {
+.rootlogistics {
   padding: 0px 0px 0px 90px;
 }
-.root__sendtxnconsentlog {
+.rootsendtxnconsentlog {
   padding-left: 90px;
 }
-.root__sendtxnlog {
+.rootsendtxnlog {
   padding-left: 90px;
 }
-.root__salesorder {
+.rootsalesorder {
   padding: 0px 0px 0px 90px;
 }
-.root__sendtxnconsentso {
+.rootsendtxnconsentso {
   padding-left: 90px;
 }
 .mainbutton {
@@ -47,85 +47,85 @@
   margin: 0px;
   border: 2px solid #ff9a00;
 }
-.mainbutton__installmm {
+.mainbuttoninstallmm {
   color: #dd751a;
   padding-right: 66px;
   padding-left: 16px;
   border-color: #dd751a;
 }
-.mainbutton__sendtxnso {
+.mainbuttonsendtxnso {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__invoice {
+.mainbuttoninvoice {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__sendtxnconsentinv {
+.mainbuttonsendtxnconsentinv {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__sendtxninv {
+.mainbuttonsendtxninv {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__logistics {
+.mainbuttonlogistics {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__sendtxnconsentlog {
+.mainbuttonsendtxnconsentlog {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__sendtxnlog {
+.mainbuttonsendtxnlog {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__connectmm {
+.mainbuttonconnectmm {
   padding-right: 38px;
   color: #dd751a;
   border-color: #dd751a;
 }
-.mainbutton__sendtxn {
+.mainbuttonsendtxn {
   color: #000000;
   padding-right: 54px;
   border-color: #000000;
 }
-.mainbutton__processing {
+.mainbuttonprocessing {
   background: #fcfcfa;
   padding-right: 89px;
   border-color: #fcfcfa;
 }
-.mainbutton__success {
+.mainbuttonsuccess {
   background: #25e723;
   color: #ffffff;
   padding-right: 53px;
   border-color: #25e723;
 }
-.mainbutton__failed {
+.mainbuttonfailed {
   background: #df2626;
   color: #ffffff;
   padding-right: 58px;
   border-color: #df2626;
 }
-.mainbutton__sendtxnconsent {
+.mainbuttonsendtxnconsent {
   color: #000000;
   padding-right: 44px;
   border-color: #000000;
 }
-.mainbutton__salesorder {
+.mainbuttonsalesorder {
   color: #000000;
   padding: 0px;
   border-color: #000000;
 }
-.mainbutton__sendtxnconsentso {
+.mainbuttonsendtxnconsentso {
   color: #000000;
   padding: 0px;
   border-color: #000000;
@@ -134,56 +134,56 @@
   background: #dd751a;
   color: #ffffff;
 }
-.root__installmm .mainbutton__installmm:hover {
+.rootinstallmm .mainbuttoninstallmm:hover {
   background: #ff9a00;
   border-color: #dd751a;
 }
-.root__sendtxnso .mainbutton__sendtxnso:hover {
+.rootsendtxnso .mainbuttonsendtxnso:hover {
   background: #000000;
 }
-.root__invoice .mainbutton__invoice:hover {
+.rootinvoice .mainbuttoninvoice:hover {
   background: #000000;
 }
-.root__sendtxnconsentinv .mainbutton__sendtxnconsentinv:hover {
+.rootsendtxnconsentinv .mainbuttonsendtxnconsentinv:hover {
   background: #000000;
 }
-.root__sendtxninv .mainbutton__sendtxninv:hover {
+.rootsendtxninv .mainbuttonsendtxninv:hover {
   background: #000000;
 }
-.root__logistics .mainbutton__logistics:hover {
+.rootlogistics .mainbuttonlogistics:hover {
   background: #000000;
 }
-.root__sendtxnconsentlog .mainbutton__sendtxnconsentlog:hover {
+.rootsendtxnconsentlog .mainbuttonsendtxnconsentlog:hover {
   background: #000000;
 }
-.root__sendtxnlog .mainbutton__sendtxnlog:hover {
+.rootsendtxnlog .mainbuttonsendtxnlog:hover {
   background: #000000;
 }
-.root__connectmm .mainbutton__connectmm:hover {
+.rootconnectmm .mainbuttonconnectmm:hover {
   background: #dd751a;
 }
-.root__sendtxn .mainbutton__sendtxn:hover {
+.rootsendtxn .mainbuttonsendtxn:hover {
   background: #000000;
 }
-.root__processing .mainbutton__processing:hover {
+.rootprocessing .mainbuttonprocessing:hover {
   background: #fcfcfa;
   color: #000000;
 }
-.root__success .mainbutton__success:hover {
+.rootsuccess .mainbuttonsuccess:hover {
   background: #25e723;
   border-color: #25e723;
 }
-.root__failed .mainbutton__failed:hover {
+.rootfailed .mainbuttonfailed:hover {
   background: #df2626;
   border-color: #df2626;
 }
-.root__sendtxnconsent .mainbutton__sendtxnconsent:hover {
+.rootsendtxnconsent .mainbuttonsendtxnconsent:hover {
   background: #000000;
 }
-.root__salesorder .mainbutton__salesorder:hover {
+.rootsalesorder .mainbuttonsalesorder:hover {
   background: #000000;
 }
-.root__sendtxnconsentso .mainbutton__sendtxnconsentso:hover {
+.rootsendtxnconsentso .mainbuttonsendtxnconsentso:hover {
   background: #000000;
 }
 .img___4PNmP {
@@ -202,7 +202,7 @@
 .img___4PNmP > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__failed___4PNmPocDdJ {
+.imgfailed___4PNmPocDdJ {
   display: inline-block !important;
 }
 .img___6BiMu {
@@ -221,7 +221,7 @@
 .img___6BiMu > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__success___6BiMukPrSc {
+.imgsuccess___6BiMukPrSc {
   display: inline-block !important;
 }
 .img__rfRzo {
@@ -238,39 +238,39 @@
 .img__rfRzo > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__sendtxnso__rfRzocK3Fg {
+.imgsendtxnso__rfRzocK3Fg {
   margin-left: -135px;
 }
-.img__invoice__rfRzomXQyB {
+.imginvoice__rfRzomXQyB {
   margin-left: -137px;
 }
-.img__sendtxnconsentinv__rfRzoN0H5 {
+.imgsendtxnconsentinv__rfRzoN0H5 {
   margin-left: -135px;
 }
-.img__sendtxninv__rfRzowqMv {
+.imgsendtxninv__rfRzowqMv {
   margin-left: -135px;
 }
-.img__logistics__rfRzokbJf2 {
+.imglogistics__rfRzokbJf2 {
   margin-left: -137px;
 }
-.img__sendtxnconsentlog__rfRzo9Uo71 {
+.imgsendtxnconsentlog__rfRzo9Uo71 {
   margin-left: -135px;
 }
-.img__sendtxnlog__rfRzoAchdx {
+.imgsendtxnlog__rfRzoAchdx {
   margin-left: -135px;
 }
-.img__sendtxn__rfRzoQfRAj {
+.imgsendtxn__rfRzoQfRAj {
   margin-left: -137px;
   display: inline-block !important;
 }
-.img__sendtxnconsent__rfRzoLjVjA {
+.imgsendtxnconsent__rfRzoLjVjA {
   margin-left: -135px;
   display: inline-block !important;
 }
-.img__salesorder__rfRzoAwkTr {
+.imgsalesorder__rfRzoAwkTr {
   margin-left: -137px;
 }
-.img__sendtxnconsentso__rfRzoEknV0 {
+.imgsendtxnconsentso__rfRzoEknV0 {
   margin-left: -135px;
 }
 .svg {
@@ -285,49 +285,49 @@
   margin-left: -165px;
   flex-shrink: 0;
 }
-.svg__installmm {
+.svginstallmm {
   margin-left: -172px;
 }
-.svg__sendtxnso {
+.svgsendtxnso {
   display: none;
 }
-.svg__invoice {
+.svginvoice {
   display: none;
 }
-.svg__sendtxnconsentinv {
+.svgsendtxnconsentinv {
   display: none;
 }
-.svg__sendtxninv {
+.svgsendtxninv {
   display: none;
 }
-.svg__logistics {
+.svglogistics {
   display: none;
 }
-.svg__sendtxnconsentlog {
+.svgsendtxnconsentlog {
   display: none;
 }
-.svg__sendtxnlog {
+.svgsendtxnlog {
   display: none;
 }
-.svg__connectmm {
+.svgconnectmm {
   margin-left: -127px;
 }
-.svg__sendtxn {
+.svgsendtxn {
   display: none;
 }
-.svg__success {
+.svgsuccess {
   display: none;
 }
-.svg__failed {
+.svgfailed {
   display: none;
 }
-.svg__sendtxnconsent {
+.svgsendtxnconsent {
   display: none;
 }
-.svg__salesorder {
+.svgsalesorder {
   display: none;
 }
-.svg__sendtxnconsentso {
+.svgsendtxnconsentso {
   display: none;
 }
 .img___3Qsg6 {
@@ -346,7 +346,7 @@
 .img___3Qsg6 > .__wab_img-spacer > img {
   object-fit: cover;
 }
-.img__processing___3Qsg6Pdh5H {
+.imgprocessing___3Qsg6Pdh5H {
   display: inline-block !important;
 }
 .freeBox___4NAoc {
@@ -362,7 +362,7 @@
   display: none;
   padding: 0px;
 }
-.freeBox__success___4NAockPrSc {
+.freeBoxsuccess___4NAockPrSc {
   display: flex;
 }
 .text__rSbH {
@@ -375,7 +375,7 @@
   font-weight: 800;
   display: none;
 }
-.text__success__rSbHKPrSc {
+.textsuccess__rSbHKPrSc {
   left: auto;
   top: auto;
   display: block;
@@ -392,7 +392,7 @@
   flex-shrink: 0;
   display: none;
 }
-.freeBox__success__ltjiykPrSc {
+.freeBoxsuccess__ltjiykPrSc {
   display: flex;
 }
 .slotTargetHash {
@@ -412,7 +412,7 @@
   min-width: 0;
   padding: 0px;
 }
-.copybutton__success {
+.copybuttonsuccess {
   display: flex;
 }
 .copyimage {
@@ -442,7 +442,7 @@
   flex-shrink: 0;
   display: none;
 }
-.installmetamasktext__connectmm {
+.installmetamasktextconnectmm {
   display: block;
 }
 .text__dvzO3 {
@@ -459,27 +459,27 @@
   font-style: italic;
   display: none;
 }
-.text__sendtxnso__dvzO3CK3Fg {
+.textsendtxnso__dvzO3CK3Fg {
   left: 110px;
 }
-.text__sendtxnconsentinv__dvzO3N0H5 {
-  left: 110px;
-  display: block;
-}
-.text__sendtxninv__dvzO3WqMv {
-  left: 110px;
-}
-.text__sendtxnconsentlog__dvzO39Uo71 {
+.textsendtxnconsentinv__dvzO3N0H5 {
   left: 110px;
   display: block;
 }
-.text__sendtxnlog__dvzO3Achdx {
+.textsendtxninv__dvzO3WqMv {
   left: 110px;
 }
-.text__sendtxnconsent__dvzO3LjVjA {
+.textsendtxnconsentlog__dvzO39Uo71 {
+  left: 110px;
   display: block;
 }
-.text__sendtxnconsentso__dvzO3EknV0 {
+.textsendtxnlog__dvzO3Achdx {
+  left: 110px;
+}
+.textsendtxnconsent__dvzO3LjVjA {
+  display: block;
+}
+.textsendtxnconsentso__dvzO3EknV0 {
   left: 110px;
   display: block;
 }
@@ -500,40 +500,40 @@
   justify-content: flex-start;
   min-width: 0;
 }
-.freeBox__installmm___6TZiYvXuOp {
+.freeBoxinstallmm___6TZiYvXuOp {
   display: none;
 }
-.freeBox__sendtxnso___6TZiYcK3Fg {
+.freeBoxsendtxnso___6TZiYcK3Fg {
   display: none;
 }
-.freeBox__invoice___6TZiYmXQyB {
+.freeBoxinvoice___6TZiYmXQyB {
   display: none;
 }
-.freeBox__sendtxnconsentinv___6TZiYn0H5 {
+.freeBoxsendtxnconsentinv___6TZiYn0H5 {
   display: none;
 }
-.freeBox__sendtxninv___6TZiYwqMv {
+.freeBoxsendtxninv___6TZiYwqMv {
   display: none;
 }
-.freeBox__logistics___6TZiYkbJf2 {
+.freeBoxlogistics___6TZiYkbJf2 {
   display: none;
 }
-.freeBox__sendtxnconsentlog___6TZiY9Uo71 {
+.freeBoxsendtxnconsentlog___6TZiY9Uo71 {
   display: none;
 }
-.freeBox__sendtxnlog___6TZiYAchdx {
+.freeBoxsendtxnlog___6TZiYAchdx {
   display: none;
 }
-.freeBox__connectmm___6TZiYsqZmt {
+.freeBoxconnectmm___6TZiYsqZmt {
   display: none;
 }
-.freeBox__sendtxn___6TZiYQfRAj {
+.freeBoxsendtxn___6TZiYQfRAj {
   display: none;
 }
-.freeBox__processing___6TZiYPdh5H {
+.freeBoxprocessing___6TZiYPdh5H {
   display: none;
 }
-.freeBox__success___6TZiYkPrSc {
+.freeBoxsuccess___6TZiYkPrSc {
   position: absolute;
   top: 91px;
   left: 184px;
@@ -541,11 +541,11 @@
   display: flex;
   padding: 0px;
 }
-.freeBox__success___6TZiYkPrSc > :global(.__wab_flex-container) {
+.freeBoxsuccess___6TZiYkPrSc > :global(.__wab_flex-container) {
   align-items: center;
   justify-content: center;
 }
-.freeBox__failed___6TZiYocDdJ {
+.freeBoxfailed___6TZiYocDdJ {
   width: auto;
   max-width: 100%;
   flex-direction: row;
@@ -557,7 +557,7 @@
   display: flex;
   padding: 0px;
 }
-.freeBox__failed___6TZiYocDdJ > :global(.__wab_flex-container) {
+.freeBoxfailed___6TZiYocDdJ > :global(.__wab_flex-container) {
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -566,13 +566,13 @@
   margin-top: calc(0px - 0px);
   height: calc(100% + 0px);
 }
-.freeBox__failed___6TZiYocDdJ > :global(.__wab_flex-container) > *,
-.freeBox__failed___6TZiYocDdJ
+.freeBoxfailed___6TZiYocDdJ > :global(.__wab_flex-container) > *,
+.freeBoxfailed___6TZiYocDdJ
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > *,
-.freeBox__failed___6TZiYocDdJ > :global(.__wab_flex-container) > picture > img,
-.freeBox__failed___6TZiYocDdJ
+.freeBoxfailed___6TZiYocDdJ > :global(.__wab_flex-container) > picture > img,
+.freeBoxfailed___6TZiYocDdJ
   > :global(.__wab_flex-container)
   > :global(.__wab_slot)
   > picture
@@ -580,13 +580,13 @@
   margin-left: 0px;
   margin-top: 0px;
 }
-.freeBox__sendtxnconsent___6TZiYljVjA {
+.freeBoxsendtxnconsent___6TZiYljVjA {
   display: none;
 }
-.freeBox__salesorder___6TZiYAwkTr {
+.freeBoxsalesorder___6TZiYAwkTr {
   display: none;
 }
-.freeBox__sendtxnconsentso___6TZiYEknV0 {
+.freeBoxsendtxnconsentso___6TZiYEknV0 {
   display: none;
 }
 .text__yLeFm {
@@ -595,40 +595,40 @@
   max-width: 800px;
   min-width: 0;
 }
-.text__installmm__yLeFMvXuOp {
+.textinstallmm__yLeFMvXuOp {
   display: none;
 }
-.text__sendtxnso__yLeFMcK3Fg {
+.textsendtxnso__yLeFMcK3Fg {
   display: none;
 }
-.text__invoice__yLeFMmXQyB {
+.textinvoice__yLeFMmXQyB {
   display: none;
 }
-.text__sendtxnconsentinv__yLeFmn0H5 {
+.textsendtxnconsentinv__yLeFmn0H5 {
   display: none;
 }
-.text__sendtxninv__yLeFMwqMv {
+.textsendtxninv__yLeFMwqMv {
   display: none;
 }
-.text__logistics__yLeFMkbJf2 {
+.textlogistics__yLeFMkbJf2 {
   display: none;
 }
-.text__sendtxnconsentlog__yLeFm9Uo71 {
+.textsendtxnconsentlog__yLeFm9Uo71 {
   display: none;
 }
-.text__sendtxnlog__yLeFmAchdx {
+.textsendtxnlog__yLeFmAchdx {
   display: none;
 }
-.text__connectmm__yLeFmsqZmt {
+.textconnectmm__yLeFmsqZmt {
   display: none;
 }
-.text__sendtxn__yLeFmQfRAj {
+.textsendtxn__yLeFmQfRAj {
   display: none;
 }
-.text__processing__yLeFmPdh5H {
+.textprocessing__yLeFmPdh5H {
   display: none;
 }
-.text__success__yLeFMkPrSc {
+.textsuccess__yLeFMkPrSc {
   text-align: center;
   width: 110px;
   min-width: 110px;
@@ -636,7 +636,7 @@
   height: auto;
   flex-shrink: 0;
 }
-.text__failed__yLeFMocDdJ {
+.textfailed__yLeFMocDdJ {
   width: 110px;
   height: auto;
   min-width: 110px;
@@ -645,13 +645,13 @@
   flex-shrink: 0;
   display: block;
 }
-.text__sendtxnconsent__yLeFmljVjA {
+.textsendtxnconsent__yLeFmljVjA {
   display: none;
 }
-.text__salesorder__yLeFmAwkTr {
+.textsalesorder__yLeFmAwkTr {
   display: none;
 }
-.text__sendtxnconsentso__yLeFmEknV0 {
+.textsendtxnconsentso__yLeFmEknV0 {
   display: none;
 }
 .freeBox__gtmo0 {
@@ -662,7 +662,7 @@
   flex-direction: row;
   min-width: 0;
 }
-.freeBox__success__gtmo0KPrSc {
+.freeBoxsuccess__gtmo0KPrSc {
   width: 13px;
   max-width: 13px;
   height: auto;
@@ -670,10 +670,10 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.freeBox__failed__gtmo0OcDdJ {
+.freeBoxfailed__gtmo0OcDdJ {
   display: flex;
 }
-.slotTargetTimer__success {
+.slotTargetTimersuccess {
   text-align: center;
 }
 .text__re9Xq {
@@ -682,14 +682,14 @@
   max-width: 800px;
   min-width: 0;
 }
-.text__success__re9XQkPrSc {
+.textsuccess__re9XQkPrSc {
   text-align: center;
   width: 82px;
   min-width: 82px;
   max-width: 82px;
   flex-shrink: 0;
 }
-.text__failed__re9XQocDdJ {
+.textfailed__re9XQocDdJ {
   width: 88px;
   height: auto;
   min-width: 88px;

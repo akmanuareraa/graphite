@@ -7,41 +7,48 @@
   height: auto;
   max-width: 100%;
   position: relative;
-  padding: 8px;
+  padding: 0px;
 }
 .freeBox {
   display: flex;
   width: 270px;
-  height: 47px;
+  height: 38px;
   align-self: auto;
   padding-top: 8px;
   justify-content: center;
   flex-direction: row;
+  background: none;
   flex-shrink: 0;
+  border-radius: 20px;
 }
-.freeBox__selected {
-  background: #000000;
-  border-radius: 10px;
+.freeBoxselected {
+  background: #15b2b8;
+  padding-left: 0px;
+  border-radius: 20px;
 }
 .root .freeBox:hover {
   border-top-width: 5px;
   border-right-width: 5px;
   border-bottom-width: 7px;
   border-left-width: 5px;
-  border-bottom-style: solid;
+  border-bottom-style: none;
+  background: #28cdc317;
+  border-radius: 20px;
 }
-.root__selected .freeBox__selected:hover {
+.rootselected .freeBoxselected:hover {
+  background: #28cdc3;
+  border-radius: 20px;
   border-width: 0px;
 }
 .slotTargetChildren {
   font-family: "Inter", sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 700;
-  color: rgba(55, 60, 61, 1);
+  color: #545454;
   text-align: center;
-  line-height: 1.6;
-  letter-spacing: 0.2px;
+  line-height: 1.4;
+  letter-spacing: 0px;
 }
-.slotTargetChildren__selected {
+.slotTargetChildrenselected {
   color: #ffffff;
 }

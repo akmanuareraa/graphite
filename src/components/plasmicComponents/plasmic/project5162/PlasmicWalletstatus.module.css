@@ -12,11 +12,11 @@
   min-width: 420px;
   padding: 0px;
 }
-.root__disconnected {
+.rootdisconnected {
   align-items: center;
   justify-content: center;
 }
-.root__connected {
+.rootconnected {
   align-items: center;
   justify-content: center;
 }

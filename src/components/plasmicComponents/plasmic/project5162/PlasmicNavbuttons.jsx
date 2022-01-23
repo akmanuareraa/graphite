@@ -51,8 +51,8 @@ function PlasmicNavbuttons__RenderFunc(props) {
       data-plasmic-for-node={forNode}
       hasGap={true}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__bridge]: hasVariant(variants, "bridge", "bridge"),
-        [sty.root__verifyid]: hasVariant(variants, "verifyid", "verifyid")
+        [sty.rootbridge]: hasVariant(variants, "bridge", "bridge"),
+        [sty.rootverifyid]: hasVariant(variants, "verifyid", "verifyid")
       })}
     >
       <button
@@ -63,13 +63,8 @@ function PlasmicNavbuttons__RenderFunc(props) {
           projectcss.__wab_text,
           sty.bridgebutton,
           {
-            [sty.bridgebutton__bridge]: hasVariant(
-              variants,
-              "bridge",
-              "bridge"
-            ),
-
-            [sty.bridgebutton__verifyid]: hasVariant(
+            [sty.bridgebuttonbridge]: hasVariant(variants, "bridge", "bridge"),
+            [sty.bridgebuttonverifyid]: hasVariant(
               variants,
               "verifyid",
               "verifyid"
@@ -89,13 +84,13 @@ function PlasmicNavbuttons__RenderFunc(props) {
           projectcss.__wab_text,
           sty.verifyidbutton,
           {
-            [sty.verifyidbutton__bridge]: hasVariant(
+            [sty.verifyidbuttonbridge]: hasVariant(
               variants,
               "bridge",
               "bridge"
             ),
 
-            [sty.verifyidbutton__verifyid]: hasVariant(
+            [sty.verifyidbuttonverifyid]: hasVariant(
               variants,
               "verifyid",
               "verifyid"

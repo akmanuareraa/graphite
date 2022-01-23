@@ -39,7 +39,7 @@
   border-width: 0px;
   border-style: none;
 }
-.bridgebutton__bridge {
+.bridgebuttonbridge {
   background: #cffad0;
 }
 .root .bridgebutton:hover {
@@ -73,7 +73,7 @@
   border-width: 0px;
   border-style: none;
 }
-.verifyidbutton__verifyid {
+.verifyidbuttonverifyid {
   background: #cffad0;
 }
 .root .verifyidbutton:hover {

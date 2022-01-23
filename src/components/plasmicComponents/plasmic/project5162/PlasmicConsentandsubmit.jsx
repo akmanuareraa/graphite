@@ -46,7 +46,7 @@ function PlasmicConsentandsubmit__RenderFunc(props) {
           data-plasmic-name={"tickbox"}
           data-plasmic-override={overrides.tickbox}
           className={classNames(projectcss.a, sty.tickbox, {
-            [sty.tickbox__agreed]: hasVariant(variants, "agreed", "agreed")
+            [sty.tickboxagreed]: hasVariant(variants, "agreed", "agreed")
           })}
         >
           {(hasVariant(variants, "agreed", "agreed") ? true : true) ? (
@@ -55,7 +55,7 @@ function PlasmicConsentandsubmit__RenderFunc(props) {
               data-plasmic-override={overrides.img}
               alt={""}
               className={classNames(sty.img, {
-                [sty.img__agreed]: hasVariant(variants, "agreed", "agreed")
+                [sty.imgagreed]: hasVariant(variants, "agreed", "agreed")
               })}
               displayHeight={"29px"}
               displayMaxHeight={"none"}

@@ -36,8 +36,8 @@ function PlasmicWalletstatus__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__connected]: hasVariant(variants, "connected", "connected"),
-        [sty.root__disconnected]: hasVariant(
+        [sty.rootconnected]: hasVariant(variants, "connected", "connected"),
+        [sty.rootdisconnected]: hasVariant(
           variants,
           "disconnected",
           "disconnected"
@@ -46,13 +46,13 @@ function PlasmicWalletstatus__RenderFunc(props) {
     >
       <div
         className={classNames(projectcss.all, sty.freeBox__xIxCk, {
-          [sty.freeBox__connected__xIxCk5NcG6]: hasVariant(
+          [sty.freeBoxconnected__xIxCk5NcG6]: hasVariant(
             variants,
             "connected",
             "connected"
           ),
 
-          [sty.freeBox__disconnected__xIxCkWtgQv]: hasVariant(
+          [sty.freeBoxdisconnected__xIxCkWtgQv]: hasVariant(
             variants,
             "disconnected",
             "disconnected"
@@ -67,13 +67,13 @@ function PlasmicWalletstatus__RenderFunc(props) {
             projectcss.__wab_text,
             sty.text,
             {
-              [sty.text__connected]: hasVariant(
+              [sty.textconnected]: hasVariant(
                 variants,
                 "connected",
                 "connected"
               ),
 
-              [sty.text__disconnected]: hasVariant(
+              [sty.textdisconnected]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"
@@ -87,13 +87,13 @@ function PlasmicWalletstatus__RenderFunc(props) {
         {true ? (
           <div
             className={classNames(projectcss.all, sty.freeBox__eQ1Zx, {
-              [sty.freeBox__connected__eQ1Zx5NcG6]: hasVariant(
+              [sty.freeBoxconnected__eQ1Zx5NcG6]: hasVariant(
                 variants,
                 "connected",
                 "connected"
               ),
 
-              [sty.freeBox__disconnected__eQ1ZxWtgQv]: hasVariant(
+              [sty.freeBoxdisconnected__eQ1ZxWtgQv]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"
@@ -104,13 +104,13 @@ function PlasmicWalletstatus__RenderFunc(props) {
               defaultContents: "---",
               value: args.address,
               className: classNames(sty.slotTargetAddress, {
-                [sty.slotTargetAddress__connected]: hasVariant(
+                [sty.slotTargetAddressconnected]: hasVariant(
                   variants,
                   "connected",
                   "connected"
                 ),
 
-                [sty.slotTargetAddress__disconnected]: hasVariant(
+                [sty.slotTargetAddressdisconnected]: hasVariant(
                   variants,
                   "disconnected",
                   "disconnected"

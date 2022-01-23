@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  background: none;
+  background: #ffffff;
   height: 87px;
   min-width: 1350px;
   margin-top: 16px;
@@ -32,13 +32,26 @@
   top: 15px;
 }
 .graphiteLogo2 {
-  background: url("./../project_5162/images/graphiteWhitepng.jpeg") center center / cover no-repeat;
+  background: none;
   width: 227px;
   height: 58px;
   display: block;
   position: absolute;
   top: 0px;
   left: -6px;
+}
+.img {
+  position: absolute;
+  object-fit: cover;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.img > .__wab_img-spacer > img {
+  object-fit: cover;
 }
 .text {
   display: block;

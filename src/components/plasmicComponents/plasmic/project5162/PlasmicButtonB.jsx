@@ -56,62 +56,42 @@ function PlasmicButtonB__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__connectmm]: hasVariant(variants, "connectmm", "connectmm"),
-        [sty.root__failed]: hasVariant(variants, "failed", "failed"),
-        [sty.root__installmm]: hasVariant(variants, "installmm", "installmm"),
-        [sty.root__invoice]: hasVariant(variants, "invoice", "invoice"),
-        [sty.root__logistics]: hasVariant(variants, "logistics", "logistics"),
-        [sty.root__processing]: hasVariant(
-          variants,
-          "processing",
-          "processing"
-        ),
-
-        [sty.root__salesorder]: hasVariant(
-          variants,
-          "salesorder",
-          "salesorder"
-        ),
-
-        [sty.root__sendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
-        [sty.root__sendtxnconsent]: hasVariant(
+        [sty.rootconnectmm]: hasVariant(variants, "connectmm", "connectmm"),
+        [sty.rootfailed]: hasVariant(variants, "failed", "failed"),
+        [sty.rootinstallmm]: hasVariant(variants, "installmm", "installmm"),
+        [sty.rootinvoice]: hasVariant(variants, "invoice", "invoice"),
+        [sty.rootlogistics]: hasVariant(variants, "logistics", "logistics"),
+        [sty.rootprocessing]: hasVariant(variants, "processing", "processing"),
+        [sty.rootsalesorder]: hasVariant(variants, "salesorder", "salesorder"),
+        [sty.rootsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
+        [sty.rootsendtxnconsent]: hasVariant(
           variants,
           "sendtxnconsent",
           "sendtxnconsent"
         ),
 
-        [sty.root__sendtxnconsentinv]: hasVariant(
+        [sty.rootsendtxnconsentinv]: hasVariant(
           variants,
           "sendtxnconsentinv",
           "sendtxnconsentinv"
         ),
 
-        [sty.root__sendtxnconsentlog]: hasVariant(
+        [sty.rootsendtxnconsentlog]: hasVariant(
           variants,
           "sendtxnconsentlog",
           "sendtxnconsentlog"
         ),
 
-        [sty.root__sendtxnconsentso]: hasVariant(
+        [sty.rootsendtxnconsentso]: hasVariant(
           variants,
           "sendtxnconsentso",
           "sendtxnconsentso"
         ),
 
-        [sty.root__sendtxninv]: hasVariant(
-          variants,
-          "sendtxninv",
-          "sendtxninv"
-        ),
-
-        [sty.root__sendtxnlog]: hasVariant(
-          variants,
-          "sendtxnlog",
-          "sendtxnlog"
-        ),
-
-        [sty.root__sendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
-        [sty.root__success]: hasVariant(variants, "success", "success")
+        [sty.rootsendtxninv]: hasVariant(variants, "sendtxninv", "sendtxninv"),
+        [sty.rootsendtxnlog]: hasVariant(variants, "sendtxnlog", "sendtxnlog"),
+        [sty.rootsendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
+        [sty.rootsuccess]: hasVariant(variants, "success", "success")
       })}
     >
       <button
@@ -122,96 +102,82 @@ function PlasmicButtonB__RenderFunc(props) {
           projectcss.__wab_text,
           sty.mainbutton,
           {
-            [sty.mainbutton__connectmm]: hasVariant(
+            [sty.mainbuttonconnectmm]: hasVariant(
               variants,
               "connectmm",
               "connectmm"
             ),
 
-            [sty.mainbutton__failed]: hasVariant(variants, "failed", "failed"),
-            [sty.mainbutton__installmm]: hasVariant(
+            [sty.mainbuttonfailed]: hasVariant(variants, "failed", "failed"),
+            [sty.mainbuttoninstallmm]: hasVariant(
               variants,
               "installmm",
               "installmm"
             ),
 
-            [sty.mainbutton__invoice]: hasVariant(
-              variants,
-              "invoice",
-              "invoice"
-            ),
-
-            [sty.mainbutton__logistics]: hasVariant(
+            [sty.mainbuttoninvoice]: hasVariant(variants, "invoice", "invoice"),
+            [sty.mainbuttonlogistics]: hasVariant(
               variants,
               "logistics",
               "logistics"
             ),
 
-            [sty.mainbutton__processing]: hasVariant(
+            [sty.mainbuttonprocessing]: hasVariant(
               variants,
               "processing",
               "processing"
             ),
 
-            [sty.mainbutton__salesorder]: hasVariant(
+            [sty.mainbuttonsalesorder]: hasVariant(
               variants,
               "salesorder",
               "salesorder"
             ),
 
-            [sty.mainbutton__sendtxn]: hasVariant(
-              variants,
-              "sendtxn",
-              "sendtxn"
-            ),
-
-            [sty.mainbutton__sendtxnconsent]: hasVariant(
+            [sty.mainbuttonsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
+            [sty.mainbuttonsendtxnconsent]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
             ),
 
-            [sty.mainbutton__sendtxnconsentinv]: hasVariant(
+            [sty.mainbuttonsendtxnconsentinv]: hasVariant(
               variants,
               "sendtxnconsentinv",
               "sendtxnconsentinv"
             ),
 
-            [sty.mainbutton__sendtxnconsentlog]: hasVariant(
+            [sty.mainbuttonsendtxnconsentlog]: hasVariant(
               variants,
               "sendtxnconsentlog",
               "sendtxnconsentlog"
             ),
 
-            [sty.mainbutton__sendtxnconsentso]: hasVariant(
+            [sty.mainbuttonsendtxnconsentso]: hasVariant(
               variants,
               "sendtxnconsentso",
               "sendtxnconsentso"
             ),
 
-            [sty.mainbutton__sendtxninv]: hasVariant(
+            [sty.mainbuttonsendtxninv]: hasVariant(
               variants,
               "sendtxninv",
               "sendtxninv"
             ),
 
-            [sty.mainbutton__sendtxnlog]: hasVariant(
+            [sty.mainbuttonsendtxnlog]: hasVariant(
               variants,
               "sendtxnlog",
               "sendtxnlog"
             ),
 
-            [sty.mainbutton__sendtxnso]: hasVariant(
+            [sty.mainbuttonsendtxnso]: hasVariant(
               variants,
               "sendtxnso",
               "sendtxnso"
             ),
 
-            [sty.mainbutton__success]: hasVariant(
-              variants,
-              "success",
-              "success"
-            )
+            [sty.mainbuttonsuccess]: hasVariant(variants, "success", "success")
           }
         )}
         disabled={
@@ -271,7 +237,7 @@ function PlasmicButtonB__RenderFunc(props) {
         <p.PlasmicImg
           alt={""}
           className={classNames(sty.img___4PNmP, {
-            [sty.img__failed___4PNmPocDdJ]: hasVariant(
+            [sty.imgfailed___4PNmPocDdJ]: hasVariant(
               variants,
               "failed",
               "failed"
@@ -296,7 +262,7 @@ function PlasmicButtonB__RenderFunc(props) {
         <p.PlasmicImg
           alt={""}
           className={classNames(sty.img___6BiMu, {
-            [sty.img__success___6BiMukPrSc]: hasVariant(
+            [sty.imgsuccess___6BiMukPrSc]: hasVariant(
               variants,
               "success",
               "success"
@@ -345,67 +311,67 @@ function PlasmicButtonB__RenderFunc(props) {
         <p.PlasmicImg
           alt={""}
           className={classNames(sty.img__rfRzo, {
-            [sty.img__invoice__rfRzomXQyB]: hasVariant(
+            [sty.imginvoice__rfRzomXQyB]: hasVariant(
               variants,
               "invoice",
               "invoice"
             ),
 
-            [sty.img__logistics__rfRzokbJf2]: hasVariant(
+            [sty.imglogistics__rfRzokbJf2]: hasVariant(
               variants,
               "logistics",
               "logistics"
             ),
 
-            [sty.img__salesorder__rfRzoAwkTr]: hasVariant(
+            [sty.imgsalesorder__rfRzoAwkTr]: hasVariant(
               variants,
               "salesorder",
               "salesorder"
             ),
 
-            [sty.img__sendtxn__rfRzoQfRAj]: hasVariant(
+            [sty.imgsendtxn__rfRzoQfRAj]: hasVariant(
               variants,
               "sendtxn",
               "sendtxn"
             ),
 
-            [sty.img__sendtxnconsent__rfRzoLjVjA]: hasVariant(
+            [sty.imgsendtxnconsent__rfRzoLjVjA]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
             ),
 
-            [sty.img__sendtxnconsentinv__rfRzoN0H5]: hasVariant(
+            [sty.imgsendtxnconsentinv__rfRzoN0H5]: hasVariant(
               variants,
               "sendtxnconsentinv",
               "sendtxnconsentinv"
             ),
 
-            [sty.img__sendtxnconsentlog__rfRzo9Uo71]: hasVariant(
+            [sty.imgsendtxnconsentlog__rfRzo9Uo71]: hasVariant(
               variants,
               "sendtxnconsentlog",
               "sendtxnconsentlog"
             ),
 
-            [sty.img__sendtxnconsentso__rfRzoEknV0]: hasVariant(
+            [sty.imgsendtxnconsentso__rfRzoEknV0]: hasVariant(
               variants,
               "sendtxnconsentso",
               "sendtxnconsentso"
             ),
 
-            [sty.img__sendtxninv__rfRzowqMv]: hasVariant(
+            [sty.imgsendtxninv__rfRzowqMv]: hasVariant(
               variants,
               "sendtxninv",
               "sendtxninv"
             ),
 
-            [sty.img__sendtxnlog__rfRzoAchdx]: hasVariant(
+            [sty.imgsendtxnlog__rfRzoAchdx]: hasVariant(
               variants,
               "sendtxnlog",
               "sendtxnlog"
             ),
 
-            [sty.img__sendtxnso__rfRzocK3Fg]: hasVariant(
+            [sty.imgsendtxnso__rfRzocK3Fg]: hasVariant(
               variants,
               "sendtxnso",
               "sendtxnso"
@@ -461,82 +427,62 @@ function PlasmicButtonB__RenderFunc(props) {
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
           className={classNames(projectcss.all, sty.svg, {
-            [sty.svg__connectmm]: hasVariant(
-              variants,
-              "connectmm",
-              "connectmm"
-            ),
-
-            [sty.svg__failed]: hasVariant(variants, "failed", "failed"),
-            [sty.svg__installmm]: hasVariant(
-              variants,
-              "installmm",
-              "installmm"
-            ),
-
-            [sty.svg__invoice]: hasVariant(variants, "invoice", "invoice"),
-            [sty.svg__logistics]: hasVariant(
-              variants,
-              "logistics",
-              "logistics"
-            ),
-
-            [sty.svg__processing]: hasVariant(
+            [sty.svgconnectmm]: hasVariant(variants, "connectmm", "connectmm"),
+            [sty.svgfailed]: hasVariant(variants, "failed", "failed"),
+            [sty.svginstallmm]: hasVariant(variants, "installmm", "installmm"),
+            [sty.svginvoice]: hasVariant(variants, "invoice", "invoice"),
+            [sty.svglogistics]: hasVariant(variants, "logistics", "logistics"),
+            [sty.svgprocessing]: hasVariant(
               variants,
               "processing",
               "processing"
             ),
 
-            [sty.svg__salesorder]: hasVariant(
+            [sty.svgsalesorder]: hasVariant(
               variants,
               "salesorder",
               "salesorder"
             ),
 
-            [sty.svg__sendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
-            [sty.svg__sendtxnconsent]: hasVariant(
+            [sty.svgsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
+            [sty.svgsendtxnconsent]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
             ),
 
-            [sty.svg__sendtxnconsentinv]: hasVariant(
+            [sty.svgsendtxnconsentinv]: hasVariant(
               variants,
               "sendtxnconsentinv",
               "sendtxnconsentinv"
             ),
 
-            [sty.svg__sendtxnconsentlog]: hasVariant(
+            [sty.svgsendtxnconsentlog]: hasVariant(
               variants,
               "sendtxnconsentlog",
               "sendtxnconsentlog"
             ),
 
-            [sty.svg__sendtxnconsentso]: hasVariant(
+            [sty.svgsendtxnconsentso]: hasVariant(
               variants,
               "sendtxnconsentso",
               "sendtxnconsentso"
             ),
 
-            [sty.svg__sendtxninv]: hasVariant(
+            [sty.svgsendtxninv]: hasVariant(
               variants,
               "sendtxninv",
               "sendtxninv"
             ),
 
-            [sty.svg__sendtxnlog]: hasVariant(
+            [sty.svgsendtxnlog]: hasVariant(
               variants,
               "sendtxnlog",
               "sendtxnlog"
             ),
 
-            [sty.svg__sendtxnso]: hasVariant(
-              variants,
-              "sendtxnso",
-              "sendtxnso"
-            ),
-
-            [sty.svg__success]: hasVariant(variants, "success", "success")
+            [sty.svgsendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
+            [sty.svgsuccess]: hasVariant(variants, "success", "success")
           })}
           role={"img"}
         />
@@ -545,7 +491,7 @@ function PlasmicButtonB__RenderFunc(props) {
         <p.PlasmicImg
           alt={""}
           className={classNames(sty.img___3Qsg6, {
-            [sty.img__processing___3Qsg6Pdh5H]: hasVariant(
+            [sty.imgprocessing___3Qsg6Pdh5H]: hasVariant(
               variants,
               "processing",
               "processing"
@@ -569,7 +515,7 @@ function PlasmicButtonB__RenderFunc(props) {
       {(hasVariant(variants, "success", "success") ? true : true) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox___4NAoc, {
-            [sty.freeBox__success___4NAockPrSc]: hasVariant(
+            [sty.freeBoxsuccess___4NAockPrSc]: hasVariant(
               variants,
               "success",
               "success"
@@ -583,7 +529,7 @@ function PlasmicButtonB__RenderFunc(props) {
                 projectcss.__wab_text,
                 sty.text__rSbH,
                 {
-                  [sty.text__success__rSbHKPrSc]: hasVariant(
+                  [sty.textsuccess__rSbHKPrSc]: hasVariant(
                     variants,
                     "success",
                     "success"
@@ -597,7 +543,7 @@ function PlasmicButtonB__RenderFunc(props) {
           {(hasVariant(variants, "success", "success") ? true : true) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__ltjiy, {
-                [sty.freeBox__success__ltjiykPrSc]: hasVariant(
+                [sty.freeBoxsuccess__ltjiykPrSc]: hasVariant(
                   variants,
                   "success",
                   "success"
@@ -608,7 +554,7 @@ function PlasmicButtonB__RenderFunc(props) {
                 defaultContents: "sdfbsdfdfdfgdfhdfhdfhdfhdfhdh",
                 value: args.hash,
                 className: classNames(sty.slotTargetHash, {
-                  [sty.slotTargetHash__success]: hasVariant(
+                  [sty.slotTargetHashsuccess]: hasVariant(
                     variants,
                     "success",
                     "success"
@@ -622,7 +568,7 @@ function PlasmicButtonB__RenderFunc(props) {
               data-plasmic-name={"copybutton"}
               data-plasmic-override={overrides.copybutton}
               className={classNames(projectcss.a, sty.copybutton, {
-                [sty.copybutton__success]: hasVariant(
+                [sty.copybuttonsuccess]: hasVariant(
                   variants,
                   "success",
                   "success"
@@ -661,7 +607,7 @@ function PlasmicButtonB__RenderFunc(props) {
             projectcss.__wab_text,
             sty.installmetamasktext,
             {
-              [sty.installmetamasktext__connectmm]: hasVariant(
+              [sty.installmetamasktextconnectmm]: hasVariant(
                 variants,
                 "connectmm",
                 "connectmm"
@@ -695,43 +641,43 @@ function PlasmicButtonB__RenderFunc(props) {
             projectcss.__wab_text,
             sty.text__dvzO3,
             {
-              [sty.text__sendtxnconsent__dvzO3LjVjA]: hasVariant(
+              [sty.textsendtxnconsent__dvzO3LjVjA]: hasVariant(
                 variants,
                 "sendtxnconsent",
                 "sendtxnconsent"
               ),
 
-              [sty.text__sendtxnconsentinv__dvzO3N0H5]: hasVariant(
+              [sty.textsendtxnconsentinv__dvzO3N0H5]: hasVariant(
                 variants,
                 "sendtxnconsentinv",
                 "sendtxnconsentinv"
               ),
 
-              [sty.text__sendtxnconsentlog__dvzO39Uo71]: hasVariant(
+              [sty.textsendtxnconsentlog__dvzO39Uo71]: hasVariant(
                 variants,
                 "sendtxnconsentlog",
                 "sendtxnconsentlog"
               ),
 
-              [sty.text__sendtxnconsentso__dvzO3EknV0]: hasVariant(
+              [sty.textsendtxnconsentso__dvzO3EknV0]: hasVariant(
                 variants,
                 "sendtxnconsentso",
                 "sendtxnconsentso"
               ),
 
-              [sty.text__sendtxninv__dvzO3WqMv]: hasVariant(
+              [sty.textsendtxninv__dvzO3WqMv]: hasVariant(
                 variants,
                 "sendtxninv",
                 "sendtxninv"
               ),
 
-              [sty.text__sendtxnlog__dvzO3Achdx]: hasVariant(
+              [sty.textsendtxnlog__dvzO3Achdx]: hasVariant(
                 variants,
                 "sendtxnlog",
                 "sendtxnlog"
               ),
 
-              [sty.text__sendtxnso__dvzO3CK3Fg]: hasVariant(
+              [sty.textsendtxnso__dvzO3CK3Fg]: hasVariant(
                 variants,
                 "sendtxnso",
                 "sendtxnso"
@@ -781,97 +727,97 @@ function PlasmicButtonB__RenderFunc(props) {
           as={"div"}
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox___6TZiY, {
-            [sty.freeBox__connectmm___6TZiYsqZmt]: hasVariant(
+            [sty.freeBoxconnectmm___6TZiYsqZmt]: hasVariant(
               variants,
               "connectmm",
               "connectmm"
             ),
 
-            [sty.freeBox__failed___6TZiYocDdJ]: hasVariant(
+            [sty.freeBoxfailed___6TZiYocDdJ]: hasVariant(
               variants,
               "failed",
               "failed"
             ),
 
-            [sty.freeBox__installmm___6TZiYvXuOp]: hasVariant(
+            [sty.freeBoxinstallmm___6TZiYvXuOp]: hasVariant(
               variants,
               "installmm",
               "installmm"
             ),
 
-            [sty.freeBox__invoice___6TZiYmXQyB]: hasVariant(
+            [sty.freeBoxinvoice___6TZiYmXQyB]: hasVariant(
               variants,
               "invoice",
               "invoice"
             ),
 
-            [sty.freeBox__logistics___6TZiYkbJf2]: hasVariant(
+            [sty.freeBoxlogistics___6TZiYkbJf2]: hasVariant(
               variants,
               "logistics",
               "logistics"
             ),
 
-            [sty.freeBox__processing___6TZiYPdh5H]: hasVariant(
+            [sty.freeBoxprocessing___6TZiYPdh5H]: hasVariant(
               variants,
               "processing",
               "processing"
             ),
 
-            [sty.freeBox__salesorder___6TZiYAwkTr]: hasVariant(
+            [sty.freeBoxsalesorder___6TZiYAwkTr]: hasVariant(
               variants,
               "salesorder",
               "salesorder"
             ),
 
-            [sty.freeBox__sendtxn___6TZiYQfRAj]: hasVariant(
+            [sty.freeBoxsendtxn___6TZiYQfRAj]: hasVariant(
               variants,
               "sendtxn",
               "sendtxn"
             ),
 
-            [sty.freeBox__sendtxnconsent___6TZiYljVjA]: hasVariant(
+            [sty.freeBoxsendtxnconsent___6TZiYljVjA]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
             ),
 
-            [sty.freeBox__sendtxnconsentinv___6TZiYn0H5]: hasVariant(
+            [sty.freeBoxsendtxnconsentinv___6TZiYn0H5]: hasVariant(
               variants,
               "sendtxnconsentinv",
               "sendtxnconsentinv"
             ),
 
-            [sty.freeBox__sendtxnconsentlog___6TZiY9Uo71]: hasVariant(
+            [sty.freeBoxsendtxnconsentlog___6TZiY9Uo71]: hasVariant(
               variants,
               "sendtxnconsentlog",
               "sendtxnconsentlog"
             ),
 
-            [sty.freeBox__sendtxnconsentso___6TZiYEknV0]: hasVariant(
+            [sty.freeBoxsendtxnconsentso___6TZiYEknV0]: hasVariant(
               variants,
               "sendtxnconsentso",
               "sendtxnconsentso"
             ),
 
-            [sty.freeBox__sendtxninv___6TZiYwqMv]: hasVariant(
+            [sty.freeBoxsendtxninv___6TZiYwqMv]: hasVariant(
               variants,
               "sendtxninv",
               "sendtxninv"
             ),
 
-            [sty.freeBox__sendtxnlog___6TZiYAchdx]: hasVariant(
+            [sty.freeBoxsendtxnlog___6TZiYAchdx]: hasVariant(
               variants,
               "sendtxnlog",
               "sendtxnlog"
             ),
 
-            [sty.freeBox__sendtxnso___6TZiYcK3Fg]: hasVariant(
+            [sty.freeBoxsendtxnso___6TZiYcK3Fg]: hasVariant(
               variants,
               "sendtxnso",
               "sendtxnso"
             ),
 
-            [sty.freeBox__success___6TZiYkPrSc]: hasVariant(
+            [sty.freeBoxsuccess___6TZiYkPrSc]: hasVariant(
               variants,
               "success",
               "success"
@@ -917,97 +863,97 @@ function PlasmicButtonB__RenderFunc(props) {
                 projectcss.__wab_text,
                 sty.text__yLeFm,
                 {
-                  [sty.text__connectmm__yLeFmsqZmt]: hasVariant(
+                  [sty.textconnectmm__yLeFmsqZmt]: hasVariant(
                     variants,
                     "connectmm",
                     "connectmm"
                   ),
 
-                  [sty.text__failed__yLeFMocDdJ]: hasVariant(
+                  [sty.textfailed__yLeFMocDdJ]: hasVariant(
                     variants,
                     "failed",
                     "failed"
                   ),
 
-                  [sty.text__installmm__yLeFMvXuOp]: hasVariant(
+                  [sty.textinstallmm__yLeFMvXuOp]: hasVariant(
                     variants,
                     "installmm",
                     "installmm"
                   ),
 
-                  [sty.text__invoice__yLeFMmXQyB]: hasVariant(
+                  [sty.textinvoice__yLeFMmXQyB]: hasVariant(
                     variants,
                     "invoice",
                     "invoice"
                   ),
 
-                  [sty.text__logistics__yLeFMkbJf2]: hasVariant(
+                  [sty.textlogistics__yLeFMkbJf2]: hasVariant(
                     variants,
                     "logistics",
                     "logistics"
                   ),
 
-                  [sty.text__processing__yLeFmPdh5H]: hasVariant(
+                  [sty.textprocessing__yLeFmPdh5H]: hasVariant(
                     variants,
                     "processing",
                     "processing"
                   ),
 
-                  [sty.text__salesorder__yLeFmAwkTr]: hasVariant(
+                  [sty.textsalesorder__yLeFmAwkTr]: hasVariant(
                     variants,
                     "salesorder",
                     "salesorder"
                   ),
 
-                  [sty.text__sendtxn__yLeFmQfRAj]: hasVariant(
+                  [sty.textsendtxn__yLeFmQfRAj]: hasVariant(
                     variants,
                     "sendtxn",
                     "sendtxn"
                   ),
 
-                  [sty.text__sendtxnconsent__yLeFmljVjA]: hasVariant(
+                  [sty.textsendtxnconsent__yLeFmljVjA]: hasVariant(
                     variants,
                     "sendtxnconsent",
                     "sendtxnconsent"
                   ),
 
-                  [sty.text__sendtxnconsentinv__yLeFmn0H5]: hasVariant(
+                  [sty.textsendtxnconsentinv__yLeFmn0H5]: hasVariant(
                     variants,
                     "sendtxnconsentinv",
                     "sendtxnconsentinv"
                   ),
 
-                  [sty.text__sendtxnconsentlog__yLeFm9Uo71]: hasVariant(
+                  [sty.textsendtxnconsentlog__yLeFm9Uo71]: hasVariant(
                     variants,
                     "sendtxnconsentlog",
                     "sendtxnconsentlog"
                   ),
 
-                  [sty.text__sendtxnconsentso__yLeFmEknV0]: hasVariant(
+                  [sty.textsendtxnconsentso__yLeFmEknV0]: hasVariant(
                     variants,
                     "sendtxnconsentso",
                     "sendtxnconsentso"
                   ),
 
-                  [sty.text__sendtxninv__yLeFMwqMv]: hasVariant(
+                  [sty.textsendtxninv__yLeFMwqMv]: hasVariant(
                     variants,
                     "sendtxninv",
                     "sendtxninv"
                   ),
 
-                  [sty.text__sendtxnlog__yLeFmAchdx]: hasVariant(
+                  [sty.textsendtxnlog__yLeFmAchdx]: hasVariant(
                     variants,
                     "sendtxnlog",
                     "sendtxnlog"
                   ),
 
-                  [sty.text__sendtxnso__yLeFMcK3Fg]: hasVariant(
+                  [sty.textsendtxnso__yLeFMcK3Fg]: hasVariant(
                     variants,
                     "sendtxnso",
                     "sendtxnso"
                   ),
 
-                  [sty.text__success__yLeFMkPrSc]: hasVariant(
+                  [sty.textsuccess__yLeFMkPrSc]: hasVariant(
                     variants,
                     "success",
                     "success"
@@ -1031,13 +977,13 @@ function PlasmicButtonB__RenderFunc(props) {
           ) ? (
             <div
               className={classNames(projectcss.all, sty.freeBox__gtmo0, {
-                [sty.freeBox__failed__gtmo0OcDdJ]: hasVariant(
+                [sty.freeBoxfailed__gtmo0OcDdJ]: hasVariant(
                   variants,
                   "failed",
                   "failed"
                 ),
 
-                [sty.freeBox__success__gtmo0KPrSc]: hasVariant(
+                [sty.freeBoxsuccess__gtmo0KPrSc]: hasVariant(
                   variants,
                   "success",
                   "success"
@@ -1048,13 +994,13 @@ function PlasmicButtonB__RenderFunc(props) {
                 defaultContents: "5",
                 value: args.timer,
                 className: classNames(sty.slotTargetTimer, {
-                  [sty.slotTargetTimer__failed]: hasVariant(
+                  [sty.slotTargetTimerfailed]: hasVariant(
                     variants,
                     "failed",
                     "failed"
                   ),
 
-                  [sty.slotTargetTimer__success]: hasVariant(
+                  [sty.slotTargetTimersuccess]: hasVariant(
                     variants,
                     "success",
                     "success"
@@ -1076,13 +1022,13 @@ function PlasmicButtonB__RenderFunc(props) {
                 projectcss.__wab_text,
                 sty.text__re9Xq,
                 {
-                  [sty.text__failed__re9XQocDdJ]: hasVariant(
+                  [sty.textfailed__re9XQocDdJ]: hasVariant(
                     variants,
                     "failed",
                     "failed"
                   ),
 
-                  [sty.text__success__re9XQkPrSc]: hasVariant(
+                  [sty.textsuccess__re9XQkPrSc]: hasVariant(
                     variants,
                     "success",
                     "success"

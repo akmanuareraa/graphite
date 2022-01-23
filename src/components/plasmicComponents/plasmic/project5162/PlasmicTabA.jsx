@@ -33,27 +33,29 @@ function PlasmicTabA__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root__selected]: hasVariant(variants, "selected", "selected")
+        [sty.rootselected]: hasVariant(variants, "selected", "selected")
       })}
     >
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
-          [sty.freeBox__selected]: hasVariant(variants, "selected", "selected")
+          [sty.freeBoxselected]: hasVariant(variants, "selected", "selected")
         })}
       >
-        {p.renderPlasmicSlot({
-          defaultContents: "APPLICATION DETAILS",
-          value: args.children,
-          className: classNames(sty.slotTargetChildren, {
-            [sty.slotTargetChildren__selected]: hasVariant(
-              variants,
-              "selected",
-              "selected"
-            )
-          })
-        })}
+        {(hasVariant(variants, "selected", "selected") ? true : true)
+          ? p.renderPlasmicSlot({
+              defaultContents: "APPLICATION DETAILS",
+              value: args.children,
+              className: classNames(sty.slotTargetChildren, {
+                [sty.slotTargetChildrenselected]: hasVariant(
+                  variants,
+                  "selected",
+                  "selected"
+                )
+              })
+            })
+          : null}
       </div>
     </div>
   ) : null;

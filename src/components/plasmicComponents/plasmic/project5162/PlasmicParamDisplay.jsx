@@ -61,13 +61,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox___4Llb6, {
-            [sty.freeBox__applicant___4Llb6LzOdH]: hasVariant(
+            [sty.freeBoxapplicant___4Llb6LzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__organization___4Llb618Q1J]: hasVariant(
+            [sty.freeBoxorganization___4Llb618Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -118,13 +118,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__pEca, {
-            [sty.freeBox__applicant__pEcaLzOdH]: hasVariant(
+            [sty.freeBoxapplicant__pEcaLzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__organization__pEca18Q1J]: hasVariant(
+            [sty.freeBoxorganization__pEca18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -175,13 +175,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__ahQmS, {
-            [sty.freeBox__applicant__ahQmSLzOdH]: hasVariant(
+            [sty.freeBoxapplicant__ahQmSLzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__organization__ahQmS18Q1J]: hasVariant(
+            [sty.freeBoxorganization__ahQmS18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -232,13 +232,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__qZvks, {
-            [sty.freeBox__applicant__qZvksLzOdH]: hasVariant(
+            [sty.freeBoxapplicant__qZvksLzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__organization__qZvks18Q1J]: hasVariant(
+            [sty.freeBoxorganization__qZvks18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -289,13 +289,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__g2XjY, {
-            [sty.freeBox__application__g2XjY3JTbp]: hasVariant(
+            [sty.freeBoxapplication__g2XjY3JTbp]: hasVariant(
               variants,
               "application",
               "application"
             ),
 
-            [sty.freeBox__organization__g2XjY18Q1J]: hasVariant(
+            [sty.freeBoxorganization__g2XjY18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -304,7 +304,7 @@ function PlasmicParamDisplay__RenderFunc(props) {
         >
           <div
             className={classNames(projectcss.all, sty.freeBox___918Zm, {
-              [sty.freeBox__application___918Zm3JTbp]: hasVariant(
+              [sty.freeBoxapplication___918Zm3JTbp]: hasVariant(
                 variants,
                 "application",
                 "application"
@@ -317,7 +317,7 @@ function PlasmicParamDisplay__RenderFunc(props) {
                 projectcss.__wab_text,
                 sty.text__rUSp1,
                 {
-                  [sty.text__application__rUSp13JTbp]: hasVariant(
+                  [sty.textapplication__rUSp13JTbp]: hasVariant(
                     variants,
                     "application",
                     "application"
@@ -361,13 +361,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__kzke, {
-            [sty.freeBox__application__kzke3JTbp]: hasVariant(
+            [sty.freeBoxapplication__kzke3JTbp]: hasVariant(
               variants,
               "application",
               "application"
             ),
 
-            [sty.freeBox__organization__kzke18Q1J]: hasVariant(
+            [sty.freeBoxorganization__kzke18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -418,13 +418,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__vpA7, {
-            [sty.freeBox__application__vpA73JTbp]: hasVariant(
+            [sty.freeBoxapplication__vpA73JTbp]: hasVariant(
               variants,
               "application",
               "application"
             ),
 
-            [sty.freeBox__organization__vpA718Q1J]: hasVariant(
+            [sty.freeBoxorganization__vpA718Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -475,13 +475,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__t7ZXm, {
-            [sty.freeBox__application__t7ZXm3JTbp]: hasVariant(
+            [sty.freeBoxapplication__t7ZXm3JTbp]: hasVariant(
               variants,
               "application",
               "application"
             ),
 
-            [sty.freeBox__organization__t7ZXm18Q1J]: hasVariant(
+            [sty.freeBoxorganization__t7ZXm18Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -532,13 +532,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__f4Pq2, {
-            [sty.freeBox__application__f4Pq23JTbp]: hasVariant(
+            [sty.freeBoxapplication__f4Pq23JTbp]: hasVariant(
               variants,
               "application",
               "application"
             ),
 
-            [sty.freeBox__organization__f4Pq218Q1J]: hasVariant(
+            [sty.freeBoxorganization__f4Pq218Q1J]: hasVariant(
               variants,
               "organization",
               "organization"
@@ -589,13 +589,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox___08Gnt, {
-            [sty.freeBox__applicant___08GntLzOdH]: hasVariant(
+            [sty.freeBoxapplicant___08GntLzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__application___08Gnt3JTbp]: hasVariant(
+            [sty.freeBoxapplication___08Gnt3JTbp]: hasVariant(
               variants,
               "application",
               "application"
@@ -646,13 +646,13 @@ function PlasmicParamDisplay__RenderFunc(props) {
       ) ? (
         <div
           className={classNames(projectcss.all, sty.freeBox__znrL4, {
-            [sty.freeBox__applicant__znrL4LzOdH]: hasVariant(
+            [sty.freeBoxapplicant__znrL4LzOdH]: hasVariant(
               variants,
               "applicant",
               "applicant"
             ),
 
-            [sty.freeBox__application__znrL43JTbp]: hasVariant(
+            [sty.freeBoxapplication__znrL43JTbp]: hasVariant(
               variants,
               "application",
               "application"

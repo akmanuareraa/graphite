@@ -9,6 +9,7 @@
 // Plasmic Project: 5GT6nVB5WgvLWb2iBXTk1E
 // Component: -IFVXjvXAy
 import * as React from "react";
+import * as p from "@plasmicapp/react-web";
 import {
   classNames,
   createPlasmicElementProxy,
@@ -19,6 +20,7 @@ import Navbuttons from "../../Navbuttons"; // plasmic-import: en6sGenXXJ/compone
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicNavBar.module.css"; // plasmic-import: -IFVXjvXAy/css
+import imageedit06595945666PngGAp4VAj from "../project_5162/images/imageedit06595945666Png.png"; // plasmic-import: G_ap4vAJ-/picture
 
 export const PlasmicNavBar__VariantProps = new Array();
 
@@ -49,7 +51,27 @@ function PlasmicNavBar__RenderFunc(props) {
               data-plasmic-name={"graphiteLogo2"}
               data-plasmic-override={overrides.graphiteLogo2}
               className={classNames(projectcss.all, sty.graphiteLogo2)}
-            />
+            >
+              <p.PlasmicImg
+                data-plasmic-name={"img"}
+                data-plasmic-override={overrides.img}
+                alt={""}
+                className={classNames(sty.img)}
+                displayHeight={"auto"}
+                displayMaxHeight={"none"}
+                displayMaxWidth={"100%"}
+                displayMinHeight={"0"}
+                displayMinWidth={"0"}
+                displayWidth={"auto"}
+                loading={"lazy"}
+                src={{
+                  src: imageedit06595945666PngGAp4VAj,
+                  fullWidth: 1316,
+                  fullHeight: 322,
+                  aspectRatio: undefined
+                }}
+              />
+            </div>
 
             {false ? (
               <div
@@ -90,6 +112,7 @@ const PlasmicDescendants = {
     "freeBox",
     "frame3",
     "graphiteLogo2",
+    "img",
     "text",
     "walletbar",
     "navbarbuttons"
@@ -99,13 +122,15 @@ const PlasmicDescendants = {
     "freeBox",
     "frame3",
     "graphiteLogo2",
+    "img",
     "text",
     "walletbar",
     "navbarbuttons"
   ],
 
-  frame3: ["frame3", "graphiteLogo2", "text"],
-  graphiteLogo2: ["graphiteLogo2"],
+  frame3: ["frame3", "graphiteLogo2", "img", "text"],
+  graphiteLogo2: ["graphiteLogo2", "img"],
+  img: ["img"],
   text: ["text"],
   walletbar: ["walletbar"],
   navbarbuttons: ["navbarbuttons"]
@@ -143,6 +168,7 @@ export const PlasmicNavBar = Object.assign(
     freeBox: makeNodeComponent("freeBox"),
     frame3: makeNodeComponent("frame3"),
     graphiteLogo2: makeNodeComponent("graphiteLogo2"),
+    img: makeNodeComponent("img"),
     text: makeNodeComponent("text"),
     walletbar: makeNodeComponent("walletbar"),
     navbarbuttons: makeNodeComponent("navbarbuttons"),

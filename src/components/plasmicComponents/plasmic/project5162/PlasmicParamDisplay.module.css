@@ -2,15 +2,17 @@
   display: flex;
   flex-direction: column;
   width: 821px;
-  height: auto;
+  height: 130px;
   max-width: 100%;
   position: relative;
+  max-height: 130px;
+  min-height: 130px;
   padding: 8px;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: calc(0px - 3px);
   height: calc(100% + 3px);
 }
@@ -380,9 +382,10 @@
   height: auto;
   max-width: 215px;
   text-align: right;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 13px;
   min-width: 215px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox___29Ky2 {
   display: flex;
@@ -429,6 +432,7 @@
 }
 .slotTargetFullName {
   font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__kzke {
   display: flex;
@@ -462,9 +466,10 @@
   height: auto;
   max-width: 215px;
   text-align: right;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 13px;
   min-width: 215px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__qrEj2 {
   display: flex;
@@ -511,6 +516,7 @@
 }
 .slotTargetPassportNo {
   font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__vpA7 {
   display: flex;
@@ -544,9 +550,10 @@
   height: auto;
   max-width: 215px;
   text-align: right;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 13px;
   min-width: 215px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__kmqAa {
   display: flex;
@@ -593,6 +600,7 @@
 }
 .slotTargetFileNo {
   font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__t7ZXm {
   display: flex;
@@ -626,9 +634,10 @@
   height: auto;
   max-width: 215px;
   text-align: right;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 13px;
   min-width: 215px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__npZn5 {
   display: flex;
@@ -675,6 +684,7 @@
 }
 .slotTargetNationality {
   font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__f4Pq2 {
   display: flex;
@@ -708,9 +718,10 @@
   height: auto;
   max-width: 215px;
   text-align: right;
-  font-weight: 800;
+  font-weight: 600;
   font-size: 13px;
   min-width: 215px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox__kKCiJ {
   display: flex;
@@ -757,6 +768,7 @@
 }
 .slotTargetAccompanied {
   font-size: 13px;
+  font-family: "Open Sans", sans-serif;
 }
 .freeBox___08Gnt {
   display: flex;
