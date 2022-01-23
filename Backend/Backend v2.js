@@ -162,7 +162,7 @@ async function updateIdCard(JSdoc) {
         const coll = database.collection("idcard");
         const Cursor = await coll.findOneAndUpdate(
             { "appNo": JSdoc.appNo },
-            { $set: { "docno": JSdoc.docno, "expiry": JSdoc.expiry, "issued": JSdoc.issued } }
+            { $set: { "docno": JSdoc.docno, "expiry": JSdoc.expiry, "issued": JSdoc.issued, "imgUrl": JSdoc.imgUrl } }
         )
         if (Cursor.value == null) {
             return 'ID Card does not exist'
