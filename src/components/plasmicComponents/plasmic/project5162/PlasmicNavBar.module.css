@@ -1,51 +1,74 @@
 .root {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   position: relative;
-  width: auto;
+  width: 100%;
   height: auto;
   justify-content: center;
   align-items: center;
+  background: #f4f4f4;
+  min-width: 0;
 }
 .freeBox {
-  display: block;
+  display: flex;
   position: relative;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  background: #ffffff;
+  background: #f4f4f4;
   height: 87px;
   min-width: 1350px;
-  margin-top: 16px;
+  width: 100%;
+  align-self: center;
   flex-shrink: 0;
-  padding: 8px;
+  padding: 8px 8px 8px 67px;
+  margin: 0px;
   border-width: 0px;
   border-style: none;
+}
+.freeBox > :global(.__wab_flex-container) {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: calc(0px - 650px);
+  width: calc(100% + 650px);
+}
+.freeBox > :global(.__wab_flex-container) > *,
+.freeBox > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox > :global(.__wab_flex-container) > picture > img,
+.freeBox
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 650px;
 }
 .frame3 {
   width: 227px;
   height: 52px;
-  display: block;
-  position: absolute;
-  left: 27px;
-  top: 15px;
+  display: flex;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }
 .graphiteLogo2 {
   background: none;
   width: 227px;
   height: 58px;
   display: block;
-  position: absolute;
-  top: 0px;
-  left: -6px;
+  position: relative;
+  top: auto;
+  left: auto;
+  flex-shrink: 0;
 }
 .img {
   position: absolute;
   object-fit: cover;
   max-width: 100%;
   left: 0px;
-  top: 0px;
+  top: 6px;
 }
 .img > picture > img {
   object-fit: cover;
@@ -62,19 +85,25 @@
   letter-spacing: 0.3px;
   line-height: 1.6;
   color: rgba(0, 0, 0, 1);
-  position: absolute;
-  top: -2px;
-  left: 50px;
+  position: relative;
+  top: auto;
+  left: auto;
   width: 173px;
+  flex-shrink: 0;
 }
 .walletbar:global(.__wab_instance) {
   max-width: 100%;
-  position: absolute;
-  left: 975px;
-  top: 32px;
+  position: relative;
+  left: auto;
+  top: auto;
+  margin-left: calc(143px + 650px) !important;
+  margin-right: 0px;
+  align-self: auto;
+  margin-top: 13px;
+  flex-shrink: 0;
 }
 .navbarbuttons:global(.__wab_instance) {
-  position: absolute;
-  top: 32px;
-  left: 675px;
+  position: relative;
+  top: auto;
+  left: auto;
 }

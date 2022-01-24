@@ -37,9 +37,11 @@ function PlasmicNavBar__RenderFunc(props) {
       className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
     >
       {true ? (
-        <div
+        <p.Stack
+          as={"div"}
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
+          hasGap={true}
           className={classNames(projectcss.all, sty.freeBox)}
         >
           <div
@@ -95,12 +97,14 @@ function PlasmicNavBar__RenderFunc(props) {
             className={classNames("__wab_instance", sty.walletbar)}
           />
 
-          <Navbuttons
-            data-plasmic-name={"navbarbuttons"}
-            data-plasmic-override={overrides.navbarbuttons}
-            className={classNames("__wab_instance", sty.navbarbuttons)}
-          />
-        </div>
+          {false ? (
+            <Navbuttons
+              data-plasmic-name={"navbarbuttons"}
+              data-plasmic-override={overrides.navbarbuttons}
+              className={classNames("__wab_instance", sty.navbarbuttons)}
+            />
+          ) : null}
+        </p.Stack>
       ) : null}
     </div>
   );

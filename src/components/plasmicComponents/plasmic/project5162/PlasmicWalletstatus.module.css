@@ -32,14 +32,23 @@
   justify-content: flex-start;
   min-height: 24px;
   max-height: 24px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 2px;
+  border-top-color: #ea6262;
+  border-right-color: #ea6262;
+  border-bottom-color: #ea6262;
+  border-left-color: #000000;
   align-self: center;
   flex-shrink: 0;
-  border-top: 0px none #ea6262;
-  border-right: 0px none #ea6262;
-  border-bottom: 0px none #ea6262;
-  border-left: 2px solid #000000;
+  border-style: none;
 }
-.text {
+.freeBoxdisconnected__xIxCkWtgQv {
+  align-items: center;
+  justify-content: flex-end;
+}
+.text__luP1C {
   height: auto;
   max-width: 800px;
   font-size: 11px;
@@ -66,8 +75,25 @@
   flex-shrink: 0;
   padding: 0px;
 }
+.freeBoxdisconnected__eQ1ZxWtgQv {
+  align-items: center;
+  justify-content: flex-start;
+  align-self: auto;
+  margin-top: 1px;
+}
 .slotTargetAddress {
   font-size: 11px;
   font-weight: 600;
   text-align: left;
+}
+.text___4Car {
+  position: relative;
+  plasmic-display-none: true;
+  font-size: 10px;
+  font-weight: 600;
+  align-self: flex-end;
+  padding-left: 20px;
+}
+.textdisconnected___4CarWtgQv {
+  display: block;
 }

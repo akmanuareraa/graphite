@@ -239,16 +239,14 @@ function PlasmicFormB__RenderFunc(props) {
           data-plasmic-override={overrides.consent}
           className={classNames("__wab_instance", sty.consent)}
         />
-      </div>
 
-      {true ? (
         <ButtonB
-          data-plasmic-name={"formbutton"}
-          data-plasmic-override={overrides.formbutton}
-          className={classNames("__wab_instance", sty.formbutton)}
-          success={true}
+          data-plasmic-name={"buttonB"}
+          data-plasmic-override={overrides.buttonB}
+          className={classNames("__wab_instance", sty.buttonB)}
+          connectmm={true}
         />
-      ) : null}
+      </div>
     </div>
   );
 }
@@ -266,7 +264,7 @@ const PlasmicDescendants = {
     "paramdisplay",
     "transactiondashboard",
     "consent",
-    "formbutton"
+    "buttonB"
   ],
 
   applicationForm: [
@@ -279,7 +277,8 @@ const PlasmicDescendants = {
     "orgtab",
     "paramdisplay",
     "transactiondashboard",
-    "consent"
+    "consent",
+    "buttonB"
   ],
 
   walletmount: ["walletmount"],
@@ -291,7 +290,7 @@ const PlasmicDescendants = {
   paramdisplay: ["paramdisplay"],
   transactiondashboard: ["transactiondashboard"],
   consent: ["consent"],
-  formbutton: ["formbutton"]
+  buttonB: ["buttonB"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -333,7 +332,7 @@ export const PlasmicFormB = Object.assign(
     paramdisplay: makeNodeComponent("paramdisplay"),
     transactiondashboard: makeNodeComponent("transactiondashboard"),
     consent: makeNodeComponent("consent"),
-    formbutton: makeNodeComponent("formbutton"),
+    buttonB: makeNodeComponent("buttonB"),
     // Metadata about props expected for PlasmicFormB
     internalVariantProps: PlasmicFormB__VariantProps,
     internalArgProps: PlasmicFormB__ArgProps

@@ -60,20 +60,18 @@ function PlasmicWalletstatus__RenderFunc(props) {
         })}
       >
         <div
-          data-plasmic-name={"text"}
-          data-plasmic-override={overrides.text}
           className={classNames(
             projectcss.all,
             projectcss.__wab_text,
-            sty.text,
+            sty.text__luP1C,
             {
-              [sty.textconnected]: hasVariant(
+              [sty.textconnected__luP1C5NcG6]: hasVariant(
                 variants,
                 "connected",
                 "connected"
               ),
 
-              [sty.textdisconnected]: hasVariant(
+              [sty.textdisconnected__luP1CWtgQv]: hasVariant(
                 variants,
                 "disconnected",
                 "disconnected"
@@ -100,23 +98,51 @@ function PlasmicWalletstatus__RenderFunc(props) {
               )
             })}
           >
-            {p.renderPlasmicSlot({
-              defaultContents: "---",
-              value: args.address,
-              className: classNames(sty.slotTargetAddress, {
-                [sty.slotTargetAddressconnected]: hasVariant(
-                  variants,
-                  "connected",
-                  "connected"
-                ),
+            {(
+              hasVariant(variants, "disconnected", "disconnected")
+                ? false
+                : true
+            )
+              ? p.renderPlasmicSlot({
+                  defaultContents: false ? "---" : null,
+                  value: args.address,
+                  className: classNames(sty.slotTargetAddress, {
+                    [sty.slotTargetAddressconnected]: hasVariant(
+                      variants,
+                      "connected",
+                      "connected"
+                    ),
 
-                [sty.slotTargetAddressdisconnected]: hasVariant(
-                  variants,
-                  "disconnected",
-                  "disconnected"
-                )
-              })
-            })}
+                    [sty.slotTargetAddressdisconnected]: hasVariant(
+                      variants,
+                      "disconnected",
+                      "disconnected"
+                    )
+                  })
+                })
+              : null}
+            {(
+              hasVariant(variants, "disconnected", "disconnected")
+                ? true
+                : false
+            ) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text___4Car,
+                  {
+                    [sty.textdisconnected___4CarWtgQv]: hasVariant(
+                      variants,
+                      "disconnected",
+                      "disconnected"
+                    )
+                  }
+                )}
+              >
+                {"(Not Connected)"}
+              </div>
+            ) : null}
           </div>
         ) : null}
       </div>
@@ -125,8 +151,7 @@ function PlasmicWalletstatus__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text"],
-  text: ["text"]
+  root: ["root"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -158,7 +183,6 @@ export const PlasmicWalletstatus = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicWalletstatus
     internalVariantProps: PlasmicWalletstatus__VariantProps,
     internalArgProps: PlasmicWalletstatus__ArgProps
