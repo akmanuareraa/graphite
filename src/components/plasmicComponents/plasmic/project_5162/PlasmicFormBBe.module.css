@@ -22,7 +22,7 @@
   min-width: 0;
 }
 .applicationForm {
-  background: #ffffff;
+  background: #bfbaba;
   width: 1388px;
   height: 594px;
   display: block;
@@ -161,13 +161,13 @@
 }
 .consent:global(.__wab_instance) {
   position: absolute;
-  top: 454px;
+  top: 442px;
   left: 315px;
 }
 .formbutton:global(.__wab_instance) {
   position: absolute;
-  top: 556px;
-  left: 562px;
+  top: 491px;
+  left: 123px;
   margin-left: -163px;
   align-self: center;
 }

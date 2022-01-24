@@ -257,16 +257,16 @@ function PlasmicFormBbe__RenderFunc(props) {
           data-plasmic-override={overrides.consent}
           className={classNames("__wab_instance", sty.consent)}
         />
-      </div>
 
-      {true ? (
-        <ButtonB
-          data-plasmic-name={"formbutton"}
-          data-plasmic-override={overrides.formbutton}
-          className={classNames("__wab_instance", sty.formbutton)}
-          success={true}
-        />
-      ) : null}
+        {true ? (
+          <ButtonB
+            data-plasmic-name={"formbutton"}
+            data-plasmic-override={overrides.formbutton}
+            className={classNames("__wab_instance", sty.formbutton)}
+            success={true}
+          />
+        ) : null}
+      </div>
     </div>
   );
 }
@@ -297,7 +297,8 @@ const PlasmicDescendants = {
     "orgtab",
     "paramdisplay",
     "transactiondashboard",
-    "consent"
+    "consent",
+    "formbutton"
   ],
 
   walletmount: ["walletmount"],

@@ -18,7 +18,7 @@ import {
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicHomepage.module.css"; // plasmic-import: sO5m3uTzIQI/css
-import graphiteWhitepngBeOjXVnrF from "./images/graphiteWhitepng.jpeg"; // plasmic-import: BeOjXVnrF/picture
+import imageedit06595945666PngGAp4VAj from "./images/imageedit06595945666Png.png"; // plasmic-import: G_ap4vAJ-/picture
 
 export const PlasmicHomepage__VariantProps = new Array();
 
@@ -41,12 +41,10 @@ function PlasmicHomepage__RenderFunc(props) {
       >
         {true ? (
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__sBtwJ
             )}
           >
             {"Fetching Data from Database...."}
@@ -66,22 +64,40 @@ function PlasmicHomepage__RenderFunc(props) {
           displayWidth={"731px"}
           loading={"lazy"}
           src={{
-            src: graphiteWhitepngBeOjXVnrF,
-            fullWidth: 4096,
-            fullHeight: 1002,
+            src: imageedit06595945666PngGAp4VAj,
+            fullWidth: 1316,
+            fullHeight: 322,
             aspectRatio: undefined
           }}
         />
+
+        {false ? (
+          <div
+            data-plasmic-name={"freeBox"}
+            data-plasmic-override={overrides.freeBox}
+            className={classNames(projectcss.all, sty.freeBox)}
+          />
+        ) : null}
+
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__q1Fi8
+          )}
+        >
+          {"Blockchain Secured Workflows Demo"}
+        </div>
       </div>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: ["root", "applicationForm", "text", "img"],
-  applicationForm: ["applicationForm", "text", "img"],
-  text: ["text"],
-  img: ["img"]
+  root: ["root", "applicationForm", "img", "freeBox"],
+  applicationForm: ["applicationForm", "img", "freeBox"],
+  img: ["img"],
+  freeBox: ["freeBox"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -114,8 +130,8 @@ export const PlasmicHomepage = Object.assign(
   {
     // Helper components rendering sub-elements
     applicationForm: makeNodeComponent("applicationForm"),
-    text: makeNodeComponent("text"),
     img: makeNodeComponent("img"),
+    freeBox: makeNodeComponent("freeBox"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps
