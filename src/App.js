@@ -98,7 +98,9 @@ function App() {
     return {
       navbar: {
         verifyid: false,
-        bridge: false
+        bridge: false,
+        walletdisconnect: true,
+        walletconnect: false
       },
       createAsset: {
         walletStateDis: true,
@@ -262,6 +264,17 @@ function App() {
         return {
           ...prevState,
           account: accounts[0]
+        }
+      })
+
+      setAllUiStates(prevState => {
+        return {
+          ...prevState,
+          navbar: {
+            ...prevState.navbar,
+            walletdisconnect: false,
+            walletconnect: true
+          }
         }
       })
 
@@ -765,13 +778,6 @@ function App() {
             setAllUrlParams={setAllUrlParams}
             setupMetamask={setupMetamask}
           />} />
-
-          {/* <Route path="/crosschainbridge" element={<CrossChainBridge 
-            mainState={mainState}
-            setMainState={setMainState}
-            allUiStates={allUiStates}
-            setAllUiStates={setAllUiStates}
-          />} /> */}
         </Routes>
       </BrowserRouter>
     </>
