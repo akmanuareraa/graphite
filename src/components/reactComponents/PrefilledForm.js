@@ -19,6 +19,7 @@ function PrefilledForm(props) {
     const issueNewId = (formParams) => {
         console.log(formParams)
         props.setAllUiStates(prevState => {
+            console.log('starting', props.allUiStates.createAsset)
             return {
                 ...prevState,
                 createAsset: {
@@ -28,9 +29,9 @@ function PrefilledForm(props) {
                 }
             }
         })
-
+        
         let web3 = props.mainState.web3
-        let assetMinterAddress = config.assetMinterAddress
+        let assetMinterAddress = config.idAssetMinterAddress
         let assetMinterABI = JSON.parse(assetMinter)
         let assetMinterContract = new web3.eth.Contract(assetMinterABI, assetMinterAddress)
         let hash = Web3.utils.keccak256(JSON.stringify(formParams))
@@ -194,9 +195,8 @@ function PrefilledForm(props) {
                         }
                     })
                     .on('error', function (error, receipt) {
-                        console.log(error)
-                        console.log(receipt)
                         props.setAllUiStates(prevState => {
+                            console.log('error', props.allUiStates.createAsset)
                             return {
                                 ...prevState,
                                 createAsset: {
@@ -206,7 +206,7 @@ function PrefilledForm(props) {
                                 }
                             }
                         })
-
+                        
                         let additionalParams = '&status=failed&reason=' + error
                         props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
                     })
@@ -224,6 +224,7 @@ function PrefilledForm(props) {
                         })
                         let additionalParams = '&status=failed&reason=' + e.message
                         props.redirectExecution(formParams, additionalParams, 5400, 900, "createAsset")
+                        console.log('buttonstate', props.allUiStates.createAsset)
                     })
             }
         })

@@ -5,8 +5,6 @@ import config from '../../config-frontend';
 
 function Nav(props) {
 
-    
-
     return (
         <div className="columns is-centered">
             <NavBar
@@ -17,7 +15,9 @@ function Nav(props) {
                     bridgebutton: {onClick: () => {window.location.href = config.domain + "crosschainbridge"}}
                 }}
                 walletbar={{
-                  address: props.mainState.account
+                  address: props.mainState.account,
+                  disconnected: props.allUiStates.navbar.walletdisconnect,
+                  connected: props.allUiStates.navbar.walletconnect
                 }}
             />
         </div>

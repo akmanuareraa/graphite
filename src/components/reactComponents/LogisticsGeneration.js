@@ -45,7 +45,7 @@ function LogisticsGeneration(props) {
                 console.log(receipt)
             })
             .on('confirmation', function (confirmationNumber, receipt) {
-                if (confirmationNumber == 2) {
+                if (confirmationNumber == 1) {
                     // on successfull transactions, data will be stored in mongoDB
                     console.log(confirmationNumber)
                     console.log("MongoDB: ", urlParams)
