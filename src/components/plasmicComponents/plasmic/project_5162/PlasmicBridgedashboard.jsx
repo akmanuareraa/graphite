@@ -42,19 +42,26 @@ function PlasmicBridgedashboard__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       hasGap={true}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.rootbridgetoken]: hasVariant(
-          variants,
-          "bridgetoken",
-          "bridgetoken"
-        ),
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootbridgetoken]: hasVariant(
+            variants,
+            "bridgetoken",
+            "bridgetoken"
+          ),
 
-        [sty.rootreturntoken]: hasVariant(
-          variants,
-          "returntoken",
-          "returntoken"
-        )
-      })}
+          [sty.rootreturntoken]: hasVariant(
+            variants,
+            "returntoken",
+            "returntoken"
+          )
+        }
+      )}
     >
       <div
         className={classNames(
@@ -114,6 +121,7 @@ function PlasmicBridgedashboard__RenderFunc(props) {
         data-plasmic-name={"button"}
         data-plasmic-override={overrides.button}
         className={classNames(
+          projectcss.all,
           projectcss.button,
           projectcss.__wab_text,
           sty.button,

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Web3 from 'web3';
 import config from '../../config-frontend'
@@ -6,94 +6,140 @@ import config from '../../config-frontend'
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
 
 import SalesOrderConfirmation from '../plasmicComponents/SalesOrderConfirmation';
+import PlasmicTableHeader from '../plasmicComponents/Tableheader'
+import PlasmicTableRow from '../plasmicComponents/Tablerow'
 
 function ConfirmSalesOrder(props) {
 
+    async function getRevertReason(txHash, addParams, formParams) {
+        let web3 = props.mainState.web3
+        const tx = await web3.eth.getTransaction(txHash)
+        try {
+            var result = await web3.eth.call(tx, tx.blockNumber)
+                .catch(function (e) {
+                    console.log('NEW ON ERROR: ', JSON.stringify(e.message).split('\\"'))
+                    let edit = JSON.stringify(e.message).split('\\"')
+                    console.log('RR: ', edit[5])
+                    props.redirectExecution(formParams, addParams + edit[5], 5400, 900, "confirmSalesOrder")
+                })
+            console.log('result', result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const [dynamictable, setDynamictable] = useState([])
+
+    let globalCounter = null
+
     // handles the confirmation of sales order
     const confirmSalesOrder = () => {
-        props.setAllUiStates(prevState => {
-            return {
-                ...prevState,
-                confirmSalesOrder: {
-                    ...prevState.confirmSalesOrder,
-                    sendtxnso: false,
-                    processing: true
-                }
-            }
-        })
 
         let web3 = props.mainState.web3
         let logisticsAssetMinterAddress = config.logisticsAssetMinterAddress
         let logisticsAssetMinterABI = JSON.parse(logisticsAssetMinter)
         let logisticsAssetMinterContract = new web3.eth.Contract(logisticsAssetMinterABI, logisticsAssetMinterAddress)
         let hash = Web3.utils.keccak256(JSON.stringify(props.allUrlParams.confirmSalesOrder))
+        console.log('==================================')
+        console.log(props.allUrlParams.confirmSalesOrder)
+        console.log('==================================')
+        console.log('hash', hash)
 
-        logisticsAssetMinterContract.methods.addCustomerApproval(hash).send({ from: props.mainState.account })
-            .on('transactionHash', function (hash) {
-                console.log(hash)
-                props.setMainState(prevState => {
-                    return {
-                        ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
-                            txnHash: hash
+        if (props.mainState.account.toLowerCase() !== props.allUrlParams.confirmSalesOrder.customerAddress.toLowerCase()) {
+            alert("Incorrect customer address. Transaction can only be signed with the correct address")
+            props.setAllUiStates(prevState => {
+                console.log('starting', props.allUiStates.confirmSalesOrder)
+                return {
+                    ...prevState,
+                    confirmSalesOrder: {
+                        ...prevState.confirmSalesOrder,
+                        salesorder: false,
+                        connectmm: true
+                    }
+                }
+            })
+        } else {
+            props.setAllUiStates(prevState => {
+                return {
+                    ...prevState,
+                    confirmSalesOrder: {
+                        ...prevState.confirmSalesOrder,
+                        sendtxnso: false,
+                        processing: true
+                    }
+                }
+            })
+            logisticsAssetMinterContract.methods.addCustomerApproval(hash).send({ from: props.mainState.account })
+                .on('transactionHash', function (hash) {
+                    console.log(hash)
+                    props.setMainState(prevState => {
+                        return {
+                            ...prevState,
+                            confirmSalesOrder: {
+                                ...prevState.confirmSalesOrder,
+                                txnHash: hash
+                            }
                         }
+                    })
+                })
+                .on('receipt', function (receipt) {
+                    console.log(receipt)
+                })
+                .on('confirmation', function (confirmationNumber, receipt) {
+                    if (confirmationNumber == 1) {
+                        console.log(confirmationNumber)
+
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirmSalesOrder: {
+                                    ...prevState.confirmSalesOrder,
+                                    processing: false,
+                                    txnsuccess: true
+                                }
+                            }
+                        })
+
+                        let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                        props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
                     }
                 })
-            })
-            .on('receipt', function (receipt) {
-                console.log(receipt)
-            })
-            .on('confirmation', function (confirmationNumber, receipt) {
-                if (confirmationNumber == 1) {
-                    console.log(confirmationNumber)
-
+                .on('error', function (error, receipt) {
+                    console.log(error)
+                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason='
+                    console.log(additionalParams)
+                    try {
+                        getRevertReason(receipt.transactionHash, additionalParams, props.allUrlParams.confirmSalesOrder)
+                    } catch (error) {
+                        console.log('TC ERROR: ', error)
+                    }
                     props.setAllUiStates(prevState => {
                         return {
                             ...prevState,
                             confirmSalesOrder: {
                                 ...prevState.confirmSalesOrder,
                                 processing: false,
-                                txnsuccess: true
+                                txnfailed: true
                             }
                         }
                     })
-
-                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=success' 
+                })
+                .catch(function (e) {
+                    console.log(e.message)
+                    props.setAllUiStates(prevState => {
+                        return {
+                            ...prevState,
+                            confirmSalesOrder: {
+                                ...prevState.confirmSalesOrder,
+                                processing: false,
+                                txnfailed: true
+                            }
+                        }
+                    })
+                    let additionalParams = '&status=failed&reason=' + e.message
                     props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
-                }
-            })
-            .on('error', function (error, receipt) {
-                console.log(error)
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
-                            processing: false,
-                            txnfailed: true
-                        }
-                    }
                 })
-
-                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
-                props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
-            })
-            .catch(function (e) {
-                console.log(e.message)
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        confirmSalesOrder: {
-                            ...prevState.confirmSalesOrder,
-                            processing: false,
-                            txnfailed: true
-                        }
-                    }
-                })
-                let additionalParams = '&status=failed&reason=' + e.message
-                props.redirectExecution(props.allUrlParams.confirmSalesOrder, additionalParams, 5400, 900, "confirmSalesOrder")
-            })
+        }
     }
 
     // handles the UI component
@@ -104,6 +150,16 @@ function ConfirmSalesOrder(props) {
                     loading={props.allUiStates.confirmSalesOrder.loading}
                     notfound={props.allUiStates.confirmSalesOrder.notfound}
                     confirmed={props.allUiStates.confirmSalesOrder.confirmed}
+
+                    dynamictableslot={
+                        <>
+                            <PlasmicTableHeader
+                                titlefield={"PO Number"}
+                                titlevalue={props.allUrlParams.confirmSalesOrder.pono}
+                            />
+                            {[...dynamictable]}
+                        </>
+                    }
 
                     pono={props.allUrlParams.confirmSalesOrder.pono}
                     supplier={props.allUrlParams.confirmSalesOrder.supplier}
@@ -214,12 +270,48 @@ function ConfirmSalesOrder(props) {
     }
 
     useEffect(() => {
-
         props.urlParser("confirmSalesOrder")
     }, [])
 
+    useEffect(() => {
+        console.log("calling =========================== TABLE")
+        let tempTable = []
+        console.log('as', props.allUrlParams.confirmSalesOrder)
+        for (let [key, value] of Object.entries(props.allUrlParams.confirmSalesOrder)) {
+            let gvar = null
+            console.log(`${key}: ${value}`);
+            if (key !== 'refId' && key !== 'urlLength' && key !== 'consent' && key !== 'pono') {
+                // let row = <tr>
+                //     <td><b>{key}</b></td>
+                //     <td>{value}</td>
+                // </tr>
+                if (key === 'rNo') {
+                    key = 'Reference Number'
+                } else if (key === 'pDate') {
+                    key = 'Payment Date'
+                } else if (key === 'customerAddress') {
+                    key = 'Customer Address'
+                }
+                if (globalCounter % 2 === 0) {
+                    gvar = true
+                } else {
+                    gvar = false
+                }
+                let row = <PlasmicTableRow
+                    fieldslot={key}
+                    valueslot={value}
+                    greyvariant={gvar}
+                />
+                tempTable.push(row)
+                setDynamictable([...tempTable])
+                globalCounter++
+            }
+        }
+    }, [props.allUrlParams.confirmSalesOrder])
+
     // checks if the sales order has already been approved
     useEffect(() => {
+        console.log("calling =========================== BACKEND")
         if (props.allUrlParams.confirmSalesOrder.pono != null) {
             // checks if the sales order has already been created
             // checks the status of the sales order
@@ -262,6 +354,7 @@ function ConfirmSalesOrder(props) {
                                 }
                             }
                         })
+                        console.log('test', props.allUrlParams.confirmSalesOrder)
                     }
                 }
             })
@@ -279,7 +372,7 @@ function ConfirmSalesOrder(props) {
                             }
                         })
                     } else {
-                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        alert(e.response.status + ":" + e.response.statusText + ".  Redirecting back to portal..")
                         let additionalParams = '&status=failed&reason=' + e.response.data
                         props.redirectExecution("null", additionalParams, 10, 10, "confirmSalesOrder")
                     }

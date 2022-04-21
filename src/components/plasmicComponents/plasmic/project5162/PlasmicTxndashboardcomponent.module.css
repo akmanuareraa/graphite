@@ -30,9 +30,9 @@
   margin: 0px;
 }
 .freeBox__rpv4E {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -43,8 +43,8 @@
 }
 .freeBox__rpv4E > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-width: 0;
   margin-left: calc(0px - 66px);
   width: calc(100% + 66px);
@@ -131,9 +131,9 @@
   padding: 0px;
 }
 .freeBox__ewdW {
+  flex-direction: column;
   display: flex;
   position: absolute;
-  flex-direction: column;
   width: 236px;
   height: auto;
   max-width: 100%;
@@ -143,8 +143,8 @@
 }
 .freeBox__ewdW > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
@@ -191,9 +191,9 @@
   min-width: 0;
 }
 .freeBox___2P7VB {
+  flex-direction: column;
   display: flex;
   position: absolute;
-  flex-direction: column;
   width: 50px;
   height: auto;
   max-width: 50%;
@@ -204,8 +204,8 @@
 }
 .freeBox___2P7VB > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
@@ -265,21 +265,22 @@
   text-align: center;
 }
 .freeBox___12Psw {
+  flex-direction: column;
   display: flex;
   position: absolute;
-  flex-direction: column;
   height: auto;
   max-width: 50%;
   margin-right: 0px;
   width: 50px;
   left: 463px;
   top: 0px;
+  margin-left: -34px;
   padding: 0px;
 }
 .freeBox___12Psw > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
@@ -393,21 +394,22 @@
   font-size: 12px;
 }
 .freeBox__sktlE {
+  flex-direction: column;
   display: flex;
   position: absolute;
-  flex-direction: column;
   height: auto;
   max-width: 50%;
   margin-right: 0px;
   width: 50px;
   left: 646px;
   top: 0px;
+  margin-left: -28px;
   padding: 0px;
 }
 .freeBox__sktlE > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 8px);
   height: calc(100% + 8px);
 }
@@ -434,6 +436,7 @@
   min-width: 48px;
   min-height: 18px;
   max-height: 18px;
+  align-self: center;
   flex-shrink: 0;
   padding: 0px;
 }
@@ -455,6 +458,7 @@
   align-items: center;
   justify-content: flex-start;
   margin-top: -4px;
+  align-self: flex-end;
 }
 .slotTargetAppfeect {
   font-size: 12px;
@@ -491,6 +495,7 @@
   display: flex;
   flex-direction: row;
   margin-top: -4px;
+  align-self: flex-end;
 }
 .slotTargetIksfeect {
   font-size: 12px;
@@ -528,6 +533,7 @@
   flex-direction: row;
   align-items: stretch;
   margin-top: -4px;
+  align-self: flex-end;
 }
 .slotTargetTaxct {
   font-size: 12px;
@@ -553,7 +559,7 @@
   text-align: center;
   font-size: 13px;
   font-weight: 600;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
   margin: 0px 37px 0px 0px;
@@ -567,7 +573,7 @@
   width: 78px;
   height: auto;
   max-width: 78%;
-  margin-right: 64px;
+  margin-right: 90px;
   min-width: 78px;
   flex-shrink: 0;
   padding: 0px;
@@ -580,7 +586,7 @@
   min-width: 18px;
   font-size: 13px;
   font-weight: 600;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   flex-shrink: 0;
 }
 .freeBox___6DrVr {
@@ -594,13 +600,14 @@
   align-items: center;
   min-height: 20px;
   max-height: 20px;
+  align-self: flex-end;
   flex-shrink: 0;
   margin: -2px 0px 0px 5px;
 }
 .slotTargetTotalcharge {
   font-size: 13px;
   font-weight: 600;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   text-align: center;
   font-family: "Open Sans", sans-serif;
 }
@@ -628,15 +635,15 @@
   text-align: center;
   font-weight: 600;
   font-size: 13px;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
   margin: 0px 8px 0px 0px;
 }
 .freeBox___0DNIi {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
   width: 107px;
   height: auto;
   margin-right: 49px;
@@ -647,8 +654,8 @@
 }
 .freeBox___0DNIi > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: stretch;
   justify-content: flex-start;
+  align-items: stretch;
   margin-left: calc(0px - 0px);
   width: calc(100% + 0px);
 }
@@ -663,7 +670,7 @@
   margin-left: 0px;
 }
 .freeBox__jYdlq {
-  width: 106px;
+  width: 58px;
   height: auto;
   margin-left: calc(-26px + 0px) !important;
   margin-top: 0px;
@@ -672,14 +679,12 @@
   justify-content: flex-end;
   display: flex;
   flex-direction: row;
-  min-width: 106px;
-  max-width: 106px;
   flex-shrink: 0;
 }
 .slotTargetTotalgpi {
   font-size: 13px;
   font-weight: 600;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   text-align: right;
   font-family: "Open Sans", sans-serif;
 }
@@ -695,7 +700,7 @@
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  color: #000000 /* plasmic-token: 9fTxjIZv1 */;
+  color: var(--token-9fTxjIZv1);
   font-family: "Open Sans", sans-serif;
   flex-shrink: 0;
 }

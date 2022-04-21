@@ -20,11 +20,10 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "../project_5162/plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicButtonB.module.css"; // plasmic-import: oSXCQ8ez26/css
 import MetamasksvgIcon from "./icons/PlasmicIcon__Metamasksvg"; // plasmic-import: oUB_LRSSgs/icon
+import graphiteLogoInvpngB3LtWjF49 from "./images/graphiteLogoInvpng.png"; // plasmic-import: B3LtWjF49/picture
 import failgifGV67UXTi from "./images/failgif.gif"; // plasmic-import: gV6-7uXTi/picture
 import successCropgifUneR0OkrA from "./images/successCropgif.gif"; // plasmic-import: uneR0OkrA/picture
-import graphiteLogoInvpngB3LtWjF49 from "./images/graphiteLogoInvpng.png"; // plasmic-import: B3LtWjF49/picture
 import loadergifESQzAuv1I from "./images/loadergif.gif"; // plasmic-import: eSQzAuv1i/picture
-import copygifN5E9Rn6NN from "./images/copygif.gif"; // plasmic-import: n5e9rn6nN/picture
 
 export const PlasmicButtonB__VariantProps = new Array(
   "installmm",
@@ -45,7 +44,12 @@ export const PlasmicButtonB__VariantProps = new Array(
   "sendtxnlog"
 );
 
-export const PlasmicButtonB__ArgProps = new Array("hash", "onClick", "timer");
+export const PlasmicButtonB__ArgProps = new Array(
+  "hash",
+  "onClick",
+  "timer",
+  "timer2"
+);
 
 function PlasmicButtonB__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -55,841 +59,781 @@ function PlasmicButtonB__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.rootconnectmm]: hasVariant(variants, "connectmm", "connectmm"),
-        [sty.rootfailed]: hasVariant(variants, "failed", "failed"),
-        [sty.rootinstallmm]: hasVariant(variants, "installmm", "installmm"),
-        [sty.rootinvoice]: hasVariant(variants, "invoice", "invoice"),
-        [sty.rootlogistics]: hasVariant(variants, "logistics", "logistics"),
-        [sty.rootprocessing]: hasVariant(variants, "processing", "processing"),
-        [sty.rootsalesorder]: hasVariant(variants, "salesorder", "salesorder"),
-        [sty.rootsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
-        [sty.rootsendtxnconsent]: hasVariant(
-          variants,
-          "sendtxnconsent",
-          "sendtxnconsent"
-        ),
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootconnectmm]: hasVariant(variants, "connectmm", "connectmm"),
+          [sty.rootfailed]: hasVariant(variants, "failed", "failed"),
+          [sty.rootinstallmm]: hasVariant(variants, "installmm", "installmm"),
+          [sty.rootinvoice]: hasVariant(variants, "invoice", "invoice"),
+          [sty.rootlogistics]: hasVariant(variants, "logistics", "logistics"),
+          [sty.rootprocessing]: hasVariant(
+            variants,
+            "processing",
+            "processing"
+          ),
 
-        [sty.rootsendtxnconsentinv]: hasVariant(
-          variants,
-          "sendtxnconsentinv",
-          "sendtxnconsentinv"
-        ),
+          [sty.rootsalesorder]: hasVariant(
+            variants,
+            "salesorder",
+            "salesorder"
+          ),
 
-        [sty.rootsendtxnconsentlog]: hasVariant(
-          variants,
-          "sendtxnconsentlog",
-          "sendtxnconsentlog"
-        ),
+          [sty.rootsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
+          [sty.rootsendtxnconsent]: hasVariant(
+            variants,
+            "sendtxnconsent",
+            "sendtxnconsent"
+          ),
 
-        [sty.rootsendtxnconsentso]: hasVariant(
-          variants,
-          "sendtxnconsentso",
-          "sendtxnconsentso"
-        ),
+          [sty.rootsendtxnconsentinv]: hasVariant(
+            variants,
+            "sendtxnconsentinv",
+            "sendtxnconsentinv"
+          ),
 
-        [sty.rootsendtxninv]: hasVariant(variants, "sendtxninv", "sendtxninv"),
-        [sty.rootsendtxnlog]: hasVariant(variants, "sendtxnlog", "sendtxnlog"),
-        [sty.rootsendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
-        [sty.rootsuccess]: hasVariant(variants, "success", "success")
-      })}
+          [sty.rootsendtxnconsentlog]: hasVariant(
+            variants,
+            "sendtxnconsentlog",
+            "sendtxnconsentlog"
+          ),
+
+          [sty.rootsendtxnconsentso]: hasVariant(
+            variants,
+            "sendtxnconsentso",
+            "sendtxnconsentso"
+          ),
+
+          [sty.rootsendtxninv]: hasVariant(
+            variants,
+            "sendtxninv",
+            "sendtxninv"
+          ),
+
+          [sty.rootsendtxnlog]: hasVariant(
+            variants,
+            "sendtxnlog",
+            "sendtxnlog"
+          ),
+
+          [sty.rootsendtxnso]: hasVariant(variants, "sendtxnso", "sendtxnso"),
+          [sty.rootsuccess]: hasVariant(variants, "success", "success")
+        }
+      )}
     >
-      {true ? (
-        <div
-          className={classNames(projectcss.all, sty.freeBox__zgSr8, {
-            [sty.freeBoxconnectmm__zgSr8SqZmt]: hasVariant(
+      <p.Stack
+        as={"button"}
+        data-plasmic-name={"mainbutton"}
+        data-plasmic-override={overrides.mainbutton}
+        hasGap={true}
+        className={classNames(
+          projectcss.all,
+          projectcss.button,
+          sty.mainbutton,
+          {
+            [sty.mainbuttonconnectmm]: hasVariant(
               variants,
               "connectmm",
               "connectmm"
             ),
 
-            [sty.freeBoxfailed__zgSr8OcDdJ]: hasVariant(
-              variants,
-              "failed",
-              "failed"
-            ),
-
-            [sty.freeBoxinstallmm__zgSr8VXuOp]: hasVariant(
+            [sty.mainbuttonfailed]: hasVariant(variants, "failed", "failed"),
+            [sty.mainbuttoninstallmm]: hasVariant(
               variants,
               "installmm",
               "installmm"
             ),
 
-            [sty.freeBoxinvoice__zgSr8MXQyB]: hasVariant(
-              variants,
-              "invoice",
-              "invoice"
-            ),
-
-            [sty.freeBoxlogistics__zgSr8KbJf2]: hasVariant(
+            [sty.mainbuttonlogistics]: hasVariant(
               variants,
               "logistics",
               "logistics"
             ),
 
-            [sty.freeBoxprocessing__zgSr8Pdh5H]: hasVariant(
+            [sty.mainbuttonprocessing]: hasVariant(
               variants,
               "processing",
               "processing"
             ),
 
-            [sty.freeBoxsalesorder__zgSr8AwkTr]: hasVariant(
+            [sty.mainbuttonsalesorder]: hasVariant(
               variants,
               "salesorder",
               "salesorder"
             ),
 
-            [sty.freeBoxsendtxn__zgSr8QfRAj]: hasVariant(
-              variants,
-              "sendtxn",
-              "sendtxn"
-            ),
-
-            [sty.freeBoxsendtxnconsent__zgSr8LjVjA]: hasVariant(
+            [sty.mainbuttonsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
+            [sty.mainbuttonsendtxnconsent]: hasVariant(
               variants,
               "sendtxnconsent",
               "sendtxnconsent"
             ),
 
-            [sty.freeBoxsendtxnconsentinv__zgSr8N0H5]: hasVariant(
-              variants,
-              "sendtxnconsentinv",
-              "sendtxnconsentinv"
-            ),
+            [sty.mainbuttonsuccess]: hasVariant(variants, "success", "success")
+          }
+        )}
+      >
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__nRlS5,
+            {
+              [sty.textconnectmm__nRlS5SqZmt]: hasVariant(
+                variants,
+                "connectmm",
+                "connectmm"
+              ),
 
-            [sty.freeBoxsendtxnconsentlog__zgSr89Uo71]: hasVariant(
-              variants,
-              "sendtxnconsentlog",
-              "sendtxnconsentlog"
-            ),
+              [sty.textfailed__nRlS5OcDdJ]: hasVariant(
+                variants,
+                "failed",
+                "failed"
+              ),
 
-            [sty.freeBoxsendtxnconsentso__zgSr8EknV0]: hasVariant(
-              variants,
-              "sendtxnconsentso",
-              "sendtxnconsentso"
-            ),
+              [sty.textinstallmm__nRlS5VXuOp]: hasVariant(
+                variants,
+                "installmm",
+                "installmm"
+              ),
 
-            [sty.freeBoxsendtxninv__zgSr8WqMv]: hasVariant(
-              variants,
-              "sendtxninv",
-              "sendtxninv"
-            ),
+              [sty.textinvoice__nRlS5MXQyB]: hasVariant(
+                variants,
+                "invoice",
+                "invoice"
+              ),
 
-            [sty.freeBoxsendtxnlog__zgSr8Achdx]: hasVariant(
-              variants,
-              "sendtxnlog",
-              "sendtxnlog"
-            ),
+              [sty.textlogistics__nRlS5KbJf2]: hasVariant(
+                variants,
+                "logistics",
+                "logistics"
+              ),
 
-            [sty.freeBoxsendtxnso__zgSr8CK3Fg]: hasVariant(
-              variants,
-              "sendtxnso",
-              "sendtxnso"
-            ),
+              [sty.textprocessing__nRlS5Pdh5H]: hasVariant(
+                variants,
+                "processing",
+                "processing"
+              ),
 
-            [sty.freeBoxsuccess__zgSr8KPrSc]: hasVariant(
+              [sty.textsalesorder__nRlS5AwkTr]: hasVariant(
+                variants,
+                "salesorder",
+                "salesorder"
+              ),
+
+              [sty.textsendtxn__nRlS5QfRAj]: hasVariant(
+                variants,
+                "sendtxn",
+                "sendtxn"
+              ),
+
+              [sty.textsendtxnconsent__nRlS5LjVjA]: hasVariant(
+                variants,
+                "sendtxnconsent",
+                "sendtxnconsent"
+              ),
+
+              [sty.textsendtxnconsentinv__nRlS5N0H5]: hasVariant(
+                variants,
+                "sendtxnconsentinv",
+                "sendtxnconsentinv"
+              ),
+
+              [sty.textsendtxnconsentlog__nRlS59Uo71]: hasVariant(
+                variants,
+                "sendtxnconsentlog",
+                "sendtxnconsentlog"
+              ),
+
+              [sty.textsendtxninv__nRlS5WqMv]: hasVariant(
+                variants,
+                "sendtxninv",
+                "sendtxninv"
+              ),
+
+              [sty.textsendtxnlog__nRlS5Achdx]: hasVariant(
+                variants,
+                "sendtxnlog",
+                "sendtxnlog"
+              ),
+
+              [sty.textsuccess__nRlS5KPrSc]: hasVariant(
+                variants,
+                "success",
+                "success"
+              )
+            }
+          )}
+        >
+          {hasVariant(variants, "salesorder", "salesorder")
+            ? "Create Sales Order"
+            : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+            ? "Sign and Submit Request"
+            : hasVariant(variants, "failed", "failed")
+            ? "Transaction Failed"
+            : hasVariant(variants, "success", "success")
+            ? "Transaction Successful"
+            : hasVariant(variants, "processing", "processing")
+            ? "Transaction in Process"
+            : hasVariant(variants, "sendtxn", "sendtxn")
+            ? "Sign and Submit Request"
+            : hasVariant(variants, "connectmm", "connectmm")
+            ? "Connect Metamask Account"
+            : hasVariant(variants, "sendtxnlog", "sendtxnlog")
+            ? "Confirm Logistics"
+            : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
+            ? "Confirm Logistics"
+            : hasVariant(variants, "logistics", "logistics")
+            ? "Create Logistics"
+            : hasVariant(variants, "sendtxninv", "sendtxninv")
+            ? "Confirm Invoice"
+            : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
+            ? "Confirm Invoice"
+            : hasVariant(variants, "invoice", "invoice")
+            ? "Create Invoice"
+            : hasVariant(variants, "installmm", "installmm")
+            ? "Install Metamask"
+            : "Confirm Sales Order"}
+        </div>
+
+        {(hasVariant(variants, "connectmm", "connectmm") ? true : true) ? (
+          <MetamasksvgIcon
+            className={classNames(projectcss.all, sty.svg__gyZm, {
+              [sty.svgconnectmm__gyZmSqZmt]: hasVariant(
+                variants,
+                "connectmm",
+                "connectmm"
+              )
+            })}
+            role={"img"}
+          />
+        ) : null}
+        {(hasVariant(variants, "installmm", "installmm") ? true : true) ? (
+          <MetamasksvgIcon
+            className={classNames(projectcss.all, sty.svg__iJNmD, {
+              [sty.svginstallmm__iJNmDvXuOp]: hasVariant(
+                variants,
+                "installmm",
+                "installmm"
+              )
+            })}
+            role={"img"}
+          />
+        ) : null}
+        {(
+          hasVariant(variants, "sendtxnconsent", "sendtxnconsent") ? true : true
+        ) ? (
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__ogYqa, {
+              [sty.imgsendtxnconsent__ogYqaLjVjA]: hasVariant(
+                variants,
+                "sendtxnconsent",
+                "sendtxnconsent"
+              )
+            })}
+            displayHeight={"38px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"42px"}
+            loading={"lazy"}
+            src={{
+              src: graphiteLogoInvpngB3LtWjF49,
+              fullWidth: 117,
+              fullHeight: 106,
+              aspectRatio: undefined
+            }}
+          />
+        ) : null}
+        {(hasVariant(variants, "failed", "failed") ? true : true) ? (
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__oWsst, {
+              [sty.imgfailed__oWsstocDdJ]: hasVariant(
+                variants,
+                "failed",
+                "failed"
+              )
+            })}
+            displayHeight={"50px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"53px"}
+            loading={"lazy"}
+            src={{
+              src: failgifGV67UXTi,
+              fullWidth: 200,
+              fullHeight: 200,
+              aspectRatio: undefined
+            }}
+          />
+        ) : null}
+        {(hasVariant(variants, "success", "success") ? true : true) ? (
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__kOt3V, {
+              [sty.imgsuccess__kOt3VkPrSc]: hasVariant(
+                variants,
+                "success",
+                "success"
+              )
+            })}
+            displayHeight={"50px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"94px"}
+            loading={"lazy"}
+            src={{
+              src: successCropgifUneR0OkrA,
+              fullWidth: 214,
+              fullHeight: 209,
+              aspectRatio: undefined
+            }}
+          />
+        ) : null}
+        {(hasVariant(variants, "processing", "processing") ? true : true) ? (
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__oIaL1, {
+              [sty.imgprocessing__oIaL1Pdh5H]: hasVariant(
+                variants,
+                "processing",
+                "processing"
+              )
+            })}
+            displayHeight={"50px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"none"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"142px"}
+            loading={"lazy"}
+            src={{
+              src: loadergifESQzAuv1I,
+              fullWidth: 1500,
+              fullHeight: 1500,
+              aspectRatio: undefined
+            }}
+          />
+        ) : null}
+        {(hasVariant(variants, "sendtxn", "sendtxn") ? true : true) ? (
+          <p.PlasmicImg
+            alt={""}
+            className={classNames(sty.img__fUSlm, {
+              [sty.imgsendtxn__fUSlmQfRAj]: hasVariant(
+                variants,
+                "sendtxn",
+                "sendtxn"
+              )
+            })}
+            displayHeight={"42px"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"42px"}
+            loading={"lazy"}
+            src={{
+              src: graphiteLogoInvpngB3LtWjF49,
+              fullWidth: 117,
+              fullHeight: 106,
+              aspectRatio: undefined
+            }}
+          />
+        ) : null}
+      </p.Stack>
+
+      {(hasVariant(variants, "success", "success") ? true : true) ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox___4NAoc, {
+            [sty.freeBoxsuccess___4NAockPrSc]: hasVariant(
               variants,
               "success",
               "success"
             )
           })}
         >
-          <button
-            data-plasmic-name={"mainbutton"}
-            data-plasmic-override={overrides.mainbutton}
-            className={classNames(
-              projectcss.button,
-              projectcss.__wab_text,
-              sty.mainbutton,
-              {
-                [sty.mainbuttonconnectmm]: hasVariant(
-                  variants,
-                  "connectmm",
-                  "connectmm"
-                ),
-
-                [sty.mainbuttonfailed]: hasVariant(
-                  variants,
-                  "failed",
-                  "failed"
-                ),
-
-                [sty.mainbuttoninstallmm]: hasVariant(
-                  variants,
-                  "installmm",
-                  "installmm"
-                ),
-
-                [sty.mainbuttoninvoice]: hasVariant(
-                  variants,
-                  "invoice",
-                  "invoice"
-                ),
-
-                [sty.mainbuttonlogistics]: hasVariant(
-                  variants,
-                  "logistics",
-                  "logistics"
-                ),
-
-                [sty.mainbuttonprocessing]: hasVariant(
-                  variants,
-                  "processing",
-                  "processing"
-                ),
-
-                [sty.mainbuttonsalesorder]: hasVariant(
-                  variants,
-                  "salesorder",
-                  "salesorder"
-                ),
-
-                [sty.mainbuttonsendtxn]: hasVariant(
-                  variants,
-                  "sendtxn",
-                  "sendtxn"
-                ),
-
-                [sty.mainbuttonsendtxnconsent]: hasVariant(
-                  variants,
-                  "sendtxnconsent",
-                  "sendtxnconsent"
-                ),
-
-                [sty.mainbuttonsendtxnconsentinv]: hasVariant(
-                  variants,
-                  "sendtxnconsentinv",
-                  "sendtxnconsentinv"
-                ),
-
-                [sty.mainbuttonsendtxnconsentlog]: hasVariant(
-                  variants,
-                  "sendtxnconsentlog",
-                  "sendtxnconsentlog"
-                ),
-
-                [sty.mainbuttonsendtxnconsentso]: hasVariant(
-                  variants,
-                  "sendtxnconsentso",
-                  "sendtxnconsentso"
-                ),
-
-                [sty.mainbuttonsendtxninv]: hasVariant(
-                  variants,
-                  "sendtxninv",
-                  "sendtxninv"
-                ),
-
-                [sty.mainbuttonsendtxnlog]: hasVariant(
-                  variants,
-                  "sendtxnlog",
-                  "sendtxnlog"
-                ),
-
-                [sty.mainbuttonsendtxnso]: hasVariant(
-                  variants,
-                  "sendtxnso",
-                  "sendtxnso"
-                ),
-
-                [sty.mainbuttonsuccess]: hasVariant(
-                  variants,
-                  "success",
-                  "success"
-                )
-              }
-            )}
-            disabled={
-              hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
-                ? true
-                : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
-                ? true
-                : hasVariant(variants, "sendtxnlog", "sendtxnlog")
-                ? false
-                : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
-                ? true
-                : hasVariant(variants, "sendtxninv", "sendtxninv")
-                ? false
-                : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
-                ? true
-                : hasVariant(variants, "sendtxnso", "sendtxnso")
-                ? false
-                : undefined
-            }
-          >
-            {hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
-              ? "Confirm Sales Order"
-              : hasVariant(variants, "salesorder", "salesorder")
-              ? "Create Sales Order"
-              : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
-              ? "Sign and Submit Request"
-              : hasVariant(variants, "failed", "failed")
-              ? "Transaction Failed"
-              : hasVariant(variants, "success", "success")
-              ? "Transaction Successfull"
-              : hasVariant(variants, "processing", "processing")
-              ? "Transaction in Process"
-              : hasVariant(variants, "sendtxn", "sendtxn")
-              ? "Sign and Submit Request"
-              : hasVariant(variants, "connectmm", "connectmm")
-              ? "Connect Metamask Account"
-              : hasVariant(variants, "sendtxnlog", "sendtxnlog")
-              ? "Confirm Logistics"
-              : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
-              ? "Confirm Logistics"
-              : hasVariant(variants, "logistics", "logistics")
-              ? "Create Logistics"
-              : hasVariant(variants, "sendtxninv", "sendtxninv")
-              ? "Confirm Invoice"
-              : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
-              ? "Confirm Invoice"
-              : hasVariant(variants, "invoice", "invoice")
-              ? "Create Invoice"
-              : hasVariant(variants, "sendtxnso", "sendtxnso")
-              ? "Confirm Sales Order"
-              : hasVariant(variants, "installmm", "installmm")
-              ? "Install Metamask"
-              : "Transaction in Process"}
-          </button>
-
-          {(hasVariant(variants, "failed", "failed") ? true : true) ? (
-            <p.PlasmicImg
-              alt={""}
-              className={classNames(sty.img___4PNmP, {
-                [sty.imgfailed___4PNmPocDdJ]: hasVariant(
-                  variants,
-                  "failed",
-                  "failed"
-                )
-              })}
-              displayHeight={"50px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"53px"}
-              loading={"lazy"}
-              src={{
-                src: failgifGV67UXTi,
-                fullWidth: 200,
-                fullHeight: 200,
-                aspectRatio: undefined
-              }}
-            />
-          ) : null}
           {(hasVariant(variants, "success", "success") ? true : true) ? (
-            <p.PlasmicImg
-              alt={""}
-              className={classNames(sty.img___6BiMu, {
-                [sty.imgsuccess___6BiMukPrSc]: hasVariant(
-                  variants,
-                  "success",
-                  "success"
-                )
-              })}
-              displayHeight={"50px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"94px"}
-              loading={"lazy"}
-              src={{
-                src: successCropgifUneR0OkrA,
-                fullWidth: 214,
-                fullHeight: 209,
-                aspectRatio: undefined
-              }}
-            />
-          ) : null}
-          {(
-            hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
-              ? false
-              : hasVariant(variants, "salesorder", "salesorder")
-              ? false
-              : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
-              ? true
-              : hasVariant(variants, "sendtxn", "sendtxn")
-              ? true
-              : hasVariant(variants, "sendtxnlog", "sendtxnlog")
-              ? false
-              : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
-              ? false
-              : hasVariant(variants, "logistics", "logistics")
-              ? false
-              : hasVariant(variants, "sendtxninv", "sendtxninv")
-              ? false
-              : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
-              ? false
-              : hasVariant(variants, "invoice", "invoice")
-              ? false
-              : hasVariant(variants, "sendtxnso", "sendtxnso")
-              ? false
-              : true
-          ) ? (
-            <p.PlasmicImg
-              alt={""}
-              className={classNames(sty.img__rfRzo, {
-                [sty.imginvoice__rfRzomXQyB]: hasVariant(
-                  variants,
-                  "invoice",
-                  "invoice"
-                ),
-
-                [sty.imglogistics__rfRzokbJf2]: hasVariant(
-                  variants,
-                  "logistics",
-                  "logistics"
-                ),
-
-                [sty.imgsalesorder__rfRzoAwkTr]: hasVariant(
-                  variants,
-                  "salesorder",
-                  "salesorder"
-                ),
-
-                [sty.imgsendtxn__rfRzoQfRAj]: hasVariant(
-                  variants,
-                  "sendtxn",
-                  "sendtxn"
-                ),
-
-                [sty.imgsendtxnconsent__rfRzoLjVjA]: hasVariant(
-                  variants,
-                  "sendtxnconsent",
-                  "sendtxnconsent"
-                ),
-
-                [sty.imgsendtxnconsentinv__rfRzoN0H5]: hasVariant(
-                  variants,
-                  "sendtxnconsentinv",
-                  "sendtxnconsentinv"
-                ),
-
-                [sty.imgsendtxnconsentlog__rfRzo9Uo71]: hasVariant(
-                  variants,
-                  "sendtxnconsentlog",
-                  "sendtxnconsentlog"
-                ),
-
-                [sty.imgsendtxnconsentso__rfRzoEknV0]: hasVariant(
-                  variants,
-                  "sendtxnconsentso",
-                  "sendtxnconsentso"
-                ),
-
-                [sty.imgsendtxninv__rfRzowqMv]: hasVariant(
-                  variants,
-                  "sendtxninv",
-                  "sendtxninv"
-                ),
-
-                [sty.imgsendtxnlog__rfRzoAchdx]: hasVariant(
-                  variants,
-                  "sendtxnlog",
-                  "sendtxnlog"
-                ),
-
-                [sty.imgsendtxnso__rfRzocK3Fg]: hasVariant(
-                  variants,
-                  "sendtxnso",
-                  "sendtxnso"
-                )
-              })}
-              displayHeight={"38px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"auto"}
-              loading={"lazy"}
-              src={{
-                src: graphiteLogoInvpngB3LtWjF49,
-                fullWidth: 117,
-                fullHeight: 106,
-                aspectRatio: undefined
-              }}
-            />
-          ) : null}
-          {(
-            hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
-              ? true
-              : hasVariant(variants, "salesorder", "salesorder")
-              ? true
-              : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
-              ? true
-              : hasVariant(variants, "failed", "failed")
-              ? true
-              : hasVariant(variants, "success", "success")
-              ? true
-              : hasVariant(variants, "processing", "processing")
-              ? false
-              : hasVariant(variants, "sendtxn", "sendtxn")
-              ? true
-              : hasVariant(variants, "sendtxnlog", "sendtxnlog")
-              ? true
-              : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
-              ? true
-              : hasVariant(variants, "logistics", "logistics")
-              ? true
-              : hasVariant(variants, "sendtxninv", "sendtxninv")
-              ? true
-              : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
-              ? true
-              : hasVariant(variants, "invoice", "invoice")
-              ? true
-              : hasVariant(variants, "sendtxnso", "sendtxnso")
-              ? true
-              : true
-          ) ? (
-            <MetamasksvgIcon
-              data-plasmic-name={"svg"}
-              data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg, {
-                [sty.svgconnectmm]: hasVariant(
-                  variants,
-                  "connectmm",
-                  "connectmm"
-                ),
-
-                [sty.svgfailed]: hasVariant(variants, "failed", "failed"),
-                [sty.svginstallmm]: hasVariant(
-                  variants,
-                  "installmm",
-                  "installmm"
-                ),
-
-                [sty.svginvoice]: hasVariant(variants, "invoice", "invoice"),
-                [sty.svglogistics]: hasVariant(
-                  variants,
-                  "logistics",
-                  "logistics"
-                ),
-
-                [sty.svgprocessing]: hasVariant(
-                  variants,
-                  "processing",
-                  "processing"
-                ),
-
-                [sty.svgsalesorder]: hasVariant(
-                  variants,
-                  "salesorder",
-                  "salesorder"
-                ),
-
-                [sty.svgsendtxn]: hasVariant(variants, "sendtxn", "sendtxn"),
-                [sty.svgsendtxnconsent]: hasVariant(
-                  variants,
-                  "sendtxnconsent",
-                  "sendtxnconsent"
-                ),
-
-                [sty.svgsendtxnconsentinv]: hasVariant(
-                  variants,
-                  "sendtxnconsentinv",
-                  "sendtxnconsentinv"
-                ),
-
-                [sty.svgsendtxnconsentlog]: hasVariant(
-                  variants,
-                  "sendtxnconsentlog",
-                  "sendtxnconsentlog"
-                ),
-
-                [sty.svgsendtxnconsentso]: hasVariant(
-                  variants,
-                  "sendtxnconsentso",
-                  "sendtxnconsentso"
-                ),
-
-                [sty.svgsendtxninv]: hasVariant(
-                  variants,
-                  "sendtxninv",
-                  "sendtxninv"
-                ),
-
-                [sty.svgsendtxnlog]: hasVariant(
-                  variants,
-                  "sendtxnlog",
-                  "sendtxnlog"
-                ),
-
-                [sty.svgsendtxnso]: hasVariant(
-                  variants,
-                  "sendtxnso",
-                  "sendtxnso"
-                ),
-
-                [sty.svgsuccess]: hasVariant(variants, "success", "success")
-              })}
-              role={"img"}
-            />
-          ) : null}
-          {(hasVariant(variants, "processing", "processing") ? true : true) ? (
-            <p.PlasmicImg
-              alt={""}
-              className={classNames(sty.img___3Qsg6, {
-                [sty.imgprocessing___3Qsg6Pdh5H]: hasVariant(
-                  variants,
-                  "processing",
-                  "processing"
-                )
-              })}
-              displayHeight={"50px"}
-              displayMaxHeight={"none"}
-              displayMaxWidth={"100%"}
-              displayMinHeight={"0"}
-              displayMinWidth={"0"}
-              displayWidth={"142px"}
-              loading={"lazy"}
-              src={{
-                src: loadergifESQzAuv1I,
-                fullWidth: 1500,
-                fullHeight: 1500,
-                aspectRatio: undefined
-              }}
-            />
-          ) : null}
-          {(hasVariant(variants, "success", "success") ? true : true) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox___4NAoc, {
-                [sty.freeBoxsuccess___4NAockPrSc]: hasVariant(
-                  variants,
-                  "success",
-                  "success"
-                )
-              })}
-            >
-              {(hasVariant(variants, "success", "success") ? true : true) ? (
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rSbH,
-                    {
-                      [sty.textsuccess__rSbHKPrSc]: hasVariant(
-                        variants,
-                        "success",
-                        "success"
-                      )
-                    }
-                  )}
-                >
-                  {"HASH:"}
-                </div>
-              ) : null}
-              {(hasVariant(variants, "success", "success") ? true : true) ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__ltjiy, {
-                    [sty.freeBoxsuccess__ltjiykPrSc]: hasVariant(
-                      variants,
-                      "success",
-                      "success"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "sdfbsdfdfdfgdfhdfhdfhdfhdfhdh",
-                    value: args.hash,
-                    className: classNames(sty.slotTargetHash, {
-                      [sty.slotTargetHashsuccess]: hasVariant(
-                        variants,
-                        "success",
-                        "success"
-                      )
-                    })
-                  })}
-                </div>
-              ) : null}
-              {(hasVariant(variants, "success", "success") ? true : true) ? (
-                <a
-                  data-plasmic-name={"copybutton"}
-                  data-plasmic-override={overrides.copybutton}
-                  className={classNames(projectcss.a, sty.copybutton, {
-                    [sty.copybuttonsuccess]: hasVariant(
-                      variants,
-                      "success",
-                      "success"
-                    )
-                  })}
-                >
-                  <p.PlasmicImg
-                    data-plasmic-name={"copyimage"}
-                    data-plasmic-override={overrides.copyimage}
-                    alt={""}
-                    className={classNames(sty.copyimage)}
-                    displayHeight={"auto"}
-                    displayMaxHeight={"none"}
-                    displayMaxWidth={"100%"}
-                    displayMinHeight={"0"}
-                    displayMinWidth={"0"}
-                    displayWidth={"12px"}
-                    loading={"lazy"}
-                    src={{
-                      src: copygifN5E9Rn6NN,
-                      fullWidth: 1500,
-                      fullHeight: 1500,
-                      aspectRatio: undefined
-                    }}
-                  />
-                </a>
-              ) : null}
-            </div>
-          ) : null}
-          {(hasVariant(variants, "connectmm", "connectmm") ? true : true) ? (
-            <a
-              data-plasmic-name={"installmetamasktext"}
-              data-plasmic-override={overrides.installmetamasktext}
-              className={classNames(
-                projectcss.a,
-                projectcss.__wab_text,
-                sty.installmetamasktext,
-                {
-                  [sty.installmetamasktextconnectmm]: hasVariant(
-                    variants,
-                    "connectmm",
-                    "connectmm"
-                  )
-                }
-              )}
-            >
-              {"Click here to install Metamask"}
-            </a>
-          ) : null}
-          {(
-            hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
-              ? true
-              : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
-              ? true
-              : hasVariant(variants, "sendtxnlog", "sendtxnlog")
-              ? false
-              : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
-              ? true
-              : hasVariant(variants, "sendtxninv", "sendtxninv")
-              ? false
-              : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
-              ? true
-              : hasVariant(variants, "sendtxnso", "sendtxnso")
-              ? false
-              : true
-          ) ? (
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__dvzO3,
+                sty.text__rSbH,
                 {
-                  [sty.textfailed__dvzO3OcDdJ]: hasVariant(
+                  [sty.textsuccess__rSbHKPrSc]: hasVariant(
                     variants,
-                    "failed",
-                    "failed"
-                  ),
-
-                  [sty.textsendtxnconsent__dvzO3LjVjA]: hasVariant(
-                    variants,
-                    "sendtxnconsent",
-                    "sendtxnconsent"
-                  ),
-
-                  [sty.textsendtxnconsentinv__dvzO3N0H5]: hasVariant(
-                    variants,
-                    "sendtxnconsentinv",
-                    "sendtxnconsentinv"
-                  ),
-
-                  [sty.textsendtxnconsentlog__dvzO39Uo71]: hasVariant(
-                    variants,
-                    "sendtxnconsentlog",
-                    "sendtxnconsentlog"
-                  ),
-
-                  [sty.textsendtxnconsentso__dvzO3EknV0]: hasVariant(
-                    variants,
-                    "sendtxnconsentso",
-                    "sendtxnconsentso"
-                  ),
-
-                  [sty.textsendtxninv__dvzO3WqMv]: hasVariant(
-                    variants,
-                    "sendtxninv",
-                    "sendtxninv"
-                  ),
-
-                  [sty.textsendtxnlog__dvzO3Achdx]: hasVariant(
-                    variants,
-                    "sendtxnlog",
-                    "sendtxnlog"
-                  ),
-
-                  [sty.textsendtxnso__dvzO3CK3Fg]: hasVariant(
-                    variants,
-                    "sendtxnso",
-                    "sendtxnso"
+                    "success",
+                    "success"
                   )
                 }
               )}
             >
-              {"( Please agree to the terms and conditions )"}
+              {"HASH:"}
             </div>
           ) : null}
-        </div>
-      ) : null}
-      {(hasVariant(variants, "failed", "failed") ? true : true) ? (
-        <div
-          className={classNames(projectcss.all, sty.freeBox__e2Mwu, {
-            [sty.freeBoxfailed__e2MwuocDdJ]: hasVariant(
-              variants,
-              "failed",
-              "failed"
-            )
-          })}
-        >
-          {(hasVariant(variants, "failed", "failed") ? true : true) ? (
+          {(hasVariant(variants, "success", "success") ? true : true) ? (
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__pnd4N,
-                {
-                  [sty.textfailed__pnd4NocDdJ]: hasVariant(
-                    variants,
-                    "failed",
-                    "failed"
-                  )
-                }
-              )}
-            >
-              {"Redirecting in  "}
-            </div>
-          ) : null}
-          {(hasVariant(variants, "failed", "failed") ? true : false) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__xph6F, {
-                [sty.freeBoxfailed__xph6FocDdJ]: hasVariant(
+              className={classNames(projectcss.all, sty.freeBox__ltjiy, {
+                [sty.freeBoxsuccess__ltjiykPrSc]: hasVariant(
                   variants,
-                  "failed",
-                  "failed"
+                  "success",
+                  "success"
                 )
               })}
             >
               {p.renderPlasmicSlot({
-                defaultContents: " 5 ",
-                value: args.timer
+                defaultContents: "sdfbsdfdfdfgdfhdfhdfhdfhdfhdh",
+                value: args.hash,
+                className: classNames(sty.slotTargetHash, {
+                  [sty.slotTargetHashsuccess]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                })
               })}
             </div>
           ) : null}
-          {(hasVariant(variants, "failed", "failed") ? true : false) ? (
+        </div>
+      ) : null}
+      {(hasVariant(variants, "connectmm", "connectmm") ? true : false) ? (
+        <a
+          data-plasmic-name={"installmetamasktext"}
+          data-plasmic-override={overrides.installmetamasktext}
+          className={classNames(
+            projectcss.all,
+            projectcss.a,
+            projectcss.__wab_text,
+            sty.installmetamasktext,
+            {
+              [sty.installmetamasktextconnectmm]: hasVariant(
+                variants,
+                "connectmm",
+                "connectmm"
+              )
+            }
+          )}
+        >
+          {"Click here to install Metamask"}
+        </a>
+      ) : null}
+      {(
+        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          ? false
+          : hasVariant(variants, "failed", "failed")
+          ? true
+          : hasVariant(variants, "success", "success")
+          ? true
+          : false
+      ) ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox__uQsb, {
+            [sty.freeBoxfailed__uQsBocDdJ]: hasVariant(
+              variants,
+              "failed",
+              "failed"
+            ),
+
+            [sty.freeBoxsendtxnconsent__uQsbljVjA]: hasVariant(
+              variants,
+              "sendtxnconsent",
+              "sendtxnconsent"
+            ),
+
+            [sty.freeBoxsuccess__uQsBkPrSc]: hasVariant(
+              variants,
+              "success",
+              "success"
+            )
+          })}
+        >
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : true
+          ) ? (
             <div
               className={classNames(
                 projectcss.all,
                 projectcss.__wab_text,
-                sty.text__jSn1,
+                sty.text__euXxt,
                 {
-                  [sty.textfailed__jSn1OcDdJ]: hasVariant(
+                  [sty.textfailed__euXxTocDdJ]: hasVariant(
                     variants,
                     "failed",
                     "failed"
+                  ),
+
+                  [sty.textsuccess__euXxTkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                }
+              )}
+            >
+              {"Redirecting in "}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__gxcma, {
+                [sty.freeBoxfailed__gxcmAocDdJ]: hasVariant(
+                  variants,
+                  "failed",
+                  "failed"
+                ),
+
+                [sty.freeBoxsuccess__gxcmAkPrSc]: hasVariant(
+                  variants,
+                  "success",
+                  "success"
+                )
+              })}
+            >
+              {p.renderPlasmicSlot({
+                defaultContents: "5",
+                value: args.timer
+              })}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text___6IsjH,
+                {
+                  [sty.textfailed___6IsjHocDdJ]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.textsuccess___6IsjHkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                }
+              )}
+            >
+              {" seconds..."}
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+      {(
+        hasVariant(variants, "sendtxnconsentso", "sendtxnconsentso")
+          ? true
+          : hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          ? true
+          : hasVariant(variants, "sendtxnlog", "sendtxnlog")
+          ? false
+          : hasVariant(variants, "sendtxnconsentlog", "sendtxnconsentlog")
+          ? true
+          : hasVariant(variants, "sendtxninv", "sendtxninv")
+          ? false
+          : hasVariant(variants, "sendtxnconsentinv", "sendtxnconsentinv")
+          ? true
+          : hasVariant(variants, "sendtxnso", "sendtxnso")
+          ? false
+          : false
+      ) ? (
+        <div
+          className={classNames(
+            projectcss.all,
+            projectcss.__wab_text,
+            sty.text__wsCoW,
+            {
+              [sty.textfailed__wsCoWocDdJ]: hasVariant(
+                variants,
+                "failed",
+                "failed"
+              ),
+
+              [sty.textsendtxnconsent__wsCoWljVjA]: hasVariant(
+                variants,
+                "sendtxnconsent",
+                "sendtxnconsent"
+              ),
+
+              [sty.textsendtxnconsentinv__wsCoWn0H5]: hasVariant(
+                variants,
+                "sendtxnconsentinv",
+                "sendtxnconsentinv"
+              ),
+
+              [sty.textsendtxnconsentlog__wsCoW9Uo71]: hasVariant(
+                variants,
+                "sendtxnconsentlog",
+                "sendtxnconsentlog"
+              ),
+
+              [sty.textsendtxnconsentso__wsCoWEknV0]: hasVariant(
+                variants,
+                "sendtxnconsentso",
+                "sendtxnconsentso"
+              ),
+
+              [sty.textsendtxninv__wsCoWwqMv]: hasVariant(
+                variants,
+                "sendtxninv",
+                "sendtxninv"
+              ),
+
+              [sty.textsendtxnlog__wsCoWAchdx]: hasVariant(
+                variants,
+                "sendtxnlog",
+                "sendtxnlog"
+              ),
+
+              [sty.textsendtxnso__wsCoWcK3Fg]: hasVariant(
+                variants,
+                "sendtxnso",
+                "sendtxnso"
+              )
+            }
+          )}
+        >
+          {"( Please agree to the terms and conditions )"}
+        </div>
+      ) : null}
+      {(
+        hasVariant(variants, "sendtxnconsent", "sendtxnconsent")
+          ? false
+          : hasVariant(variants, "failed", "failed")
+          ? true
+          : hasVariant(variants, "success", "success")
+          ? true
+          : false
+      ) ? (
+        <div
+          className={classNames(projectcss.all, sty.freeBox__cYhkM, {
+            [sty.freeBoxfailed__cYhkMocDdJ]: hasVariant(
+              variants,
+              "failed",
+              "failed"
+            ),
+
+            [sty.freeBoxsendtxnconsent__cYhkMljVjA]: hasVariant(
+              variants,
+              "sendtxnconsent",
+              "sendtxnconsent"
+            ),
+
+            [sty.freeBoxsuccess__cYhkMkPrSc]: hasVariant(
+              variants,
+              "success",
+              "success"
+            )
+          })}
+        >
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : true
+          ) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__ruRcb,
+                {
+                  [sty.textfailed__ruRcbocDdJ]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.textsuccess__ruRcbkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
+                  )
+                }
+              )}
+            >
+              {"Redirecting in "}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox__hUNzM, {
+                [sty.freeBoxfailed__hUNzMocDdJ]: hasVariant(
+                  variants,
+                  "failed",
+                  "failed"
+                ),
+
+                [sty.freeBoxsuccess__hUNzMkPrSc]: hasVariant(
+                  variants,
+                  "success",
+                  "success"
+                )
+              })}
+            >
+              {p.renderPlasmicSlot({
+                defaultContents: "5",
+                value: args.timer2
+              })}
+            </div>
+          ) : null}
+          {(
+            hasVariant(variants, "failed", "failed")
+              ? true
+              : hasVariant(variants, "success", "success")
+              ? true
+              : false
+          ) ? (
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__jfLtw,
+                {
+                  [sty.textfailed__jfLtWocDdJ]: hasVariant(
+                    variants,
+                    "failed",
+                    "failed"
+                  ),
+
+                  [sty.textsuccess__jfLtWkPrSc]: hasVariant(
+                    variants,
+                    "success",
+                    "success"
                   )
                 }
               )}
@@ -904,19 +848,8 @@ function PlasmicButtonB__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "mainbutton",
-    "svg",
-    "copybutton",
-    "copyimage",
-    "installmetamasktext"
-  ],
-
+  root: ["root", "mainbutton", "installmetamasktext"],
   mainbutton: ["mainbutton"],
-  svg: ["svg"],
-  copybutton: ["copybutton", "copyimage"],
-  copyimage: ["copyimage"],
   installmetamasktext: ["installmetamasktext"]
 };
 
@@ -950,9 +883,6 @@ export const PlasmicButtonB = Object.assign(
   {
     // Helper components rendering sub-elements
     mainbutton: makeNodeComponent("mainbutton"),
-    svg: makeNodeComponent("svg"),
-    copybutton: makeNodeComponent("copybutton"),
-    copyimage: makeNodeComponent("copyimage"),
     installmetamasktext: makeNodeComponent("installmetamasktext"),
     // Metadata about props expected for PlasmicButtonB
     internalVariantProps: PlasmicButtonB__VariantProps,

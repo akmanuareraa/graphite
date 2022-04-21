@@ -1,6 +1,6 @@
 .root {
-  display: flex;
   flex-direction: column;
+  display: flex;
   width: 1184px;
   height: auto;
   max-width: 100%;
@@ -9,8 +9,8 @@
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 11px);
   height: calc(100% + 11px);
 }
@@ -77,9 +77,9 @@
   font-weight: 700;
 }
 .freeBox__qk92J {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
   width: 1020px;
   height: auto;
   max-width: 1020px;
@@ -89,8 +89,8 @@
 }
 .freeBox__qk92J > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   margin-left: calc(0px - 17px);
   width: calc(100% + 17px);
 }
@@ -133,9 +133,9 @@
   color: #ffffff;
 }
 .freeBox__zvv8K {
+  flex-direction: column;
   display: flex;
   position: relative;
-  flex-direction: column;
   width: 1020px;
   height: auto;
   max-width: 1020px;
@@ -144,8 +144,8 @@
 }
 .freeBox__zvv8K > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 1px);
   height: calc(100% + 1px);
 }
@@ -176,9 +176,9 @@
   margin-top: calc(21px + 11px) !important;
 }
 .freeBox__ezQLn {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
   width: 1020px;
   height: auto;
   max-width: 1020px;
@@ -188,8 +188,8 @@
 }
 .freeBox__ezQLn > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   margin-left: calc(0px - 17px);
   width: calc(100% + 17px);
 }
@@ -232,9 +232,9 @@
   color: #ffffff;
 }
 .freeBox__pFe5J {
+  flex-direction: column;
   display: flex;
   position: relative;
-  flex-direction: column;
   width: 1020px;
   height: auto;
   max-width: 1020px;
@@ -243,8 +243,8 @@
 }
 .freeBox__pFe5J > :global(.__wab_flex-container) {
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-top: calc(0px - 1px);
   height: calc(100% + 1px);
 }

@@ -22,6 +22,7 @@ import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicButton.module.css"; // plasmic-import: Au9KGpvOoQJ/css
 import ChecksvgIcon from "./icons/PlasmicIcon__Checksvg"; // plasmic-import: 4oAEIGXQW5W/icon
+import MetamasksvgIcon from "../project5162/icons/PlasmicIcon__Metamasksvg"; // plasmic-import: oUB_LRSSgs/icon
 import Icon2Icon from "./icons/PlasmicIcon__Icon2"; // plasmic-import: fZFeFQ1xXHI/icon
 
 export const PlasmicButton__VariantProps = new Array(
@@ -53,15 +54,17 @@ function PlasmicButton__RenderFunc(props) {
 
   return (
     <p.Stack
-      as={"button"}
+      as={"div"}
       data-plasmic-name={"root"}
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       hasGap={true}
       className={classNames(
-        projectcss.button,
+        projectcss.all,
         projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
@@ -383,6 +386,13 @@ function PlasmicButton__RenderFunc(props) {
         })}
       </div>
 
+      <MetamasksvgIcon
+        data-plasmic-name={"svg"}
+        data-plasmic-override={overrides.svg}
+        className={classNames(projectcss.all, sty.svg)}
+        role={"img"}
+      />
+
       {(hasVariant(variants, "showEndIcon", "showEndIcon") ? true : false) ? (
         <div
           data-plasmic-name={"endIconContainer"}
@@ -509,9 +519,17 @@ function useBehavior(props, ref) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "startIconContainer", "contentContainer", "endIconContainer"],
+  root: [
+    "root",
+    "startIconContainer",
+    "contentContainer",
+    "svg",
+    "endIconContainer"
+  ],
+
   startIconContainer: ["startIconContainer"],
   contentContainer: ["contentContainer"],
+  svg: ["svg"],
   endIconContainer: ["endIconContainer"]
 };
 
@@ -546,6 +564,7 @@ export const PlasmicButton = Object.assign(
     // Helper components rendering sub-elements
     startIconContainer: makeNodeComponent("startIconContainer"),
     contentContainer: makeNodeComponent("contentContainer"),
+    svg: makeNodeComponent("svg"),
     endIconContainer: makeNodeComponent("endIconContainer"),
     // Metadata about props expected for PlasmicButton
     internalVariantProps: PlasmicButton__VariantProps,

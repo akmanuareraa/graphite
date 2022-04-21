@@ -80,9 +80,9 @@
   width: 173px;
 }
 .freeBox__beup7 {
+  flex-direction: row;
   display: flex;
   position: absolute;
-  flex-direction: row;
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -94,8 +94,8 @@
 }
 .freeBox__beup7 > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-width: 0;
   margin-left: calc(0px - 0px);
   width: calc(100% + 0px);
@@ -157,7 +157,7 @@
   margin-bottom: 34px;
 }
 .slotTargetTotalgpi {
-  color: #e8e6e6 /* plasmic-token: vqUH979vi */;
+  color: var(--token-vqUH979vi);
 }
 .consent:global(.__wab_instance) {
   position: absolute;

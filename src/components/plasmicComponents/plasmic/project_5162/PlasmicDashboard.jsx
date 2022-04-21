@@ -35,10 +35,17 @@ function PlasmicDashboard__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.rootdeposit]: hasVariant(variants, "deposit", "deposit"),
-        [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
-      })}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootdeposit]: hasVariant(variants, "deposit", "deposit"),
+          [sty.rootwithdraw]: hasVariant(variants, "withdraw", "withdraw")
+        }
+      )}
     >
       <div
         className={classNames(projectcss.all, sty.freeBox___3Wr1, {

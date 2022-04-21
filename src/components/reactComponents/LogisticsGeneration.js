@@ -1,12 +1,36 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import config from '../../config-frontend'
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
 import Web3 from 'web3'
 import axios from 'axios';
 
 import Logisticsgeneration from '../plasmicComponents/Logisticsgeneration.jsx'
+import PlasmicTableHeader from '../plasmicComponents/Tableheader'
+import PlasmicTableRow from '../plasmicComponents/Tablerow'
 
 function LogisticsGeneration(props) {
+
+    async function getRevertReason(txHash, addParams, formParams) {
+        let web3 = props.mainState.web3
+        console.log(11)
+        const tx = await web3.eth.getTransaction(txHash)
+        console.log(22)
+        try {
+            var result = await web3.eth.call(tx, tx.blockNumber)
+                .catch(function (e) {
+                    console.log('NEW ON ERROR: ', JSON.stringify(e.message).split('\\"'))
+                    let edit = JSON.stringify(e.message).split('\\"')
+                    console.log('RR: ', edit[5])
+                    props.redirectExecution(formParams, addParams + edit[5], 5400, 900, "generatelogistics")
+                })
+            console.log('result', result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const [dynamictable, setDynamictable] = useState([])
+    let globalCounter = null
 
     const createLogistics = (urlParams) => {
         props.setAllUiStates(prevState => {
@@ -28,7 +52,7 @@ function LogisticsGeneration(props) {
         let hash = Web3.utils.keccak256(JSON.stringify(urlParams))
         console.log("HASH: ", hash)
 
-        logisticsAssetMinterContract.methods.issueAsset(hash, props.mainState.account).send({ from: props.mainState.account })
+        logisticsAssetMinterContract.methods.issueAsset(hash, urlParams.customerAddress).send({ from: props.mainState.account })
             .on('transactionHash', function (hash) {
                 console.log(hash)
                 props.setMainState(prevState => {
@@ -63,16 +87,16 @@ function LogisticsGeneration(props) {
                                 }
                             })
 
-                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'+ "&link=http://localhost:3000/confirmLogistics/logistics?cha=" + props.allUrlParams.generatelogistics.cha 
+                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success' + "&link=http://" + config.domain + "/confirmLogistics/logistics?cha=" + props.allUrlParams.generatelogistics.cha
                             props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
                         } else {
-                            alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                            alert("Error encountered in Database.  Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + error
                             props.redirectExecution(urlParams, additionalParams, 10, 10, "generatelogistics")
                         }
                     })
                         .catch(function (e) {
-                            alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                            alert("Error encountered in Database.  Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + e
                             props.redirectExecution(urlParams, additionalParams, 10, 10, "generatelogistics")
                         })
@@ -80,7 +104,13 @@ function LogisticsGeneration(props) {
             })
             .on('error', function (error, receipt) {
                 console.log(error)
-                console.log(receipt)
+                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason='
+                console.log(additionalParams)
+                try {
+                    getRevertReason(receipt.transactionHash, additionalParams, urlParams)
+                } catch (error) {
+                    console.log('TC ERROR: ', error)
+                }
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
@@ -91,9 +121,6 @@ function LogisticsGeneration(props) {
                         }
                     }
                 })
-
-                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error 
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
             })
             .catch(function (e) {
                 console.log('METAMASK-ERROR: ', e)
@@ -108,10 +135,46 @@ function LogisticsGeneration(props) {
 
                     }
                 })
-                let additionalParams = '&status=failed&reason=' + e.message 
+                let additionalParams = '&status=failed&reason=' + e.message
                 props.redirectExecution(urlParams, additionalParams, 5400, 900, "generatelogistics")
             })
     }
+
+    useEffect(() => {
+        console.log('creating table..')
+        let tempTable = []
+        console.log('as', props.allUrlParams.generatelogistics)
+        for (let [key, value] of Object.entries(props.allUrlParams.generatelogistics)) {
+            let gvar = null
+            console.log(`${key}: ${value}`);
+            if (key !== 'refId' && key !== 'urlLength' && key !== 'consent' && key !== 'cha') {
+                // let row = <tr>
+                //     <td><b>{key}</b></td>
+                //     <td>{value}</td>
+                // </tr>
+                if (key === 'rNo') {
+                    key = 'Reference Number'
+                } else if (key === 'pDate') {
+                    key = 'Payment Date'
+                } else if (key === 'customerAddress') {
+                    key = 'Customer Address'
+                }
+                if (globalCounter % 2 === 0) {
+                    gvar = true
+                } else {
+                    gvar = false
+                }
+                let row = <PlasmicTableRow
+                    fieldslot={key}
+                    valueslot={value}
+                    greyvariant={gvar}
+                />
+                tempTable.push(row)
+                setDynamictable([...tempTable])
+                globalCounter++
+            }
+        }
+    }, [props.allUrlParams.generatelogistics])
 
     const logisticsrenderer = () => {
         return (
@@ -120,7 +183,17 @@ function LogisticsGeneration(props) {
 
                     displaylogistics={true}
 
-                    cha= {props.allUrlParams.generatelogistics.cha}
+                    dynamictableslot={
+                        <>
+                            <PlasmicTableHeader
+                                titlefield={"CHA"}
+                                titlevalue={props.allUrlParams.generatelogistics.cha}
+                            />
+                            {[...dynamictable]}
+                        </>
+                    }
+
+                    cha={props.allUrlParams.generatelogistics.cha}
                     ffname={props.allUrlParams.generatelogistics.ffname}
                     entryno={props.allUrlParams.generatelogistics.entryno}
                     entrydate={props.allUrlParams.generatelogistics.entrydate}
@@ -162,25 +235,23 @@ function LogisticsGeneration(props) {
     }
 
     useEffect(() => {
-
+        props.urlParser("generatelogistics");
         props.setAllUrlParams(prevState => {
             return {
                 ...prevState,
                 generatelogistics: {
                     ...prevState.generatelogistics,
-                    timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
+                    Timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                 }
             }
         })
-
-        props.urlParser("generatelogistics");
     }, [])
 
     useEffect(() => {
-        if (props.allUrlParams.generatelogistics.cha !== undefined) {
+        if (props.allUrlParams.generatelogistics.cha !== null) {
             axios.get(config.backendServer + "getLogistics", { params: { cha: props.allUrlParams.generatelogistics.cha } }).then(function (response, error) {
                 if (response) {
-                    alert("Logistics already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
+                    alert("Logistics already found. Please check CHA value.  Redirecting you to the portal...")
                     let urlParamsToSend = "";
                     for (const [key, value] of Object.entries(props.allUrlParams.generatelogistics)) {
                         urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
@@ -190,7 +261,7 @@ function LogisticsGeneration(props) {
             })
                 .catch(function (e) {
                     if (e.response.status !== 404) {
-                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        alert(e.response.status + ":" + e.response.statusText + ".  Redirecting back to portal..")
                         let additionalParams = '&status=failed&reason=' + e.response.data
                         props.redirectExecution("null", additionalParams, 10, 10, "generatelogistics")
                     }

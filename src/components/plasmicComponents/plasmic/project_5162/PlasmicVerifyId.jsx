@@ -16,24 +16,16 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
-import Walletstatus from "../../Walletstatus"; // plasmic-import: yl_7FX-no3/component
 import TextInput from "../../TextInput"; // plasmic-import: mnEoyzyDnh9/component
+import Walletstatus from "../../Walletstatus"; // plasmic-import: yl_7FX-no3/component
 import "@plasmicapp/react-web/lib/plasmic.css";
 import projectcss from "./plasmic_project_5162.module.css"; // plasmic-import: 5GT6nVB5WgvLWb2iBXTk1E/projectcss
 import sty from "./PlasmicVerifyId.module.css"; // plasmic-import: 6aKy4XMcUD/css
+import OksvgIcon from "./icons/PlasmicIcon__Oksvg"; // plasmic-import: xU3Kendof/icon
 
 export const PlasmicVerifyId__VariantProps = new Array("displayId", "notfound");
 
-export const PlasmicVerifyId__ArgProps = new Array(
-  "nationality",
-  "name",
-  "docno",
-  "dob",
-  "issued",
-  "expiry",
-  "sex",
-  "idphoto"
-);
+export const PlasmicVerifyId__ArgProps = new Array("idimage");
 
 function PlasmicVerifyId__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -43,7 +35,14 @@ function PlasmicVerifyId__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        { [sty.rootdisplayId]: hasVariant(variants, "displayId", "displayId") }
+      )}
     >
       <div
         className={classNames(
@@ -79,40 +78,13 @@ function PlasmicVerifyId__RenderFunc(props) {
           )
         })}
       >
-        {false ? (
-          <div className={classNames(projectcss.all, sty.freeBox__tyPfi)}>
-            {true ? (
-              <Walletstatus
-                data-plasmic-name={"walletmount"}
-                data-plasmic-override={overrides.walletmount}
-                className={classNames("__wab_instance", sty.walletmount)}
-              />
-            ) : null}
-
-            <div
-              data-plasmic-name={"frame3"}
-              data-plasmic-override={overrides.frame3}
-              className={classNames(projectcss.all, sty.frame3)}
-            >
-              <div
-                data-plasmic-name={"graphiteLogo2"}
-                data-plasmic-override={overrides.graphiteLogo2}
-                className={classNames(projectcss.all, sty.graphiteLogo2)}
-              />
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jySyg
-                )}
-              >
-                {"POWERED BY"}
-              </div>
-            </div>
-          </div>
-        ) : null}
-        {(hasVariant(variants, "displayId", "displayId") ? true : true) ? (
+        {(
+          hasVariant(variants, "notfound", "notfound")
+            ? true
+            : hasVariant(variants, "displayId", "displayId")
+            ? true
+            : false
+        ) ? (
           <p.Stack
             as={"div"}
             hasGap={true}
@@ -187,6 +159,7 @@ function PlasmicVerifyId__RenderFunc(props) {
                   data-plasmic-name={"verifyidbutton"}
                   data-plasmic-override={overrides.verifyidbutton}
                   className={classNames(
+                    projectcss.all,
                     projectcss.button,
                     projectcss.__wab_text,
                     sty.verifyidbutton
@@ -196,608 +169,24 @@ function PlasmicVerifyId__RenderFunc(props) {
                 </button>
               </p.Stack>
             ) : null}
-            {(hasVariant(variants, "notfound", "notfound") ? true : true) ? (
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4TZsj,
-                  {
-                    [sty.textnotfound___4TZsJvnAI]: hasVariant(
-                      variants,
-                      "notfound",
-                      "notfound"
-                    )
-                  }
-                )}
-              >
-                {"No Matching Record Found"}
-              </div>
-            ) : null}
           </p.Stack>
         ) : null}
-        {(hasVariant(variants, "displayId", "displayId") ? true : false) ? (
+        {(hasVariant(variants, "notfound", "notfound") ? true : true) ? (
           <div
-            data-plasmic-name={"idstack"}
-            data-plasmic-override={overrides.idstack}
-            className={classNames(projectcss.all, sty.idstack, {
-              [sty.idstackdisplayId]: hasVariant(
-                variants,
-                "displayId",
-                "displayId"
-              )
-            })}
-          >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__o3Gr6,
-                {
-                  [sty.textdisplayId__o3Gr6Xa4I6]: hasVariant(
-                    variants,
-                    "displayId",
-                    "displayId"
-                  )
-                }
-              )}
-            >
-              {"Establishment ID"}
-            </div>
-
-            <div
-              className={classNames(projectcss.all, sty.freeBox___4JtSl, {
-                [sty.freeBoxdisplayId___4JtSlXa4I6]: hasVariant(
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___4TZsj,
+              {
+                [sty.textnotfound___4TZsJvnAI]: hasVariant(
                   variants,
-                  "displayId",
-                  "displayId"
+                  "notfound",
+                  "notfound"
                 )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__cAjeo, {
-                  [sty.freeBoxdisplayId__cAjeoxa4I6]: hasVariant(
-                    variants,
-                    "displayId",
-                    "displayId"
-                  )
-                })}
-              >
-                {p.renderPlasmicSlot({
-                  defaultContents: null,
-                  value: args.idphoto
-                })}
-              </div>
-
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__gMzA, {
-                  [sty.freeBoxdisplayId__gMzAxa4I6]: hasVariant(
-                    variants,
-                    "displayId",
-                    "displayId"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3NyQl,
-                    {
-                      [sty.textdisplayId___3NyQlxa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    }
-                  )}
-                >
-                  {"Applicant Details"}
-                </div>
-
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__bvHml, {
-                    [sty.freeBoxdisplayId__bvHmlxa4I6]: hasVariant(
-                      variants,
-                      "displayId",
-                      "displayId"
-                    )
-                  })}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__h8CVh, {
-                      [sty.freeBoxdisplayId__h8CVhXa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ww3Lc,
-                        {
-                          [sty.textdisplayId__ww3LcXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Nationality"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___2A37F,
-                        {
-                          [sty.textdisplayId___2A37FXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__j2Y06,
-                        {
-                          [sty.freeBoxdisplayId__j2Y06Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.nationality,
-                        className: classNames(sty.slotTargetNationality, {
-                          [sty.slotTargetNationalitydisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__iYx6L, {
-                      [sty.freeBoxdisplayId__iYx6Lxa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yw2Rp,
-                        {
-                          [sty.textdisplayId__yw2RpXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Name"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__hzag4,
-                        {
-                          [sty.textdisplayId__hzag4Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__yftH9,
-                        {
-                          [sty.freeBoxdisplayId__yftH9Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.name,
-                        className: classNames(sty.slotTargetName, {
-                          [sty.slotTargetNamedisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kyzOe, {
-                      [sty.freeBoxdisplayId__kyzOeXa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ylFn,
-                        {
-                          [sty.textdisplayId__ylFnxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Document Number"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__w4Ht3,
-                        {
-                          [sty.textdisplayId__w4Ht3Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__xWiVr,
-                        {
-                          [sty.freeBoxdisplayId__xWiVrXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.docno,
-                        className: classNames(sty.slotTargetDocno, {
-                          [sty.slotTargetDocnodisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jZShn, {
-                      [sty.freeBoxdisplayId__jZShnXa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__pupwj,
-                        {
-                          [sty.textdisplayId__pupwjxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Date Of Birth"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___6BTzR,
-                        {
-                          [sty.textdisplayId___6BTzRxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__jQoPe,
-                        {
-                          [sty.freeBoxdisplayId__jQoPeXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.dob,
-                        className: classNames(sty.slotTargetDob, {
-                          [sty.slotTargetDobdisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__wpCe, {
-                      [sty.freeBoxdisplayId__wpCeXa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__tufEc,
-                        {
-                          [sty.textdisplayId__tufEcxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Document Date"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___18Bpw,
-                        {
-                          [sty.textdisplayId___18BpwXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__dsSsV,
-                        {
-                          [sty.freeBoxdisplayId__dsSsVxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.issued,
-                        className: classNames(sty.slotTargetIssued, {
-                          [sty.slotTargetIssueddisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__sq35, {
-                      [sty.freeBoxdisplayId__sq35Xa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__irrO7,
-                        {
-                          [sty.textdisplayId__irrO7Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Expiry"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__mg0A,
-                        {
-                          [sty.textdisplayId__mg0AXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__qkNYb,
-                        {
-                          [sty.freeBoxdisplayId__qkNYbXa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.expiry,
-                        className: classNames(sty.slotTargetExpiry, {
-                          [sty.slotTargetExpirydisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__zG60I, {
-                      [sty.freeBoxdisplayId__zG60IXa4I6]: hasVariant(
-                        variants,
-                        "displayId",
-                        "displayId"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__zzwPb,
-                        {
-                          [sty.textdisplayId__zzwPbxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {"Sex"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__nPGq3,
-                        {
-                          [sty.textdisplayId__nPGq3Xa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {":"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__rqglL,
-                        {
-                          [sty.freeBoxdisplayId__rqglLxa4I6]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        }
-                      )}
-                    >
-                      {p.renderPlasmicSlot({
-                        defaultContents: "N/A",
-                        value: args.sex,
-                        className: classNames(sty.slotTargetSex, {
-                          [sty.slotTargetSexdisplayId]: hasVariant(
-                            variants,
-                            "displayId",
-                            "displayId"
-                          )
-                        })
-                      })}
-                    </div>
-                  </div>
-                </div>
-              </p.Stack>
-            </div>
+              }
+            )}
+          >
+            {"No Matching Record Found"}
           </div>
         ) : null}
         {(
@@ -830,6 +219,121 @@ function PlasmicVerifyId__RenderFunc(props) {
             {"Loading..."}
           </div>
         ) : null}
+        {false ? (
+          <div className={classNames(projectcss.all, sty.freeBox__tyPfi)}>
+            {true ? (
+              <Walletstatus
+                data-plasmic-name={"walletmount"}
+                data-plasmic-override={overrides.walletmount}
+                className={classNames("__wab_instance", sty.walletmount)}
+              />
+            ) : null}
+
+            <div
+              data-plasmic-name={"frame3"}
+              data-plasmic-override={overrides.frame3}
+              className={classNames(projectcss.all, sty.frame3)}
+            >
+              <div
+                data-plasmic-name={"graphiteLogo2"}
+                data-plasmic-override={overrides.graphiteLogo2}
+                className={classNames(projectcss.all, sty.graphiteLogo2)}
+              />
+
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__jySyg
+                )}
+              >
+                {"POWERED BY"}
+              </div>
+            </div>
+          </div>
+        ) : null}
+        {(hasVariant(variants, "displayId", "displayId") ? true : true) ? (
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__wZsOo, {
+              [sty.freeBoxdisplayId__wZsOoxa4I6]: hasVariant(
+                variants,
+                "displayId",
+                "displayId"
+              ),
+
+              [sty.freeBoxnotfound__wZsOOvnAI]: hasVariant(
+                variants,
+                "notfound",
+                "notfound"
+              )
+            })}
+          >
+            {(
+              hasVariant(variants, "notfound", "notfound")
+                ? true
+                : hasVariant(variants, "displayId", "displayId")
+                ? true
+                : false
+            ) ? (
+              <div
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text__x042J,
+                  {
+                    [sty.textdisplayId__x042Jxa4I6]: hasVariant(
+                      variants,
+                      "displayId",
+                      "displayId"
+                    ),
+
+                    [sty.textnotfound__x042JvnAI]: hasVariant(
+                      variants,
+                      "notfound",
+                      "notfound"
+                    )
+                  }
+                )}
+              >
+                {hasVariant(variants, "displayId", "displayId")
+                  ? "VERIFIED"
+                  : "No Matching Record Found"}
+              </div>
+            ) : null}
+            {(hasVariant(variants, "displayId", "displayId") ? true : true) ? (
+              <OksvgIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg, {
+                  [sty.svgdisplayId]: hasVariant(
+                    variants,
+                    "displayId",
+                    "displayId"
+                  )
+                })}
+                role={"img"}
+              />
+            ) : null}
+          </p.Stack>
+        ) : null}
+        {(hasVariant(variants, "displayId", "displayId") ? true : true) ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__hxgR9, {
+              [sty.freeBoxdisplayId__hxgR9Xa4I6]: hasVariant(
+                variants,
+                "displayId",
+                "displayId"
+              )
+            })}
+          >
+            {p.renderPlasmicSlot({
+              defaultContents: null,
+              value: args.idimage
+            })}
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -839,30 +343,30 @@ const PlasmicDescendants = {
   root: [
     "root",
     "applicationForm",
+    "tokenno",
+    "verifyidbutton",
     "walletmount",
     "frame3",
     "graphiteLogo2",
-    "tokenno",
-    "verifyidbutton",
-    "idstack"
+    "svg"
   ],
 
   applicationForm: [
     "applicationForm",
+    "tokenno",
+    "verifyidbutton",
     "walletmount",
     "frame3",
     "graphiteLogo2",
-    "tokenno",
-    "verifyidbutton",
-    "idstack"
+    "svg"
   ],
 
+  tokenno: ["tokenno"],
+  verifyidbutton: ["verifyidbutton"],
   walletmount: ["walletmount"],
   frame3: ["frame3", "graphiteLogo2"],
   graphiteLogo2: ["graphiteLogo2"],
-  tokenno: ["tokenno"],
-  verifyidbutton: ["verifyidbutton"],
-  idstack: ["idstack"]
+  svg: ["svg"]
 };
 
 function makeNodeComponent(nodeName) {
@@ -895,12 +399,12 @@ export const PlasmicVerifyId = Object.assign(
   {
     // Helper components rendering sub-elements
     applicationForm: makeNodeComponent("applicationForm"),
+    tokenno: makeNodeComponent("tokenno"),
+    verifyidbutton: makeNodeComponent("verifyidbutton"),
     walletmount: makeNodeComponent("walletmount"),
     frame3: makeNodeComponent("frame3"),
     graphiteLogo2: makeNodeComponent("graphiteLogo2"),
-    tokenno: makeNodeComponent("tokenno"),
-    verifyidbutton: makeNodeComponent("verifyidbutton"),
-    idstack: makeNodeComponent("idstack"),
+    svg: makeNodeComponent("svg"),
     // Metadata about props expected for PlasmicVerifyId
     internalVariantProps: PlasmicVerifyId__VariantProps,
     internalArgProps: PlasmicVerifyId__ArgProps

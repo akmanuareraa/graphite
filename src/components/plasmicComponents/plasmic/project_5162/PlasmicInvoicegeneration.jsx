@@ -25,16 +25,7 @@ export const PlasmicInvoicegeneration__VariantProps = new Array(
   "displayinvoice"
 );
 
-export const PlasmicInvoicegeneration__ArgProps = new Array(
-  "date",
-  "value",
-  "awbbl",
-  "qty",
-  "gross",
-  "volume",
-  "invoiceno",
-  "eta"
-);
+export const PlasmicInvoicegeneration__ArgProps = new Array("dynamictableslot");
 
 function PlasmicInvoicegeneration__RenderFunc(props) {
   const { variants, args, overrides, forNode } = props;
@@ -44,7 +35,20 @@ function PlasmicInvoicegeneration__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootdisplayinvoice]: hasVariant(
+            variants,
+            "displayinvoice",
+            "displayinvoice"
+          )
+        }
+      )}
     >
       <div
         className={classNames(
@@ -87,6 +91,26 @@ function PlasmicInvoicegeneration__RenderFunc(props) {
             )
           })}
         >
+          {(
+            hasVariant(variants, "displayinvoice", "displayinvoice")
+              ? true
+              : true
+          ) ? (
+            <div
+              className={classNames(projectcss.all, sty.freeBox___8GKuS, {
+                [sty.freeBoxdisplayinvoice___8GKuSokUjk]: hasVariant(
+                  variants,
+                  "displayinvoice",
+                  "displayinvoice"
+                )
+              })}
+            >
+              {p.renderPlasmicSlot({
+                defaultContents: null,
+                value: args.dynamictableslot
+              })}
+            </div>
+          ) : null}
           {(
             hasVariant(variants, "displayinvoice", "displayinvoice")
               ? true
@@ -148,595 +172,6 @@ function PlasmicInvoicegeneration__RenderFunc(props) {
                 </div>
               ) : null}
             </p.Stack>
-          ) : null}
-          {(
-            hasVariant(variants, "displayinvoice", "displayinvoice")
-              ? true
-              : true
-          ) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__m6SfG, {
-                [sty.freeBoxdisplayinvoice__m6SfGokUjk]: hasVariant(
-                  variants,
-                  "displayinvoice",
-                  "displayinvoice"
-                )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__vKagz, {
-                  [sty.freeBoxdisplayinvoice__vKagZokUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__cMQnQ, {
-                    [sty.freeBoxdisplayinvoice__cMQnQokUjk]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ctBq8,
-                      {
-                        [sty.textdisplayinvoice__ctBq8OkUjk]: hasVariant(
-                          variants,
-                          "displayinvoice",
-                          "displayinvoice"
-                        )
-                      }
-                    )}
-                  >
-                    {hasVariant(variants, "displayinvoice", "displayinvoice")
-                      ? "Invoice No"
-                      : "Order ID"}
-                  </div>
-
-                  {true ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__lSfPp,
-                        {
-                          [sty.freeBoxdisplayinvoice__lSfPpokUjk]: hasVariant(
-                            variants,
-                            "displayinvoice",
-                            "displayinvoice"
-                          )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__l34Dd,
-                          {
-                            [sty.textdisplayinvoice__l34DdokUjk]: hasVariant(
-                              variants,
-                              "displayinvoice",
-                              "displayinvoice"
-                            )
-                          }
-                        )}
-                      >
-                        {"#"}
-                      </div>
-
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ayPnk,
-                          {
-                            [sty.freeBoxdisplayinvoice__ayPnKokUjk]: hasVariant(
-                              variants,
-                              "displayinvoice",
-                              "displayinvoice"
-                            )
-                          }
-                        )}
-                      >
-                        {p.renderPlasmicSlot({
-                          defaultContents: "ABC123",
-                          value: args.invoiceno,
-                          className: classNames(sty.slotTargetInvoiceno, {
-                            [sty.slotTargetInvoicenodisplayinvoice]: hasVariant(
-                              variants,
-                              "displayinvoice",
-                              "displayinvoice"
-                            )
-                          })
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__c0DkA, {
-                  [sty.freeBoxdisplayinvoice__c0DkAokUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__x4XRu,
-                    {
-                      [sty.textdisplayinvoice__x4XRuokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"Invoice Date"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__otYjX,
-                    {
-                      [sty.textdisplayinvoice__otYjXokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"supplier"}
-                  data-plasmic-override={overrides.supplier}
-                  className={classNames(projectcss.all, sty.supplier, {
-                    [sty.supplierdisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.date,
-                    className: classNames(sty.slotTargetDate, {
-                      [sty.slotTargetDatedisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox___0PtkT, {
-                  [sty.freeBoxdisplayinvoice___0PtkTokUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nZbnm,
-                    {
-                      [sty.textdisplayinvoice__nZbnmokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"Invoice Value"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__y9Ssp,
-                    {
-                      [sty.textdisplayinvoice__y9SspokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"shipmentmode"}
-                  data-plasmic-override={overrides.shipmentmode}
-                  className={classNames(projectcss.all, sty.shipmentmode, {
-                    [sty.shipmentmodedisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.value,
-                    className: classNames(sty.slotTargetValue, {
-                      [sty.slotTargetValuedisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__mnWRo, {
-                  [sty.freeBoxdisplayinvoice__mnWRookUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___1AalI,
-                    {
-                      [sty.textdisplayinvoice___1AalIokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"AWB_BL No"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gfUpE,
-                    {
-                      [sty.textdisplayinvoice__gfUpEokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"origincountry"}
-                  data-plasmic-override={overrides.origincountry}
-                  className={classNames(projectcss.all, sty.origincountry, {
-                    [sty.origincountrydisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.awbbl,
-                    className: classNames(sty.slotTargetAwbbl, {
-                      [sty.slotTargetAwbbldisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__khcv, {
-                  [sty.freeBoxdisplayinvoice__khcvOkUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2CPb3,
-                    {
-                      [sty.textdisplayinvoice___2CPb3OkUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"Quantity"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___1YsOf,
-                    {
-                      [sty.textdisplayinvoice___1YsOfokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"sap"}
-                  data-plasmic-override={overrides.sap}
-                  className={classNames(projectcss.all, sty.sap, {
-                    [sty.sapdisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.qty,
-                    className: classNames(sty.slotTargetQty, {
-                      [sty.slotTargetQtydisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__nSM7, {
-                  [sty.freeBoxdisplayinvoice__nSM7OkUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gqKPg,
-                    {
-                      [sty.textdisplayinvoice__gqKPgokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"Gross Weight"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lq5XY,
-                    {
-                      [sty.textdisplayinvoice__lq5XYokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"grn"}
-                  data-plasmic-override={overrides.grn}
-                  className={classNames(projectcss.all, sty.grn, {
-                    [sty.grndisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.gross,
-                    className: classNames(sty.slotTargetGross, {
-                      [sty.slotTargetGrossdisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__umBQy, {
-                  [sty.freeBoxdisplayinvoice__umBQyokUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gQoas,
-                    {
-                      [sty.textdisplayinvoice__gQoasokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"Volume Weight"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___7BV7S,
-                    {
-                      [sty.textdisplayinvoice___7BV7SokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"creditnotevalue"}
-                  data-plasmic-override={overrides.creditnotevalue}
-                  className={classNames(projectcss.all, sty.creditnotevalue, {
-                    [sty.creditnotevaluedisplayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.volume,
-                    className: classNames(sty.slotTargetVolume, {
-                      [sty.slotTargetVolumedisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__gxTFq, {
-                  [sty.freeBoxdisplayinvoice__gxTFqokUjk]: hasVariant(
-                    variants,
-                    "displayinvoice",
-                    "displayinvoice"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kr8ML,
-                    {
-                      [sty.textdisplayinvoice__kr8MLokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {"ETA"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tNOjk,
-                    {
-                      [sty.textdisplayinvoice__tNOjkokUjk]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"creditnotevalue2"}
-                  data-plasmic-override={overrides.creditnotevalue2}
-                  className={classNames(projectcss.all, sty.creditnotevalue2, {
-                    [sty.creditnotevalue2displayinvoice]: hasVariant(
-                      variants,
-                      "displayinvoice",
-                      "displayinvoice"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.eta,
-                    className: classNames(sty.slotTargetEta, {
-                      [sty.slotTargetEtadisplayinvoice]: hasVariant(
-                        variants,
-                        "displayinvoice",
-                        "displayinvoice"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-            </div>
           ) : null}
           {(
             hasVariant(variants, "displayinvoice", "displayinvoice")
@@ -1640,38 +1075,8 @@ function PlasmicInvoicegeneration__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "applicationForm",
-    "supplier",
-    "shipmentmode",
-    "origincountry",
-    "sap",
-    "grn",
-    "creditnotevalue",
-    "creditnotevalue2",
-    "formbutton"
-  ],
-
-  applicationForm: [
-    "applicationForm",
-    "supplier",
-    "shipmentmode",
-    "origincountry",
-    "sap",
-    "grn",
-    "creditnotevalue",
-    "creditnotevalue2",
-    "formbutton"
-  ],
-
-  supplier: ["supplier"],
-  shipmentmode: ["shipmentmode"],
-  origincountry: ["origincountry"],
-  sap: ["sap"],
-  grn: ["grn"],
-  creditnotevalue: ["creditnotevalue"],
-  creditnotevalue2: ["creditnotevalue2"],
+  root: ["root", "applicationForm", "formbutton"],
+  applicationForm: ["applicationForm", "formbutton"],
   formbutton: ["formbutton"]
 };
 
@@ -1705,13 +1110,6 @@ export const PlasmicInvoicegeneration = Object.assign(
   {
     // Helper components rendering sub-elements
     applicationForm: makeNodeComponent("applicationForm"),
-    supplier: makeNodeComponent("supplier"),
-    shipmentmode: makeNodeComponent("shipmentmode"),
-    origincountry: makeNodeComponent("origincountry"),
-    sap: makeNodeComponent("sap"),
-    grn: makeNodeComponent("grn"),
-    creditnotevalue: makeNodeComponent("creditnotevalue"),
-    creditnotevalue2: makeNodeComponent("creditnotevalue2"),
     formbutton: makeNodeComponent("formbutton"),
     // Metadata about props expected for PlasmicInvoicegeneration
     internalVariantProps: PlasmicInvoicegeneration__VariantProps,

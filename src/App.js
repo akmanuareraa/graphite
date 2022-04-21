@@ -17,8 +17,6 @@ import Homepage from './components/reactComponents/Homepage';
 
 function App() {
 
-  
-
   // a main state to handle data flows between parent-child components
   const [mainState, setMainState] = useState(() => {
     return {
@@ -62,12 +60,12 @@ function App() {
   const [allUrlParams, setAllUrlParams] = useState(() => {
     return {
       createAsset: {
-        appfeeq: 0,
-        iksfeeq: 0,
-        taxq: 0,
-        appfeecu: 0,
-        iksfeecu: 0,
-        taxcu: 0
+        // appfeeq: 0,
+        // iksfeeq: 0,
+        // taxq: 0,
+        // appfeecu: 0,
+        // iksfeecu: 0,
+        // taxcu: 0
       },
       verifyestid: {
         docno:null
@@ -145,7 +143,8 @@ function App() {
         txnsuccess: false,
         txnfailed: false,
         sendtxnconsentso: false,
-        sendtxnso: false
+        sendtxnso: false,
+        loading: true
       },
       generateinvoice: {
         walletStateDis: true,
@@ -171,7 +170,8 @@ function App() {
         txnfailed: false,
         invoice: false,
         sendtxnconsentinv: false,
-        sendtxninv: false
+        sendtxninv: false,
+        loading: true
       },
       generatelogistics: {
         walletStateDis: true,
@@ -197,7 +197,8 @@ function App() {
         txnfailed: false,
         logistics: false,
         sendtxnconsentlog: false,
-        sendtxnlog: false
+        sendtxnlog: false,
+        loading: true
       },
       verifyestid: {
         displayId: false
@@ -231,12 +232,14 @@ function App() {
     }
 
     // pre calculation - only applicable for id asset creation
-    if (pageName === "createAsset") {
-      params["appfeect"] = parseFloat(params.appfeeq * params.appfeecu)
-      params["iksfeect"] = parseFloat(params.iksfeeq * params.iksfeecu)
-      params["taxct"] = parseFloat(params.taxq * params.taxcu)
-      params["totalcharge"] = params.appfeect + params.iksfeect + params.taxct
-    }
+    // if (pageName === "createAsset") {
+    //   params["appfeect"] = parseFloat(params.appfeeq * params.appfeecu)
+    //   params["iksfeect"] = parseFloat(params.iksfeeq * params.iksfeecu)
+    //   params["taxct"] = parseFloat(params.taxq * params.taxcu)
+    //   params["totalcharge"] = params.appfeect + params.iksfeect + params.taxct
+    // }
+
+    console.log('params from url ', params)
 
     // updating the state
     setAllUrlParams(prevState => {
@@ -610,7 +613,7 @@ function App() {
           // if any error is caught, user gets redirected back to the portal along with the error message
         } catch (addError) {
           console.log("Error occured in Adding Mumbai Testnet Network to Metamask")
-          alert("Error occured in Adding Mumbai Testnet Network to Metamask. Please contact Administrator. Redirecting back to portal...")
+          alert("Error occured in Adding Mumbai Testnet Network to Metamask.  Redirecting back to portal...")
           let additionalParams = '&status=failed&reason=' + addError
           window.location.href = config.redirectUrl + additionalParams
         }
@@ -769,7 +772,7 @@ function App() {
             redirectExecution={redirectExecution}
           />} />
 
-          <Route path="/verifyid/:docno" element={<VerifyEstId
+          <Route path="/verifyid/:token" element={<VerifyEstId
             mainState={mainState}
             setMainState={setMainState}
             allUiStates={allUiStates}

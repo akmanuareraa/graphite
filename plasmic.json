@@ -265,19 +265,6 @@
           "plumeType": "text-input"
         },
         {
-          "id": "J0RfGE8oivh",
-          "name": "Salesordergeneration2",
-          "type": "managed",
-          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
-          "renderModuleFilePath": "plasmic/project_5162/PlasmicSalesordergeneration2.jsx",
-          "importSpec": {
-            "modulePath": "Salesordergeneration2.jsx"
-          },
-          "cssFilePath": "plasmic/project_5162/PlasmicSalesordergeneration2.module.css",
-          "scheme": "blackbox",
-          "componentType": "component"
-        },
-        {
           "id": "mUo8dNu01S5",
           "name": "Invoicegeneration",
           "type": "managed",
@@ -537,6 +524,123 @@
           "cssFilePath": "plasmic/project_5162/PlasmicFullbridgeverticalstack.module.css",
           "scheme": "blackbox",
           "componentType": "component"
+        },
+        {
+          "id": "q50-pcd5Qb2",
+          "name": "BeFormBold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicBeFormBold.jsx",
+          "importSpec": {
+            "modulePath": "BeFormBold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicBeFormBold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "DRfnTEvX2_-",
+          "name": "Salesordergeneration3",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicSalesordergeneration3.jsx",
+          "importSpec": {
+            "modulePath": "Salesordergeneration3.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicSalesordergeneration3.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "J0RfGE8oivh",
+          "name": "SalesordergenerationOld",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicSalesordergenerationOld.jsx",
+          "importSpec": {
+            "modulePath": "SalesordergenerationOld.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicSalesordergenerationOld.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "MF2jR67lEGM",
+          "name": "SalesOrderConfirmationOld",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicSalesOrderConfirmationOld.jsx",
+          "importSpec": {
+            "modulePath": "SalesOrderConfirmationOld.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicSalesOrderConfirmationOld.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "A5pFafQu1KH",
+          "name": "Invoicegenerationold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicInvoicegenerationold.jsx",
+          "importSpec": {
+            "modulePath": "Invoicegenerationold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicInvoicegenerationold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "w2UXL2C0zHp",
+          "name": "Invoiceconfirmationold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicInvoiceconfirmationold.jsx",
+          "importSpec": {
+            "modulePath": "Invoiceconfirmationold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicInvoiceconfirmationold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "ArxPBuBw6bS",
+          "name": "Logisticsgenerationold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicLogisticsgenerationold.jsx",
+          "importSpec": {
+            "modulePath": "Logisticsgenerationold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicLogisticsgenerationold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "gcDEsY1usqj",
+          "name": "Logisticsconfirmationold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicLogisticsconfirmationold.jsx",
+          "importSpec": {
+            "modulePath": "Logisticsconfirmationold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicLogisticsconfirmationold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
+        },
+        {
+          "id": "lNGrbVnAP6A",
+          "name": "VerifyIdold",
+          "type": "managed",
+          "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+          "renderModuleFilePath": "plasmic/project_5162/PlasmicVerifyIdold.jsx",
+          "importSpec": {
+            "modulePath": "VerifyIdold.jsx"
+          },
+          "cssFilePath": "plasmic/project_5162/PlasmicVerifyIdold.module.css",
+          "scheme": "blackbox",
+          "componentType": "component"
         }
       ],
       "icons": [
@@ -787,6 +891,6 @@
       }
     ]
   },
-  "cliVersion": "0.1.166",
-  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.166/dist/plasmic.schema.json"
+  "cliVersion": "0.1.169",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.169/dist/plasmic.schema.json"
 }

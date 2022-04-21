@@ -32,7 +32,8 @@ export const PlasmicSalesordergeneration__ArgProps = new Array(
   "slot3",
   "slot4",
   "slot5",
-  "pono"
+  "pono",
+  "dynamictableslot"
 );
 
 function PlasmicSalesordergeneration__RenderFunc(props) {
@@ -43,13 +44,20 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.rootdisplaysalesorder]: hasVariant(
-          variants,
-          "displaysalesorder",
-          "displaysalesorder"
-        )
-      })}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootdisplaysalesorder]: hasVariant(
+            variants,
+            "displaysalesorder",
+            "displaysalesorder"
+          )
+        }
+      )}
     >
       <div
         className={classNames(
@@ -81,20 +89,16 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
           )
         })}
       >
-        <p.Stack
-          as={"div"}
-          hasGap={true}
-          className={classNames(projectcss.all, sty.freeBox__w7M6X, {
-            [sty.freeBoxdisplaysalesorder__w7M6XtEf4M]: hasVariant(
-              variants,
-              "displaysalesorder",
-              "displaysalesorder"
-            )
-          })}
-        >
-          <div
-            className={classNames(projectcss.all, sty.freeBox__yY8Gk, {
-              [sty.freeBoxdisplaysalesorder__yY8GktEf4M]: hasVariant(
+        {(
+          hasVariant(variants, "displaysalesorder", "displaysalesorder")
+            ? true
+            : true
+        ) ? (
+          <p.Stack
+            as={"div"}
+            hasGap={true}
+            className={classNames(projectcss.all, sty.freeBox__w7M6X, {
+              [sty.freeBoxdisplaysalesorder__w7M6XtEf4M]: hasVariant(
                 variants,
                 "displaysalesorder",
                 "displaysalesorder"
@@ -102,8 +106,8 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__bHvUz, {
-                [sty.freeBoxdisplaysalesorder__bHvUztEf4M]: hasVariant(
+              className={classNames(projectcss.all, sty.freeBox__yY8Gk, {
+                [sty.freeBoxdisplaysalesorder__yY8GktEf4M]: hasVariant(
                   variants,
                   "displaysalesorder",
                   "displaysalesorder"
@@ -111,28 +115,169 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vOjIe,
-                  {
-                    [sty.textdisplaysalesorder__vOjIetEf4M]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  }
-                )}
+                className={classNames(projectcss.all, sty.freeBox__bHvUz, {
+                  [sty.freeBoxdisplaysalesorder__bHvUztEf4M]: hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                })}
               >
-                {hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                  ? "PO No"
-                  : "Order ID"}
-              </div>
-
-              {true ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__pfmEn, {
-                    [sty.freeBoxdisplaysalesorder__pfmEntEf4M]: hasVariant(
+                  className={classNames(
+                    projectcss.all,
+                    projectcss.__wab_text,
+                    sty.text__vOjIe,
+                    {
+                      [sty.textdisplaysalesorder__vOjIetEf4M]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    }
+                  )}
+                >
+                  {hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                    ? "PO No"
+                    : "Order ID"}
+                </div>
+
+                {true ? (
+                  <div
+                    className={classNames(projectcss.all, sty.freeBox__pfmEn, {
+                      [sty.freeBoxdisplaysalesorder__pfmEntEf4M]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    <div
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.__wab_text,
+                        sty.text__fjkCq,
+                        {
+                          [sty.textdisplaysalesorder__fjkCqtEf4M]: hasVariant(
+                            variants,
+                            "displaysalesorder",
+                            "displaysalesorder"
+                          )
+                        }
+                      )}
+                    >
+                      {"#"}
+                    </div>
+
+                    <div
+                      className={classNames(projectcss.all, sty.freeBox__oqnY, {
+                        [sty.freeBoxdisplaysalesorder__oqnYtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })}
+                    >
+                      {p.renderPlasmicSlot({
+                        defaultContents: "ABC123",
+                        value: args.pono,
+                        className: classNames(sty.slotTargetPono, {
+                          [sty.slotTargetPonodisplaysalesorder]: hasVariant(
+                            variants,
+                            "displaysalesorder",
+                            "displaysalesorder"
+                          )
+                        })
+                      })}
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+            </div>
+
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : false
+            ) ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__b4EWt, {
+                  [sty.freeBoxdisplaysalesorder__b4EWttEf4M]: hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                })}
+              >
+                {(
+                  hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                    ? true
+                    : true
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__s59Kq,
+                      {
+                        [sty.textdisplaysalesorder__s59KQtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Order To: "}
+                  </div>
+                ) : null}
+                {(
+                  hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                    ? true
+                    : true
+                ) ? (
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___1FyxZ,
+                      {
+                        [sty.textdisplaysalesorder___1FyxZtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Ship To:"}
+                  </div>
+                ) : null}
+              </p.Stack>
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__vBrpa, {
+                  [sty.freeBoxdisplaysalesorder__vBrpatEf4M]: hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__mjsTp, {
+                    [sty.freeBoxdisplaysalesorder__mjsTPtEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -143,9 +288,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__fjkCq,
+                      sty.text__ktQqf,
                       {
-                        [sty.textdisplaysalesorder__fjkCqtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__ktQqftEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -153,12 +298,31 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       }
                     )}
                   >
-                    {"#"}
+                    {"Supplier Name"}
                   </div>
 
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__oqnY, {
-                      [sty.freeBoxdisplaysalesorder__oqnYtEf4M]: hasVariant(
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mSwmf,
+                      {
+                        [sty.textdisplaysalesorder__mSwmftEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"supplier"}
+                    data-plasmic-override={overrides.supplier}
+                    className={classNames(projectcss.all, sty.supplier, {
+                      [sty.supplierdisplaysalesorder]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -166,10 +330,10 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     })}
                   >
                     {p.renderPlasmicSlot({
-                      defaultContents: "ABC123",
-                      value: args.pono,
-                      className: classNames(sty.slotTargetPono, {
-                        [sty.slotTargetPonodisplaysalesorder]: hasVariant(
+                      defaultContents: "N/A",
+                      value: args.children,
+                      className: classNames(sty.slotTargetChildren, {
+                        [sty.slotTargetChildrendisplaysalesorder]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -178,38 +342,455 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     })}
                   </div>
                 </div>
-              ) : null}
-            </div>
-          </div>
 
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : false
-          ) ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__b4EWt, {
-                [sty.freeBoxdisplaysalesorder__b4EWttEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              {(
-                hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                  ? true
-                  : true
-              ) ? (
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__x4R0, {
+                    [sty.freeBoxdisplaysalesorder__x4R0TEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__anpj4,
+                      {
+                        [sty.textdisplaysalesorder__anpj4TEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Mode of Shipment"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___15DvJ,
+                      {
+                        [sty.textdisplaysalesorder___15DvJtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"shipmentmode"}
+                    data-plasmic-override={overrides.shipmentmode}
+                    className={classNames(projectcss.all, sty.shipmentmode, {
+                      [sty.shipmentmodedisplaysalesorder]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    {p.renderPlasmicSlot({
+                      defaultContents: "N/A",
+                      value: args.slot,
+                      className: classNames(sty.slotTargetSlot, {
+                        [sty.slotTargetSlotdisplaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__nbokJ, {
+                    [sty.freeBoxdisplaysalesorder__nbokJtEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___5TUc,
+                      {
+                        [sty.textdisplaysalesorder___5TUctEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Country of Origin"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mWFfr,
+                      {
+                        [sty.textdisplaysalesorder__mWFfrtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"origincountry"}
+                    data-plasmic-override={overrides.origincountry}
+                    className={classNames(projectcss.all, sty.origincountry, {
+                      [sty.origincountrydisplaysalesorder]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    {p.renderPlasmicSlot({
+                      defaultContents: "N/A",
+                      value: args.slot2,
+                      className: classNames(sty.slotTargetSlot2, {
+                        [sty.slotTargetSlot2displaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__auUkj, {
+                    [sty.freeBoxdisplaysalesorder__auUkJtEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zbaIm,
+                      {
+                        [sty.textdisplaysalesorder__zbaImtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"SAP Status"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xsU9M,
+                      {
+                        [sty.textdisplaysalesorder__xsU9MtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"sap"}
+                    data-plasmic-override={overrides.sap}
+                    className={classNames(projectcss.all, sty.sap, {
+                      [sty.sapdisplaysalesorder]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    {p.renderPlasmicSlot({
+                      defaultContents: "N/A",
+                      value: args.slot3,
+                      className: classNames(sty.slotTargetSlot3, {
+                        [sty.slotTargetSlot3displaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__xuFu9, {
+                    [sty.freeBoxdisplaysalesorder__xuFu9TEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__mFrrL,
+                      {
+                        [sty.textdisplaysalesorder__mFrrLtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"GRN Number"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__xebXu,
+                      {
+                        [sty.textdisplaysalesorder__xebXutEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"grn"}
+                    data-plasmic-override={overrides.grn}
+                    className={classNames(projectcss.all, sty.grn, {
+                      [sty.grndisplaysalesorder]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    {p.renderPlasmicSlot({
+                      defaultContents: "N/A",
+                      value: args.slot4,
+                      className: classNames(sty.slotTargetSlot4, {
+                        [sty.slotTargetSlot4displaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__yTdH5, {
+                    [sty.freeBoxdisplaysalesorder__yTdH5TEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text___8U67Z,
+                      {
+                        [sty.textdisplaysalesorder___8U67ZtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Credit Note Value"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__yaMpg,
+                      {
+                        [sty.textdisplaysalesorder__yaMpGtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"creditnotevalue"}
+                    data-plasmic-override={overrides.creditnotevalue}
+                    className={classNames(projectcss.all, sty.creditnotevalue, {
+                      [sty.creditnotevaluedisplaysalesorder]: hasVariant(
+                        variants,
+                        "displaysalesorder",
+                        "displaysalesorder"
+                      )
+                    })}
+                  >
+                    {p.renderPlasmicSlot({
+                      defaultContents: "N/A",
+                      value: args.slot5,
+                      className: classNames(sty.slotTargetSlot5, {
+                        [sty.slotTargetSlot5displaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      })
+                    })}
+                  </div>
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___2FeWl, {
+                    [sty.freeBoxdisplaysalesorder___2FeWLtEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ddB3I,
+                      {
+                        [sty.textdisplaysalesorder__ddB3ItEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {
+                      "Balance Payable (Total Invoice Value - Credit Note Amount"
+                    }
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qPy9J,
+                      {
+                        [sty.textdisplaysalesorder__qPy9JtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {":"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"balance2"}
+                    data-plasmic-override={overrides.balance2}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.balance2,
+                      {
+                        [sty.balance2displaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"$"}
+                  </div>
+
+                  <div
+                    data-plasmic-name={"balance"}
+                    data-plasmic-override={overrides.balance}
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.balance,
+                      {
+                        [sty.balancedisplaysalesorder]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"N/A"}
+                  </div>
+                </div>
+              </div>
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox___245Hm, {
+                  [sty.freeBoxdisplaysalesorder___245HmtEf4M]: hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                })}
+              >
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__s59Kq,
+                    sty.text__bWoK0,
                     {
-                      [sty.textdisplaysalesorder__s59KQtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__bWoK0TEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -219,19 +800,14 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 >
                   {"Order To: "}
                 </div>
-              ) : null}
-              {(
-                hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                  ? true
-                  : true
-              ) ? (
+
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text___1FyxZ,
+                    sty.text__cjsD,
                     {
-                      [sty.textdisplaysalesorder___1FyxZtEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__cjsDTEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -241,26 +817,18 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 >
                   {"Ship To:"}
                 </div>
-              ) : null}
-            </p.Stack>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__vBrpa, {
-                [sty.freeBoxdisplaysalesorder__vBrpatEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__mjsTp, {
-                  [sty.freeBoxdisplaysalesorder__mjsTPtEf4M]: hasVariant(
+              </p.Stack>
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__vWOoc, {
+                  [sty.freeBoxdisplaysalesorder__vWOoctEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -271,9 +839,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__ktQqf,
+                    sty.text___8VMV,
                     {
-                      [sty.textdisplaysalesorder__ktQqftEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder___8VMVtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -281,16 +849,16 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     }
                   )}
                 >
-                  {"Supplier Name"}
+                  {"ABC Company, \nLocation"}
                 </div>
 
                 <div
                   className={classNames(
                     projectcss.all,
                     projectcss.__wab_text,
-                    sty.text__mSwmf,
+                    sty.text__q5G7Q,
                     {
-                      [sty.textdisplaysalesorder__mSwmftEf4M]: hasVariant(
+                      [sty.textdisplaysalesorder__q5G7QtEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -298,37 +866,20 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     }
                   )}
                 >
-                  {":"}
+                  {"ABC Company, \nLocation"}
                 </div>
-
-                <div
-                  data-plasmic-name={"supplier"}
-                  data-plasmic-override={overrides.supplier}
-                  className={classNames(projectcss.all, sty.supplier, {
-                    [sty.supplierdisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.children,
-                    className: classNames(sty.slotTargetChildren, {
-                      [sty.slotTargetChildrendisplaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__x4R0, {
-                  [sty.freeBoxdisplaysalesorder__x4R0TEf4M]: hasVariant(
+              </p.Stack>
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
+              <p.Stack
+                as={"div"}
+                hasGap={true}
+                className={classNames(projectcss.all, sty.freeBox__cuKyd, {
+                  [sty.freeBoxdisplaysalesorder__cuKyDtEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
@@ -336,794 +887,8 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__anpj4,
-                    {
-                      [sty.textdisplaysalesorder__anpj4TEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Mode of Shipment"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___15DvJ,
-                    {
-                      [sty.textdisplaysalesorder___15DvJtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"shipmentmode"}
-                  data-plasmic-override={overrides.shipmentmode}
-                  className={classNames(projectcss.all, sty.shipmentmode, {
-                    [sty.shipmentmodedisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.slot,
-                    className: classNames(sty.slotTargetSlot, {
-                      [sty.slotTargetSlotdisplaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__nbokJ, {
-                  [sty.freeBoxdisplaysalesorder__nbokJtEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5TUc,
-                    {
-                      [sty.textdisplaysalesorder___5TUctEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Country of Origin"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mWFfr,
-                    {
-                      [sty.textdisplaysalesorder__mWFfrtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"origincountry"}
-                  data-plasmic-override={overrides.origincountry}
-                  className={classNames(projectcss.all, sty.origincountry, {
-                    [sty.origincountrydisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.slot2,
-                    className: classNames(sty.slotTargetSlot2, {
-                      [sty.slotTargetSlot2displaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__auUkj, {
-                  [sty.freeBoxdisplaysalesorder__auUkJtEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zbaIm,
-                    {
-                      [sty.textdisplaysalesorder__zbaImtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"SAP Status"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xsU9M,
-                    {
-                      [sty.textdisplaysalesorder__xsU9MtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"sap"}
-                  data-plasmic-override={overrides.sap}
-                  className={classNames(projectcss.all, sty.sap, {
-                    [sty.sapdisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.slot3,
-                    className: classNames(sty.slotTargetSlot3, {
-                      [sty.slotTargetSlot3displaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__xuFu9, {
-                  [sty.freeBoxdisplaysalesorder__xuFu9TEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mFrrL,
-                    {
-                      [sty.textdisplaysalesorder__mFrrLtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"GRN Number"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xebXu,
-                    {
-                      [sty.textdisplaysalesorder__xebXutEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"grn"}
-                  data-plasmic-override={overrides.grn}
-                  className={classNames(projectcss.all, sty.grn, {
-                    [sty.grndisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.slot4,
-                    className: classNames(sty.slotTargetSlot4, {
-                      [sty.slotTargetSlot4displaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__yTdH5, {
-                  [sty.freeBoxdisplaysalesorder__yTdH5TEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___8U67Z,
-                    {
-                      [sty.textdisplaysalesorder___8U67ZtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Credit Note Value"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__yaMpg,
-                    {
-                      [sty.textdisplaysalesorder__yaMpGtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"creditnotevalue"}
-                  data-plasmic-override={overrides.creditnotevalue}
-                  className={classNames(projectcss.all, sty.creditnotevalue, {
-                    [sty.creditnotevaluedisplaysalesorder]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  })}
-                >
-                  {p.renderPlasmicSlot({
-                    defaultContents: "N/A",
-                    value: args.slot5,
-                    className: classNames(sty.slotTargetSlot5, {
-                      [sty.slotTargetSlot5displaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })
-                  })}
-                </div>
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox___2FeWl, {
-                  [sty.freeBoxdisplaysalesorder___2FeWLtEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ddB3I,
-                    {
-                      [sty.textdisplaysalesorder__ddB3ItEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Balance Payable (Total Invoice Value - Credit Note Amount"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qPy9J,
-                    {
-                      [sty.textdisplaysalesorder__qPy9JtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {":"}
-                </div>
-
-                <div
-                  data-plasmic-name={"balance2"}
-                  data-plasmic-override={overrides.balance2}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.balance2,
-                    {
-                      [sty.balance2displaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"$"}
-                </div>
-
-                <div
-                  data-plasmic-name={"balance"}
-                  data-plasmic-override={overrides.balance}
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.balance,
-                    {
-                      [sty.balancedisplaysalesorder]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"N/A"}
-                </div>
-              </div>
-            </div>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox___245Hm, {
-                [sty.freeBoxdisplaysalesorder___245HmtEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bWoK0,
-                  {
-                    [sty.textdisplaysalesorder__bWoK0TEf4M]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  }
-                )}
-              >
-                {"Order To: "}
-              </div>
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cjsD,
-                  {
-                    [sty.textdisplaysalesorder__cjsDTEf4M]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  }
-                )}
-              >
-                {"Ship To:"}
-              </div>
-            </p.Stack>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__vWOoc, {
-                [sty.freeBoxdisplaysalesorder__vWOoctEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___8VMV,
-                  {
-                    [sty.textdisplaysalesorder___8VMVtEf4M]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  }
-                )}
-              >
-                {"ABC Company, \nLocation"}
-              </div>
-
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__q5G7Q,
-                  {
-                    [sty.textdisplaysalesorder__q5G7QtEf4M]: hasVariant(
-                      variants,
-                      "displaysalesorder",
-                      "displaysalesorder"
-                    )
-                  }
-                )}
-              >
-                {"ABC Company, \nLocation"}
-              </div>
-            </p.Stack>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__cuKyd, {
-                [sty.freeBoxdisplaysalesorder__cuKyDtEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox__eT7O, {
-                  [sty.freeBoxdisplaysalesorder__eT7OtEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ewHwh
-                  )}
-                >
-                  {"Contact:"}
-                </div>
-
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__zvzcC, {
-                      [sty.freeBoxdisplaysalesorder__zvzcCtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ceY4R,
-                        {
-                          [sty.textdisplaysalesorder__ceY4RtEf4M]: hasVariant(
-                            variants,
-                            "displaysalesorder",
-                            "displaysalesorder"
-                          )
-                        }
-                      )}
-                    >
-                      {"Name:"}
-                    </div>
-
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__ea37B,
-                        {
-                          [sty.textdisplaysalesorder__ea37BtEf4M]: hasVariant(
-                            variants,
-                            "displaysalesorder",
-                            "displaysalesorder"
-                          )
-                        }
-                      )}
-                    >
-                      {"1234567890"}
-                    </div>
-                  </p.Stack>
-                ) : null}
-              </div>
-
-              <div
-                className={classNames(projectcss.all, sty.freeBox__ld89R, {
-                  [sty.freeBoxdisplaysalesorder__ld89RtEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qkv2R,
-                    {
-                      [sty.textdisplaysalesorder__qkv2RtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Date:"}
-                </div>
-
-                {true ? (
-                  <p.Stack
-                    as={"div"}
-                    hasGap={true}
-                    className={classNames(projectcss.all, sty.freeBox__znHNl, {
-                      [sty.freeBoxdisplaysalesorder__znHNltEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__vpA3B,
-                        {
-                          [sty.textdisplaysalesorder__vpA3BtEf4M]: hasVariant(
-                            variants,
-                            "displaysalesorder",
-                            "displaysalesorder"
-                          )
-                        }
-                      )}
-                    >
-                      {"1234567890"}
-                    </div>
-                  </p.Stack>
-                ) : null}
-              </div>
-            </p.Stack>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <div
-              className={classNames(projectcss.all, sty.freeBox__s2Ozy, {
-                [sty.freeBoxdisplaysalesorder__s2OzytEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
-              <div
-                className={classNames(projectcss.all, sty.freeBox___0WUzi, {
-                  [sty.freeBoxdisplaysalesorder___0WUzitEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bOtOp,
-                    {
-                      [sty.textdisplaysalesorder__bOtOptEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"#"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bqron,
-                    {
-                      [sty.textdisplaysalesorder__bqrontEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Product ID"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__dXeVq,
-                    {
-                      [sty.textdisplaysalesorder__dXeVQtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Product"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__o8Yg1,
-                    {
-                      [sty.textdisplaysalesorder__o8Yg1TEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Quantity"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pnLps,
-                    {
-                      [sty.textdisplaysalesorder__pnLpstEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Unit Price"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___4A41G,
-                    {
-                      [sty.textdisplaysalesorder___4A41GtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Total"}
-                </div>
-              </div>
-
-              <div className={classNames(projectcss.all, sty.freeBox__dqBug)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__zmo0S, {
-                    [sty.freeBoxdisplaysalesorder__zmo0StEf4M]: hasVariant(
+                  className={classNames(projectcss.all, sty.freeBox__eT7O, {
+                    [sty.freeBoxdisplaysalesorder__eT7OtEf4M]: hasVariant(
                       variants,
                       "displaysalesorder",
                       "displaysalesorder"
@@ -1134,9 +899,160 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__uaGfx,
+                      sty.text__ewHwh
+                    )}
+                  >
+                    {"Contact:"}
+                  </div>
+
+                  {true ? (
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__zvzcC,
+                        {
+                          [sty.freeBoxdisplaysalesorder__zvzcCtEf4M]:
+                            hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ceY4R,
+                          {
+                            [sty.textdisplaysalesorder__ceY4RtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"Name:"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__ea37B,
+                          {
+                            [sty.textdisplaysalesorder__ea37BtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"1234567890"}
+                      </div>
+                    </p.Stack>
+                  ) : null}
+                </div>
+
+                <div
+                  className={classNames(projectcss.all, sty.freeBox__ld89R, {
+                    [sty.freeBoxdisplaysalesorder__ld89RtEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__qkv2R,
                       {
-                        [sty.textdisplaysalesorder__uaGfxtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__qkv2RtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Date:"}
+                  </div>
+
+                  {true ? (
+                    <p.Stack
+                      as={"div"}
+                      hasGap={true}
+                      className={classNames(
+                        projectcss.all,
+                        sty.freeBox__znHNl,
+                        {
+                          [sty.freeBoxdisplaysalesorder__znHNltEf4M]:
+                            hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                        }
+                      )}
+                    >
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__vpA3B,
+                          {
+                            [sty.textdisplaysalesorder__vpA3BtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"1234567890"}
+                      </div>
+                    </p.Stack>
+                  ) : null}
+                </div>
+              </p.Stack>
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
+              <div
+                className={classNames(projectcss.all, sty.freeBox__s2Ozy, {
+                  [sty.freeBoxdisplaysalesorder__s2OzytEf4M]: hasVariant(
+                    variants,
+                    "displaysalesorder",
+                    "displaysalesorder"
+                  )
+                })}
+              >
+                <div
+                  className={classNames(projectcss.all, sty.freeBox___0WUzi, {
+                    [sty.freeBoxdisplaysalesorder___0WUzitEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__bOtOp,
+                      {
+                        [sty.textdisplaysalesorder__bOtOptEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1151,9 +1067,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text___46A5X,
+                      sty.text__bqron,
                       {
-                        [sty.textdisplaysalesorder___46A5XtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__bqrontEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1168,9 +1084,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__z033A,
+                      sty.text__dXeVq,
                       {
-                        [sty.textdisplaysalesorder__z033AtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__dXeVQtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1185,9 +1101,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__riOv9,
+                      sty.text__o8Yg1,
                       {
-                        [sty.textdisplaysalesorder__riOv9TEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__o8Yg1TEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1202,9 +1118,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__tZVfG,
+                      sty.text__pnLps,
                       {
-                        [sty.textdisplaysalesorder__tZVfGtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder__pnLpstEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1219,9 +1135,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                     className={classNames(
                       projectcss.all,
                       projectcss.__wab_text,
-                      sty.text__gSSc,
+                      sty.text___4A41G,
                       {
-                        [sty.textdisplaysalesorder__gSSCtEf4M]: hasVariant(
+                        [sty.textdisplaysalesorder___4A41GtEf4M]: hasVariant(
                           variants,
                           "displaysalesorder",
                           "displaysalesorder"
@@ -1233,14 +1149,10 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                   </div>
                 </div>
 
-                {(
-                  hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                    ? true
-                    : true
-                ) ? (
+                <div className={classNames(projectcss.all, sty.freeBox__dqBug)}>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___5Wzvb, {
-                      [sty.freeBoxdisplaysalesorder___5WzvbtEf4M]: hasVariant(
+                    className={classNames(projectcss.all, sty.freeBox__zmo0S, {
+                      [sty.freeBoxdisplaysalesorder__zmo0StEf4M]: hasVariant(
                         variants,
                         "displaysalesorder",
                         "displaysalesorder"
@@ -1251,9 +1163,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text___5PwY,
+                        sty.text__uaGfx,
                         {
-                          [sty.textdisplaysalesorder___5PwYtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__uaGfxtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1268,9 +1180,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__iYYiU,
+                        sty.text___46A5X,
                         {
-                          [sty.textdisplaysalesorder__iYYiUtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder___46A5XtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1285,9 +1197,9 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__i4Wih,
+                        sty.text__z033A,
                         {
-                          [sty.textdisplaysalesorder__i4WiHtEf4M]: hasVariant(
+                          [sty.textdisplaysalesorder__z033AtEf4M]: hasVariant(
                             variants,
                             "displaysalesorder",
                             "displaysalesorder"
@@ -1302,7 +1214,14 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__h9F3K
+                        sty.text__riOv9,
+                        {
+                          [sty.textdisplaysalesorder__riOv9TEf4M]: hasVariant(
+                            variants,
+                            "displaysalesorder",
+                            "displaysalesorder"
+                          )
+                        }
                       )}
                     >
                       {"Quantity"}
@@ -1312,7 +1231,14 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__jrSsH
+                        sty.text__tZVfG,
+                        {
+                          [sty.textdisplaysalesorder__tZVfGtEf4M]: hasVariant(
+                            variants,
+                            "displaysalesorder",
+                            "displaysalesorder"
+                          )
+                        }
                       )}
                     >
                       {"Unit Price"}
@@ -1322,316 +1248,466 @@ function PlasmicSalesordergeneration__RenderFunc(props) {
                       className={classNames(
                         projectcss.all,
                         projectcss.__wab_text,
-                        sty.text__xDmM2
+                        sty.text__gSSc,
+                        {
+                          [sty.textdisplaysalesorder__gSSCtEf4M]: hasVariant(
+                            variants,
+                            "displaysalesorder",
+                            "displaysalesorder"
+                          )
+                        }
                       )}
                     >
                       {"Total"}
                     </div>
                   </div>
-                ) : null}
-                {(
-                  hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                    ? true
-                    : true
-                ) ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___7M5TU, {
-                      [sty.freeBoxdisplaysalesorder___7M5TUtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___73Xwe
-                      )}
-                    >
-                      {"#"}
-                    </div>
 
+                  {(
+                    hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                      ? true
+                      : true
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__fJwMv
+                        sty.freeBox___5Wzvb,
+                        {
+                          [sty.freeBoxdisplaysalesorder___5WzvbtEf4M]:
+                            hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                        }
                       )}
                     >
-                      {"Product ID"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___5PwY,
+                          {
+                            [sty.textdisplaysalesorder___5PwYtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"#"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__xbR8
-                      )}
-                    >
-                      {"Product"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__iYYiU,
+                          {
+                            [sty.textdisplaysalesorder__iYYiUtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"Product ID"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__kBqKt
-                      )}
-                    >
-                      {"Quantity"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__i4Wih,
+                          {
+                            [sty.textdisplaysalesorder__i4WiHtEf4M]: hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                          }
+                        )}
+                      >
+                        {"Product"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__iCFws
-                      )}
-                    >
-                      {"Unit Price"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__h9F3K
+                        )}
+                      >
+                        {"Quantity"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__mADzw
-                      )}
-                    >
-                      {"Total"}
-                    </div>
-                  </div>
-                ) : null}
-                {(
-                  hasVariant(variants, "displaysalesorder", "displaysalesorder")
-                    ? true
-                    : true
-                ) ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lwuNg, {
-                      [sty.freeBoxdisplaysalesorder__lwuNGtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    })}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__lpHUz
-                      )}
-                    >
-                      {"#"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__jrSsH
+                        )}
+                      >
+                        {"Unit Price"}
+                      </div>
 
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xDmM2
+                        )}
+                      >
+                        {"Total"}
+                      </div>
+                    </div>
+                  ) : null}
+                  {(
+                    hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                      ? true
+                      : true
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___86PmW
+                        sty.freeBox___7M5TU,
+                        {
+                          [sty.freeBoxdisplaysalesorder___7M5TUtEf4M]:
+                            hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                        }
                       )}
                     >
-                      {"Product ID"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___73Xwe
+                        )}
+                      >
+                        {"#"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__idD0D
-                      )}
-                    >
-                      {"Product"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__fJwMv
+                        )}
+                      >
+                        {"Product ID"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text___4OHxq
-                      )}
-                    >
-                      {"Quantity"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__xbR8
+                        )}
+                      >
+                        {"Product"}
+                      </div>
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__yqufN
-                      )}
-                    >
-                      {"Unit Price"}
-                    </div>
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__kBqKt
+                        )}
+                      >
+                        {"Quantity"}
+                      </div>
 
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__iCFws
+                        )}
+                      >
+                        {"Unit Price"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__mADzw
+                        )}
+                      >
+                        {"Total"}
+                      </div>
+                    </div>
+                  ) : null}
+                  {(
+                    hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                      ? true
+                      : true
+                  ) ? (
                     <div
                       className={classNames(
                         projectcss.all,
-                        projectcss.__wab_text,
-                        sty.text__gbWq5
+                        sty.freeBox__lwuNg,
+                        {
+                          [sty.freeBoxdisplaysalesorder__lwuNGtEf4M]:
+                            hasVariant(
+                              variants,
+                              "displaysalesorder",
+                              "displaysalesorder"
+                            )
+                        }
                       )}
                     >
-                      {"Total"}
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__lpHUz
+                        )}
+                      >
+                        {"#"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___86PmW
+                        )}
+                      >
+                        {"Product ID"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__idD0D
+                        )}
+                      >
+                        {"Product"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text___4OHxq
+                        )}
+                      >
+                        {"Quantity"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__yqufN
+                        )}
+                      >
+                        {"Unit Price"}
+                      </div>
+
+                      <div
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.__wab_text,
+                          sty.text__gbWq5
+                        )}
+                      >
+                        {"Total"}
+                      </div>
                     </div>
-                  </div>
-                ) : null}
+                  ) : null}
+                </div>
               </div>
-            </div>
-          ) : null}
-          {(
-            hasVariant(variants, "displaysalesorder", "displaysalesorder")
-              ? true
-              : true
-          ) ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__aXv47, {
-                [sty.freeBoxdisplaysalesorder__aXv47TEf4M]: hasVariant(
-                  variants,
-                  "displaysalesorder",
-                  "displaysalesorder"
-                )
-              })}
-            >
+            ) : null}
+            {(
+              hasVariant(variants, "displaysalesorder", "displaysalesorder")
+                ? true
+                : true
+            ) ? (
               <p.Stack
                 as={"div"}
                 hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox___9EyPa, {
-                  [sty.freeBoxdisplaysalesorder___9EyPAtEf4M]: hasVariant(
+                className={classNames(projectcss.all, sty.freeBox__aXv47, {
+                  [sty.freeBoxdisplaysalesorder__aXv47TEf4M]: hasVariant(
                     variants,
                     "displaysalesorder",
                     "displaysalesorder"
                   )
                 })}
               >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zcGxz,
-                    {
-                      [sty.textdisplaysalesorder__zcGxZtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox___9EyPa, {
+                    [sty.freeBoxdisplaysalesorder___9EyPAtEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
                 >
-                  {"Sub Total"}
-                </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__zcGxz,
+                      {
+                        [sty.textdisplaysalesorder__zcGxZtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Sub Total"}
+                  </div>
 
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__k92Ac,
-                    {
-                      [sty.textdisplaysalesorder__k92ActEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__k92Ac,
+                      {
+                        [sty.textdisplaysalesorder__k92ActEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Total"}
+                  </div>
+                </p.Stack>
+
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__xILdf, {
+                    [sty.freeBoxdisplaysalesorder__xILdftEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
                 >
-                  {"Total"}
-                </div>
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__oOyxM
+                    )}
+                  >
+                    {"Tax"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__kluIb,
+                      {
+                        [sty.textdisplaysalesorder__kluIBtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Total"}
+                  </div>
+                </p.Stack>
+
+                <p.Stack
+                  as={"div"}
+                  hasGap={true}
+                  className={classNames(projectcss.all, sty.freeBox__f3KBs, {
+                    [sty.freeBoxdisplaysalesorder__f3KBStEf4M]: hasVariant(
+                      variants,
+                      "displaysalesorder",
+                      "displaysalesorder"
+                    )
+                  })}
+                >
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__ovPbO,
+                      {
+                        [sty.textdisplaysalesorder__ovPbOtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Total"}
+                  </div>
+
+                  <div
+                    className={classNames(
+                      projectcss.all,
+                      projectcss.__wab_text,
+                      sty.text__m8J1O,
+                      {
+                        [sty.textdisplaysalesorder__m8J1OtEf4M]: hasVariant(
+                          variants,
+                          "displaysalesorder",
+                          "displaysalesorder"
+                        )
+                      }
+                    )}
+                  >
+                    {"Total"}
+                  </div>
+                </p.Stack>
               </p.Stack>
-
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__xILdf, {
-                  [sty.freeBoxdisplaysalesorder__xILdftEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oOyxM
-                  )}
-                >
-                  {"Tax"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kluIb,
-                    {
-                      [sty.textdisplaysalesorder__kluIBtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Total"}
-                </div>
-              </p.Stack>
-
-              <p.Stack
-                as={"div"}
-                hasGap={true}
-                className={classNames(projectcss.all, sty.freeBox__f3KBs, {
-                  [sty.freeBoxdisplaysalesorder__f3KBStEf4M]: hasVariant(
-                    variants,
-                    "displaysalesorder",
-                    "displaysalesorder"
-                  )
-                })}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ovPbO,
-                    {
-                      [sty.textdisplaysalesorder__ovPbOtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Total"}
-                </div>
-
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__m8J1O,
-                    {
-                      [sty.textdisplaysalesorder__m8J1OtEf4M]: hasVariant(
-                        variants,
-                        "displaysalesorder",
-                        "displaysalesorder"
-                      )
-                    }
-                  )}
-                >
-                  {"Total"}
-                </div>
-              </p.Stack>
-            </p.Stack>
-          ) : null}
-        </p.Stack>
-
+            ) : null}
+          </p.Stack>
+        ) : null}
+        {(
+          hasVariant(variants, "displaysalesorder", "displaysalesorder")
+            ? true
+            : true
+        ) ? (
+          <div
+            className={classNames(projectcss.all, sty.freeBox__o8W4B, {
+              [sty.freeBoxdisplaysalesorder__o8W4BtEf4M]: hasVariant(
+                variants,
+                "displaysalesorder",
+                "displaysalesorder"
+              )
+            })}
+          >
+            {p.renderPlasmicSlot({
+              defaultContents: null,
+              value: args.dynamictableslot
+            })}
+          </div>
+        ) : null}
         {true ? (
           <ButtonB
             data-plasmic-name={"formbutton"}

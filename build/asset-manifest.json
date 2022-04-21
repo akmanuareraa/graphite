@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8356d50c.chunk.css",
+    "main.js": "/static/js/main.e5275324.chunk.js",
+    "main.js.map": "/static/js/main.e5275324.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c747fed7.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c747fed7.js.map",
+    "static/css/2.00a12358.chunk.css": "/static/css/2.00a12358.chunk.css",
+    "static/js/2.46713e23.chunk.js": "/static/js/2.46713e23.chunk.js",
+    "static/js/2.46713e23.chunk.js.map": "/static/js/2.46713e23.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.00a12358.chunk.css.map": "/static/css/2.00a12358.chunk.css.map",
+    "static/css/main.8356d50c.chunk.css.map": "/static/css/main.8356d50c.chunk.css.map",
+    "static/js/2.46713e23.chunk.js.LICENSE.txt": "/static/js/2.46713e23.chunk.js.LICENSE.txt",
+    "static/media/PlasmicHomepage.module.css": "/static/media/_1Png.bcf40544.png",
+    "static/media/failgif.d73ebcde.gif": "/static/media/failgif.d73ebcde.gif",
+    "static/media/imageedit06595945666Png.bf4f7d32.png": "/static/media/imageedit06595945666Png.bf4f7d32.png",
+    "static/media/loadergif.9af0c31e.gif": "/static/media/loadergif.9af0c31e.gif",
+    "static/media/successCropgif.f9078153.gif": "/static/media/successCropgif.f9078153.gif",
+    "static/media/tickBoxsvg2.4a0247bc.svg": "/static/media/tickBoxsvg2.4a0247bc.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c747fed7.js",
+    "static/css/2.00a12358.chunk.css",
+    "static/js/2.46713e23.chunk.js",
+    "static/css/main.8356d50c.chunk.css",
+    "static/js/main.e5275324.chunk.js"
+  ]
+}

@@ -10,9 +10,9 @@
   min-width: 0;
 }
 .freeBox {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
   background: #f4f4f4;
   height: 87px;
   min-width: 1350px;
@@ -26,8 +26,8 @@
 }
 .freeBox > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   margin-left: calc(0px - 650px);
   width: calc(100% + 650px);
 }

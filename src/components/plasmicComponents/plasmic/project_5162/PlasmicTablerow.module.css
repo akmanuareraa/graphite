@@ -1,0 +1,70 @@
+.root {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-bottom-style: none;
+  border-bottom-width: 1px;
+  position: relative;
+  min-width: 0;
+  padding: 0px;
+}
+.rootgreyvariant {
+  background: #e0e0e0;
+}
+.freeBox___2JyYf {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0px;
+}
+.freeBox__fkbG3 {
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 0;
+  padding: 0px;
+}
+.slotTargetFieldslot {
+  font-family: "Open Sans", sans-serif;
+  color: #535353;
+  text-align: center;
+}
+.text {
+  position: relative;
+  width: 11px;
+  height: auto;
+  text-align: center;
+  min-width: 11px;
+  max-width: 111px;
+  flex-shrink: 0;
+}
+.supplier {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  background: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0px;
+}
+.slotTargetValueslot {
+  font-weight: 400;
+  text-align: left;
+  font-family: "Open Sans", sans-serif;
+}

@@ -34,19 +34,27 @@ function PlasmicTokeninput__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.input, projectcss.root_reset, sty.root, {
-        [sty.rootbridgeinput]: hasVariant(
-          variants,
-          "bridgeinput",
-          "bridgeinput"
-        ),
+      className={classNames(
+        projectcss.all,
+        projectcss.input,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootbridgeinput]: hasVariant(
+            variants,
+            "bridgeinput",
+            "bridgeinput"
+          ),
 
-        [sty.rootreturninput]: hasVariant(
-          variants,
-          "returninput",
-          "returninput"
-        )
-      })}
+          [sty.rootreturninput]: hasVariant(
+            variants,
+            "returninput",
+            "returninput"
+          )
+        }
+      )}
       onChange={args.onChange}
       placeholder={
         hasVariant(variants, "bridgeinput", "bridgeinput")

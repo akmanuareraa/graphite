@@ -1,4 +1,4 @@
-.all {
+:where(.all) {
   display: block;
   white-space: inherit;
   grid-row: auto;
@@ -13,16 +13,13 @@
   margin: 0;
   border-width: 0px;
 }
-.img {
-  composes: all;
+:where(.img) {
   display: inline-block;
 }
-.li {
-  composes: all;
+:where(.li) {
   display: list-item;
 }
-.span {
-  composes: all;
+:where(.span) {
   display: inline;
   position: static;
   font-family: inherit;
@@ -33,8 +30,7 @@
   color: inherit;
   text-transform: inherit;
 }
-.input {
-  composes: all;
+:where(.input) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -46,8 +42,7 @@
   padding: 2px;
   border: 1px solid lightgray;
 }
-.textarea {
-  composes: all;
+:where(.textarea) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -58,8 +53,7 @@
   padding: 2px;
   border: 1px solid lightgray;
 }
-.button {
-  composes: all;
+:where(.button) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -73,18 +67,15 @@
   padding: 2px 6px;
   border: 1px solid lightgray;
 }
-.code {
-  composes: all;
+:where(.code) {
   font-family: inherit;
   line-height: inherit;
 }
-.pre {
-  composes: all;
+:where(.pre) {
   font-family: inherit;
   line-height: inherit;
 }
-.p {
-  composes: all;
+:where(.p) {
   font-family: inherit;
   line-height: inherit;
   font-size: inherit;
@@ -93,56 +84,45 @@
   color: inherit;
   text-transform: inherit;
 }
-.h1 {
-  composes: all;
+:where(.h1) {
   font-size: inherit;
   font-weight: inherit;
 }
-.h2 {
-  composes: all;
+:where(.h2) {
   font-size: inherit;
   font-weight: inherit;
 }
-.h3 {
-  composes: all;
+:where(.h3) {
   font-size: inherit;
   font-weight: inherit;
 }
-.h4 {
-  composes: all;
+:where(.h4) {
   font-size: inherit;
   font-weight: inherit;
 }
-.h5 {
-  composes: all;
+:where(.h5) {
   font-size: inherit;
   font-weight: inherit;
 }
-.h6 {
-  composes: all;
+:where(.h6) {
   font-size: inherit;
   font-weight: inherit;
 }
-.address {
-  composes: all;
+:where(.address) {
   font-style: inherit;
 }
-.a {
-  composes: all;
+:where(.a) {
   color: inherit;
 }
-.ol {
-  composes: all;
+:where(.ol) {
   list-style-type: none;
   padding: 0;
 }
-.ul {
-  composes: all;
+:where(.ul) {
   list-style-type: none;
   padding: 0;
 }
-.select {
-  composes: all;
+:where(.select) {
   padding: 2px 6px;
 }
 .plasmic_default__component_wrapper {

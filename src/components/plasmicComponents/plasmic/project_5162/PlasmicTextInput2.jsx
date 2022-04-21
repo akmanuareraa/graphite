@@ -59,16 +59,28 @@ function PlasmicTextInput2__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-        [sty.rootcolor_dark]: hasVariant(variants, "color", "dark"),
-        [sty.rootisDisabled]: hasVariant(variants, "isDisabled", "isDisabled"),
-        [sty.rootshowStartIcon]: hasVariant(
-          variants,
-          "showStartIcon",
-          "showStartIcon"
-        )
-      })}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
+          [sty.rootcolor_dark]: hasVariant(variants, "color", "dark"),
+          [sty.rootisDisabled]: hasVariant(
+            variants,
+            "isDisabled",
+            "isDisabled"
+          ),
+
+          [sty.rootshowStartIcon]: hasVariant(
+            variants,
+            "showStartIcon",
+            "showStartIcon"
+          )
+        }
+      )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
     >
       {(
@@ -130,7 +142,7 @@ function PlasmicTextInput2__RenderFunc(props) {
         data-plasmic-override={overrides.input}
         aria-label={args["aria-label"]}
         aria-labelledby={args["aria-labelledby"]}
-        className={classNames(projectcss.input, sty.input, {
+        className={classNames(projectcss.all, projectcss.input, sty.input, {
           [sty.input___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.inputcolor_dark]: hasVariant(variants, "color", "dark"),
           [sty.inputisDisabled]: hasVariant(

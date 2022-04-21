@@ -15,8 +15,6 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts
 } from "@plasmicapp/react-web";
-import TabA from "../../TabA"; // plasmic-import: 4t9Lx1xGXs/component
-import ParamDisplay from "../../ParamDisplay"; // plasmic-import: Pzz-_WqNylx/component
 import Txndashboardcomponent from "../../Txndashboardcomponent"; // plasmic-import: hVy-CJexZCU/component
 import Consentandsubmit from "../../Consentandsubmit"; // plasmic-import: eZig3v-AJ7/component
 import ButtonB from "../../ButtonB"; // plasmic-import: oSXCQ8ez26/component
@@ -27,17 +25,6 @@ import sty from "./PlasmicBeFormB.module.css"; // plasmic-import: M_3KOK53V1n/cs
 export const PlasmicBeFormB__VariantProps = new Array();
 
 export const PlasmicBeFormB__ArgProps = new Array(
-  "applicationNo",
-  "txnNo",
-  "receiptNo",
-  "paymentDate",
-  "fullName",
-  "passportNo",
-  "fileNo",
-  "nationality",
-  "accompanied",
-  "orgName",
-  "orgFileNo",
   "appfeeq",
   "taxq",
   "iksfeeq",
@@ -45,7 +32,8 @@ export const PlasmicBeFormB__ArgProps = new Array(
   "iksfeecu",
   "taxcu",
   "totalcharge",
-  "totalgpi"
+  "totalgpi",
+  "dynamictable"
 );
 
 function PlasmicBeFormB__RenderFunc(props) {
@@ -56,14 +44,18 @@ function PlasmicBeFormB__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root
+      )}
     >
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___8I6W0
-        )}
+        data-plasmic-name={"text"}
+        data-plasmic-override={overrides.text}
+        className={classNames(projectcss.all, projectcss.__wab_text, sty.text)}
       >
         {"ID CARD APPLICATION"}
       </div>
@@ -78,112 +70,12 @@ function PlasmicBeFormB__RenderFunc(props) {
           hasGap={true}
           className={classNames(projectcss.all, sty.freeBox__kWKz9)}
         >
-          {true ? (
-            <p.Stack
-              as={"div"}
-              hasGap={true}
-              className={classNames(projectcss.all, sty.freeBox__f7Di7)}
-            >
-              <TabA
-                data-plasmic-name={"applicationtab"}
-                data-plasmic-override={overrides.applicationtab}
-                className={classNames("__wab_instance", sty.applicationtab)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kJh5F
-                  )}
-                >
-                  {"APPLICATION DETAILS"}
-                </div>
-              </TabA>
-
-              <TabA
-                data-plasmic-name={"applicanttab"}
-                data-plasmic-override={overrides.applicanttab}
-                className={classNames("__wab_instance", sty.applicanttab)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__fVt1K
-                  )}
-                >
-                  {"APPLICANT DETAILS"}
-                </div>
-              </TabA>
-
-              <TabA
-                data-plasmic-name={"orgtab"}
-                data-plasmic-override={overrides.orgtab}
-                className={classNames("__wab_instance", sty.orgtab)}
-              >
-                <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gNk7C
-                  )}
-                >
-                  {"ORGANIZATION DETAILS"}
-                </div>
-              </TabA>
-            </p.Stack>
-          ) : null}
-
-          <ParamDisplay
-            data-plasmic-name={"paramdisplay"}
-            data-plasmic-override={overrides.paramdisplay}
-            accompanied={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.accompanied
+          <div className={classNames(projectcss.all, sty.freeBox__zvT3S)}>
+            {p.renderPlasmicSlot({
+              defaultContents: null,
+              value: args.dynamictable
             })}
-            applicant={true}
-            applicationNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.applicationNo
-            })}
-            className={classNames("__wab_instance", sty.paramdisplay)}
-            fileNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.fileNo
-            })}
-            fullName={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.fullName
-            })}
-            nationality={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.nationality
-            })}
-            orgFileNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.orgFileNo
-            })}
-            orgName={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.orgName
-            })}
-            passportNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.passportNo
-            })}
-            paymentDate={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.paymentDate
-            })}
-            receiptNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.receiptNo
-            })}
-            txnNo={p.renderPlasmicSlot({
-              defaultContents: "N/A",
-              value: args.txnNo
-            })}
-          />
+          </div>
 
           <div className={classNames(projectcss.all, sty.freeBox___1EeDt)}>
             {true ? (
@@ -242,7 +134,7 @@ function PlasmicBeFormB__RenderFunc(props) {
               data-plasmic-name={"formbutton"}
               data-plasmic-override={overrides.formbutton}
               className={classNames("__wab_instance", sty.formbutton)}
-              success={true}
+              connectmm={true}
             />
           ) : null}
         </p.Stack>
@@ -254,31 +146,21 @@ function PlasmicBeFormB__RenderFunc(props) {
 const PlasmicDescendants = {
   root: [
     "root",
+    "text",
     "applicationForm",
-    "applicationtab",
-    "applicanttab",
-    "orgtab",
-    "paramdisplay",
     "transactiondashboard",
     "consent",
     "formbutton"
   ],
 
+  text: ["text"],
   applicationForm: [
     "applicationForm",
-    "applicationtab",
-    "applicanttab",
-    "orgtab",
-    "paramdisplay",
     "transactiondashboard",
     "consent",
     "formbutton"
   ],
 
-  applicationtab: ["applicationtab"],
-  applicanttab: ["applicanttab"],
-  orgtab: ["orgtab"],
-  paramdisplay: ["paramdisplay"],
   transactiondashboard: ["transactiondashboard"],
   consent: ["consent"],
   formbutton: ["formbutton"]
@@ -313,11 +195,8 @@ export const PlasmicBeFormB = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
     applicationForm: makeNodeComponent("applicationForm"),
-    applicationtab: makeNodeComponent("applicationtab"),
-    applicanttab: makeNodeComponent("applicanttab"),
-    orgtab: makeNodeComponent("orgtab"),
-    paramdisplay: makeNodeComponent("paramdisplay"),
     transactiondashboard: makeNodeComponent("transactiondashboard"),
     consent: makeNodeComponent("consent"),
     formbutton: makeNodeComponent("formbutton"),

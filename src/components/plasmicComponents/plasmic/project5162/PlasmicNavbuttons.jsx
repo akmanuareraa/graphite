@@ -50,15 +50,23 @@ function PlasmicNavbuttons__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       hasGap={true}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root, {
-        [sty.rootbridge]: hasVariant(variants, "bridge", "bridge"),
-        [sty.rootverifyid]: hasVariant(variants, "verifyid", "verifyid")
-      })}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root,
+        {
+          [sty.rootbridge]: hasVariant(variants, "bridge", "bridge"),
+          [sty.rootverifyid]: hasVariant(variants, "verifyid", "verifyid")
+        }
+      )}
     >
       <button
         data-plasmic-name={"bridgebutton"}
         data-plasmic-override={overrides.bridgebutton}
         className={classNames(
+          projectcss.all,
           projectcss.button,
           projectcss.__wab_text,
           sty.bridgebutton,
@@ -80,6 +88,7 @@ function PlasmicNavbuttons__RenderFunc(props) {
         data-plasmic-name={"verifyidbutton"}
         data-plasmic-override={overrides.verifyidbutton}
         className={classNames(
+          projectcss.all,
           projectcss.button,
           projectcss.__wab_text,
           sty.verifyidbutton,

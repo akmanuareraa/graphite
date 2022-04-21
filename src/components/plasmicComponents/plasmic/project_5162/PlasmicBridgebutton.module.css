@@ -25,14 +25,16 @@
   border-style: none;
 }
 .buttonwithdraw {
-  background: linear-gradient(#15b2b8, #15b2b8), #ffc500ad;
+  background: linear-gradient(var(--token-Kr1Y7W0dV), var(--token-Kr1Y7W0dV)),
+    #ffc500ad;
   align-items: center;
   justify-content: center;
 }
 .buttondeposit {
   align-items: center;
   justify-content: center;
-  background: linear-gradient(#15b2b8, #15b2b8), #7c22a399;
+  background: linear-gradient(var(--token-Kr1Y7W0dV), var(--token-Kr1Y7W0dV)),
+    #7c22a399;
 }
 .rootwithdraw .buttonwithdraw:hover {
   background: #ffc5006e;

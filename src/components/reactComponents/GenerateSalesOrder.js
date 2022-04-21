@@ -1,13 +1,38 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Web3 from 'web3';
 import config from '../../config-frontend'
 
 import Salesordergeneration from '../plasmicComponents/Salesordergeneration';
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
+import PlasmicTableHeader from '../plasmicComponents/Tableheader'
+import PlasmicTableRow from '../plasmicComponents/Tablerow'
 
 function GenerateSalesOrder(props) {
+
+    async function getRevertReason(txHash, addParams, formParams) {
+        let web3 = props.mainState.web3
+        console.log(11)
+        const tx = await web3.eth.getTransaction(txHash)
+        console.log(22)
+        try {
+            var result = await web3.eth.call(tx, tx.blockNumber)
+                .catch(function (e) {
+                    console.log('NEW ON ERROR: ', JSON.stringify(e.message).split('\\"'))
+                    let edit = JSON.stringify(e.message).split('\\"')
+                    console.log('RR: ', edit[5])
+                    props.redirectExecution(formParams, addParams + edit[5], 5400, 900, "generateSalesOrder")
+                })
+            console.log('result', result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const [dynamictable, setDynamictable] = useState([])
+
+    let globalCounter = null
 
     // function to create the sales order
     const createSalesOrder = (urlParams) => {
@@ -30,7 +55,7 @@ function GenerateSalesOrder(props) {
         let hash = Web3.utils.keccak256(JSON.stringify(urlParams))
         console.log("HASH: ", hash)
 
-        logisticsAssetMinterContract.methods.issueAsset(hash, props.mainState.account).send({ from: props.mainState.account })
+        logisticsAssetMinterContract.methods.issueAsset(hash, urlParams.customerAddress).send({ from: props.mainState.account })
             .on('transactionHash', function (hash) {
                 console.log(hash)
                 props.setMainState(prevState => {
@@ -65,16 +90,16 @@ function GenerateSalesOrder(props) {
                                 }
                             })
 
-                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'+ "&link=http://localhost:3000/confirmSalesOrder/salesorder?pono=" + props.allUrlParams.generateSalesOrder.pono 
+                            let additionalParams = '&hash=' + receipt.transactionHash + '&status=success' + "&link=http://" + config.domain + "/confirmSalesOrder/salesorder?pono=" + props.allUrlParams.generateSalesOrder.pono
                             props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
                         } else {
-                            alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                            alert("Error encountered in Database.  Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + error
                             props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
                         }
                     })
                         .catch(function (e) {
-                            alert("Error encountered in Database. Please contact Administrator. Redirecting back to portal..")
+                            alert("Error encountered in Database.  Redirecting back to portal..")
                             let additionalParams = '&status=failed&reason=' + e
                             props.redirectExecution(urlParams, additionalParams, 10, 10, "generateSalesOrder")
                         })
@@ -82,8 +107,13 @@ function GenerateSalesOrder(props) {
             })
             .on('error', function (error, receipt) {
                 console.log(receipt)
-                console.log(error)
-                console.log(receipt)
+                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason='
+                console.log(additionalParams)
+                try {
+                    getRevertReason(receipt.transactionHash, additionalParams, urlParams)
+                } catch (error) {
+                    console.log('TC ERROR: ', error)
+                }
                 props.setAllUiStates(prevState => {
                     return {
                         ...prevState,
@@ -94,11 +124,9 @@ function GenerateSalesOrder(props) {
                         }
                     }
                 })
-
-                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
-                props.redirectExecution(urlParams, additionalParams, 5400, 900, "generateSalesOrder")
             })
             .catch(function (e) {
+
                 console.log('METAMASK-ERROR: ', e)
                 props.setAllUiStates(prevState => {
                     return {
@@ -117,6 +145,42 @@ function GenerateSalesOrder(props) {
 
     }
 
+    useEffect(() => {
+        console.log('creating table..')
+        let tempTable = []
+        console.log('as', props.allUrlParams.generateSalesOrder)
+        for (let [key, value] of Object.entries(props.allUrlParams.generateSalesOrder)) {
+            let gvar = null
+            console.log(`${key}: ${value}`);
+            if (key !== 'refId' && key !== 'urlLength' && key !== 'consent' && key !== 'pono') {
+                // let row = <tr>
+                //     <td><b>{key}</b></td>
+                //     <td>{value}</td>
+                // </tr>
+                if (key === 'rNo') {
+                    key = 'Reference Number'
+                } else if (key === 'pDate') {
+                    key = 'Payment Date'
+                } else if (key === 'customerAddress') {
+                    key = 'Customer Address'
+                }
+                if (globalCounter % 2 === 0) {
+                    gvar = true
+                } else {
+                    gvar = false
+                }
+                let row = <PlasmicTableRow
+                    fieldslot={key}
+                    valueslot={value}
+                    greyvariant={gvar}
+                />
+                tempTable.push(row)
+                setDynamictable([...tempTable])
+                globalCounter++
+            }
+        }
+    }, [props.allUrlParams.generateSalesOrder])
+
     // handles the UI component 
     const salesOrderRenderer = () => {
         return (
@@ -124,6 +188,16 @@ function GenerateSalesOrder(props) {
                 <Salesordergeneration
 
                     displaysalesorder={true}
+
+                    dynamictableslot={
+                        <>
+                            <PlasmicTableHeader
+                                titlefield={"PO Number"}
+                                titlevalue={props.allUrlParams.generateSalesOrder.pono}
+                            />
+                            {[...dynamictable]}
+                        </>
+                    }
 
                     pono={props.allUrlParams.generateSalesOrder.pono}
                     supplier={props.allUrlParams.generateSalesOrder.supplier}
@@ -147,7 +221,9 @@ function GenerateSalesOrder(props) {
                         mainbutton: {
                             onClick: () => {
                                 if (props.allUiStates.generateSalesOrder.connectmm) { props.setupMetamask("generateSalesOrder").catch((error) => { alert("Please reopen Metamask and connect your wallet") }) }
-                                else if (props.allUiStates.generateSalesOrder.salesorder) { createSalesOrder(props.allUrlParams.generateSalesOrder) }
+                                else if (props.allUiStates.generateSalesOrder.salesorder) {
+                                    createSalesOrder(props.allUrlParams.generateSalesOrder)
+                                }
                             }
                         },
                         copybutton: {
@@ -166,27 +242,25 @@ function GenerateSalesOrder(props) {
 
     // executes when component mounts initially
     useEffect(() => {
-
+        props.urlParser("generateSalesOrder");
         props.setAllUrlParams(prevState => {
             return {
                 ...prevState,
                 generateSalesOrder: {
                     ...prevState.generateSalesOrder,
-                    timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
+                    Timestamp: new Date().toDateString() + " " + new Date().toLocaleTimeString()
                 }
             }
         })
-
-        props.urlParser("generateSalesOrder");
     }, [])
 
     // checks if the sales order with the provided PO Number
     // has already been created. If found redirect the user back with the error message. If not, proceed as usual
     useEffect(() => {
-        if (props.allUrlParams.generateSalesOrder.pono !== undefined) {
+        if (props.allUrlParams.generateSalesOrder.pono !== null) {
             axios.get(config.backendServer + "getSalesOrder", { params: { pono: props.allUrlParams.generateSalesOrder.pono } }).then(function (response, error) {
                 if (response) {
-                    alert("Sales Order already found. Process cannot be completed. Please contact Administrator. Redirecting you to the portal...")
+                    alert("Sales Order already exists. Please check PO Number. Redirecting you to the portal...")
                     let urlParamsToSend = "";
                     for (const [key, value] of Object.entries(props.allUrlParams.generateSalesOrder)) {
                         urlParamsToSend = urlParamsToSend + key.toString() + "=" + value.toString() + "&"
@@ -196,7 +270,7 @@ function GenerateSalesOrder(props) {
             })
                 .catch(function (e) {
                     if (e.response.status !== 404) {
-                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        alert(e.response.status + ":" + e.response.statusText + ".  Redirecting back to portal..")
                         let additionalParams = '&status=failed&reason=' + e.response.data
                         props.redirectExecution("null", additionalParams, 10, 10, "generateSalesOrder")
                     }

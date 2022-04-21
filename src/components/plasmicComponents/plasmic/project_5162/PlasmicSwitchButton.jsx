@@ -33,8 +33,11 @@ function PlasmicSwitchButton__RenderFunc(props) {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
+        projectcss.all,
         projectcss.a,
         projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
         sty.depositbutton,
         {
           [sty.depositbuttonselected]: hasVariant(

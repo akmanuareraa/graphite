@@ -1,19 +1,19 @@
 .root {
+  flex-direction: row;
   display: flex;
   position: relative;
-  flex-direction: row;
-  background: #ffc5009c;
+  background: none;
   cursor: pointer;
   transition-property: background;
   transition-duration: 0.1s;
-  border-radius: 6px;
+  border-radius: 0px;
   padding: 12px 20px;
-  border-width: 0px;
+  border: 2px solid #ff9a00;
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   margin-left: calc(0px - 8px);
   width: calc(100% + 8px);
 }
@@ -395,6 +395,14 @@
 }
 .rootcolor_link:active .slotTargetChildrencolor_link {
   color: #006adc;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 41px;
+  height: 28px;
+  flex-shrink: 0;
 }
 .endIconContainer {
   display: flex;

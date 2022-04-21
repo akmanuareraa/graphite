@@ -1,6 +1,6 @@
 .root {
-  display: flex;
   flex-direction: row;
+  display: flex;
   width: 1020px;
   height: auto;
   background: #ffffff;
@@ -9,8 +9,8 @@
 }
 .root > :global(.__wab_flex-container) {
   flex-direction: row;
-  align-items: center;
   justify-content: flex-start;
+  align-items: center;
   margin-left: calc(0px - 17px);
   width: calc(100% + 17px);
 }

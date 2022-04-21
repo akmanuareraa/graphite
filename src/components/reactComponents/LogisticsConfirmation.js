@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Web3 from 'web3';
 import config from '../../config-frontend'
@@ -6,21 +6,35 @@ import config from '../../config-frontend'
 import logisticsAssetMinter from '../../ABI/logisticsAssetMinterABI'
 
 import Logisticsconfirmation from '../plasmicComponents/Logisticsconfirmation.jsx';
+import PlasmicTableHeader from '../plasmicComponents/Tableheader'
+import PlasmicTableRow from '../plasmicComponents/Tablerow'
 
 function LogisticsConfirmation(props) {
 
+    async function getRevertReason(txHash, addParams, formParams) {
+        let web3 = props.mainState.web3
+        console.log(11)
+        const tx = await web3.eth.getTransaction(txHash)
+        console.log(22)
+        try {
+            var result = await web3.eth.call(tx, tx.blockNumber)
+                .catch(function (e) {
+                    console.log('NEW ON ERROR: ', JSON.stringify(e.message).split('\\"'))
+                    let edit = JSON.stringify(e.message).split('\\"')
+                    console.log('RR: ', edit[5])
+                    props.redirectExecution(formParams, addParams + edit[5], 5400, 900, "confirmlogistics")
+                })
+            console.log('result', result)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const [dynamictable, setDynamictable] = useState([])
+    let globalCounter = null
+
     // handles the confirmation of logistics
     const confirmLogistics = () => {
-        props.setAllUiStates(prevState => {
-            return {
-                ...prevState,
-                confirmlogistics: {
-                    ...prevState.confirmlogistics,
-                    sendtxnlog: false,
-                    processing: true
-                }
-            }
-        })
 
         let web3 = props.mainState.web3
         let logisticsAssetMinterAddress = config.logisticsAssetMinterAddress
@@ -28,73 +42,138 @@ function LogisticsConfirmation(props) {
         let logisticsAssetMinterContract = new web3.eth.Contract(logisticsAssetMinterABI, logisticsAssetMinterAddress)
         let hash = Web3.utils.keccak256(JSON.stringify(props.allUrlParams.confirmlogistics))
 
-        logisticsAssetMinterContract.methods.addCustomerApproval(hash).send({ from: props.mainState.account })
-            .on('transactionHash', function (hash) {
-                console.log(hash)
-                props.setMainState(prevState => {
-                    return {
-                        ...prevState,
-                        confirmlogistics: {
-                            ...prevState.confirmlogistics,
-                            txnHash: hash
+        if (props.mainState.account.toLowerCase() !== props.allUrlParams.confirmlogistics.customerAddress.toLowerCase()) {
+            alert("Incorrect customer address. Transaction can only be signed with the correct address")
+            props.setAllUiStates(prevState => {
+                console.log('starting', props.allUiStates.confirmlogistics)
+                return {
+                    ...prevState,
+                    confirmlogistics: {
+                        ...prevState.confirmlogistics,
+                        sendtxnlog: false,
+                        connectmm: true
+                    }
+                }
+            })
+        } else {
+            props.setAllUiStates(prevState => {
+                return {
+                    ...prevState,
+                    confirmlogistics: {
+                        ...prevState.confirmlogistics,
+                        sendtxnlog: false,
+                        processing: true
+                    }
+                }
+            })
+            logisticsAssetMinterContract.methods.addCustomerApproval(hash).send({ from: props.mainState.account })
+                .on('transactionHash', function (hash) {
+                    console.log(hash)
+                    props.setMainState(prevState => {
+                        return {
+                            ...prevState,
+                            confirmlogistics: {
+                                ...prevState.confirmlogistics,
+                                txnHash: hash
+                            }
                         }
+                    })
+                })
+                .on('receipt', function (receipt) {
+                    console.log(receipt)
+                })
+                .on('confirmation', function (confirmationNumber, receipt) {
+                    if (confirmationNumber == 1) {
+                        console.log(confirmationNumber)
+
+                        props.setAllUiStates(prevState => {
+                            return {
+                                ...prevState,
+                                confirmlogistics: {
+                                    ...prevState.confirmlogistics,
+                                    processing: false,
+                                    txnsuccess: true
+                                }
+                            }
+                        })
+
+                        let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                        props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
                     }
                 })
-            })
-            .on('receipt', function (receipt) {
-                console.log(receipt)
-            })
-            .on('confirmation', function (confirmationNumber, receipt) {
-                if (confirmationNumber == 1) {
-                    console.log(confirmationNumber)
-
+                .on('error', function (error, receipt) {
+                    console.log(error)
+                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason='
+                    console.log(additionalParams)
+                    try {
+                        getRevertReason(receipt.transactionHash, additionalParams, props.allUrlParams.confirmlogistics)
+                    } catch (error) {
+                        console.log('TC ERROR: ', error)
+                    }
                     props.setAllUiStates(prevState => {
                         return {
                             ...prevState,
                             confirmlogistics: {
                                 ...prevState.confirmlogistics,
                                 processing: false,
-                                txnsuccess: true
+                                txnfailed: true
                             }
                         }
                     })
-
-                    let additionalParams = '&hash=' + receipt.transactionHash + '&status=success'
+                })
+                .catch(function (e) {
+                    console.log(e.message)
+                    props.setAllUiStates(prevState => {
+                        return {
+                            ...prevState,
+                            confirmlogistics: {
+                                ...prevState.confirmlogistics,
+                                processing: false,
+                                txnfailed: true
+                            }
+                        }
+                    })
+                    let additionalParams = '&status=failed&reason=' + e.message
                     props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
-                }
-            })
-            .on('error', function (error, receipt) {
-                console.log(error)
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        confirmlogistics: {
-                            ...prevState.confirmlogistics,
-                            processing: false,
-                            txnfailed: true
-                        }
-                    }
                 })
-
-                let additionalParams = '&hash=' + receipt.transactionHash + '&status=failed&reason=' + error
-                props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
-            })
-            .catch(function (e) {
-                console.log(e.message)
-                props.setAllUiStates(prevState => {
-                    return {
-                        ...prevState,
-                        confirmlogistics: {
-                            ...prevState.confirmlogistics,
-                            processing: false,
-                            txnfailed: true
-                        }
-                    }
-                })
-                let additionalParams = '&status=failed&reason=' + e.message
-                props.redirectExecution(props.allUrlParams.confirmlogistics, additionalParams, 5400, 900, "confirmlogistics")
-            })
+        }
     }
+
+    useEffect(() => {
+        console.log('creating table..')
+        let tempTable = []
+        console.log('as', props.allUrlParams.confirmlogistics)
+        for (let [key, value] of Object.entries(props.allUrlParams.confirmlogistics)) {
+            let gvar = null
+            console.log(`${key}: ${value}`);
+            if (key !== 'refId' && key !== 'urlLength' && key !== 'consent' && key !== 'pono') {
+                // let row = <tr>
+                //     <td><b>{key}</b></td>
+                //     <td>{value}</td>
+                // </tr>
+                if (key === 'rNo') {
+                    key = 'Reference Number'
+                } else if (key === 'pDate') {
+                    key = 'Payment Date'
+                } else if (key === 'customerAddress') {
+                    key = 'Customer Address'
+                }
+                if (globalCounter % 2 === 0) {
+                    gvar = true
+                } else {
+                    gvar = false
+                }
+                let row = <PlasmicTableRow
+                    fieldslot={key}
+                    valueslot={value}
+                    greyvariant={gvar}
+                />
+                tempTable.push(row)
+                setDynamictable([...tempTable])
+                globalCounter++
+            }
+        }
+    }, [props.allUrlParams.confirmlogistics])
 
     // handles the UI component
     const logisticsrenderer = () => {
@@ -105,7 +184,17 @@ function LogisticsConfirmation(props) {
                     notfound={props.allUiStates.confirmlogistics.notfound}
                     confirmed={props.allUiStates.confirmlogistics.confirmed}
 
-                    cha= {props.allUrlParams.confirmlogistics.cha}
+                    dynamictableslot={
+                        <>
+                            <PlasmicTableHeader
+                                titlefield={"CHA"}
+                                titlevalue={props.allUrlParams.confirmlogistics.cha}
+                            />
+                            {[...dynamictable]}
+                        </>
+                    }
+
+                    cha={props.allUrlParams.confirmlogistics.cha}
                     ffname={props.allUrlParams.confirmlogistics.ffname}
                     entryno={props.allUrlParams.confirmlogistics.entryno}
                     entrydate={props.allUrlParams.confirmlogistics.entrydate}
@@ -215,7 +304,7 @@ function LogisticsConfirmation(props) {
         if (props.allUrlParams.confirmlogistics.cha != null) {
             // checks if the sales order has already been created
             // checks the status of the sales order
-            axios.get(config.backendServer + "getLogisticsStatus", { params: { "cha": props.allUrlParams.confirmlogistics.cha }}).then(function (response, error) {
+            axios.get(config.backendServer + "getLogisticsStatus", { params: { "cha": props.allUrlParams.confirmlogistics.cha } }).then(function (response, error) {
                 if (response) {
 
                     // if already approved
@@ -271,7 +360,7 @@ function LogisticsConfirmation(props) {
                             }
                         })
                     } else {
-                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        alert(e.response.status + ":" + e.response.statusText + ".  Redirecting back to portal..")
                         let additionalParams = '&status=failed&reason=' + e.response.data
                         props.redirectExecution("null", additionalParams, 10, 10, "confirmlogistics")
                     }

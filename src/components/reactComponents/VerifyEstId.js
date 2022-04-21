@@ -7,7 +7,7 @@ import VerifyId from '../plasmicComponents/VerifyId.jsx';
 
 function VerifyEstId(props) {
 
-    const { docno } = useParams()
+    const { token } = useParams()
 
     // renders and handles the state of the UI component
     const idrenderer = () => {
@@ -15,6 +15,10 @@ function VerifyEstId(props) {
             <VerifyId
                 displayId={props.allUiStates.verifyestid.displayId}
                 notfound={props.allUiStates.verifyestid.notfound}
+
+                idimage = {
+                    <img src={props.allUrlParams.verifyestid.imgUrl}/>
+                }
 
                 idphoto={<img src={props.allUrlParams.verifyestid.imgUrl}/>}
                 nationality={props.allUrlParams.verifyestid.nationality}
@@ -44,7 +48,7 @@ function VerifyEstId(props) {
                 ...prevState,
                 verifyestid: {
                     ...prevState.verifyestid,
-                    docno: docno
+                    token: token
                 }
             }
         })
@@ -53,8 +57,8 @@ function VerifyEstId(props) {
     useEffect(() => {
         console.log('urlParams', props.allUrlParams.verifyestid)
         // retrieves the ID card from the database 
-        if (props.allUrlParams.verifyestid.docno != null) {
-            axios.get(config.backendServer + "getIdCard", { params: { "docno": props.allUrlParams.verifyestid.docno } }).then(function (response, error) {
+        if (props.allUrlParams.verifyestid.token != null) {
+            axios.get(config.backendServer + "getIdCardVerify", { params: { "token": props.allUrlParams.verifyestid.token } }).then(function (response, error) {
                 console.log(response.data)
                 if (response) {
                     props.setAllUrlParams(prevState => {
@@ -93,13 +97,13 @@ function VerifyEstId(props) {
                             }
                         })
                     } else {
-                        alert(e.response.status + ":" + e.response.statusText + ". Please contact Administrator. Redirecting back to portal..")
+                        alert(e.response.status + ":" + e.response.statusText + ".  Redirecting back to portal..")
                     }
                 })
         }
         console.log('ui', props.allUiStates.verifyestid)
         
-    }, [props.allUrlParams.verifyestid.docno])
+    }, [props.allUrlParams.verifyestid.token])
 
     return (
         <div className="columns is-centered">

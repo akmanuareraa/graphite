@@ -32,14 +32,23 @@ function PlasmicButtonA__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root
+      )}
     >
       <button
         data-plasmic-name={"signButton"}
         data-plasmic-override={overrides.signButton}
-        className={classNames(projectcss.button, sty.signButton, {
-          [sty.signButtonorange]: hasVariant(variants, "orange", "orange")
-        })}
+        className={classNames(
+          projectcss.all,
+          projectcss.button,
+          sty.signButton,
+          { [sty.signButtonorange]: hasVariant(variants, "orange", "orange") }
+        )}
       >
         {p.renderPlasmicSlot({
           defaultContents: "Sign with Graphite",

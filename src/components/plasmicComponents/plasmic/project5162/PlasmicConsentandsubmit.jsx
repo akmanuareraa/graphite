@@ -33,7 +33,13 @@ function PlasmicConsentandsubmit__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root
+      )}
     >
       <p.Stack
         as={"div"}
@@ -45,7 +51,7 @@ function PlasmicConsentandsubmit__RenderFunc(props) {
         <a
           data-plasmic-name={"tickbox"}
           data-plasmic-override={overrides.tickbox}
-          className={classNames(projectcss.a, sty.tickbox, {
+          className={classNames(projectcss.all, projectcss.a, sty.tickbox, {
             [sty.tickboxagreed]: hasVariant(variants, "agreed", "agreed")
           })}
         >

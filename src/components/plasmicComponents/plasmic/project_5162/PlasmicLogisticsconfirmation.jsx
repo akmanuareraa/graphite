@@ -29,16 +29,7 @@ export const PlasmicLogisticsconfirmation__VariantProps = new Array(
 );
 
 export const PlasmicLogisticsconfirmation__ArgProps = new Array(
-  "ffname",
-  "entryno",
-  "entrydate",
-  "dutyamount",
-  "hts",
-  "tfamount",
-  "ntfamount",
-  "tchaamount",
-  "ntchaamount",
-  "cha"
+  "dynamictableslot"
 );
 
 function PlasmicLogisticsconfirmation__RenderFunc(props) {
@@ -49,7 +40,13 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
       data-plasmic-override={overrides.root}
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
-      className={classNames(projectcss.all, projectcss.root_reset, sty.root)}
+      className={classNames(
+        projectcss.all,
+        projectcss.root_reset,
+        projectcss.plasmic_default_styles,
+        projectcss.plasmic_tokens,
+        sty.root
+      )}
     >
       <div
         className={classNames(
@@ -86,6 +83,48 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
       >
         {(
           hasVariant(variants, "confirmed", "confirmed")
+            ? true
+            : hasVariant(variants, "notfound", "notfound")
+            ? true
+            : hasVariant(variants, "loading", "loading")
+            ? true
+            : true
+        ) ? (
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text__tDcVd,
+              {
+                [sty.textconfirmed__tDcVd3JYSs]: hasVariant(
+                  variants,
+                  "confirmed",
+                  "confirmed"
+                ),
+
+                [sty.textloading__tDcVDqCclm]: hasVariant(
+                  variants,
+                  "loading",
+                  "loading"
+                ),
+
+                [sty.textnotfound__tDcVdoNFd]: hasVariant(
+                  variants,
+                  "notfound",
+                  "notfound"
+                )
+              }
+            )}
+          >
+            {hasVariant(variants, "confirmed", "confirmed")
+              ? "Logistics already approved."
+              : hasVariant(variants, "notfound", "notfound")
+              ? "No Record Found.\nPlease create the Logistics Form."
+              : "Fetching Data from Database...."}
+          </div>
+        ) : null}
+        {(
+          hasVariant(variants, "confirmed", "confirmed")
             ? false
             : hasVariant(variants, "notfound", "notfound")
             ? false
@@ -117,349 +156,6 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
             })}
           >
             {true ? (
-              <div className={classNames(projectcss.all, sty.freeBox__cVo1U)}>
-                <div className={classNames(projectcss.all, sty.freeBox___2WHb)}>
-                  {true ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__cmAFf)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text__jmZkw
-                        )}
-                      >
-                        {"CHA Name"}
-                      </div>
-
-                      <div
-                        data-plasmic-name={"supplier"}
-                        data-plasmic-override={overrides.supplier}
-                        className={classNames(projectcss.all, sty.supplier)}
-                      >
-                        {p.renderPlasmicSlot({
-                          defaultContents: "N/A",
-                          value: args.cha,
-                          className: classNames(sty.slotTargetCha)
-                        })}
-                      </div>
-                    </div>
-                  ) : null}
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__qWbj)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ib63L
-                    )}
-                  >
-                    {"Freight Forwarder Name"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fhHvl
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"shipmentmode"}
-                    data-plasmic-override={overrides.shipmentmode}
-                    className={classNames(projectcss.all, sty.shipmentmode)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.ffname,
-                      className: classNames(sty.slotTargetFfname)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__jgKfu)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ww8Ia
-                    )}
-                  >
-                    {"Bill of Entry No"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__j52Gy
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"origincountry"}
-                    data-plasmic-override={overrides.origincountry}
-                    className={classNames(projectcss.all, sty.origincountry)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.entryno,
-                      className: classNames(sty.slotTargetEntryno)
-                    })}
-                  </div>
-                </div>
-
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___7KLmA)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dxTdf
-                    )}
-                  >
-                    {"Bill of Entry Date"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___8TH
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"sap"}
-                    data-plasmic-override={overrides.sap}
-                    className={classNames(projectcss.all, sty.sap)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.entrydate,
-                      className: classNames(sty.slotTargetEntrydate)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__kxKlR)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__awVh4
-                    )}
-                  >
-                    {"Duty Amount"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___3Fs4E
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"grn"}
-                    data-plasmic-override={overrides.grn}
-                    className={classNames(projectcss.all, sty.grn)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.dutyamount,
-                      className: classNames(sty.slotTargetDutyamount)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__mjwvh)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__soeo
-                    )}
-                  >
-                    {"HTS Code"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ystD
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"creditnotevalue"}
-                    data-plasmic-override={overrides.creditnotevalue}
-                    className={classNames(projectcss.all, sty.creditnotevalue)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.hts,
-                      className: classNames(sty.slotTargetHts)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__sX5S)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mVdaU
-                    )}
-                  >
-                    {"Taxable Freight Amount"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lcrdT
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"creditnotevalue2"}
-                    data-plasmic-override={overrides.creditnotevalue2}
-                    className={classNames(projectcss.all, sty.creditnotevalue2)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.tfamount,
-                      className: classNames(sty.slotTargetTfamount)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__vRQl3)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___2UaC8
-                    )}
-                  >
-                    {"Non Taxable Freight Amount"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__kYtkG
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"creditnotevalue3"}
-                    data-plasmic-override={overrides.creditnotevalue3}
-                    className={classNames(projectcss.all, sty.creditnotevalue3)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.ntfamount,
-                      className: classNames(sty.slotTargetNtfamount)
-                    })}
-                  </div>
-                </div>
-
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___0I7Ls)}
-                >
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pOdGn
-                    )}
-                  >
-                    {"Taxable CHA Amount"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text___1Omb6
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"creditnotevalue4"}
-                    data-plasmic-override={overrides.creditnotevalue4}
-                    className={classNames(projectcss.all, sty.creditnotevalue4)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.tchaamount,
-                      className: classNames(sty.slotTargetTchaamount)
-                    })}
-                  </div>
-                </div>
-
-                <div className={classNames(projectcss.all, sty.freeBox__upXrc)}>
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__pDmc1
-                    )}
-                  >
-                    {"Non Taxable CHA Amount"}
-                  </div>
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sJx2T
-                    )}
-                  >
-                    {":"}
-                  </div>
-
-                  <div
-                    data-plasmic-name={"creditnotevalue5"}
-                    data-plasmic-override={overrides.creditnotevalue5}
-                    className={classNames(projectcss.all, sty.creditnotevalue5)}
-                  >
-                    {p.renderPlasmicSlot({
-                      defaultContents: "N/A",
-                      value: args.ntchaamount,
-                      className: classNames(sty.slotTargetNtchaamount)
-                    })}
-                  </div>
-                </div>
-              </div>
-            ) : null}
-            {true ? (
               <p.Stack
                 as={"div"}
                 hasGap={true}
@@ -489,6 +185,13 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
                 ) : null}
               </p.Stack>
             ) : null}
+
+            <div className={classNames(projectcss.all, sty.freeBox__rSmC)}>
+              {p.renderPlasmicSlot({
+                defaultContents: null,
+                value: args.dynamictableslot
+              })}
+            </div>
 
             <Consentandsubmit
               data-plasmic-name={"consent"}
@@ -1053,97 +756,14 @@ function PlasmicLogisticsconfirmation__RenderFunc(props) {
             ) : null}
           </p.Stack>
         ) : null}
-        {(
-          hasVariant(variants, "confirmed", "confirmed")
-            ? true
-            : hasVariant(variants, "notfound", "notfound")
-            ? true
-            : hasVariant(variants, "loading", "loading")
-            ? true
-            : true
-        ) ? (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__tDcVd,
-              {
-                [sty.textconfirmed__tDcVd3JYSs]: hasVariant(
-                  variants,
-                  "confirmed",
-                  "confirmed"
-                ),
-
-                [sty.textloading__tDcVDqCclm]: hasVariant(
-                  variants,
-                  "loading",
-                  "loading"
-                ),
-
-                [sty.textnotfound__tDcVdoNFd]: hasVariant(
-                  variants,
-                  "notfound",
-                  "notfound"
-                )
-              }
-            )}
-          >
-            {hasVariant(variants, "confirmed", "confirmed")
-              ? "Logistics already approved."
-              : hasVariant(variants, "notfound", "notfound")
-              ? "No Record Found.\nPlease create the Logistics Form."
-              : "Fetching Data from Database...."}
-          </div>
-        ) : null}
       </div>
     </div>
   );
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
-    "applicationForm",
-    "supplier",
-    "shipmentmode",
-    "origincountry",
-    "sap",
-    "grn",
-    "creditnotevalue",
-    "creditnotevalue2",
-    "creditnotevalue3",
-    "creditnotevalue4",
-    "creditnotevalue5",
-    "consent",
-    "formbutton"
-  ],
-
-  applicationForm: [
-    "applicationForm",
-    "supplier",
-    "shipmentmode",
-    "origincountry",
-    "sap",
-    "grn",
-    "creditnotevalue",
-    "creditnotevalue2",
-    "creditnotevalue3",
-    "creditnotevalue4",
-    "creditnotevalue5",
-    "consent",
-    "formbutton"
-  ],
-
-  supplier: ["supplier"],
-  shipmentmode: ["shipmentmode"],
-  origincountry: ["origincountry"],
-  sap: ["sap"],
-  grn: ["grn"],
-  creditnotevalue: ["creditnotevalue"],
-  creditnotevalue2: ["creditnotevalue2"],
-  creditnotevalue3: ["creditnotevalue3"],
-  creditnotevalue4: ["creditnotevalue4"],
-  creditnotevalue5: ["creditnotevalue5"],
+  root: ["root", "applicationForm", "consent", "formbutton"],
+  applicationForm: ["applicationForm", "consent", "formbutton"],
   consent: ["consent"],
   formbutton: ["formbutton"]
 };
@@ -1178,16 +798,6 @@ export const PlasmicLogisticsconfirmation = Object.assign(
   {
     // Helper components rendering sub-elements
     applicationForm: makeNodeComponent("applicationForm"),
-    supplier: makeNodeComponent("supplier"),
-    shipmentmode: makeNodeComponent("shipmentmode"),
-    origincountry: makeNodeComponent("origincountry"),
-    sap: makeNodeComponent("sap"),
-    grn: makeNodeComponent("grn"),
-    creditnotevalue: makeNodeComponent("creditnotevalue"),
-    creditnotevalue2: makeNodeComponent("creditnotevalue2"),
-    creditnotevalue3: makeNodeComponent("creditnotevalue3"),
-    creditnotevalue4: makeNodeComponent("creditnotevalue4"),
-    creditnotevalue5: makeNodeComponent("creditnotevalue5"),
     consent: makeNodeComponent("consent"),
     formbutton: makeNodeComponent("formbutton"),
     // Metadata about props expected for PlasmicLogisticsconfirmation

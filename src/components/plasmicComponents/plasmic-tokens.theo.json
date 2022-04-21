@@ -31,6 +31,16 @@
       }
     },
     {
+      "name": "YellowMM",
+      "type": "color",
+      "value": "#DD751A",
+      "category": "color",
+      "meta": {
+        "projectId": "5GT6nVB5WgvLWb2iBXTk1E",
+        "id": "BrfRycmFs"
+      }
+    },
+    {
       "name": "tabbg1",
       "type": "color",
       "value": "#E2D3D35E",

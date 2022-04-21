@@ -1,0 +1,175 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  max-width: 1624px;
+  min-width: 0;
+}
+.text___0TiAf {
+  position: relative;
+  width: 100%;
+  height: auto;
+  left: auto;
+  top: auto;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+  font-family: "Open Sans", sans-serif;
+  background: #f1f1f1;
+  color: #000000;
+  min-width: 0;
+}
+.applicationForm {
+  background: #ffffff;
+  width: 1388px;
+  height: 594px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  left: auto;
+  top: auto;
+  flex-shrink: 0;
+}
+.freeBox__a56Tv {
+  flex-direction: column;
+  display: flex;
+  position: absolute;
+  width: 1454px;
+  height: auto;
+  max-width: 100%;
+  left: 0px;
+  top: 0px;
+  padding: 8px;
+}
+.freeBox__a56Tv > :global(.__wab_flex-container) {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: calc(0px - 28px);
+  height: calc(100% + 28px);
+}
+.freeBox__a56Tv > :global(.__wab_flex-container) > *,
+.freeBox__a56Tv > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__a56Tv > :global(.__wab_flex-container) > picture > img,
+.freeBox__a56Tv
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-top: 28px;
+}
+.freeBox__faKu2 {
+  flex-direction: row;
+  display: flex;
+  position: relative;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  top: auto;
+  left: auto;
+  margin-bottom: 0px;
+  margin-top: calc(8px + 28px) !important;
+  margin-right: 0px;
+  margin-left: 0px;
+  background: none;
+  border-radius: 20px;
+  padding: 8px;
+}
+.freeBox__faKu2 > :global(.__wab_flex-container) {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: calc(0px - 28px);
+  width: calc(100% + 28px);
+}
+.freeBox__faKu2 > :global(.__wab_flex-container) > *,
+.freeBox__faKu2 > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.freeBox__faKu2 > :global(.__wab_flex-container) > picture > img,
+.freeBox__faKu2
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
+  margin-left: 28px;
+}
+.applicationtab:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.text__ox3Iv {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+.applicanttab:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.text__dLgRt {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+.orgtab:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.text__gP5Xb {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+}
+.paramdisplay:global(.__wab_instance) {
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: center;
+  margin-top: calc(-17px + 28px) !important;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  flex-shrink: 0;
+}
+.freeBox__dYo6 {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 768px;
+  height: 300px;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  max-height: 130px;
+  flex-shrink: 0;
+  padding: 0px;
+}
+.transactiondashboard:global(.__wab_instance) {
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: center;
+  margin: 43px 0px 0px;
+}
+.slotTargetTotalgpi {
+  color: var(--token-9fTxjIZv1);
+}
+.consent:global(.__wab_instance) {
+  position: relative;
+  top: auto;
+  left: auto;
+  align-self: center;
+  margin-top: calc(48px + 28px) !important;
+}
+.formbutton:global(.__wab_instance) {
+  position: relative;
+  top: auto;
+  left: auto;
+  margin-left: 0px;
+  align-self: center;
+  margin-top: calc(-34px + 28px) !important;
+  margin-right: 81px;
+  margin-bottom: 0px;
+}
