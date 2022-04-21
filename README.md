@@ -6,7 +6,7 @@ In the project Frontend directory, you can run:
 
 ### `npm install`
 
-Installs all the necessary modules.\
+Installs all the necessary modules.
 
 ### `node server.js`
 
@@ -37,8 +37,8 @@ In the project Backend directory, you can run:
 
 ### `npm install`
 
-Installs all the necessary modules.\
+Installs all the necessary modules.
 
 ### `node Backend.js`
 
-Runs the Backend on [http://localhost:5000](http://localhost:5000).\
+Runs the Backend on [http://localhost:5000](http://localhost:5000).
